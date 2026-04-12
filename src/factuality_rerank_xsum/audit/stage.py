@@ -10,6 +10,18 @@ from factuality_rerank_xsum.utils.io import write_json
 from factuality_rerank_xsum.utils.paths import artifact_path, data_path
 
 
+def _parse_boolish(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    normalized = str(value).strip().lower()
+    if normalized in {"true", "1", "yes", "y"}:
+        return True
+    if normalized in {"false", "0", "no", "n", ""}:
+        return False
+    msg = f"Unsupported audit boolean value: {value!r}"
+    raise ValueError(msg)
+
+
 def run_sample_manual_audit() -> pd.DataFrame:
     comparison = pd.read_csv(comparison_table_path("test_final"))
     template_columns = [
@@ -56,10 +68,10 @@ def run_summarize_manual_audit() -> dict[str, Any]:
     payload = {
         "rows": len(audit),
         "baseline_consistent_rate": round(
-            float(audit["baseline_consistent"].astype(bool).mean()), 6
+            float(audit["baseline_consistent"].map(_parse_boolish).mean()), 6
         ),
         "reranked_consistent_rate": round(
-            float(audit["reranked_consistent"].astype(bool).mean()), 6
+            float(audit["reranked_consistent"].map(_parse_boolish).mean()), 6
         ),
         "selected_system_counts": audit["selected_system"].value_counts().to_dict(),
         "error_counts": dict(

@@ -3,10 +3,12 @@ from __future__ import annotations
 from typing import Any
 
 import pandas as pd
+import pytest
 
 from factuality_rerank_xsum.reporting.docs import (
     STAGE_COMMANDS,
     ReportContext,
+    _required_metrics_row,
     fenced_runtime_commands,
     ordered_runtime_commands,
     readme_lines,
@@ -134,5 +136,12 @@ def test_runbook_and_checklist_reflect_runtime_modes() -> None:
 
     assert "1. `uv sync --locked --dev`" in runbook
     assert "10. `uv run factuality-rerank-xsum package`" in runbook
-    assert "- [ ] Dataset stage executed in `online_hub` mode." in checklist
-    assert "- [ ] Generator stage executed in `huggingface_generation` mode." in checklist
+    assert "- [x] Dataset stage executed in `fixture_preview` mode." in checklist
+    assert "- [x] Generator stage executed in `offline_surrogate` mode." in checklist
+
+
+def test_required_metrics_row_raises_when_system_is_missing() -> None:
+    metrics = pd.DataFrame([{"split": "test_final", "system": "baseline_best_likelihood"}])
+
+    with pytest.raises(ValueError, match="Missing required system metrics"):
+        _required_metrics_row(metrics, "best_balanced")

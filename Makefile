@@ -1,3 +1,5 @@
+.PHONY: env smoke data train generate score search eval audit figures results-summary package
+
 env:
 	uv sync --locked --dev
 

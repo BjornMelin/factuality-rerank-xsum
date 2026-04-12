@@ -1,5 +1,8 @@
+import pandas as pd
+
 from factuality_rerank_xsum.data.fixtures import load_preview_fixture, split_id_map
 from factuality_rerank_xsum.generation.offline import generate_for_examples
+from factuality_rerank_xsum.generation.stage import generation_integrity_report
 
 
 def test_preview_fixture_has_expected_minimum_size() -> None:
@@ -32,3 +35,12 @@ def test_offline_generation_returns_multiple_candidates() -> None:
     assert len(rows) == 8
     assert {row["id"] for row in rows} == set(frame["id"].astype(str).tolist())
     assert all(row["summary"] for row in rows)
+
+
+def test_generation_integrity_report_handles_empty_frames() -> None:
+    report = generation_integrity_report(pd.DataFrame(columns=["id", "summary"]), ["a", "b"])
+
+    assert report["rows"] == 0
+    assert report["observed_ids"] == 0
+    assert report["missing_ids"] == ["a", "b"]
+    assert report["min_candidates_per_example"] == 0

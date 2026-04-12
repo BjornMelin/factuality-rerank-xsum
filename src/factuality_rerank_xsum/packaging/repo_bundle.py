@@ -36,13 +36,14 @@ def run_package_repo() -> Path:
             archive.write(path, arcname=str(Path(project_root().name) / relative))
     artifact_copy = artifact_path("package", final_path.name)
     shutil.copy2(final_path, artifact_copy)
+    root = project_root()
     write_json(
         artifact_path("package", "artifact_manifest.json"),
         {
-            "repo_zip": str(final_path),
-            "artifact_copy": str(artifact_copy),
+            "repo_zip": str(final_path.relative_to(root.parent)),
+            "artifact_copy": str(artifact_copy.relative_to(root)),
             "final_outputs": sorted(
-                str(path.relative_to(project_root()))
+                str(path.relative_to(root))
                 for path in output_path("final").rglob("*")
                 if path.is_file()
             ),

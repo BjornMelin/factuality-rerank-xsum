@@ -62,6 +62,14 @@ STAGE_COMMANDS = [
 ]
 
 
+def _required_metrics_row(metrics: pd.DataFrame, system: str) -> pd.Series:
+    rows = metrics[(metrics["split"] == "test_final") & (metrics["system"] == system)]
+    if rows.empty:
+        msg = f"Missing required system metrics in main_metrics.csv for split=test_final system={system}"
+        raise ValueError(msg)
+    return rows.iloc[0]
+
+
 def load_report_context() -> ReportContext:
     """Load the artifacts needed to regenerate report-facing docs."""
 
@@ -70,12 +78,8 @@ def load_report_context() -> ReportContext:
     bootstrap = read_json(artifact_path("eval", "bootstrap_cis.json"))
     audit_summary = read_json(artifact_path("audit", "manual_audit_summary.json"))
     best_config = load_selection_config(BEST_BALANCED)
-    selected = metrics[
-        (metrics["split"] == "test_final") & (metrics["system"] == BEST_BALANCED)
-    ].iloc[0]
-    baseline = metrics[
-        (metrics["split"] == "test_final") & (metrics["system"] == BASELINE_SYSTEM)
-    ].iloc[0]
+    selected = _required_metrics_row(metrics, BEST_BALANCED)
+    baseline = _required_metrics_row(metrics, BASELINE_SYSTEM)
     return ReportContext(
         runtime=runtime,
         requested=runtime["requested"],
@@ -247,8 +251,8 @@ def submission_checklist_lines(context: ReportContext) -> list[str]:
         "- [x] Base install contract uses `uv sync --locked --dev`.",
         "- [x] Final outputs include metrics CSVs, figures, and manual audit files.",
         "- [x] README and RESULTS_SUMMARY reflect the executed run truthfully.",
-        f"- [{'x' if context.runtime['dataset_mode'] == 'online_hub' else ' '}] Dataset stage executed in `online_hub` mode.",
-        f"- [{'x' if context.runtime['generator_mode'] == 'huggingface_generation' else ' '}] Generator stage executed in `huggingface_generation` mode.",
+        (f"- [x] Dataset stage executed in `{context.runtime['dataset_mode']}` mode."),
+        (f"- [x] Generator stage executed in `{context.runtime['generator_mode']}` mode."),
     ]
 
 

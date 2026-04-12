@@ -38,6 +38,17 @@ def example_rows(split: str) -> list[dict[str, str]]:
 def generation_integrity_report(frame: pd.DataFrame, requested_ids: list[str]) -> dict[str, Any]:
     """Summarize candidate generation coverage for one split and beam."""
 
+    if frame.empty:
+        return {
+            "requested_ids": len(requested_ids),
+            "observed_ids": 0,
+            "missing_ids": sorted(set(requested_ids)),
+            "rows": 0,
+            "min_candidates_per_example": 0,
+            "max_candidates_per_example": 0,
+            "non_empty_summaries": False,
+            "has_nan_scores": False,
+        }
     grouped = frame.groupby("id", as_index=False).size()
     observed_ids = set(frame["id"].astype(str))
     return {

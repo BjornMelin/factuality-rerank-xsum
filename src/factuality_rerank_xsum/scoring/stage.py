@@ -16,6 +16,20 @@ from factuality_rerank_xsum.scorers.summac_style import score_dataframe as summa
 from factuality_rerank_xsum.utils.io import write_text
 from factuality_rerank_xsum.utils.paths import artifact_path
 
+MERGE_KEYS = ["id", "candidate_hash"]
+
+
+def _merge_scores(base: pd.DataFrame, scores: pd.DataFrame, *, stage: str) -> pd.DataFrame:
+    merged = base.merge(scores, on=MERGE_KEYS, how="left", validate="one_to_one")
+    if len(merged) != len(base):
+        msg = f"Row-count mismatch after merging {stage}: base={len(base)} merged={len(merged)}"
+        raise ValueError(msg)
+    added_columns = [column for column in scores.columns if column not in MERGE_KEYS]
+    if added_columns and merged[added_columns].isna().any().any():
+        msg = f"Missing {stage} scores after merge for keys {MERGE_KEYS}"
+        raise ValueError(msg)
+    return merged
+
 
 def run_score_stage(stage: str) -> None:
     """Run one scorer over every generated candidate table."""
@@ -74,11 +88,9 @@ def run_merge_candidate_scores() -> None:
             summac = pd.read_parquet(score_table_path("summac", split, beam))
             factcc = pd.read_parquet(score_table_path("factcc", split, beam))
             entity = pd.read_parquet(score_table_path("entity_support", split, beam))
-            merged = (
-                base.merge(summac, on=["id", "candidate_hash"])
-                .merge(factcc, on=["id", "candidate_hash"])
-                .merge(entity, on=["id", "candidate_hash"])
-            )
+            merged = _merge_scores(base, summac, stage="summac")
+            merged = _merge_scores(merged, factcc, stage="factcc")
+            merged = _merge_scores(merged, entity, stage="entity_support")
             target = merged_table_path(split, beam)
             target.parent.mkdir(parents=True, exist_ok=True)
             merged.to_parquet(target, index=False)
