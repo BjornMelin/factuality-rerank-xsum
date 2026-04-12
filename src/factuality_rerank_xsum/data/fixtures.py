@@ -229,7 +229,9 @@ def _prepare_offline_fixture(
         if raw_fixture_path
         else FIXTURE_PATH
     )
-    fixture_path = configured_path if configured_path.is_absolute() else data_path().parent / configured_path
+    fixture_path = (
+        configured_path if configured_path.is_absolute() else data_path().parent / configured_path
+    )
     frame = load_preview_fixture(fixture_path)
     manifest: dict[str, Any] = {
         "dataset_mode": "offline_preview_fixture",
