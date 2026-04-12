@@ -45,6 +45,9 @@ def test_generation_integrity_report_handles_empty_frames() -> None:
     assert report["observed_ids"] == 0
     assert report["missing_ids"] == ["a", "b"]
     assert report["min_candidates_per_example"] == 0
+    assert report["max_candidates_per_example"] == 0
+    assert report["non_empty_summaries"] is False
+    assert report["has_nan_scores"] is False
 
 
 def test_split_id_map_uses_tail_examples_for_small_fixtures() -> None:

@@ -166,11 +166,11 @@ def _aggregate_nli(
         int(config.get("source_chunk_limit", 8)),
     )
     summary_sentences = _summary_sentences(summary, int(config.get("summary_sentence_limit", 4)))
+    chunks = source_chunks or [source]
     premises: list[str] = []
     hypotheses: list[str] = []
-    chunk_count = max(len(source_chunks), 1)
+    chunk_count = len(chunks)
     for sentence in summary_sentences:
-        chunks = source_chunks or [source]
         premises.extend(chunks)
         hypotheses.extend([sentence] * len(chunks))
     probabilities = _nli_probabilities(premises, hypotheses, config=config)

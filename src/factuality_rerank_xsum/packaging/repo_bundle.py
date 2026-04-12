@@ -11,7 +11,11 @@ from factuality_rerank_xsum.utils.paths import artifact_path, output_path, proje
 
 
 def run_package_repo() -> Path:
-    """Build the final repository zip and record its manifest."""
+    """Build the final repository zip and record its manifest.
+
+    Returns:
+        The path to the packaged repository zip.
+    """
 
     final_path = project_root().parent / "factuality-rerank-xsum.zip"
     try:

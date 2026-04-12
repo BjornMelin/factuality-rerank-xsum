@@ -13,6 +13,11 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 
+def _optional_text(value: Any) -> str | None:
+    text = str(value or "")
+    return text or None
+
+
 def package_version(name: str) -> str | None:
     """Return the installed version for a package, if present.
 
@@ -85,15 +90,15 @@ def requested_runtime_config() -> dict[str, Any]:
     nli_config = read_yaml(config_path("score", "summac.yaml"))
     return {
         "dataset_name": str(data_config["dataset_name"]),
-        "dataset_revision": str(data_config.get("dataset_revision") or "") or None,
+        "dataset_revision": _optional_text(data_config.get("dataset_revision")),
         "generator_model": str(generation_config["model_name_or_path"]),
-        "generator_revision": str(generation_config.get("revision") or "") or None,
+        "generator_revision": _optional_text(generation_config.get("revision")),
         "generator_mode": str(generation_config.get("mode", "huggingface_generation")),
         "factcc_model": str(factcc_config["model_name_or_path"]),
-        "factcc_revision": str(factcc_config.get("revision") or "") or None,
+        "factcc_revision": _optional_text(factcc_config.get("revision")),
         "factcc_mode": str(factcc_config.get("mode", "huggingface_text_classification")),
         "nli_model": str(nli_config["requested_model"]),
-        "nli_revision": str(nli_config.get("revision") or "") or None,
+        "nli_revision": _optional_text(nli_config.get("revision")),
         "nli_mode": str(nli_config.get("mode", "huggingface_nli_consistency")),
     }
 

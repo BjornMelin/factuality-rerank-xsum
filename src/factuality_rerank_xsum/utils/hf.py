@@ -1,3 +1,5 @@
+"""Helpers for querying Hugging Face Hub metadata from runtime stages."""
+
 from __future__ import annotations
 
 import shutil
@@ -58,8 +60,8 @@ def dataset_sha(dataset_name: str, revision: str | None = None) -> str | None:
         revision: Optional branch, tag, or commit to inspect.
 
     Returns:
-        The resolved Git SHA when the dataset lookup succeeds, otherwise
-        `None`.
+        The resolved Git SHA from the Hub response, or `None` when the Hub
+        does not report one.
 
     Raises:
         HfHubHTTPError: If the Hub rejects the dataset lookup request.
@@ -80,7 +82,8 @@ def model_sha(model_name: str, revision: str | None = None) -> str | None:
         revision: Optional branch, tag, or commit to inspect.
 
     Returns:
-        The resolved Git SHA when the model lookup succeeds, otherwise `None`.
+        The resolved Git SHA from the Hub response, or `None` when the Hub
+        does not report one.
 
     Raises:
         HfHubHTTPError: If the Hub rejects the model lookup request.

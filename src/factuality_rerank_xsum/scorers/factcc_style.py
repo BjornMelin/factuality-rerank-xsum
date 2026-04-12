@@ -31,8 +31,9 @@ class FactCCStyleScore(TypedDict):
     """FactCC-style scoring features for one summary.
 
     Parameters:
-        factcc_style_lexical_support: Support score from lexical or model
-            evidence.
+        factcc_style_lexical_support: Legacy compatibility field for the
+            primary support signal, populated by lexical precision in
+            heuristic mode and model probability in Hugging Face mode.
         factcc_style_negation_mismatch: Penalty term for negation conflicts.
         factcc_style_relation_penalty: Penalty term for relation inversions.
         factcc_style_score: Final FactCC-style factuality score.
@@ -218,32 +219,32 @@ def score_dataframe(frame: pd.DataFrame) -> pd.DataFrame:
     mode = _validated_mode(config)
     if mode == HEURISTIC_MODE:
         records = []
-        for _, row in frame.iterrows():
+        for row in frame.itertuples(index=False):
             records.append(
                 {
-                    "id": row["id"],
-                    "candidate_hash": row["candidate_hash"],
-                    **_heuristic_score(str(row["document"]), str(row["summary"])),
+                    "id": row.id,
+                    "candidate_hash": row.candidate_hash,
+                    **_heuristic_score(str(row.document), str(row.summary)),
                 }
             )
         return pd.DataFrame.from_records(records)
 
     sources = [
-        _source_excerpt(str(row["document"]), int(config.get("source_sentence_limit", 8)))
-        for _, row in frame.iterrows()
+        _source_excerpt(str(row.document), int(config.get("source_sentence_limit", 8)))
+        for row in frame.itertuples(index=False)
     ]
-    summaries = [str(row["summary"]) for _, row in frame.iterrows()]
+    summaries = [str(row.summary) for row in frame.itertuples(index=False)]
     probabilities = _factcc_probabilities(sources, summaries, config=config)
     records = []
-    for index, (_, row) in enumerate(frame.iterrows()):
+    for index, row in enumerate(frame.itertuples(index=False)):
         records.append(
             {
-                "id": row["id"],
-                "candidate_hash": row["candidate_hash"],
+                "id": row.id,
+                "candidate_hash": row.candidate_hash,
                 **_score_from_probability(
                     correct_probability=probabilities[index][0],
-                    source=str(row["document"]),
-                    summary=str(row["summary"]),
+                    source=str(row.document),
+                    summary=str(row.summary),
                 ),
             }
         )

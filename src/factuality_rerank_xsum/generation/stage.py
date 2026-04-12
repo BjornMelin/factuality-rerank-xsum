@@ -77,7 +77,9 @@ def generation_integrity_report(frame: pd.DataFrame, requested_ids: list[str]) -
         "rows": len(frame),
         "min_candidates_per_example": int(grouped["size"].min()),
         "max_candidates_per_example": int(grouped["size"].max()),
-        "non_empty_summaries": bool(frame["summary"].astype(str).str.len().gt(0).all()),
+        "non_empty_summaries": bool(
+            frame["summary"].notna().all() and frame["summary"].astype(str).str.len().gt(0).all()
+        ),
         "has_nan_scores": bool(
             frame[["sequence_score_hf", "token_logprob_sum", "token_logprob_avg"]]
             .isna()

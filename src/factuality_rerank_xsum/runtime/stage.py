@@ -16,37 +16,48 @@ from factuality_rerank_xsum.utils.io import write_json, write_text
 from factuality_rerank_xsum.utils.paths import artifact_path, project_root
 
 
+def _asset_info(requested: dict[str, Any]) -> dict[str, dict[str, Any] | None]:
+    return {
+        "dataset": run_hf_json(
+            "datasets",
+            "info",
+            requested["dataset_name"],
+            str(requested["dataset_revision"] or ""),
+        ),
+        "generator": run_hf_json(
+            "models",
+            "info",
+            requested["generator_model"],
+            str(requested["generator_revision"] or ""),
+        ),
+        "factcc": run_hf_json(
+            "models",
+            "info",
+            requested["factcc_model"],
+            str(requested["factcc_revision"] or ""),
+        ),
+        "nli": run_hf_json(
+            "models",
+            "info",
+            requested["nli_model"],
+            str(requested["nli_revision"] or ""),
+        ),
+    }
+
+
 def run_env_check() -> dict[str, Any]:
     """Capture runtime readiness and write environment manifests."""
 
     requested = requested_runtime_config()
     hf_auth_payload = run_hf_json("auth", "whoami") or {}
-    dataset_info = run_hf_json(
-        "datasets",
-        "info",
-        requested["dataset_name"],
-        str(requested["dataset_revision"] or ""),
-    )
-    generator_info = run_hf_json(
-        "models",
-        "info",
-        requested["generator_model"],
-        str(requested["generator_revision"] or ""),
-    )
-    factcc_info = run_hf_json(
-        "models",
-        "info",
-        requested["factcc_model"],
-        str(requested["factcc_revision"] or ""),
-    )
-    nli_info = run_hf_json(
-        "models",
-        "info",
-        requested["nli_model"],
-        str(requested["nli_revision"] or ""),
-    )
+    asset_info = _asset_info(requested)
     hf_auth = {"authenticated": bool(hf_auth_payload)}
-    online_runtime_ready = bool(dataset_info and generator_info and factcc_info and nli_info)
+    online_runtime_ready = bool(
+        asset_info["dataset"]
+        and asset_info["generator"]
+        and asset_info["factcc"]
+        and asset_info["nli"]
+    )
     report: dict[str, Any] = {
         "python_version": platform.python_version(),
         "platform": platform.platform(),
@@ -80,10 +91,12 @@ def run_env_check() -> dict[str, Any]:
         "mode": "online_hf_ready" if online_runtime_ready else "online_hf_unverified",
         "requested_online_path": requested,
         "resolved_online_assets": {
-            "dataset_revision": dataset_info.get("sha") if dataset_info else None,
-            "generator_revision": generator_info.get("sha") if generator_info else None,
-            "factcc_revision": factcc_info.get("sha") if factcc_info else None,
-            "nli_revision": nli_info.get("sha") if nli_info else None,
+            "dataset_revision": asset_info["dataset"].get("sha") if asset_info["dataset"] else None,
+            "generator_revision": (
+                asset_info["generator"].get("sha") if asset_info["generator"] else None
+            ),
+            "factcc_revision": asset_info["factcc"].get("sha") if asset_info["factcc"] else None,
+            "nli_revision": asset_info["nli"].get("sha") if asset_info["nli"] else None,
         },
     }
     write_json(artifact_path("env", "env_report.json"), report)
@@ -117,19 +130,21 @@ def run_train_or_load_bart() -> dict[str, Any]:
     """Record the configured generator and scorer checkpoints."""
 
     requested = requested_runtime_config()
-    generator_info = run_hf_json("models", "info", requested["generator_model"])
-    factcc_info = run_hf_json("models", "info", requested["factcc_model"])
-    nli_info = run_hf_json("models", "info", requested["nli_model"])
+    asset_info = _asset_info(requested)
     payload = {
         "requested_baseline": requested["generator_model"],
         "requested_factcc_checkpoint": requested["factcc_model"],
         "requested_nli_checkpoint": requested["nli_model"],
         "baseline_revision_requested": requested["generator_revision"],
-        "baseline_revision_resolved": generator_info.get("sha") if generator_info else None,
+        "baseline_revision_resolved": (
+            asset_info["generator"].get("sha") if asset_info["generator"] else None
+        ),
         "factcc_revision_requested": requested["factcc_revision"],
-        "factcc_revision_resolved": factcc_info.get("sha") if factcc_info else None,
+        "factcc_revision_resolved": (
+            asset_info["factcc"].get("sha") if asset_info["factcc"] else None
+        ),
         "nli_revision_requested": requested["nli_revision"],
-        "nli_revision_resolved": nli_info.get("sha") if nli_info else None,
+        "nli_revision_resolved": asset_info["nli"].get("sha") if asset_info["nli"] else None,
         "actual_mode": requested["generator_mode"],
         "reason": (
             "Generation and scoring are configured against public Hugging Face assets. "

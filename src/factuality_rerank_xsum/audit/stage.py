@@ -1,3 +1,5 @@
+"""Audit stages for generating and summarizing manual-review artifacts."""
+
 from __future__ import annotations
 
 from typing import Any
