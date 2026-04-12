@@ -4,5 +4,5 @@
 - Requested assets: dataset `EdinburghNLP/xsum`, generator `facebook/bart-large-xsum`, FactCC `manueldeprada/FactCC`, NLI `microsoft/deberta-base-mnli`.
 - Executed dataset mode: `online_hub`.
 - Configured generator mode: `huggingface_generation`.
-- Intended use: repository scaffolding, analysis pipeline demonstration, and handoff artifact generation.
+- Intended use: reproducible reranking runs, artifact inspection, report writing, and submission QA over tracked outputs.
 - The repository is configured for the public Hugging Face runtime path.

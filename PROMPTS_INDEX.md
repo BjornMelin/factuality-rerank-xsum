@@ -1,32 +1,43 @@
-# PROMPTS_INDEX.md
+# PROMPTS_INDEX
 
-Use the prompts in this order:
+Use the prompt pack under `prompts/` when handing this repo or its packaged artifacts to a new
+session.
 
-1. `PROMPT_00_ATTACHMENT_PROTOCOL.md` - paste first when you attach the files.
-2. `PROMPT_01_BUILD_REPO_AND_RUN_PIPELINE.md` - use in the first implementation chat.
-3. `PROMPT_02_ANALYZE_RESULTS_AND_WRITE_REPORT.md` - use in the second writing chat.
-4. `PROMPT_03_FINAL_QA_SUBMISSION_REVIEW.md` - use in the third QA/polish chat.
+## Prompt order
 
-Recommended attached files for Chat 1:
-- PLAN.md
-- REPORT.md
-- DECISION_FRAMEWORK.md
-- REFERENCES_FULL_URLS.md
-- NOTEBOOK_SKILL_INTEGRATION.md
-- pyproject.toml.example
-- Makefile.example
-- notebook file(s)
+1. `prompts/PROMPT_00_ATTACHMENT_PROTOCOL.md`
+2. `prompts/PROMPT_01_BUILD_REPO_AND_RUN_PIPELINE.md`
+3. `prompts/PROMPT_02_ANALYZE_RESULTS_AND_WRITE_REPORT.md`
+4. `prompts/PROMPT_03_FINAL_QA_SUBMISSION_REVIEW.md`
 
-Recommended attached files for Chat 2:
-- repo zip from Chat 1
-- PLAN.md
-- REPORT.md
-- DECISION_FRAMEWORK.md
-- REFERENCES_FULL_URLS.md
+## Recommended attachments for Prompt 01
 
-Recommended attached files for Chat 3:
-- final paper/report draft
-- repo zip from Chat 1
-- PLAN.md
-- DECISION_FRAMEWORK.md
-- REFERENCES_FULL_URLS.md
+- `README.md`
+- `PLAN.md`
+- `REPORT.md`
+- `docs/RUNBOOK.md`
+- `docs/RESULTS_SUMMARY.md`
+- `docs/CLAIMS_SAFE_TO_WRITE.md`
+- `DECISION_FRAMEWORK.md`
+- `REFERENCES_FULL_URLS.md`
+- `NOTEBOOK_SKILL_INTEGRATION.md` when notebook work is in scope
+
+## Recommended attachments for Prompt 02
+
+- packaged repo zip or the live repo
+- `docs/RESULTS_SUMMARY.md`
+- `docs/CLAIMS_SAFE_TO_WRITE.md`
+- `outputs/final/tables/report_tables.md`
+- `outputs/final/system_card.md`
+- `REPORT.md`
+- `DECISION_FRAMEWORK.md`
+
+## Recommended attachments for Prompt 03
+
+- final report draft
+- slide outline or presentation notes
+- packaged repo zip or the live repo
+- `docs/RESULTS_SUMMARY.md`
+- `docs/SUBMISSION_CHECKLIST.md`
+- `docs/CLAIMS_SAFE_TO_WRITE.md`
+- `REPORT.md`

@@ -4,10 +4,10 @@ A reproducible summarization-analysis repository for factuality-aware reranking 
 
 ## What this repo contains
 
-- A full stage-by-stage pipeline from environment check through packaging.
+- A CLI-first stage pipeline implemented in `src/` and exposed through `uv run factuality-rerank-xsum ...`.
 - Public PyPI and public Hugging Face defaults for install, dataset preparation, generation, and scoring.
 - Report-ready artifacts in `outputs/final/` generated from the current manifests and evaluation outputs.
-- Preserved prompts, plans, and references from the handoff bundle.
+- A maintained prompt pack in `prompts/` for reruns, report writing, and final QA review.
 
 ## Quick start
 
@@ -37,6 +37,11 @@ Current executed dataset mode: `online_hub`. Current configured generator mode: 
 
 - `notebooks/` is a companion analysis surface over saved artifacts, not the canonical execution or reporting path.
 
+## Prompt pack
+
+- `PROMPTS_INDEX.md` lists the maintained prompt flow for rerun, analysis, and QA sessions.
+- Prompt files under `prompts/` assume the current CLI-first repo state, not the deleted script-wrapper flow.
+
 ## Key artifacts
 
 - `docs/RESULTS_SUMMARY.md`
@@ -45,3 +50,4 @@ Current executed dataset mode: `online_hub`. Current configured generator mode: 
 - `outputs/final/pareto_points.csv`
 - `outputs/final/manual_audit.csv`
 - `outputs/final/figures/`
+- `prompts/`
