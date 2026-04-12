@@ -178,7 +178,9 @@ def _prepare_online_dataset(
         )
 
     combined = pd.concat(loaded_frames.values(), ignore_index=True).drop_duplicates(subset=["id"])
-    combined.to_parquet(artifact_path("data", "dataset.parquet"), index=False)
+    dataset_path = artifact_path("data", "dataset.parquet")
+    dataset_path.parent.mkdir(parents=True, exist_ok=True)
+    combined.to_parquet(dataset_path, index=False)
 
     split_manifest: dict[str, dict[str, int | str]] = {}
     for sample in split_samples:
@@ -239,7 +241,9 @@ def _prepare_offline_fixture(
         "fallback_error": str(error) if error is not None else "",
     }
     write_json(artifact_path("data", "dataset_manifest.json"), manifest)
-    frame.to_parquet(artifact_path("data", "dataset.parquet"), index=False)
+    dataset_path = artifact_path("data", "dataset.parquet")
+    dataset_path.parent.mkdir(parents=True, exist_ok=True)
+    frame.to_parquet(dataset_path, index=False)
 
     fallback_splits = split_id_map(frame["id"].astype(str).tolist())
     for split_name, split_ids in fallback_splits.items():

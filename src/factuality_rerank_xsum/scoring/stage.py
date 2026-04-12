@@ -97,12 +97,12 @@ def run_score_stage(stage: str) -> None:
         ValueError: If the requested stage name is unsupported.
     """
 
+    if stage not in SCORE_COLUMNS:
+        msg = f"Unsupported score stage: {stage}"
+        raise ValueError(msg)
     for split in PIPELINE_SPLITS:
         for beam in BEAM_SIZES:
             frame = pd.read_parquet(candidate_table_path(split, beam))
-            if stage not in SCORE_COLUMNS:
-                msg = f"Unsupported score stage: {stage}"
-                raise ValueError(msg)
             if frame.empty:
                 scored = pd.DataFrame(columns=[*MERGE_KEYS, *SCORE_COLUMNS[stage]])
             elif stage == "summac":

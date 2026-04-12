@@ -1,5 +1,10 @@
+"""Regression tests for fixture-backed dataset and generation helpers."""
+
+from typing import Any
+
 import pandas as pd
 import pytest
+import torch
 
 from factuality_rerank_xsum.data.fixtures import (
     FIXTURE_PATH,
@@ -19,6 +24,8 @@ from factuality_rerank_xsum.generation.stage import (
 
 
 def test_preview_fixture_has_expected_minimum_size() -> None:
+    """Preview fixture should provide the minimum tracked sample surface."""
+
     frame = load_preview_fixture()
     assert len(frame) >= 16
     split_map = split_id_map(frame["id"].astype(str).tolist())
@@ -26,6 +33,8 @@ def test_preview_fixture_has_expected_minimum_size() -> None:
 
 
 def test_offline_generation_returns_multiple_candidates() -> None:
+    """Offline surrogate generation should emit multiple candidates per example."""
+
     frame = load_preview_fixture().head(2)
     examples = [
         {
@@ -52,6 +61,8 @@ def test_offline_generation_returns_multiple_candidates() -> None:
 
 
 def test_generation_integrity_report_handles_empty_frames() -> None:
+    """Empty generation frames should report zero coverage without NaN failures."""
+
     report = generation_integrity_report(pd.DataFrame(columns=["id", "summary"]), ["a", "b"])
 
     assert report["rows"] == 0
@@ -64,6 +75,8 @@ def test_generation_integrity_report_handles_empty_frames() -> None:
 
 
 def test_generation_integrity_report_treats_whitespace_summaries_as_empty() -> None:
+    """Whitespace-only summaries should fail the non-empty integrity check."""
+
     report = generation_integrity_report(
         pd.DataFrame(
             [
@@ -85,6 +98,8 @@ def test_generation_integrity_report_treats_whitespace_summaries_as_empty() -> N
 def test_run_generate_candidates_preserves_schema_for_empty_outputs(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    """Empty generation outputs should still preserve the candidate schema."""
+
     def _capture_parquet(self: pd.DataFrame, path: object, index: bool = False) -> None:
         _ = index
         captured[str(path)] = self.copy()
@@ -132,6 +147,8 @@ def test_run_generate_candidates_preserves_schema_for_empty_outputs(
 
 
 def test_split_id_map_uses_tail_examples_for_small_fixtures() -> None:
+    """Small fixture splits should use the tail slice for test_final."""
+
     split_map = split_id_map([str(index) for index in range(10)])
 
     assert split_map["test_final"] == ["8", "9"]
@@ -140,9 +157,11 @@ def test_split_id_map_uses_tail_examples_for_small_fixtures() -> None:
 def test_prepare_dataset_uses_default_fixture_when_fixture_path_is_null(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    """A null fixture path should fall back to the tracked preview fixture."""
+
     captured: dict[str, object] = {}
 
-    def _capture_fixture(path=None):  # type: ignore[no-untyped-def]
+    def _capture_fixture(path: Any = None) -> pd.DataFrame:
         captured["path"] = path
         return load_preview_fixture(FIXTURE_PATH)
 
@@ -177,7 +196,7 @@ def test_prepare_dataset_uses_default_fixture_when_fixture_path_is_null(
 def test_generate_candidates_for_examples_reuses_hf_runtime(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    import torch
+    """HF generation should initialize its cached runtime only once per batch."""
 
     offline_generation._cached_seq2seq_runtime.cache_clear()
     call_count = {"runtime": 0}
@@ -186,17 +205,19 @@ def test_generate_candidates_for_examples_reuses_hf_runtime(
         pad_token_id = 0
         eos_token_id = 0
 
-        def __call__(self, *_args, **kwargs):  # type: ignore[no-untyped-def]
+        def __call__(
+            self, *_args: Any, **kwargs: Any
+        ) -> dict[str, list[int] | list[list[int]]]:
             if kwargs.get("return_tensors") == "pt":
                 return {"input_ids": [[1, 2, 3]]}
             return {"input_ids": [1, 2, 3]}
 
-        def batch_decode(self, _sequences, skip_special_tokens=True):  # type: ignore[no-untyped-def]
+        def batch_decode(self, _sequences: Any, skip_special_tokens: bool = True) -> list[str]:
             _ = skip_special_tokens
             return ["summary"]
 
     class StubModel:
-        def generate(self, **_kwargs):  # type: ignore[no-untyped-def]
+        def generate(self, **_kwargs: Any) -> Any:
             return type(
                 "Outputs",
                 (),
@@ -207,10 +228,10 @@ def test_generate_candidates_for_examples_reuses_hf_runtime(
                 },
             )()
 
-        def compute_transition_scores(self, *_args, **_kwargs):  # type: ignore[no-untyped-def]
+        def compute_transition_scores(self, *_args: Any, **_kwargs: Any) -> torch.Tensor:
             return torch.tensor([[-0.1, -0.2]])
 
-    def _load_runtime(*_args):  # type: ignore[no-untyped-def]
+    def _load_runtime(*_args: Any) -> tuple[StubTokenizer, StubModel, str]:
         call_count["runtime"] += 1
         return StubTokenizer(), StubModel(), "cpu"
 
@@ -242,6 +263,8 @@ def test_generate_candidates_for_examples_reuses_hf_runtime(
 
 
 def test_generate_candidates_for_examples_rejects_unknown_mode_even_when_empty() -> None:
+    """Unsupported generator modes should be rejected before empty-batch return."""
+
     with pytest.raises(ValueError, match="Unsupported generator mode"):
         generate_candidates_for_examples(
             [],

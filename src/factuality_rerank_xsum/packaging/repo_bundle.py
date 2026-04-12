@@ -77,7 +77,6 @@ def run_package_repo() -> Path:
     artifact_copy = artifact_path("package", final_path.name)
     artifact_copy.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(final_path, artifact_copy)
-    root = project_root()
     write_json(
         artifact_path("package", "artifact_manifest.json"),
         {

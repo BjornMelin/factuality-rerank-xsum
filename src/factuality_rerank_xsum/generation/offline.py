@@ -485,6 +485,9 @@ def generate_candidates_for_examples(
 
     generation_config = config or _generation_config()
     mode = _validated_generation_mode(generation_config)
+    source_rows = list(rows)
+    if not source_rows:
+        return []
     runtime = None
     if mode == "huggingface_generation":
         runtime = _cached_seq2seq_runtime(
@@ -494,7 +497,7 @@ def generate_candidates_for_examples(
         )
 
     generated: list[dict[str, object]] = []
-    for row in rows:
+    for row in source_rows:
         generated.extend(
             generate_model_candidates(
                 example_id=row["id"],

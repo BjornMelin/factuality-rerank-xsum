@@ -135,9 +135,9 @@ def test_runtime_contract_requires_executed_stage_summaries(
 
     contract = runtime_contract()
 
-    assert contract["generator_mode"] == "huggingface_generation"
-    assert contract["factcc_mode"] == "huggingface_text_classification"
-    assert contract["nli_mode"] == "huggingface_nli_consistency"
+    assert contract["generator_mode"] == "not_run"
+    assert contract["factcc_mode"] == "not_run"
+    assert contract["nli_mode"] == "not_run"
     assert contract["online_execution"] is False
 
 

@@ -117,6 +117,8 @@ def system_card_lines(runtime: dict[str, Any]) -> list[str]:
 def run_make_tables_and_figures() -> None:
     """Build report-ready tables, figures, examples, and system card outputs."""
 
+    final_root = output_path("final")
+    final_root.mkdir(parents=True, exist_ok=True)
     metrics = pd.read_csv(artifact_path("eval", "system_metrics.csv"))
     main_metrics = metrics[
         metrics["system"].isin([BASELINE_SYSTEM, BEST_BALANCED, BEST_FACTUALITY, BEST_SIMPLE])

@@ -125,9 +125,9 @@ def runtime_contract() -> dict[str, Any]:
     executed_generator_mode = generation_summary.get("generator_mode")
     executed_factcc_mode = factcc_stage_summary.get("actual_mode")
     executed_nli_mode = summac_stage_summary.get("actual_mode")
-    generator_mode = str(executed_generator_mode or requested["generator_mode"])
-    factcc_mode = str(executed_factcc_mode or requested["factcc_mode"])
-    nli_mode = str(executed_nli_mode or requested["nli_mode"])
+    generator_mode = str(executed_generator_mode or "not_run")
+    factcc_mode = str(executed_factcc_mode or "not_run")
+    nli_mode = str(executed_nli_mode or "not_run")
     online_execution = (
         dataset_mode == "online_hub"
         and executed_generator_mode == "huggingface_generation"

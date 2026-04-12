@@ -13,8 +13,11 @@ if TYPE_CHECKING:
     from collections.abc import Sequence
 
 
+ROUGE_KEYS = ("rouge1", "rouge2", "rougeL", "rougeLsum")
+
+
 def _scorer() -> rouge_scorer.RougeScorer:
-    return rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL", "rougeLsum"], use_stemmer=True)
+    return rouge_scorer.RougeScorer(list(ROUGE_KEYS), use_stemmer=True)
 
 
 def _prepare_for_rouge_lsum(text: str) -> str:
@@ -52,6 +55,8 @@ def aggregate_rouge(predictions: Sequence[str], references: Sequence[str]) -> di
         per_example_rouge(prediction, reference)
         for prediction, reference in zip(predictions, references, strict=True)
     ]
+    if not rows:
+        return dict.fromkeys(ROUGE_KEYS, 0.0)
     frame = pd.DataFrame(rows)
     return {column: round(float(frame[column].mean()), 6) for column in frame.columns}
 
