@@ -114,7 +114,9 @@ def runtime_contract() -> dict[str, Any]:
     env_report = read_json_if_exists(artifact_path("env", "env_report.json"))
     dataset_manifest = read_json_if_exists(artifact_path("data", "dataset_manifest.json"))
     model_manifest = read_json_if_exists(artifact_path("models", "baseline_info.json"))
-    generation_summary = read_json_if_exists(artifact_path("generations", "generation_summary.json"))
+    generation_summary = read_json_if_exists(
+        artifact_path("generations", "generation_summary.json")
+    )
     factcc_stage_summary = read_json_if_exists(
         artifact_path("scores", "factcc", "stage_summary.json")
     )
