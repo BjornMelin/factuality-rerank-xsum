@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
-  {name = "OpenAI GPT-5.4 Pro build session"},
+  {name = "Bjorn Melin"},
 ]
 dependencies = [
   "accelerate>=1.13,<2",
@@ -61,12 +61,11 @@ src = ["src"]
 extend-exclude = ["notebooks/*.ipynb"]
 
 [tool.ruff.lint]
-select = ["E", "W", "F", "I", "N", "UP", "B", "A", "C4", "SIM", "RET", "PTH", "PT", "T20", "RUF"]
+select = ["E", "W", "F", "I", "N", "UP", "B", "A", "C4", "SIM", "RET", "PTH", "PT", "T20", "RUF", "TCH", "ARG", "S"]
 ignore = ["B008", "E501"]
 fixable = ["ALL"]
+per-file-ignores = {"tests/**/*.py" = ["S101"]}
 # Deferred audit-lane rules:
-# - TCH, ARG: trial separately after the stable gate is clean.
-# - S: would require test-specific assert exemptions.
 # - D, ANN, TRY, PL: currently too noisy for this repo's code patterns.
 
 [tool.ruff.format]
