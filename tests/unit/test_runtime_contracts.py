@@ -61,6 +61,9 @@ def test_runtime_contract_requires_all_online_modes(monkeypatch: pytest.MonkeyPa
     expected_root = Path("/expected-artifacts")
     expected_dataset_manifest = expected_root / "data" / "dataset_manifest.json"
     expected_model_manifest = expected_root / "models" / "baseline_info.json"
+    expected_generation_summary = expected_root / "generations" / "generation_summary.json"
+    expected_factcc_summary = expected_root / "scores" / "factcc" / "stage_summary.json"
+    expected_summac_summary = expected_root / "scores" / "summac" / "stage_summary.json"
     monkeypatch.setattr(
         "factuality_rerank_xsum.runtime.manifests.requested_runtime_config",
         lambda: {
@@ -79,17 +82,13 @@ def test_runtime_contract_requires_all_online_modes(monkeypatch: pytest.MonkeyPa
     )
     monkeypatch.setattr(
         "factuality_rerank_xsum.runtime.manifests.read_json_if_exists",
-        lambda path: (
-            {"dataset_mode": "online_hub"}
-            if path == expected_dataset_manifest
-            else {
-                "actual_mode": "huggingface_generation",
-                "actual_factcc_mode": "heuristic_factcc_style_fallback",
-                "actual_nli_mode": "huggingface_nli_consistency",
-            }
-            if path == expected_model_manifest
-            else {}
-        ),
+        lambda path: {
+            expected_dataset_manifest: {"dataset_mode": "online_hub"},
+            expected_generation_summary: {"generator_mode": "huggingface_generation"},
+            expected_factcc_summary: {"actual_mode": "heuristic_factcc_style_fallback"},
+            expected_summac_summary: {"actual_mode": "huggingface_nli_consistency"},
+            expected_model_manifest: {},
+        }.get(path, {}),
     )
     monkeypatch.setattr(
         "factuality_rerank_xsum.runtime.manifests.artifact_path",
@@ -116,6 +115,30 @@ def test_dataset_sha_does_not_depend_on_hf_cli(monkeypatch: pytest.MonkeyPatch) 
     monkeypatch.setattr(hf_utils, "hf_cli_available", lambda: False)
 
     assert hf_utils.dataset_sha("owner/dataset") == "sha-123"
+
+
+def test_dataset_sha_returns_none_on_hub_errors(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Return `None` when dataset SHA lookups fail."""
+
+    class StubApi:
+        def dataset_info(self, *_args: object, **_kwargs: object) -> object:
+            raise OSError("network down")
+
+    monkeypatch.setattr(hf_utils, "HF_API", cast("Any", StubApi()))
+
+    assert hf_utils.dataset_sha("owner/dataset") is None
+
+
+def test_model_sha_returns_none_on_hub_errors(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Return `None` when model SHA lookups fail."""
+
+    class StubApi:
+        def model_info(self, *_args: object, **_kwargs: object) -> object:
+            raise OSError("network down")
+
+    monkeypatch.setattr(hf_utils, "HF_API", cast("Any", StubApi()))
+
+    assert hf_utils.model_sha("owner/model") is None
 
 
 def test_required_search_row_raises_when_selection_is_missing() -> None:

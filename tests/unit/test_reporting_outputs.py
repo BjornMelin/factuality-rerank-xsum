@@ -56,7 +56,7 @@ def test_system_card_lines_change_with_runtime_mode() -> None:
     online = "\n".join(
         system_card_lines(
             {
-                "requested": requested,
+                "requested": {**requested, "generator_mode": "huggingface_generation"},
                 "dataset_mode": "online_hub",
                 "generator_mode": "huggingface_generation",
                 "online_execution": True,
@@ -66,7 +66,7 @@ def test_system_card_lines_change_with_runtime_mode() -> None:
     offline = "\n".join(
         system_card_lines(
             {
-                "requested": requested,
+                "requested": {**requested, "generator_mode": "offline_surrogate_generator"},
                 "dataset_mode": "fixture_preview",
                 "generator_mode": "offline_surrogate",
                 "online_execution": False,
@@ -80,6 +80,10 @@ def test_system_card_lines_change_with_runtime_mode() -> None:
     assert "Current outputs should be read together with the executed dataset" in offline
     assert "public Hugging Face runtime path" not in offline
     assert "Executed dataset mode: `fixture_preview`." in offline
+    assert "Requested generator mode: `huggingface_generation`." in online
+    assert "Executed generator mode: `huggingface_generation`." in online
+    assert "Requested generator mode: `offline_surrogate_generator`." in offline
+    assert "Executed generator mode: `offline_surrogate`." in offline
 
 
 def test_markdown_table_extracts_scalar_beam_sizes() -> None:

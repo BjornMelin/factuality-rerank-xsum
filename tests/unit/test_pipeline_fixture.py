@@ -1,7 +1,12 @@
 import pandas as pd
 import pytest
 
-from factuality_rerank_xsum.data.fixtures import load_preview_fixture, split_id_map
+from factuality_rerank_xsum.data.fixtures import (
+    FIXTURE_PATH,
+    load_preview_fixture,
+    prepare_dataset,
+    split_id_map,
+)
 from factuality_rerank_xsum.generation.offline import (
     CANDIDATE_COLUMNS,
     generate_candidates_for_examples,
@@ -129,3 +134,106 @@ def test_split_id_map_uses_tail_examples_for_small_fixtures() -> None:
     split_map = split_id_map([str(index) for index in range(10)])
 
     assert split_map["test_final"] == ["8", "9"]
+
+
+def test_prepare_dataset_uses_default_fixture_when_fixture_path_is_null(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+
+    def _capture_fixture(path=None):  # type: ignore[no-untyped-def]
+        captured["path"] = path
+        return load_preview_fixture(FIXTURE_PATH)
+
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.read_yaml",
+        lambda _path: {
+            "dataset_name": "owner/dataset",
+            "dataset_revision": None,
+            "mode": "offline_fixture",
+            "fixture_path": None,
+        },
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.load_preview_fixture",
+        _capture_fixture,
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.write_json",
+        lambda *_args, **_kwargs: None,
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.write_text",
+        lambda *_args, **_kwargs: None,
+    )
+    monkeypatch.setattr(pd.DataFrame, "to_parquet", lambda *_args, **_kwargs: None)
+
+    prepare_dataset()
+
+    assert captured["path"] == FIXTURE_PATH
+
+
+def test_generate_candidates_for_examples_reuses_hf_runtime(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import torch
+
+    call_count = {"runtime": 0}
+
+    class StubTokenizer:
+        pad_token_id = 0
+        eos_token_id = 0
+
+        def __call__(self, *_args, **kwargs):  # type: ignore[no-untyped-def]
+            if kwargs.get("return_tensors") == "pt":
+                return {"input_ids": [[1, 2, 3]]}
+            return {"input_ids": [1, 2, 3]}
+
+        def batch_decode(self, _sequences, skip_special_tokens=True):  # type: ignore[no-untyped-def]
+            _ = skip_special_tokens
+            return ["summary"]
+
+    class StubModel:
+        def generate(self, **_kwargs):  # type: ignore[no-untyped-def]
+            return type(
+                "Outputs",
+                (),
+                {
+                    "sequences": torch.tensor([[1, 2, 3]]),
+                    "scores": None,
+                    "sequences_scores": None,
+                },
+            )()
+
+        def compute_transition_scores(self, *_args, **_kwargs):  # type: ignore[no-untyped-def]
+            return torch.tensor([[-0.1, -0.2]])
+
+    def _load_runtime(*_args):  # type: ignore[no-untyped-def]
+        call_count["runtime"] += 1
+        return StubTokenizer(), StubModel(), "cpu"
+
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.generation.offline.load_seq2seq_runtime",
+        _load_runtime,
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.generation.offline.move_batch_to_device",
+        lambda batch, _device: batch,
+    )
+
+    rows = generate_candidates_for_examples(
+        [
+            {"id": "x1", "document": "doc one", "summary": "ref one"},
+            {"id": "x2", "document": "doc two", "summary": "ref two"},
+        ],
+        split="dev_smoke",
+        num_beams=1,
+        length_penalty=1.0,
+        no_repeat_ngram_size=3,
+        max_new_tokens=32,
+        min_new_tokens=8,
+        config={"mode": "huggingface_generation", "model_name_or_path": "stub-model"},
+    )
+
+    assert len(rows) == 2
+    assert call_count["runtime"] == 1
