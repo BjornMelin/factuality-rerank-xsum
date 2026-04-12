@@ -4,7 +4,7 @@
 
 **Course:** DATASCI 266: Natural Language Processing with Deep Learning (Spring 2026\)  
 **Author:** Bjorn Melin  
-**Date:** 2/15/2025
+**Date:** 2/15/2026
 
 We will study factual hallucinations in abstractive summarization and test whether simple decoding-time reranking can reduce factual errors without sacrificing standard overlap metrics. Using XSum as the primary dataset, we will fine-tune a BART summarizer and generate multiple candidate summaries per article via beam search. We will then rerank candidates using factuality signals from (i) a learned factual-consistency classifier (FactCC-style) and (ii) an entailment-based consistency score (SummaC/NLI-style), combining these with the model log-likelihood. Evaluation will report ROUGE-1/2/L and at least one factuality metric (FactCC and/or QAGS), with a trade-off analysis across reranking weights and beam sizes.
 
