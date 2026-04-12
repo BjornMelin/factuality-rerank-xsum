@@ -205,9 +205,7 @@ def test_generate_candidates_for_examples_reuses_hf_runtime(
         pad_token_id = 0
         eos_token_id = 0
 
-        def __call__(
-            self, *_args: Any, **kwargs: Any
-        ) -> dict[str, list[int] | list[list[int]]]:
+        def __call__(self, *_args: Any, **kwargs: Any) -> dict[str, list[int] | list[list[int]]]:
             if kwargs.get("return_tensors") == "pt":
                 return {"input_ids": [[1, 2, 3]]}
             return {"input_ids": [1, 2, 3]}
