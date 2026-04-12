@@ -272,6 +272,8 @@ def prepare_dataset(*, dataset_loader: DatasetLoader | None = None) -> PreparedD
         dataset provenance metadata written to tracked artifacts.
 
     Raises:
+        ConnectionError: If the online dataset lookup fails and offline fallback
+            is disabled.
         HfHubHTTPError: If the online dataset lookup fails and offline fallback
             is disabled.
         OSError: If dataset reads or artifact writes fail and offline fallback

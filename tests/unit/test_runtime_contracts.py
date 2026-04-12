@@ -188,7 +188,7 @@ def test_required_search_row_raises_when_selection_is_missing() -> None:
         _required_search_row(pd.DataFrame(), description="missing winner")
 
 
-def test_run_hf_json_passes_requested_revision() -> None:
+def test_run_hf_json_passes_requested_revision(monkeypatch: pytest.MonkeyPatch) -> None:
     """Forward explicit revisions to Hub model lookups."""
 
     class StubInfo:
@@ -203,15 +203,50 @@ def test_run_hf_json_passes_requested_revision() -> None:
             captured["revision"] = revision
             return StubInfo()
 
-    original = hf_utils.HF_API
-    hf_utils.HF_API = cast("Any", StubApi())
-    try:
-        payload = hf_utils.run_hf_json("models", "info", "owner/model", "rev-42")
-    finally:
-        hf_utils.HF_API = original
+    monkeypatch.setattr(hf_utils, "HF_API", cast("Any", StubApi()))
+
+    payload = hf_utils.run_hf_json("models", "info", "owner/model", "rev-42")
 
     assert payload == {"id": "owner/model", "sha": "sha-123"}
     assert captured == {"model_name": "owner/model", "revision": "rev-42"}
+
+
+def test_runtime_contract_does_not_treat_env_readiness_as_dataset_execution(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Require the dataset stage artifact before declaring an executed mode."""
+
+    expected_root = Path("/expected-artifacts")
+    expected_env_report = expected_root / "env" / "env_report.json"
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.runtime.manifests.requested_runtime_config",
+        lambda: {
+            "dataset_name": "ds",
+            "dataset_revision": "rev-ds",
+            "generator_model": "gen",
+            "generator_revision": "rev-gen",
+            "generator_mode": "huggingface_generation",
+            "factcc_model": "factcc",
+            "factcc_revision": "rev-factcc",
+            "factcc_mode": "huggingface_text_classification",
+            "nli_model": "nli",
+            "nli_revision": "rev-nli",
+            "nli_mode": "huggingface_nli_consistency",
+        },
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.runtime.manifests.read_json_if_exists",
+        lambda path: {expected_env_report: {"mode": "online_hf_ready"}}.get(path, {}),
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.runtime.manifests.artifact_path",
+        lambda *parts: expected_root.joinpath(*parts),
+    )
+
+    contract = runtime_contract()
+
+    assert contract["dataset_mode"] == "not_run"
+    assert contract["online_execution"] is False
 
 
 def test_run_env_check_does_not_require_auth_for_public_assets(

@@ -242,22 +242,25 @@ def test_generate_candidates_for_examples_reuses_hf_runtime(
         lambda batch, _device: batch,
     )
 
-    rows = generate_candidates_for_examples(
-        [
-            {"id": "x1", "document": "doc one", "summary": "ref one"},
-            {"id": "x2", "document": "doc two", "summary": "ref two"},
-        ],
-        split="dev_smoke",
-        num_beams=1,
-        length_penalty=1.0,
-        no_repeat_ngram_size=3,
-        max_new_tokens=32,
-        min_new_tokens=8,
-        config={"mode": "huggingface_generation", "model_name_or_path": "stub-model"},
-    )
+    try:
+        rows = generate_candidates_for_examples(
+            [
+                {"id": "x1", "document": "doc one", "summary": "ref one"},
+                {"id": "x2", "document": "doc two", "summary": "ref two"},
+            ],
+            split="dev_smoke",
+            num_beams=1,
+            length_penalty=1.0,
+            no_repeat_ngram_size=3,
+            max_new_tokens=32,
+            min_new_tokens=8,
+            config={"mode": "huggingface_generation", "model_name_or_path": "stub-model"},
+        )
 
-    assert len(rows) == 2
-    assert call_count["runtime"] == 1
+        assert len(rows) == 2
+        assert call_count["runtime"] == 1
+    finally:
+        offline_generation._cached_seq2seq_runtime.cache_clear()
 
 
 def test_generate_candidates_for_examples_rejects_unknown_mode_even_when_empty() -> None:

@@ -123,7 +123,7 @@ def runtime_contract() -> dict[str, Any]:
     summac_stage_summary = read_json_if_exists(
         artifact_path("scores", "summac", "stage_summary.json")
     )
-    dataset_mode = str(dataset_manifest.get("dataset_mode") or env_report.get("mode") or "not_run")
+    dataset_mode = str(dataset_manifest.get("dataset_mode") or "not_run")
     executed_generator_mode = generation_summary.get("generator_mode")
     executed_factcc_mode = factcc_stage_summary.get("actual_mode")
     executed_nli_mode = summac_stage_summary.get("actual_mode")
