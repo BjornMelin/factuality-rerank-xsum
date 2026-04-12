@@ -269,6 +269,101 @@ def test_prepare_dataset_rejects_non_positive_split_limit(
         prepare_dataset(dataset_loader=cast("DatasetLoader", lambda *_args, **_kwargs: None))
 
 
+def test_prepare_dataset_rejects_blank_source_split(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Split sampling should reject blank source_split values."""
+
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.read_yaml",
+        lambda _path: {
+            "dataset_name": "owner/dataset",
+            "dataset_revision": None,
+            "mode": "online_hub",
+            "split_sampling": {"dev_smoke": {"source_split": "   ", "limit": 1}},
+        },
+    )
+
+    with pytest.raises(TypeError, match="dev_smoke"):
+        prepare_dataset(dataset_loader=cast("DatasetLoader", lambda *_args, **_kwargs: None))
+
+
+def test_run_generate_candidates_reports_missing_requested_ids(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Integrity reports should preserve configured split IDs even when rows are missing."""
+
+    captured_reports: dict[str, dict[str, Any]] = {}
+
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.generation.stage.PIPELINE_SPLITS",
+        ["dev_smoke"],
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.generation.stage.config_beams",
+        lambda: [
+            {
+                "num_beams": 4,
+                "length_penalty": 1.0,
+                "no_repeat_ngram_size": 3,
+                "max_new_tokens": 64,
+                "min_new_tokens": 10,
+            }
+        ],
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.generation.stage.read_yaml",
+        lambda _path: {
+            "mode": "offline_surrogate_generator",
+            "model_name_or_path": "offline-surrogate",
+            "revision": None,
+        },
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.generation.stage.ids_for_split",
+        lambda _split: ["id-1", "id-2"],
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.generation.stage.example_rows",
+        lambda _split: [{"id": "id-1", "document": "doc", "summary": "ref"}],
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.generation.stage.generate_candidates_for_examples",
+        lambda *_args, **_kwargs: [
+            {
+                "id": "id-1",
+                "beam_rank": 1,
+                "summary": "candidate",
+                "sequence_score_hf": 0.0,
+                "token_logprob_sum": 0.0,
+                "token_logprob_avg": 0.0,
+                "num_beams": 4,
+                "length_penalty": 1.0,
+                "no_repeat_ngram_size": 3,
+                "max_new_tokens": 64,
+                "min_new_tokens": 10,
+                "generator_mode": "offline_surrogate_generator",
+            }
+        ],
+    )
+    monkeypatch.setattr(pd.DataFrame, "to_parquet", lambda *_args, **_kwargs: None)
+    monkeypatch.setattr(pd.DataFrame, "to_csv", lambda *_args, **_kwargs: None)
+
+    def _capture_json(path: object, payload: dict[str, Any]) -> None:
+        path_text = str(path)
+        if path_text.endswith("integrity_report.json"):
+            captured_reports[path_text] = payload
+
+    monkeypatch.setattr("factuality_rerank_xsum.generation.stage.write_json", _capture_json)
+
+    run_generate_candidates()
+
+    assert captured_reports
+    report = next(iter(captured_reports.values()))
+    assert report["requested_ids"] == 2
+    assert report["missing_ids"] == ["id-2"]
+
+
 def test_generate_candidates_for_examples_reuses_hf_runtime(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:

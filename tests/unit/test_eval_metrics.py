@@ -2,7 +2,12 @@
 
 import pandas as pd
 
-from factuality_rerank_xsum.eval.metrics import aggregate_rouge, metrics_for_selection
+from factuality_rerank_xsum.eval.metrics import (
+    ROUGE_KEYS,
+    aggregate_rouge,
+    enrich_with_rouge,
+    metrics_for_selection,
+)
 
 
 def test_aggregate_rouge_returns_stable_keys_for_empty_inputs() -> None:
@@ -41,3 +46,16 @@ def test_metrics_for_selection_returns_zeroed_metrics_for_empty_frames() -> None
         "factuality_composite": 0.0,
         "summary_len_tokens": 0.0,
     }
+
+
+def test_enrich_with_rouge_preserves_schema_for_empty_frames() -> None:
+    """Empty frames should still gain all per-example ROUGE columns."""
+
+    frame = pd.DataFrame(columns=["summary", "reference"])
+
+    scored = enrich_with_rouge(frame)
+
+    for key in ROUGE_KEYS:
+        assert key in scored.columns
+        assert scored[key].dtype.kind == "f"
+    assert scored.empty

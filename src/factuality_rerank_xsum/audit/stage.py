@@ -47,6 +47,10 @@ def run_sample_manual_audit() -> pd.DataFrame:
         "world_knowledge_addition",
         "notes",
     ]
+    template_path = data_path("audit", "manual_audit_template.csv")
+    template_path.parent.mkdir(parents=True, exist_ok=True)
+    audit_dir = artifact_path("audit")
+    audit_dir.mkdir(parents=True, exist_ok=True)
     comparison[
         ["id", "split", "document", "reference", "baseline_summary", "reranked_summary"]
     ].assign(
@@ -57,10 +61,10 @@ def run_sample_manual_audit() -> pd.DataFrame:
         secondary_error_type="",
         world_knowledge_addition="",
         notes="",
-    )[template_columns].to_csv(data_path("audit", "manual_audit_template.csv"), index=False)
+    )[template_columns].to_csv(template_path, index=False)
     audit = build_audit_rows(comparison)
-    audit.to_csv(artifact_path("audit", "manual_audit_completed.csv"), index=False)
-    audit.to_csv(artifact_path("audit", "audit_examples_for_paper.csv"), index=False)
+    audit.to_csv(audit_dir / "manual_audit_completed.csv", index=False)
+    audit.to_csv(audit_dir / "audit_examples_for_paper.csv", index=False)
     return audit
 
 

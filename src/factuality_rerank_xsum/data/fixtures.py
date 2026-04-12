@@ -133,7 +133,7 @@ def _split_samples(config: dict[str, Any]) -> list[SplitSample]:
             raise TypeError(msg)
         source_split = payload.get("source_split")
         limit = payload.get("limit")
-        if not isinstance(source_split, str):
+        if not isinstance(source_split, str) or not source_split.strip():
             msg = f"Split sampling config for {name} must define string source_split"
             raise TypeError(msg)
         if not isinstance(limit, int) or isinstance(limit, bool) or limit <= 0:

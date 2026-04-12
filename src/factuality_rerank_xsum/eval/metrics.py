@@ -123,6 +123,9 @@ def enrich_with_rouge(frame: pd.DataFrame) -> pd.DataFrame:
         )
     ]
     rouge_frame = pd.DataFrame(rouge_rows)
-    for column in rouge_frame.columns:
-        scored[column] = rouge_frame[column]
+    for column in ROUGE_KEYS:
+        if column in rouge_frame:
+            scored[column] = rouge_frame[column]
+            continue
+        scored[column] = pd.Series(index=scored.index, dtype=float)
     return scored

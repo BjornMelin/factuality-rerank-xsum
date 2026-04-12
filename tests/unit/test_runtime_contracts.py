@@ -8,7 +8,7 @@ from typing import Any, cast
 import pandas as pd
 import pytest
 
-from factuality_rerank_xsum.audit.stage import _parse_boolish
+from factuality_rerank_xsum.audit.stage import _parse_boolish, run_sample_manual_audit
 from factuality_rerank_xsum.runtime.manifests import runtime_contract
 from factuality_rerank_xsum.runtime.stage import run_env_check
 from factuality_rerank_xsum.scorers.factcc_style import score_factcc_style
@@ -55,6 +55,65 @@ def test_parse_boolish_handles_string_flags() -> None:
 
     assert _parse_boolish("yes") is True
     assert _parse_boolish("0") is False
+
+
+def test_run_sample_manual_audit_creates_output_directories(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    """Audit stage should create missing output directories before writing CSVs."""
+
+    comparison = pd.DataFrame(
+        [
+            {
+                "id": "1",
+                "split": "test_final",
+                "document": "doc",
+                "reference": "ref",
+                "baseline_summary": "base",
+                "reranked_summary": "rerank",
+            }
+        ]
+    )
+    audit = pd.DataFrame(
+        [
+            {
+                "id": "1",
+                "split": "test_final",
+                "document": "doc",
+                "reference": "ref",
+                "baseline_summary": "base",
+                "reranked_summary": "rerank",
+                "selected_system": "",
+                "baseline_consistent": "",
+                "reranked_consistent": "",
+                "primary_error_type": "",
+                "secondary_error_type": "",
+                "world_knowledge_addition": "",
+                "notes": "",
+            }
+        ]
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.audit.stage.comparison_table_path",
+        lambda _split: tmp_path / "inputs" / "comparison.csv",
+    )
+    monkeypatch.setattr("pandas.read_csv", lambda _path: comparison.copy())
+    monkeypatch.setattr("factuality_rerank_xsum.audit.stage.build_audit_rows", lambda _frame: audit)
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.audit.stage.data_path",
+        lambda *parts: tmp_path.joinpath(*parts),
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.audit.stage.artifact_path",
+        lambda *parts: tmp_path.joinpath(*parts),
+    )
+
+    result = run_sample_manual_audit()
+
+    assert result.equals(audit)
+    assert (tmp_path / "audit" / "manual_audit_template.csv").exists()
+    assert (tmp_path / "audit" / "manual_audit_completed.csv").exists()
+    assert (tmp_path / "audit" / "audit_examples_for_paper.csv").exists()
 
 
 def test_runtime_contract_requires_all_online_modes(monkeypatch: pytest.MonkeyPatch) -> None:

@@ -112,7 +112,7 @@ def run_generate_candidates() -> dict[str, Any]:
     for split in PIPELINE_SPLITS:
         split_rows = example_rows(split)
         summary["splits"][split] = {"examples": len(split_rows)}
-        requested_ids = [row["id"] for row in split_rows]
+        requested_ids = ids_for_split(split)
         for beam in beams:
             generated = generate_candidates_for_examples(
                 split_rows,
