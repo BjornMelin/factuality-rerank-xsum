@@ -114,10 +114,13 @@ def runtime_contract() -> dict[str, Any]:
     env_report = read_json_if_exists(artifact_path("env", "env_report.json"))
     dataset_manifest = read_json_if_exists(artifact_path("data", "dataset_manifest.json"))
     model_manifest = read_json_if_exists(artifact_path("models", "baseline_info.json"))
+    generation_summary = read_json_if_exists(artifact_path("generations", "generation_summary.json"))
+    factcc_stage_summary = read_json_if_exists(artifact_path("scores", "factcc", "stage_summary.json"))
+    summac_stage_summary = read_json_if_exists(artifact_path("scores", "summac", "stage_summary.json"))
     dataset_mode = str(dataset_manifest.get("dataset_mode") or env_report.get("mode") or "not_run")
-    generator_mode = str(model_manifest.get("actual_mode") or requested["generator_mode"])
-    factcc_mode = str(model_manifest.get("actual_factcc_mode") or requested["factcc_mode"])
-    nli_mode = str(model_manifest.get("actual_nli_mode") or requested["nli_mode"])
+    generator_mode = str(generation_summary.get("generator_mode") or requested["generator_mode"])
+    factcc_mode = str(factcc_stage_summary.get("actual_mode") or requested["factcc_mode"])
+    nli_mode = str(summac_stage_summary.get("actual_mode") or requested["nli_mode"])
     online_execution = (
         dataset_mode == "online_hub"
         and generator_mode == "huggingface_generation"
@@ -129,6 +132,7 @@ def runtime_contract() -> dict[str, Any]:
         "env_report": env_report,
         "dataset_manifest": dataset_manifest,
         "model_manifest": model_manifest,
+        "generation_summary": generation_summary,
         "dataset_mode": dataset_mode,
         "generator_mode": generator_mode,
         "factcc_mode": factcc_mode,

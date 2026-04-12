@@ -61,16 +61,13 @@ def dataset_sha(dataset_name: str, revision: str | None = None) -> str | None:
     Returns:
         The resolved Git SHA from the Hub response, or `None` when the Hub
         does not report one.
-
-    Raises:
-        HfHubHTTPError: If the Hub rejects the dataset lookup request.
-        LocalTokenNotFoundError: If an authenticated lookup requires a token.
-        OSError: If the request fails due to a local I/O or network issue.
-        ValueError: If the provided arguments are invalid for the Hub client.
     """
 
-    info = HF_API.dataset_info(dataset_name, revision=revision)
-    return info.sha
+    try:
+        info = HF_API.dataset_info(dataset_name, revision=revision)
+    except (HfHubHTTPError, LocalTokenNotFoundError, OSError, ValueError):
+        return None
+    return info.sha if info else None
 
 
 def model_sha(model_name: str, revision: str | None = None) -> str | None:
@@ -83,13 +80,10 @@ def model_sha(model_name: str, revision: str | None = None) -> str | None:
     Returns:
         The resolved Git SHA from the Hub response, or `None` when the Hub
         does not report one.
-
-    Raises:
-        HfHubHTTPError: If the Hub rejects the model lookup request.
-        LocalTokenNotFoundError: If an authenticated lookup requires a token.
-        OSError: If the request fails due to a local I/O or network issue.
-        ValueError: If the provided arguments are invalid for the Hub client.
     """
 
-    info = HF_API.model_info(model_name, revision=revision)
-    return info.sha
+    try:
+        info = HF_API.model_info(model_name, revision=revision)
+    except (HfHubHTTPError, LocalTokenNotFoundError, OSError, ValueError):
+        return None
+    return info.sha if info else None

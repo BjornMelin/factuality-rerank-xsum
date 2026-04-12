@@ -64,5 +64,7 @@ def apply_system(
     selected["normalization"] = normalization
     selected_table_path(split, system_name).parent.mkdir(parents=True, exist_ok=True)
     selected.to_parquet(selected_table_path(split, system_name), index=False)
-    selected.to_csv(artifact_path("eval", f"{split}_{system_name}_selected.csv"), index=False)
+    selected_csv_path = artifact_path("eval", f"{split}_{system_name}_selected.csv")
+    selected_csv_path.parent.mkdir(parents=True, exist_ok=True)
+    selected.to_csv(selected_csv_path, index=False)
     return selected

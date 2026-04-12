@@ -11,12 +11,29 @@ from factuality_rerank_xsum.artifacts.layout import (
 )
 from factuality_rerank_xsum.constants import BEAM_SIZES, PIPELINE_SPLITS
 from factuality_rerank_xsum.scorers.entity_support import score_dataframe as entity_score_dataframe
+from factuality_rerank_xsum.scorers.factcc_style import HF_MODE as FACTCC_HF_MODE
 from factuality_rerank_xsum.scorers.factcc_style import score_dataframe as factcc_score_dataframe
+from factuality_rerank_xsum.scorers.summac_style import HF_MODE as SUMMAC_HF_MODE
 from factuality_rerank_xsum.scorers.summac_style import score_dataframe as summac_score_dataframe
-from factuality_rerank_xsum.utils.io import write_text
-from factuality_rerank_xsum.utils.paths import artifact_path
+from factuality_rerank_xsum.utils.io import read_yaml, write_json, write_text
+from factuality_rerank_xsum.utils.paths import artifact_path, config_path
 
 MERGE_KEYS = ["id", "candidate_hash"]
+
+
+def _executed_stage_mode(stage: str) -> str:
+    """Return the configured executed mode for one scorer stage."""
+
+    if stage == "factcc":
+        config = read_yaml(config_path("model", "factcc_hf.yaml"))
+        return str(config.get("mode", FACTCC_HF_MODE))
+    if stage == "summac":
+        config = read_yaml(config_path("score", "summac.yaml"))
+        return str(config.get("mode", SUMMAC_HF_MODE))
+    if stage == "entity_support":
+        return "entity_support_heuristic"
+    msg = f"Unsupported score stage: {stage}"
+    raise ValueError(msg)
 
 
 def _merge_scores(base: pd.DataFrame, scores: pd.DataFrame, *, stage: str) -> pd.DataFrame:
@@ -71,6 +88,9 @@ def run_score_stage(stage: str) -> None:
             target.parent.mkdir(parents=True, exist_ok=True)
             scored.to_parquet(target, index=False)
             scored.to_csv(target.with_suffix(".csv"), index=False)
+    summary_path = artifact_path("scores", stage, "stage_summary.json")
+    summary_path.parent.mkdir(parents=True, exist_ok=True)
+    write_json(summary_path, {"stage": stage, "actual_mode": _executed_stage_mode(stage)})
 
 
 def run_score_candidates_summac() -> None:

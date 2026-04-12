@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from functools import cache
 from typing import TYPE_CHECKING, Any
 
 from factuality_rerank_xsum.utils.io import read_yaml
@@ -181,6 +182,17 @@ def _requested_revision(config: dict[str, Any]) -> str | None:
     return value or None
 
 
+@cache
+def _cached_seq2seq_runtime(
+    model_name_or_path: str,
+    revision: str | None,
+    device_preference: str,
+) -> tuple[Any, Any, Any]:
+    """Load and cache the seq2seq runtime for repeated generation calls."""
+
+    return load_seq2seq_runtime(model_name_or_path, revision, device_preference)
+
+
 def _sequence_scores(
     token_scores: list[float],
     *,
@@ -346,7 +358,34 @@ def generate_model_candidates(
     max_new_tokens: int,
     min_new_tokens: int,
     config: dict[str, Any] | None = None,
+    runtime: tuple[Any, Any, Any] | None = None,
 ) -> list[dict[str, object]]:
+    """Generate candidates for one example with either offline or HF generation.
+
+    Args:
+        example_id: Stable example identifier used in output rows.
+        split: Pipeline split name for the generated candidates.
+        document: Source document text to summarize.
+        reference: Reference summary paired with the example.
+        num_beams: Number of candidate summaries to generate.
+        length_penalty: Beam-search length penalty passed to generation.
+        no_repeat_ngram_size: No-repeat n-gram constraint for decoding.
+        max_new_tokens: Maximum number of generated tokens.
+        min_new_tokens: Minimum number of generated tokens.
+        config: Optional generator config override with `mode`,
+            `model_name_or_path`, optional `revision`, and optional `device`.
+        runtime: Optional cached `(tokenizer, model, device)` triple for
+            Hugging Face generation. Ignored in offline mode.
+
+    Returns:
+        A list of normalized candidate dictionaries containing identifiers,
+        generation metadata, scores, summary text, and provenance fields.
+
+    Raises:
+        ValueError: If the configured generation mode is unsupported.
+        OSError: If the Hugging Face runtime cannot be initialized.
+    """
+
     generation_config = config or _generation_config()
     mode = str(generation_config.get("mode", "huggingface_generation"))
     if mode == "offline_surrogate_generator":
@@ -368,7 +407,7 @@ def generate_model_candidates(
     import torch
 
     revision = _requested_revision(generation_config)
-    tokenizer, model, device = load_seq2seq_runtime(
+    tokenizer, model, device = runtime or _cached_seq2seq_runtime(
         str(generation_config["model_name_or_path"]),
         revision,
         str(generation_config.get("device", "auto")),
@@ -438,6 +477,16 @@ def generate_candidates_for_examples(
         The generated candidate rows for the provided examples.
     """
 
+    generation_config = config or _generation_config()
+    mode = str(generation_config.get("mode", "huggingface_generation"))
+    runtime = None
+    if mode == "huggingface_generation":
+        runtime = _cached_seq2seq_runtime(
+            str(generation_config["model_name_or_path"]),
+            _requested_revision(generation_config),
+            str(generation_config.get("device", "auto")),
+        )
+
     generated: list[dict[str, object]] = []
     for row in rows:
         generated.extend(
@@ -451,7 +500,8 @@ def generate_candidates_for_examples(
                 no_repeat_ngram_size=no_repeat_ngram_size,
                 max_new_tokens=max_new_tokens,
                 min_new_tokens=min_new_tokens,
-                config=config,
+                config=generation_config,
+                runtime=runtime,
             )
         )
     return generated

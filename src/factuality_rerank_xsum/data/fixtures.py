@@ -27,12 +27,31 @@ class PreparedDataset:
 
 @dataclass(frozen=True)
 class SplitSample:
+    """Tracked split-sampling configuration for one output split.
+
+    Attributes:
+        name: Pipeline split name written under `data/processed/splits/`.
+        source_split: Source dataset split to sample from.
+        limit: Maximum number of rows to materialize for the split.
+    """
+
     name: str
     source_split: str
     limit: int
 
 
 class DatasetLoader(Protocol):
+    """Callable interface for loading one dataset split.
+
+    Args:
+        path: Dataset identifier passed to the backend loader.
+        split: Named dataset split to materialize.
+        revision: Optional dataset revision, tag, or commit.
+
+    Returns:
+        A materialized Hugging Face `Dataset` for the requested split.
+    """
+
     def __call__(self, path: str, /, *, split: str, revision: str | None = None) -> Dataset: ...
 
 
@@ -68,6 +87,19 @@ def split_id_map(ids: list[str]) -> dict[str, list[str]]:
 
 
 def load_preview_fixture(path: Path | None = None) -> pd.DataFrame:
+    """Load and normalize the tracked offline XSum preview fixture.
+
+    Args:
+        path: Optional fixture file override. When omitted, uses the tracked
+            repository fixture at `data/fixtures/xsum_preview_fixture.jsonl`.
+
+    Returns:
+        A normalized fixture dataframe with string IDs and source metadata.
+
+    Raises:
+        ValueError: If the fixture file is missing required dataset columns.
+    """
+
     frame = pd.read_json(path or FIXTURE_PATH, lines=True)
     expected_columns = {"id", "document", "summary"}
     missing = expected_columns - set(frame.columns)
@@ -176,7 +208,15 @@ def _prepare_online_dataset(
 def _prepare_offline_fixture(
     config: dict[str, Any], error: Exception | None = None
 ) -> PreparedDataset:
-    frame = load_preview_fixture(Path(str(config.get("fixture_path", FIXTURE_PATH))))
+    raw_fixture_path = config.get("fixture_path")
+    fixture_path = (
+        raw_fixture_path
+        if isinstance(raw_fixture_path, Path)
+        else Path(raw_fixture_path)
+        if raw_fixture_path
+        else FIXTURE_PATH
+    )
+    frame = load_preview_fixture(fixture_path)
     manifest: dict[str, Any] = {
         "dataset_mode": "offline_preview_fixture",
         "dataset_name_requested": str(config["dataset_name"]),
@@ -209,6 +249,26 @@ def _prepare_offline_fixture(
 
 
 def prepare_dataset(*, dataset_loader: DatasetLoader | None = None) -> PreparedDataset:
+    """Materialize the configured dataset in online or fixture mode.
+
+    Args:
+        dataset_loader: Optional dataset-loading callable used for online Hub
+            materialization. Defaults to `datasets.load_dataset`.
+
+    Returns:
+        The prepared dataset payload, including the normalized dataframe and
+        dataset provenance metadata written to tracked artifacts.
+
+    Raises:
+        HfHubHTTPError: If the online dataset lookup fails and offline fallback
+            is disabled.
+        OSError: If dataset reads or artifact writes fail and offline fallback
+            is disabled.
+        TypeError: If the dataset config contains an invalid split-sampling
+            shape.
+        ValueError: If the loaded dataset frame is missing required columns.
+    """
+
     config = read_yaml(config_path("data", "xsum.yaml"))
     active_loader = dataset_loader or load_dataset
     use_offline = str(config.get("mode", "online_hub")) == "offline_fixture"

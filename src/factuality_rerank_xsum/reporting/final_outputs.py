@@ -81,7 +81,8 @@ def system_card_lines(runtime: dict[str, Any]) -> list[str]:
             f"NLI `{requested['nli_model']}`."
         ),
         f"- Executed dataset mode: `{runtime['dataset_mode']}`.",
-        f"- Configured generator mode: `{runtime['generator_mode']}`.",
+        f"- Requested generator mode: `{requested['generator_mode']}`.",
+        f"- Executed generator mode: `{runtime['generator_mode']}`.",
         (
             "- Intended use: reproducible reranking runs, artifact inspection, "
             "report writing, and submission QA over tracked outputs."

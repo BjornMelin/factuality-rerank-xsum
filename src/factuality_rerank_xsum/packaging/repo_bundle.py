@@ -69,6 +69,7 @@ def run_package_repo() -> Path:
         msg = f"Failed creating repository bundle at {final_path}: {exc}"
         raise OSError(msg) from exc
     artifact_copy = artifact_path("package", final_path.name)
+    artifact_copy.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(final_path, artifact_copy)
     root = project_root()
     write_json(
