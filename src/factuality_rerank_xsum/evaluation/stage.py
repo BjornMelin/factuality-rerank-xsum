@@ -33,8 +33,12 @@ def _comparison_table(baseline: pd.DataFrame, reranked: pd.DataFrame) -> pd.Data
         A normalized comparison table with paired baseline and reranked fields.
     """
 
-    missing_from_reranked = sorted(set(baseline["id"].astype(str)) - set(reranked["id"].astype(str)))
-    missing_from_baseline = sorted(set(reranked["id"].astype(str)) - set(baseline["id"].astype(str)))
+    missing_from_reranked = sorted(
+        set(baseline["id"].astype(str)) - set(reranked["id"].astype(str))
+    )
+    missing_from_baseline = sorted(
+        set(reranked["id"].astype(str)) - set(baseline["id"].astype(str))
+    )
     if missing_from_reranked or missing_from_baseline:
         msg = (
             "Baseline and reranked selections must cover the same example IDs. "
