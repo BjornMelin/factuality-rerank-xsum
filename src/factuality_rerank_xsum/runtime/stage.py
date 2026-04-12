@@ -21,14 +21,32 @@ def run_env_check() -> dict[str, Any]:
 
     requested = requested_runtime_config()
     hf_auth_payload = run_hf_json("auth", "whoami") or {}
-    dataset_info = run_hf_json("datasets", "info", requested["dataset_name"])
-    generator_info = run_hf_json("models", "info", requested["generator_model"])
-    factcc_info = run_hf_json("models", "info", requested["factcc_model"])
-    nli_info = run_hf_json("models", "info", requested["nli_model"])
-    hf_auth = {"authenticated": bool(hf_auth_payload)}
-    online_runtime_ready = bool(
-        hf_auth["authenticated"] and dataset_info and generator_info and factcc_info and nli_info
+    dataset_info = run_hf_json(
+        "datasets",
+        "info",
+        requested["dataset_name"],
+        str(requested["dataset_revision"] or ""),
     )
+    generator_info = run_hf_json(
+        "models",
+        "info",
+        requested["generator_model"],
+        str(requested["generator_revision"] or ""),
+    )
+    factcc_info = run_hf_json(
+        "models",
+        "info",
+        requested["factcc_model"],
+        str(requested["factcc_revision"] or ""),
+    )
+    nli_info = run_hf_json(
+        "models",
+        "info",
+        requested["nli_model"],
+        str(requested["nli_revision"] or ""),
+    )
+    hf_auth = {"authenticated": bool(hf_auth_payload)}
+    online_runtime_ready = bool(dataset_info and generator_info and factcc_info and nli_info)
     report: dict[str, Any] = {
         "python_version": platform.python_version(),
         "platform": platform.platform(),

@@ -34,8 +34,14 @@ def run_hf_json(*args: str) -> dict[str, Any] | None:
             case ("datasets", "info", dataset_name):
                 dataset_info = HF_API.dataset_info(dataset_name)
                 payload = {"id": dataset_info.id, "sha": dataset_info.sha}
+            case ("datasets", "info", dataset_name, revision):
+                dataset_info = HF_API.dataset_info(dataset_name, revision=revision or None)
+                payload = {"id": dataset_info.id, "sha": dataset_info.sha}
             case ("models", "info", model_name):
                 model_info = HF_API.model_info(model_name)
+                payload = {"id": model_info.id, "sha": model_info.sha}
+            case ("models", "info", model_name, revision):
+                model_info = HF_API.model_info(model_name, revision=revision or None)
                 payload = {"id": model_info.id, "sha": model_info.sha}
             case _:
                 return None
