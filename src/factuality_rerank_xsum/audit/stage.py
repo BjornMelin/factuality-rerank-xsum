@@ -23,6 +23,12 @@ def _parse_boolish(value: Any) -> bool:
 
 
 def run_sample_manual_audit() -> pd.DataFrame:
+    """Build the manual-audit template and derived audit examples.
+
+    Returns:
+        The completed audit rows derived from the comparison table.
+    """
+
     comparison = pd.read_csv(comparison_table_path("test_final"))
     template_columns = [
         "id",
@@ -57,6 +63,15 @@ def run_sample_manual_audit() -> pd.DataFrame:
 
 
 def run_summarize_manual_audit() -> dict[str, Any]:
+    """Summarize the completed manual audit into tracked artifacts.
+
+    Returns:
+        A JSON-serializable summary payload for the completed audit.
+
+    Raises:
+        ValueError: If a consistency column contains an unsupported boolean value.
+    """
+
     audit = pd.read_csv(artifact_path("audit", "manual_audit_completed.csv"))
     summary_frame = (
         audit.groupby("primary_error_type", as_index=False)

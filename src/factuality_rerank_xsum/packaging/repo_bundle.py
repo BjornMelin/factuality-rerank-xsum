@@ -14,8 +14,12 @@ def run_package_repo() -> Path:
     """Build the final repository zip and record its manifest."""
 
     final_path = project_root().parent / "factuality-rerank-xsum.zip"
-    if final_path.exists():
-        final_path.unlink()
+    try:
+        if final_path.exists():
+            final_path.unlink()
+    except OSError as exc:
+        msg = f"Failed removing existing repository bundle at {final_path}: {exc}"
+        raise OSError(msg) from exc
     excluded_parts = {
         ".git",
         ".venv",
@@ -24,16 +28,20 @@ def run_package_repo() -> Path:
         ".ruff_cache",
         "__pycache__",
     }
-    with zipfile.ZipFile(final_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for path in project_root().rglob("*"):
-            if not path.is_file():
-                continue
-            relative = path.relative_to(project_root())
-            if any(part in excluded_parts for part in relative.parts):
-                continue
-            if relative.parts[:2] == ("artifacts", "package") and path.suffix == ".zip":
-                continue
-            archive.write(path, arcname=str(Path(project_root().name) / relative))
+    try:
+        with zipfile.ZipFile(final_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            for path in project_root().rglob("*"):
+                if not path.is_file():
+                    continue
+                relative = path.relative_to(project_root())
+                if any(part in excluded_parts for part in relative.parts):
+                    continue
+                if relative.parts[:2] == ("artifacts", "package") and path.suffix == ".zip":
+                    continue
+                archive.write(path, arcname=str(Path(project_root().name) / relative))
+    except OSError as exc:
+        msg = f"Failed creating repository bundle at {final_path}: {exc}"
+        raise OSError(msg) from exc
     artifact_copy = artifact_path("package", final_path.name)
     shutil.copy2(final_path, artifact_copy)
     root = project_root()

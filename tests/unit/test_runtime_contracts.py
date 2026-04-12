@@ -10,6 +10,7 @@ from factuality_rerank_xsum.runtime.manifests import runtime_contract
 from factuality_rerank_xsum.scorers.factcc_style import score_factcc_style
 from factuality_rerank_xsum.scorers.summac_style import score_summac_style
 from factuality_rerank_xsum.scoring.stage import _merge_scores
+from factuality_rerank_xsum.search.stage import _required_search_row
 from factuality_rerank_xsum.utils import hf as hf_utils
 from factuality_rerank_xsum.utils.transformers_runtime import select_torch_device
 
@@ -91,3 +92,8 @@ def test_dataset_sha_does_not_depend_on_hf_cli(monkeypatch: pytest.MonkeyPatch) 
     monkeypatch.setattr(hf_utils, "hf_cli_available", lambda: False)
 
     assert hf_utils.dataset_sha("owner/dataset") == "sha-123"
+
+
+def test_required_search_row_raises_when_selection_is_missing() -> None:
+    with pytest.raises(ValueError, match="Missing search result row"):
+        _required_search_row(pd.DataFrame(), description="missing winner")

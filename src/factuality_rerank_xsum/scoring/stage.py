@@ -20,6 +20,20 @@ MERGE_KEYS = ["id", "candidate_hash"]
 
 
 def _merge_scores(base: pd.DataFrame, scores: pd.DataFrame, *, stage: str) -> pd.DataFrame:
+    """Merge one scorer output into the candidate table with integrity checks.
+
+    Args:
+        base: Candidate rows accumulated so far.
+        scores: Score rows for one scoring stage.
+        stage: Stage name used for error reporting.
+
+    Returns:
+        The merged candidate and score dataframe.
+
+    Raises:
+        ValueError: If the merge changes row count or leaves missing score values.
+    """
+
     merged = base.merge(scores, on=MERGE_KEYS, how="left", validate="one_to_one")
     if len(merged) != len(base):
         msg = f"Row-count mismatch after merging {stage}: base={len(base)} merged={len(merged)}"
@@ -32,7 +46,14 @@ def _merge_scores(base: pd.DataFrame, scores: pd.DataFrame, *, stage: str) -> pd
 
 
 def run_score_stage(stage: str) -> None:
-    """Run one scorer over every generated candidate table."""
+    """Run one scorer over every generated candidate table.
+
+    Args:
+        stage: Scoring stage name.
+
+    Raises:
+        ValueError: If the requested stage name is unsupported.
+    """
 
     for split in PIPELINE_SPLITS:
         for beam in BEAM_SIZES:
@@ -80,7 +101,11 @@ def run_optional_minicheck_placeholder() -> None:
 
 
 def run_merge_candidate_scores() -> None:
-    """Merge per-stage scorer outputs into one table per split and beam size."""
+    """Merge per-stage scorer outputs into one table per split and beam size.
+
+    Raises:
+        ValueError: If any scorer merge changes candidate cardinality or leaves gaps.
+    """
 
     for split in PIPELINE_SPLITS:
         for beam in BEAM_SIZES:

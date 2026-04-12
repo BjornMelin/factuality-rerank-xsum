@@ -20,6 +20,13 @@ from factuality_rerank_xsum.utils.io import read_yaml, write_yaml
 from factuality_rerank_xsum.utils.paths import artifact_path, config_path
 
 
+def _required_search_row(frame: pd.DataFrame, *, description: str) -> pd.Series:
+    if frame.empty:
+        msg = f"Missing search result row for {description}"
+        raise ValueError(msg)
+    return frame.iloc[0]
+
+
 def run_search_weights() -> pd.DataFrame:
     """Search rerank weights on the validation split and persist winners."""
 
@@ -56,10 +63,11 @@ def run_search_weights() -> pd.DataFrame:
     target = artifact_path("search", "grid_results.csv")
     target.parent.mkdir(parents=True, exist_ok=True)
     result_frame.to_csv(target, index=False)
-    baseline_row = (
-        result_frame.query("system == 'logprob_only' and beam_size == 8")
-        .sort_values("factuality_composite", ascending=False)
-        .iloc[0]
+    baseline_row = _required_search_row(
+        result_frame.query("system == 'logprob_only' and beam_size == 8").sort_values(
+            "factuality_composite", ascending=False
+        ),
+        description="system=logprob_only beam_size=8",
     )
     rouge_tolerance = float(
         read_yaml(config_path("rerank", "weight_grid.yaml"))["rouge_lsum_tolerance"]
@@ -67,18 +75,27 @@ def run_search_weights() -> pd.DataFrame:
     balanced_candidates = result_frame[
         result_frame["rougeLsum"] >= float(baseline_row["rougeLsum"]) - rouge_tolerance
     ]
-    best_balanced = balanced_candidates.sort_values(
-        ["factuality_composite", "rougeLsum"], ascending=[False, False]
-    ).iloc[0]
-    best_factuality = result_frame.iloc[0]
+    best_balanced = _required_search_row(
+        balanced_candidates.sort_values(
+            ["factuality_composite", "rougeLsum"], ascending=[False, False]
+        ),
+        description="best_balanced candidate",
+    )
+    best_factuality = _required_search_row(
+        result_frame,
+        description="best_factuality candidate",
+    )
     simple_candidates = result_frame[
         result_frame["system"].isin(
             ["logprob_plus_summac", "logprob_plus_factcc", "summac_only", "factcc_only"]
         )
     ]
-    best_simple = simple_candidates.sort_values(
-        ["factuality_composite", "rougeLsum"], ascending=[False, False]
-    ).iloc[0]
+    best_simple = _required_search_row(
+        simple_candidates.sort_values(
+            ["factuality_composite", "rougeLsum"], ascending=[False, False]
+        ),
+        description="best_simple candidate",
+    )
     for name, row in [
         (BEST_BALANCED, best_balanced),
         (BEST_FACTUALITY, best_factuality),

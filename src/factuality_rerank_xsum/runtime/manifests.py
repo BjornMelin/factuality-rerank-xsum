@@ -14,7 +14,14 @@ if TYPE_CHECKING:
 
 
 def package_version(name: str) -> str | None:
-    """Return the installed version for a package, if present."""
+    """Return the installed version for a package, if present.
+
+    Args:
+        name: Package distribution name.
+
+    Returns:
+        The installed version string, or `None` when the package is absent.
+    """
 
     try:
         return importlib.metadata.version(name)
@@ -23,7 +30,14 @@ def package_version(name: str) -> str | None:
 
 
 def dns_check(hostname: str) -> dict[str, str | bool]:
-    """Resolve a hostname and return a structured DNS check payload."""
+    """Resolve a hostname and return a structured DNS check payload.
+
+    Args:
+        hostname: Hostname to resolve.
+
+    Returns:
+        A structured payload describing whether the hostname resolved.
+    """
 
     try:
         socket.gethostbyname(hostname)
@@ -33,13 +47,24 @@ def dns_check(hostname: str) -> dict[str, str | bool]:
 
 
 def uv_version() -> str:
-    """Return the installed ``uv`` version string."""
+    """Return the installed ``uv`` version string.
+
+    Returns:
+        The installed `uv` version string, or an empty string if unavailable.
+    """
 
     return package_version("uv") or ""
 
 
 def read_json_if_exists(path: Path) -> dict[str, Any]:
-    """Read a JSON object from disk when the file exists."""
+    """Read a JSON object from disk when the file exists.
+
+    Args:
+        path: JSON file path to read.
+
+    Returns:
+        The decoded JSON object, or an empty dictionary when missing or non-object.
+    """
 
     if not path.exists():
         return {}
@@ -48,7 +73,11 @@ def read_json_if_exists(path: Path) -> dict[str, Any]:
 
 
 def requested_runtime_config() -> dict[str, Any]:
-    """Load the requested dataset and model configuration contract."""
+    """Load the requested dataset and model configuration contract.
+
+    Returns:
+        The normalized runtime configuration derived from tracked YAML files.
+    """
 
     data_config = read_yaml(config_path("data", "xsum.yaml"))
     generation_config = read_yaml(config_path("model", "bart_xsum_public.yaml"))
@@ -70,7 +99,11 @@ def requested_runtime_config() -> dict[str, Any]:
 
 
 def runtime_contract() -> dict[str, Any]:
-    """Assemble the current requested and resolved runtime state."""
+    """Assemble the current requested and resolved runtime state.
+
+    Returns:
+        The combined requested and resolved runtime contract payload.
+    """
 
     requested = requested_runtime_config()
     env_report = read_json_if_exists(artifact_path("env", "env_report.json"))

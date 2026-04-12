@@ -78,3 +78,5 @@ def test_system_card_lines_change_with_runtime_mode() -> None:
     assert "public Hugging Face runtime path" in online
     assert "repository scaffolding" not in online
     assert "Current outputs should be read together with the executed dataset" in offline
+    assert "public Hugging Face runtime path" not in offline
+    assert "Executed dataset mode: `fixture_preview`." in offline

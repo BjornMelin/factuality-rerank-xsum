@@ -82,7 +82,10 @@ def system_card_lines(runtime: dict[str, Any]) -> list[str]:
         ),
         f"- Executed dataset mode: `{runtime['dataset_mode']}`.",
         f"- Configured generator mode: `{runtime['generator_mode']}`.",
-        "- Intended use: reproducible reranking runs, artifact inspection, report writing, and submission QA over tracked outputs.",
+        (
+            "- Intended use: reproducible reranking runs, artifact inspection, "
+            "report writing, and submission QA over tracked outputs."
+        ),
         f"- {execution_note}",
     ]
 

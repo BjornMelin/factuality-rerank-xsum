@@ -15,7 +15,11 @@ from factuality_rerank_xsum.utils.paths import artifact_path, config_path
 
 
 def config_beams() -> list[dict[str, Any]]:
-    """Load the configured beam search variants."""
+    """Load the configured beam search variants.
+
+    Returns:
+        The beam-search parameter sets from the generate configs.
+    """
 
     return [
         read_yaml(config_path("generate", name))
@@ -24,7 +28,14 @@ def config_beams() -> list[dict[str, Any]]:
 
 
 def example_rows(split: str) -> list[dict[str, str]]:
-    """Load normalized example rows for one split."""
+    """Load normalized example rows for one split.
+
+    Args:
+        split: Pipeline split name.
+
+    Returns:
+        The normalized example rows for the requested split.
+    """
 
     frame = load_dataset_table()
     rows = frame[frame["id"].isin(ids_for_split(split))].copy()
@@ -36,7 +47,15 @@ def example_rows(split: str) -> list[dict[str, str]]:
 
 
 def generation_integrity_report(frame: pd.DataFrame, requested_ids: list[str]) -> dict[str, Any]:
-    """Summarize candidate generation coverage for one split and beam."""
+    """Summarize candidate generation coverage for one split and beam.
+
+    Args:
+        frame: Generated candidate rows for one split and beam size.
+        requested_ids: Example IDs that were requested for generation.
+
+    Returns:
+        A coverage and integrity summary for the generated frame.
+    """
 
     if frame.empty:
         return {
@@ -69,7 +88,11 @@ def generation_integrity_report(frame: pd.DataFrame, requested_ids: list[str]) -
 
 
 def run_generate_candidates() -> dict[str, Any]:
-    """Generate candidate summaries for every configured split and beam size."""
+    """Generate candidate summaries for every configured split and beam size.
+
+    Returns:
+        The generation summary payload written to tracked artifacts.
+    """
 
     beams = config_beams()
     generation_config = read_yaml(config_path("model", "bart_xsum_public.yaml"))

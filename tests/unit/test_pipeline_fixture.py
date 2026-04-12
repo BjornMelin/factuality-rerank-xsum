@@ -1,7 +1,7 @@
 import pandas as pd
 
 from factuality_rerank_xsum.data.fixtures import load_preview_fixture, split_id_map
-from factuality_rerank_xsum.generation.offline import generate_for_examples
+from factuality_rerank_xsum.generation.offline import generate_candidates_for_examples
 from factuality_rerank_xsum.generation.stage import generation_integrity_report
 
 
@@ -22,7 +22,7 @@ def test_offline_generation_returns_multiple_candidates() -> None:
         }
         for _, row in frame.iterrows()
     ]
-    rows = generate_for_examples(
+    rows = generate_candidates_for_examples(
         examples,
         split="dev_smoke",
         num_beams=4,
@@ -30,6 +30,7 @@ def test_offline_generation_returns_multiple_candidates() -> None:
         no_repeat_ngram_size=3,
         max_new_tokens=64,
         min_new_tokens=10,
+        config={"mode": "offline_surrogate_generator"},
     )
 
     assert len(rows) == 8
@@ -44,3 +45,9 @@ def test_generation_integrity_report_handles_empty_frames() -> None:
     assert report["observed_ids"] == 0
     assert report["missing_ids"] == ["a", "b"]
     assert report["min_candidates_per_example"] == 0
+
+
+def test_split_id_map_uses_tail_examples_for_small_fixtures() -> None:
+    split_map = split_id_map([str(index) for index in range(10)])
+
+    assert split_map["test_final"] == ["8", "9"]

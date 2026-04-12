@@ -22,8 +22,16 @@ from factuality_rerank_xsum.utils.io import write_json
 from factuality_rerank_xsum.utils.paths import artifact_path
 
 
-def _comparison_table(_split: str, baseline: pd.DataFrame, reranked: pd.DataFrame) -> pd.DataFrame:
-    """Build the comparison table used by audit and reporting stages."""
+def _comparison_table(baseline: pd.DataFrame, reranked: pd.DataFrame) -> pd.DataFrame:
+    """Build the comparison table used by audit and reporting stages.
+
+    Args:
+        baseline: Baseline system selections for one split.
+        reranked: Reranked system selections for the same split.
+
+    Returns:
+        A normalized comparison table with paired baseline and reranked fields.
+    """
 
     comparison = baseline.merge(reranked, on="id", suffixes=("_baseline", "_reranked"))
     comparison = comparison.rename(
@@ -83,13 +91,14 @@ def _comparison_table(_split: str, baseline: pd.DataFrame, reranked: pd.DataFram
 def run_rerank_and_eval() -> pd.DataFrame:
     """Apply canonical rerank systems and write evaluation artifacts."""
 
+    weight_configs = named_weight_configs()
     systems: list[tuple[str, dict[str, Any]]] = [
         (
             BASELINE_SYSTEM,
             {
                 "beam_size": 8,
                 "normalization": "zscore",
-                "weights": named_weight_configs()["logprob_only"],
+                "weights": weight_configs["logprob_only"],
             },
         ),
         (BEST_BALANCED, load_selection_config(BEST_BALANCED)),
@@ -103,7 +112,7 @@ def run_rerank_and_eval() -> pd.DataFrame:
                 {
                     "beam_size": beam,
                     "normalization": "zscore",
-                    "weights": named_weight_configs()["logprob_only"],
+                    "weights": weight_configs["logprob_only"],
                 },
             )
         )
@@ -122,7 +131,7 @@ def run_rerank_and_eval() -> pd.DataFrame:
                 {
                     "beam_size": 8,
                     "normalization": "zscore",
-                    "weights": named_weight_configs()[name],
+                    "weights": weight_configs[name],
                 },
             )
         )
@@ -151,9 +160,7 @@ def run_rerank_and_eval() -> pd.DataFrame:
     for split in ["val_full", "test_final"]:
         baseline = pd.read_parquet(selected_table_path(split, BASELINE_SYSTEM))
         reranked = pd.read_parquet(selected_table_path(split, BEST_BALANCED))
-        _comparison_table(split, baseline, reranked).to_csv(
-            comparison_table_path(split), index=False
-        )
+        _comparison_table(baseline, reranked).to_csv(comparison_table_path(split), index=False)
     return metrics_frame
 
 

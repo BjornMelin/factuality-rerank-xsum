@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any
 
-import torch
-
 from factuality_rerank_xsum.utils.io import read_yaml
 from factuality_rerank_xsum.utils.paths import config_path
 from factuality_rerank_xsum.utils.text import (
@@ -149,6 +147,11 @@ def build_candidate_pool(example_id: str, document: str) -> list[tuple[str, str,
 
 def _generation_config() -> dict[str, Any]:
     return read_yaml(config_path("model", "bart_xsum_public.yaml"))
+
+
+def _requested_revision(config: dict[str, Any]) -> str | None:
+    value = str(config.get("revision") or "")
+    return value or None
 
 
 def _sequence_scores(
@@ -332,9 +335,12 @@ def generate_model_candidates(
             min_new_tokens=min_new_tokens,
         )
 
+    import torch
+
+    revision = _requested_revision(generation_config)
     tokenizer, model, device = load_seq2seq_runtime(
         str(generation_config["model_name_or_path"]),
-        str(generation_config.get("revision") or "") or None,
+        revision,
         str(generation_config.get("device", "auto")),
     )
     encoded = tokenizer(
@@ -368,39 +374,11 @@ def generate_model_candidates(
         max_new_tokens=max_new_tokens,
         min_new_tokens=min_new_tokens,
         model_name_or_path=str(generation_config["model_name_or_path"]),
-        revision=str(generation_config.get("revision") or "") or None,
+        revision=revision,
         tokenizer=tokenizer,
         model=model,
         outputs=outputs,
     )
-
-
-def generate_for_examples(
-    rows: Iterable[dict[str, str]],
-    *,
-    split: str,
-    num_beams: int,
-    length_penalty: float,
-    no_repeat_ngram_size: int,
-    max_new_tokens: int,
-    min_new_tokens: int,
-) -> list[dict[str, object]]:
-    generated: list[dict[str, object]] = []
-    for row in rows:
-        generated.extend(
-            generate_offline_candidates(
-                example_id=row["id"],
-                split=split,
-                document=row["document"],
-                reference=row["summary"],
-                num_beams=num_beams,
-                length_penalty=length_penalty,
-                no_repeat_ngram_size=no_repeat_ngram_size,
-                max_new_tokens=max_new_tokens,
-                min_new_tokens=min_new_tokens,
-            )
-        )
-    return generated
 
 
 def generate_candidates_for_examples(
@@ -414,6 +392,22 @@ def generate_candidates_for_examples(
     min_new_tokens: int,
     config: dict[str, Any] | None = None,
 ) -> list[dict[str, object]]:
+    """Generate candidates for a batch of examples.
+
+    Args:
+        rows: Normalized example rows.
+        split: Pipeline split name.
+        num_beams: Number of beam candidates to generate.
+        length_penalty: Generation length-penalty setting.
+        no_repeat_ngram_size: No-repeat n-gram constraint.
+        max_new_tokens: Maximum generated token count.
+        min_new_tokens: Minimum generated token count.
+        config: Optional generator configuration override.
+
+    Returns:
+        The generated candidate rows for the provided examples.
+    """
+
     generated: list[dict[str, object]] = []
     for row in rows:
         generated.extend(

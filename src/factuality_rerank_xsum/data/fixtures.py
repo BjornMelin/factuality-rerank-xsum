@@ -38,14 +38,31 @@ class DatasetLoader(Protocol):
 FIXTURE_PATH = data_path("fixtures", "xsum_preview_fixture.jsonl")
 
 
+def _test_final_ids(normalized_ids: list[str]) -> list[str]:
+    if len(normalized_ids) >= 16:
+        return normalized_ids[8:16]
+    if len(normalized_ids) > 8:
+        return normalized_ids[8:]
+    return normalized_ids[max(len(normalized_ids) // 2, 0) :]
+
+
 def split_id_map(ids: list[str]) -> dict[str, list[str]]:
+    """Build the tracked split-to-ID mapping for fixture-backed runs.
+
+    Args:
+        ids: Source example IDs in deterministic order.
+
+    Returns:
+        The tracked split map used by the bounded fixture workflow.
+    """
+
     normalized = [str(value) for value in ids]
     return {
         "dev_smoke": normalized[:4],
         "dev_small": normalized[:8],
         "val_tune": normalized[:8],
         "val_full": normalized[:8],
-        "test_final": normalized[8:16] if len(normalized) >= 16 else normalized[4:8],
+        "test_final": _test_final_ids(normalized),
     }
 
 
