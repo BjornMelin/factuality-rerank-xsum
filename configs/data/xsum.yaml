@@ -1,7 +1,7 @@
 dataset_name: EdinburghNLP/xsum
 dataset_revision: 7d4d486c2f8ef850b1a11aead99b894ff3dd7da9
 mode: online_hub
-offline_fallback_on_error: true
+offline_fallback_on_error: false
 fixture_path: data/fixtures/xsum_preview_fixture.jsonl
 split_sampling:
   dev_smoke:

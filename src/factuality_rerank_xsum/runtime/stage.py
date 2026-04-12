@@ -20,18 +20,14 @@ def run_env_check() -> dict[str, Any]:
     """Capture runtime readiness and write environment manifests."""
 
     requested = requested_runtime_config()
-    hf_auth = run_hf_json("auth", "whoami")
+    hf_auth_payload = run_hf_json("auth", "whoami") or {}
     dataset_info = run_hf_json("datasets", "info", requested["dataset_name"])
     generator_info = run_hf_json("models", "info", requested["generator_model"])
     factcc_info = run_hf_json("models", "info", requested["factcc_model"])
     nli_info = run_hf_json("models", "info", requested["nli_model"])
+    hf_auth = {"authenticated": bool(hf_auth_payload)}
     online_runtime_ready = bool(
-        hf_cli_available()
-        and hf_auth
-        and dataset_info
-        and generator_info
-        and factcc_info
-        and nli_info
+        hf_auth["authenticated"] and dataset_info and generator_info and factcc_info and nli_info
     )
     report: dict[str, Any] = {
         "python_version": platform.python_version(),
@@ -61,7 +57,7 @@ def run_env_check() -> dict[str, Any]:
         },
         "dns_checks": [dns_check("huggingface.co"), dns_check("pypi.org")],
         "hf_cli_available": hf_cli_available(),
-        "hf_auth": hf_auth or {},
+        "hf_auth": hf_auth,
         "online_runtime_ready": online_runtime_ready,
         "mode": "online_hf_ready" if online_runtime_ready else "online_hf_unverified",
         "requested_online_path": requested,
@@ -79,9 +75,7 @@ def run_env_check() -> dict[str, Any]:
     versions_md += f"- uv: `{report['uv_version']}`\n"
     versions_md += f"- Runtime mode: `{report['mode']}`\n"
     versions_md += f"- Hugging Face CLI available: `{report['hf_cli_available']}`\n"
-    versions_md += (
-        f"- Hugging Face authenticated user: `{report['hf_auth'].get('user', 'unknown')}`\n"
-    )
+    versions_md += f"- Hugging Face authenticated: `{report['hf_auth']['authenticated']}`\n"
     versions_md += "- DNS checks:\n"
     for row in report["dns_checks"]:
         versions_md += f"  - {row['host']}: resolvable={row['resolvable']} error=`{row['error']}`\n"

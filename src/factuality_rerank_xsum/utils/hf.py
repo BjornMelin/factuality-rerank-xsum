@@ -27,8 +27,6 @@ def run_hf_json(*args: str) -> dict[str, Any] | None:
         request fails.
     """
 
-    if not hf_cli_available():
-        return None
     try:
         match args:
             case ("auth", "whoami"):
@@ -47,10 +45,43 @@ def run_hf_json(*args: str) -> dict[str, Any] | None:
 
 
 def dataset_sha(dataset_name: str, revision: str | None = None) -> str | None:
-    info = HfApi().dataset_info(dataset_name, revision=revision)
+    """Get the Git SHA for a dataset revision on Hugging Face Hub.
+
+    Args:
+        dataset_name: Dataset identifier on the Hub.
+        revision: Optional branch, tag, or commit to inspect.
+
+    Returns:
+        The resolved Git SHA when the dataset lookup succeeds, otherwise
+        `None`.
+
+    Raises:
+        HfHubHTTPError: If the Hub rejects the dataset lookup request.
+        LocalTokenNotFoundError: If an authenticated lookup requires a token.
+        OSError: If the request fails due to a local I/O or network issue.
+        ValueError: If the provided arguments are invalid for the Hub client.
+    """
+
+    info = HF_API.dataset_info(dataset_name, revision=revision)
     return info.sha
 
 
 def model_sha(model_name: str, revision: str | None = None) -> str | None:
-    info = HfApi().model_info(model_name, revision=revision)
+    """Get the Git SHA for a model revision on Hugging Face Hub.
+
+    Args:
+        model_name: Model identifier on the Hub.
+        revision: Optional branch, tag, or commit to inspect.
+
+    Returns:
+        The resolved Git SHA when the model lookup succeeds, otherwise `None`.
+
+    Raises:
+        HfHubHTTPError: If the Hub rejects the model lookup request.
+        LocalTokenNotFoundError: If an authenticated lookup requires a token.
+        OSError: If the request fails due to a local I/O or network issue.
+        ValueError: If the provided arguments are invalid for the Hub client.
+    """
+
+    info = HF_API.model_info(model_name, revision=revision)
     return info.sha

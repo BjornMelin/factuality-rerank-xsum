@@ -78,7 +78,12 @@ def runtime_contract() -> dict[str, Any]:
     model_manifest = read_json_if_exists(artifact_path("models", "baseline_info.json"))
     dataset_mode = str(dataset_manifest.get("dataset_mode") or env_report.get("mode") or "not_run")
     generator_mode = str(model_manifest.get("actual_mode") or requested["generator_mode"])
-    online_execution = dataset_mode == "online_hub" and generator_mode == "huggingface_generation"
+    online_execution = (
+        dataset_mode == "online_hub"
+        and generator_mode == "huggingface_generation"
+        and requested["factcc_mode"] == "huggingface_text_classification"
+        and requested["nli_mode"] == "huggingface_nli_consistency"
+    )
     return {
         "requested": requested,
         "env_report": env_report,

@@ -23,6 +23,9 @@ from factuality_rerank_xsum.utils.transformers_runtime import (
     move_batch_to_device,
 )
 
+HEURISTIC_MODE = "heuristic_summac_style"
+HF_MODE = "huggingface_nli_consistency"
+
 
 class SummaCStyleScore(TypedDict):
     """SummaC-style scoring features for one summary.
@@ -40,6 +43,14 @@ class SummaCStyleScore(TypedDict):
 
 def _summac_config() -> dict[str, Any]:
     return read_yaml(config_path("score", "summac.yaml"))
+
+
+def _validated_mode(config: dict[str, Any]) -> str:
+    mode = str(config.get("mode", ""))
+    if mode in {HEURISTIC_MODE, HF_MODE}:
+        return mode
+    msg = f"Unsupported SummaC mode: {mode}"
+    raise ValueError(msg)
 
 
 def _heuristic_score(source: str, summary: str) -> SummaCStyleScore:
@@ -202,7 +213,8 @@ def score_summac_style(
     """
 
     active_config = config or _summac_config()
-    if str(active_config.get("mode", "")) == "heuristic_summac_style":
+    mode = _validated_mode(active_config)
+    if mode == HEURISTIC_MODE:
         return _heuristic_score(source, summary)
     return _aggregate_nli(source, summary, config=active_config)
 
@@ -218,7 +230,8 @@ def score_dataframe(frame: pd.DataFrame) -> pd.DataFrame:
     """
 
     config = _summac_config()
-    if str(config.get("mode", "")) == "heuristic_summac_style":
+    mode = _validated_mode(config)
+    if mode == HEURISTIC_MODE:
         records = []
         for _, row in frame.iterrows():
             records.append(

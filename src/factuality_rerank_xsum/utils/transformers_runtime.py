@@ -1,3 +1,5 @@
+"""Shared Transformers runtime helpers for generation and scoring stages."""
+
 from __future__ import annotations
 
 from functools import lru_cache
@@ -8,7 +10,23 @@ from transformers import AutoModelForSeq2SeqLM, AutoModelForSequenceClassificati
 
 
 def select_torch_device(preference: str = "auto") -> torch.device:
+    """Resolve the requested torch device.
+
+    Args:
+        preference: Requested device name: `auto`, `cpu`, or `cuda`.
+
+    Returns:
+        The selected torch device.
+
+    Raises:
+        RuntimeError: If CUDA is explicitly requested but unavailable.
+        ValueError: If the device preference is unsupported.
+    """
+
     normalized = preference.lower()
+    if normalized not in {"auto", "cpu", "cuda"}:
+        msg = f"Unsupported torch device preference: {preference}"
+        raise ValueError(msg)
     if normalized == "cpu":
         return torch.device("cpu")
     if normalized == "cuda":
@@ -22,6 +40,8 @@ def select_torch_device(preference: str = "auto") -> torch.device:
 def move_batch_to_device(
     batch: dict[str, torch.Tensor], device: torch.device
 ) -> dict[str, torch.Tensor]:
+    """Move an encoded tensor batch onto the selected device."""
+
     return {key: value.to(device) for key, value in batch.items()}
 
 
@@ -31,6 +51,8 @@ def load_seq2seq_runtime(
     revision: str | None,
     device_preference: str,
 ) -> tuple[Any, Any, torch.device]:
+    """Load and cache a sequence-to-sequence runtime."""
+
     tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, revision=revision, use_fast=True)
     model = AutoModelForSeq2SeqLM.from_pretrained(model_name_or_path, revision=revision)
     device = select_torch_device(device_preference)
@@ -45,6 +67,8 @@ def load_sequence_classifier_runtime(
     revision: str | None,
     device_preference: str,
 ) -> tuple[Any, Any, torch.device]:
+    """Load and cache a sequence-classification runtime."""
+
     tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, revision=revision, use_fast=True)
     model = AutoModelForSequenceClassification.from_pretrained(
         model_name_or_path, revision=revision

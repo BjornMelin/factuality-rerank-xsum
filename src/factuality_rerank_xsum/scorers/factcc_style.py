@@ -23,6 +23,8 @@ from factuality_rerank_xsum.utils.transformers_runtime import (
 )
 
 NEGATION_PATTERN = re.compile(r"\b(no|not|never|without|none)\b", re.IGNORECASE)
+HEURISTIC_MODE = "heuristic_factcc_style_fallback"
+HF_MODE = "huggingface_text_classification"
 
 
 class FactCCStyleScore(TypedDict):
@@ -44,6 +46,14 @@ class FactCCStyleScore(TypedDict):
 
 def _factcc_config() -> dict[str, Any]:
     return read_yaml(config_path("model", "factcc_hf.yaml"))
+
+
+def _validated_mode(config: dict[str, Any]) -> str:
+    mode = str(config.get("mode", ""))
+    if mode in {HEURISTIC_MODE, HF_MODE}:
+        return mode
+    msg = f"Unsupported FactCC mode: {mode}"
+    raise ValueError(msg)
 
 
 def _negation_mismatch(source: str, summary: str) -> float:
@@ -183,7 +193,8 @@ def score_factcc_style(
     """
 
     active_config = config or _factcc_config()
-    if str(active_config.get("mode", "")) == "heuristic_factcc_style_fallback":
+    mode = _validated_mode(active_config)
+    if mode == HEURISTIC_MODE:
         return _heuristic_score(source, summary)
     probability = _factcc_probabilities(
         [_source_excerpt(source, int(active_config.get("source_sentence_limit", 8)))],
@@ -204,7 +215,8 @@ def score_dataframe(frame: pd.DataFrame) -> pd.DataFrame:
     """
 
     config = _factcc_config()
-    if str(config.get("mode", "")) == "heuristic_factcc_style_fallback":
+    mode = _validated_mode(config)
+    if mode == HEURISTIC_MODE:
         records = []
         for _, row in frame.iterrows():
             records.append(
