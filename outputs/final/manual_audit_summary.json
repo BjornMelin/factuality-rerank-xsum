@@ -1,0 +1,13 @@
+{
+  "baseline_consistent_rate": 0.5,
+  "error_counts": {
+    "Entity swap / wrong named entity / unsupported named entity": 1,
+    "No clear factual issue": 6,
+    "Unsupported relation / unsupported event composition / unsupported causal link": 1
+  },
+  "reranked_consistent_rate": 0.75,
+  "rows": 8,
+  "selected_system_counts": {
+    "reranked": 8
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "actual_mode": "offline_surrogate_generator",
+  "reason": "The runtime could not fetch Hugging Face model files, so the executed run used a deterministic headline-style offline candidate generator while preserving the online hooks and config surface.",
+  "requested_baseline": "facebook/bart-large-xsum",
+  "requested_factcc_checkpoint": "manueldeprada/FactCC"
+}

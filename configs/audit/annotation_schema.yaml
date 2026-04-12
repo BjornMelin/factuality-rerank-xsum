@@ -1,0 +1,21 @@
+columns:
+  - id
+  - split
+  - document
+  - reference
+  - baseline_summary
+  - reranked_summary
+  - selected_system
+  - baseline_consistent
+  - reranked_consistent
+  - primary_error_type
+  - secondary_error_type
+  - world_knowledge_addition
+  - notes
+taxonomy:
+  - Entity swap / wrong named entity / unsupported named entity
+  - Number or date distortion
+  - Negation / polarity / stance reversal
+  - Unsupported relation / unsupported event composition / unsupported causal link
+  - Source-unsupported but plausibly factual world knowledge addition
+  - No clear factual issue

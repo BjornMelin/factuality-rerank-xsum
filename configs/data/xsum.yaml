@@ -1,0 +1,4 @@
+dataset_name: EdinburghNLP/xsum
+dataset_revision: 378fbf291bd25d5c8cbb3e0dc602301707be5693
+executed_mode: offline_preview_fixture
+fixture_path: data/fixtures/xsum_preview_fixture.jsonl

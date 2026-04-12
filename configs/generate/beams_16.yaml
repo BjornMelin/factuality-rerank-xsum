@@ -1,0 +1,6 @@
+num_beams: 16
+num_return_sequences: 16
+length_penalty: 1.2
+no_repeat_ngram_size: 3
+max_new_tokens: 64
+min_new_tokens: 10

@@ -1,0 +1,41 @@
+{
+  "dns_checks": [
+    {
+      "error": "[Errno -3] Temporary failure in name resolution",
+      "host": "huggingface.co",
+      "resolvable": false
+    },
+    {
+      "error": "[Errno -3] Temporary failure in name resolution",
+      "host": "pypi.org",
+      "resolvable": false
+    }
+  ],
+  "mode": "offline_fixture_fallback",
+  "online_runtime_ready": false,
+  "package_versions": {
+    "datasets": null,
+    "evaluate": null,
+    "jsonlines": "4.0.0",
+    "matplotlib": "3.10.8",
+    "mypy": "1.20.0",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3",
+    "pyarrow": "22.0.0",
+    "pytest": "9.0.3",
+    "rich": "14.3.4",
+    "rouge-score": "0.1.2",
+    "ruff": "0.15.10",
+    "scikit-learn": "1.8.0",
+    "summac": null,
+    "transformers": null
+  },
+  "platform": "Linux-4.4.0-x86_64-with-glibc2.41",
+  "python_version": "3.13.5",
+  "requested_online_path": {
+    "dataset": "EdinburghNLP/xsum",
+    "factcc": "manueldeprada/FactCC",
+    "model": "facebook/bart-large-xsum"
+  },
+  "uv_version": "uv 0.10.0"
+}

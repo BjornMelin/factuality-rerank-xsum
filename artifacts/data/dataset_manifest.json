@@ -1,0 +1,12 @@
+{
+  "dataset_mode": "offline_preview_fixture",
+  "dataset_name_requested": "EdinburghNLP/xsum",
+  "dataset_revision_requested": "378fbf291bd25d5c8cbb3e0dc602301707be5693",
+  "fields": [
+    "document",
+    "summary",
+    "id"
+  ],
+  "note": "The executed run used a local fixture built from public XSum preview rows because the runtime could not resolve huggingface.co to download the official dataset snapshot.",
+  "rows_available": 16
+}

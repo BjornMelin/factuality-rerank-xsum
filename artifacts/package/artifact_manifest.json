@@ -1,0 +1,24 @@
+{
+  "artifact_copy": "/mnt/data/factuality-rerank-xsum/artifacts/package/factuality-rerank-xsum.zip",
+  "final_outputs": [
+    "outputs/final/ablation_metrics.csv",
+    "outputs/final/bootstrap_cis.json",
+    "outputs/final/examples_failures.md",
+    "outputs/final/examples_success.md",
+    "outputs/final/figures/beam_tradeoff.png",
+    "outputs/final/figures/component_ablation.png",
+    "outputs/final/figures/error_taxonomy.png",
+    "outputs/final/figures/metric_vs_human_scatter.png",
+    "outputs/final/figures/pareto_frontier.png",
+    "outputs/final/figures/pipeline_diagram.png",
+    "outputs/final/main_metrics.csv",
+    "outputs/final/manual_audit.csv",
+    "outputs/final/manual_audit_summary.json",
+    "outputs/final/pareto_points.csv",
+    "outputs/final/system_card.md",
+    "outputs/final/tables/audit_taxonomy_table.csv",
+    "outputs/final/tables/qualitative_examples.csv",
+    "outputs/final/tables/report_tables.md"
+  ],
+  "repo_zip": "/mnt/data/factuality-rerank-xsum.zip"
+}

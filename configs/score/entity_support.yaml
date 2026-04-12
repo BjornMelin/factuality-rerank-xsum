@@ -1,0 +1,6 @@
+mode: rule_based
+signals:
+  - entity_precision
+  - number_precision
+  - date_precision
+  - lexical_support

@@ -1,0 +1,24 @@
+{
+  "beam_sizes": [
+    4,
+    8,
+    16
+  ],
+  "splits": {
+    "dev_small": {
+      "examples": 8
+    },
+    "dev_smoke": {
+      "examples": 4
+    },
+    "test_final": {
+      "examples": 8
+    },
+    "val_full": {
+      "examples": 8
+    },
+    "val_tune": {
+      "examples": 8
+    }
+  }
+}

@@ -1,0 +1,4 @@
+primary_error_type,count
+No clear factual issue,6
+Entity swap / wrong named entity / unsupported named entity,1
+Unsupported relation / unsupported event composition / unsupported causal link,1

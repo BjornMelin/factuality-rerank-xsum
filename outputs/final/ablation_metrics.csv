@@ -1,0 +1,11 @@
+system,split,beam_size,normalization,rouge1,rouge2,rougeL,rougeLsum,summac_style_score,factcc_style_score,entity_support_score,factuality_composite,summary_len_tokens
+logprob_only_beam_4,test_final,4,zscore,0.16133,0.01891,0.124189,0.124189,0.764405,0.784087,0.91691,0.821801,16.25
+logprob_only_beam_8,test_final,8,zscore,0.16133,0.01891,0.124189,0.124189,0.764405,0.784087,0.91691,0.821801,16.25
+logprob_only_beam_16,test_final,16,zscore,0.16133,0.01891,0.124189,0.124189,0.764405,0.784087,0.91691,0.821801,16.25
+summac_only,test_final,8,zscore,0.206053,0.026277,0.123633,0.123633,0.978646,0.906884,0.98625,0.95726,23.0
+factcc_only,test_final,8,zscore,0.206053,0.026277,0.123633,0.123633,0.976359,0.906884,0.98625,0.956498,23.0
+logprob_plus_summac,test_final,8,zscore,0.184539,0.027244,0.123349,0.123349,0.853117,0.803093,0.947445,0.867885,19.625
+logprob_plus_factcc,test_final,8,zscore,0.167088,0.01891,0.123537,0.123537,0.825592,0.839895,0.954747,0.873411,16.75
+summac_plus_factcc,test_final,8,zscore,0.206053,0.026277,0.123633,0.123633,0.978646,0.906884,0.98625,0.95726,23.0
+logprob_plus_summac_plus_factcc,test_final,8,zscore,0.170394,0.01891,0.121104,0.121104,0.899987,0.879752,0.97625,0.918663,19.0
+logprob_plus_summac_plus_factcc_plus_entity_support,test_final,8,zscore,0.190802,0.027687,0.122805,0.122805,0.919909,0.887643,0.980938,0.929496,19.875

@@ -1,0 +1,11 @@
+system: summac_plus_factcc
+beam_size: 16
+normalization: zscore
+weights:
+  token_logprob_avg: 0.0
+  summac_style_score: 0.5
+  factcc_style_score: 0.5
+  entity_support_score: 0.0
+metrics:
+  rougeLsum: 0.117244
+  factuality_composite: 0.990833

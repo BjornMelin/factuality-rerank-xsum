@@ -1,0 +1,40 @@
+# Python runtime artifacts
+*.pyc
+__pycache__/
+.venv/
+
+# Python/tooling caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Editor/IDE metadata
+.vscode/
+.idea/
+
+# Temporary/system files
+*.log
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+coverage/
+
+# Agent / IDE tooling
+.agents/
+.codex/
+.cursor/
+skills-lock.json
+
+# Repository artifacts
+artifacts/package/*.zip
+build/
+dist/

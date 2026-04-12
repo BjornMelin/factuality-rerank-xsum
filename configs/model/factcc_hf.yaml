@@ -1,0 +1,2 @@
+model_name_or_path: manueldeprada/FactCC
+executed_mode: heuristic_factcc_style_fallback

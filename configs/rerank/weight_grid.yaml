@@ -1,0 +1,7 @@
+normalization: zscore
+beam_sizes:
+  - 4
+  - 8
+  - 16
+weight_step: 0.25
+rouge_lsum_tolerance: 0.01
