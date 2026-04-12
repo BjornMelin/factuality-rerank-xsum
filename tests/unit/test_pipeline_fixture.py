@@ -1,15 +1,14 @@
 """Regression tests for fixture-backed dataset and generation helpers."""
 
-from typing import Any
-from typing import cast
+from typing import Any, cast
 
 import pandas as pd
 import pytest
 import torch
 
 from factuality_rerank_xsum.data.fixtures import (
-    DatasetLoader,
     FIXTURE_PATH,
+    DatasetLoader,
     load_preview_fixture,
     prepare_dataset,
     split_id_map,
