@@ -1,43 +1,125 @@
 # PROMPTS_INDEX
 
-Use the prompt pack under `prompts/` when handing this repo or its packaged artifacts to a new
-session.
+Use the prompt pack under `prompts/` when handing this repo, its packaged zip, or selected output
+artifacts to a GPT-5.4 Pro ChatGPT session with extended reasoning.
 
-## Prompt order
+The prompt pack is intentionally detailed. It is designed to preserve project context, enforce the
+course rubric and proposal constraints, and stop later sessions from silently drifting away from the
+current CLI-first repo.
+
+## Authority order
+
+Every prompt in this pack should treat the repository authorities in this order:
+
+1. `PLAN.md`
+2. `docs/RESULTS_SUMMARY.md`
+3. `docs/CLAIMS_SAFE_TO_WRITE.md`
+4. `README.md`
+5. `REPORT.md`
+6. tracked manifests and files under `artifacts/` and `outputs/final/`
+7. supporting docs such as `VERSIONS.md`, `VERSIONS_AND_ENVIRONMENT.md`,
+   `NOTEBOOK_SKILL_INTEGRATION.md`, `DECISION_FRAMEWORK.md`, and `REFERENCES_FULL_URLS.md`
+8. the course-facing guidance under `docs/guidelines/`
+
+If any file disagrees with higher-priority authorities, the prompt user should report the mismatch
+instead of silently averaging the sources together.
+
+## Execution modes
+
+Every prompt in this pack supports both of these modes:
+
+- `live repo`: the session can inspect and run commands in the checkout
+- `uploaded zip/files`: the session must reason from the uploaded directory tree and attached files
+
+The prompt user should explicitly determine which mode applies before doing anything else.
+
+## Prompt routing
+
+### Start here
+
+If you are opening a new GPT-5.4 Pro session for this repo, start with:
 
 1. `prompts/PROMPT_00_ATTACHMENT_PROTOCOL.md`
-2. `prompts/PROMPT_01_BUILD_REPO_AND_RUN_PIPELINE.md`
-3. `prompts/PROMPT_02_ANALYZE_RESULTS_AND_WRITE_REPORT.md`
-4. `prompts/PROMPT_03_FINAL_QA_SUBMISSION_REVIEW.md`
 
-## Recommended attachments for Prompt 01
+Then choose the task-specific prompt:
 
-- `README.md`
+1. `prompts/PROMPT_01_BUILD_REPO_AND_RUN_PIPELINE.md` for repo execution, repairs, reruns,
+   refreshes, or implementation work
+2. `prompts/PROMPT_02_ANALYZE_RESULTS_AND_WRITE_REPORT.md` for report writing, interpretation, or
+   presentation support
+3. `prompts/PROMPT_03_FINAL_QA_SUBMISSION_REVIEW.md` for final submission QA and correction review
+
+### If only one prompt will be sent
+
+Use `PROMPT_00` first if possible. If the session will receive only one prompt:
+
+- use `PROMPT_01` for implementation or rerun work
+- use `PROMPT_02` for report drafting and slide support
+- use `PROMPT_03` for final QA
+
+## Use-case table
+
+| Situation | Prompt | Expected outcome |
+| --- | --- | --- |
+| New session needs to ingest repo or zip correctly | `PROMPT_00` | file inventory, authority alignment, current-truth summary |
+| Need to repair, rerun, extend, or refresh code/artifacts | `PROMPT_01` | execution plan, verified changes, refreshed outputs/docs |
+| Need to write the final report or presentation material | `PROMPT_02` | evidence-bounded report draft, slide outline, executive summary |
+| Need strict final review before submission | `PROMPT_03` | correction list, rubric review, submission readiness verdict |
+
+## Recommended attachment bundles
+
+### Minimal core bundle
+
+- repo zip or live repo access
 - `PLAN.md`
+- `README.md`
 - `REPORT.md`
-- `docs/RUNBOOK.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
+
+### Build or rerun bundle
+
+- everything in the minimal core bundle
+- `docs/RUNBOOK.md`
+- `VERSIONS.md`
+- `VERSIONS_AND_ENVIRONMENT.md`
+- `docs/guidelines/FINAL_README.md`
+- `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
+- `docs/guidelines/FAQ.md`
+- `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
 - `DECISION_FRAMEWORK.md`
 - `REFERENCES_FULL_URLS.md`
-- `NOTEBOOK_SKILL_INTEGRATION.md` when notebook work is in scope
+- `NOTEBOOK_SKILL_INTEGRATION.md` if notebook work is actually in scope
 
-## Recommended attachments for Prompt 02
+### Report-writing bundle
 
-- packaged repo zip or the live repo
-- `docs/RESULTS_SUMMARY.md`
-- `docs/CLAIMS_SAFE_TO_WRITE.md`
-- `outputs/final/tables/report_tables.md`
+- everything in the minimal core bundle
+- `docs/SLIDES_OUTLINE.md`
 - `outputs/final/system_card.md`
-- `REPORT.md`
+- `outputs/final/tables/report_tables.md`
+- `outputs/final/manual_audit.csv`
+- `outputs/final/manual_audit_summary.json`
+- `docs/guidelines/FINAL_README.md`
+- `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
+- `docs/guidelines/FAQ.md`
+- `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
 - `DECISION_FRAMEWORK.md`
+- `REFERENCES_FULL_URLS.md`
 
-## Recommended attachments for Prompt 03
+### Final QA bundle
 
 - final report draft
 - slide outline or presentation notes
-- packaged repo zip or the live repo
-- `docs/RESULTS_SUMMARY.md`
+- everything in the report-writing bundle
 - `docs/SUBMISSION_CHECKLIST.md`
-- `docs/CLAIMS_SAFE_TO_WRITE.md`
-- `REPORT.md`
+
+## Non-negotiable prompt-pack policies
+
+- The repo is CLI-first. Do not invent a scripts-first or `pipeline.py` workflow.
+- Notebooks are secondary analysis and presentation surfaces, not the canonical execution path.
+- The current tracked artifacts are bounded-run outputs unless a future session proves a broader run.
+- The original proposal matters. Later sessions should compare proposal intent against current repo
+  truth before making claims about completion.
+- Newer research may inform next steps, but it must not be silently conflated with implemented repo
+  behavior.
+- Claims must stay within `docs/CLAIMS_SAFE_TO_WRITE.md`.
