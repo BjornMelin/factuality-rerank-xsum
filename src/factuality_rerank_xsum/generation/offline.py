@@ -49,6 +49,33 @@ RELATION_SWAP_PAIRS = [
     ("announced", "cancelled"),
 ]
 
+CANDIDATE_COLUMNS = [
+    "id",
+    "split",
+    "document",
+    "reference",
+    "candidate_id",
+    "beam_rank",
+    "summary",
+    "summary_token_ids",
+    "summary_len_tokens",
+    "sequence_score_hf",
+    "token_logprob_sum",
+    "token_logprob_avg",
+    "num_beams",
+    "length_penalty",
+    "no_repeat_ngram_size",
+    "max_new_tokens",
+    "min_new_tokens",
+    "candidate_hash",
+    "candidate_strategy",
+    "transition_score_proxy",
+    "generator_mode",
+    "requested_model",
+    "requested_revision",
+    "offline_generator_noise",
+]
+
 
 def _relation_swap(text: str) -> str:
     lowered = text.lower()
@@ -334,6 +361,9 @@ def generate_model_candidates(
             max_new_tokens=max_new_tokens,
             min_new_tokens=min_new_tokens,
         )
+    if mode != "huggingface_generation":
+        msg = f"Unsupported generator mode: {mode}"
+        raise ValueError(msg)
 
     import torch
 

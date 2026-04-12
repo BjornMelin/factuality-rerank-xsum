@@ -147,7 +147,9 @@ def run_make_tables_and_figures() -> None:
             )
         )
     ].copy()
-    beam_tradeoff["beam_size"] = beam_tradeoff["system"].str.extract(r"(\d+)").astype(int)
+    beam_tradeoff["beam_size"] = (
+        beam_tradeoff["system"].str.extract(r"(\d+)", expand=False).astype(int)
+    )
     plot_beam_tradeoff(
         beam_tradeoff[["beam_size", "rougeLsum", "factuality_composite"]],
         output_path("final", "figures", "beam_tradeoff.png"),

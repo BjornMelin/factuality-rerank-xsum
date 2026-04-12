@@ -80,3 +80,15 @@ def test_system_card_lines_change_with_runtime_mode() -> None:
     assert "Current outputs should be read together with the executed dataset" in offline
     assert "public Hugging Face runtime path" not in offline
     assert "Executed dataset mode: `fixture_preview`." in offline
+
+
+def test_markdown_table_extracts_scalar_beam_sizes() -> None:
+    beam_tradeoff = pd.DataFrame(
+        [{"system": "logprob_only_beam_16"}, {"system": "logprob_only_beam_4"}]
+    )
+
+    beam_tradeoff["beam_size"] = (
+        beam_tradeoff["system"].str.extract(r"(\d+)", expand=False).astype(int)
+    )
+
+    assert beam_tradeoff["beam_size"].tolist() == [16, 4]

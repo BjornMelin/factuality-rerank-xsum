@@ -9,7 +9,10 @@ import pandas as pd
 from factuality_rerank_xsum.artifacts.layout import candidate_table_path
 from factuality_rerank_xsum.constants import PIPELINE_SPLITS
 from factuality_rerank_xsum.data.fixtures import ids_for_split, load_dataset_table
-from factuality_rerank_xsum.generation.offline import generate_candidates_for_examples
+from factuality_rerank_xsum.generation.offline import (
+    CANDIDATE_COLUMNS,
+    generate_candidates_for_examples,
+)
 from factuality_rerank_xsum.utils.io import read_yaml, write_json
 from factuality_rerank_xsum.utils.paths import artifact_path, config_path
 
@@ -78,7 +81,8 @@ def generation_integrity_report(frame: pd.DataFrame, requested_ids: list[str]) -
         "min_candidates_per_example": int(grouped["size"].min()),
         "max_candidates_per_example": int(grouped["size"].max()),
         "non_empty_summaries": bool(
-            frame["summary"].notna().all() and frame["summary"].astype(str).str.len().gt(0).all()
+            frame["summary"].notna().all()
+            and frame["summary"].astype(str).str.strip().str.len().gt(0).all()
         ),
         "has_nan_scores": bool(
             frame[["sequence_score_hf", "token_logprob_sum", "token_logprob_avg"]]
@@ -120,7 +124,7 @@ def run_generate_candidates() -> dict[str, Any]:
                 min_new_tokens=int(beam["min_new_tokens"]),
                 config=generation_config,
             )
-            frame = pd.DataFrame(generated)
+            frame = pd.DataFrame.from_records(generated, columns=CANDIDATE_COLUMNS)
             target = candidate_table_path(split, int(beam["num_beams"]))
             target.parent.mkdir(parents=True, exist_ok=True)
             frame.to_parquet(target, index=False)

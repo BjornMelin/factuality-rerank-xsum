@@ -44,7 +44,15 @@ def apply_system(
         The selected candidates enriched with ROUGE and composite factuality.
     """
 
-    merged = pd.read_parquet(merged_table_path(split, beam_size))
+    merged_path = merged_table_path(split, beam_size)
+    try:
+        merged = pd.read_parquet(merged_path)
+    except FileNotFoundError as exc:
+        msg = (
+            f"Missing merged candidate table for split={split!r}, beam_size={beam_size}, "
+            f"system={system_name!r}: {merged_path}"
+        )
+        raise FileNotFoundError(msg) from exc
     fused = fuse_scores(merged, weights, normalization)
     selected = select_top_candidate(fused)
     selected = enrich_with_rouge(selected)

@@ -18,21 +18,29 @@ from factuality_rerank_xsum.utils.transformers_runtime import select_torch_devic
 
 
 def test_select_torch_device_rejects_unknown_preference() -> None:
+    """Reject unsupported torch device preferences."""
+
     with pytest.raises(ValueError, match="Unsupported torch device preference"):
         select_torch_device("cdua")
 
 
 def test_score_factcc_style_rejects_unknown_mode() -> None:
+    """Reject unsupported FactCC scorer modes."""
+
     with pytest.raises(ValueError, match="Unsupported FactCC mode"):
         score_factcc_style("source", "summary", config={"mode": "typo"})
 
 
 def test_score_summac_style_rejects_unknown_mode() -> None:
+    """Reject unsupported SummaC scorer modes."""
+
     with pytest.raises(ValueError, match="Unsupported SummaC mode"):
         score_summac_style("source", "summary", config={"mode": "typo"})
 
 
 def test_merge_scores_raises_when_stage_values_are_missing() -> None:
+    """Fail when a scorer merge leaves stage values missing."""
+
     base = pd.DataFrame([{"id": "x1", "candidate_hash": "h1", "document": "doc"}])
     scores = pd.DataFrame(columns=["id", "candidate_hash", "summac_style_score"])
 
@@ -41,11 +49,18 @@ def test_merge_scores_raises_when_stage_values_are_missing() -> None:
 
 
 def test_parse_boolish_handles_string_flags() -> None:
+    """Parse common truthy and falsy string flags."""
+
     assert _parse_boolish("yes") is True
     assert _parse_boolish("0") is False
 
 
 def test_runtime_contract_requires_all_online_modes(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Use executed scorer modes, not only requested config, for online execution."""
+
+    expected_root = Path("/expected-artifacts")
+    expected_dataset_manifest = expected_root / "data" / "dataset_manifest.json"
+    expected_model_manifest = expected_root / "models" / "baseline_info.json"
     monkeypatch.setattr(
         "factuality_rerank_xsum.runtime.manifests.requested_runtime_config",
         lambda: {
@@ -66,23 +81,30 @@ def test_runtime_contract_requires_all_online_modes(monkeypatch: pytest.MonkeyPa
         "factuality_rerank_xsum.runtime.manifests.read_json_if_exists",
         lambda path: (
             {"dataset_mode": "online_hub"}
-            if path == Path("artifacts/data/dataset_manifest.json")
-            else {"actual_mode": "huggingface_generation"}
-            if path == Path("artifacts/models/baseline_info.json")
+            if path == expected_dataset_manifest
+            else {
+                "actual_mode": "huggingface_generation",
+                "actual_factcc_mode": "heuristic_factcc_style_fallback",
+                "actual_nli_mode": "huggingface_nli_consistency",
+            }
+            if path == expected_model_manifest
             else {}
         ),
     )
     monkeypatch.setattr(
         "factuality_rerank_xsum.runtime.manifests.artifact_path",
-        lambda *parts: Path(*parts),
+        lambda *parts: expected_root.joinpath(*parts),
     )
 
     contract = runtime_contract()
 
     assert contract["online_execution"] is False
+    assert contract["factcc_mode"] == "heuristic_factcc_style_fallback"
 
 
 def test_dataset_sha_does_not_depend_on_hf_cli(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Resolve dataset SHAs through the Hub API even without the CLI."""
+
     class StubInfo:
         sha = "sha-123"
 
@@ -97,11 +119,15 @@ def test_dataset_sha_does_not_depend_on_hf_cli(monkeypatch: pytest.MonkeyPatch) 
 
 
 def test_required_search_row_raises_when_selection_is_missing() -> None:
+    """Raise when the search stage cannot find the expected row."""
+
     with pytest.raises(ValueError, match="Missing search result row"):
         _required_search_row(pd.DataFrame(), description="missing winner")
 
 
 def test_run_hf_json_passes_requested_revision() -> None:
+    """Forward explicit revisions to Hub model lookups."""
+
     class StubInfo:
         id = "owner/model"
         sha = "sha-123"
@@ -128,6 +154,8 @@ def test_run_hf_json_passes_requested_revision() -> None:
 def test_run_env_check_does_not_require_auth_for_public_assets(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
+    """Treat public asset resolution as ready even when auth is absent."""
+
     monkeypatch.setattr(
         "factuality_rerank_xsum.runtime.stage.requested_runtime_config",
         lambda: {

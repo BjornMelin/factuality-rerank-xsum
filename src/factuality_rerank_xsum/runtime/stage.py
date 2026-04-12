@@ -146,6 +146,8 @@ def run_train_or_load_bart() -> dict[str, Any]:
         "nli_revision_requested": requested["nli_revision"],
         "nli_revision_resolved": asset_info["nli"].get("sha") if asset_info["nli"] else None,
         "actual_mode": requested["generator_mode"],
+        "actual_factcc_mode": requested["factcc_mode"],
+        "actual_nli_mode": requested["nli_mode"],
         "reason": (
             "Generation and scoring are configured against public Hugging Face assets. "
             "This stage records the requested and resolved checkpoints without training."

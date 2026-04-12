@@ -33,7 +33,22 @@ def _comparison_table(baseline: pd.DataFrame, reranked: pd.DataFrame) -> pd.Data
         A normalized comparison table with paired baseline and reranked fields.
     """
 
-    comparison = baseline.merge(reranked, on="id", suffixes=("_baseline", "_reranked"))
+    missing_from_reranked = sorted(set(baseline["id"].astype(str)) - set(reranked["id"].astype(str)))
+    missing_from_baseline = sorted(set(reranked["id"].astype(str)) - set(baseline["id"].astype(str)))
+    if missing_from_reranked or missing_from_baseline:
+        msg = (
+            "Baseline and reranked selections must cover the same example IDs. "
+            f"Missing from reranked: {missing_from_reranked[:5]}; "
+            f"missing from baseline: {missing_from_baseline[:5]}"
+        )
+        raise ValueError(msg)
+
+    comparison = baseline.merge(
+        reranked,
+        on="id",
+        suffixes=("_baseline", "_reranked"),
+        validate="one_to_one",
+    )
     comparison = comparison.rename(
         columns={
             "split_baseline": "split",
@@ -89,7 +104,11 @@ def _comparison_table(baseline: pd.DataFrame, reranked: pd.DataFrame) -> pd.Data
 
 
 def run_rerank_and_eval() -> pd.DataFrame:
-    """Apply canonical rerank systems and write evaluation artifacts."""
+    """Apply canonical rerank systems and write evaluation artifacts.
+
+    Returns:
+        The per-system metrics table written to `artifacts/eval/system_metrics.csv`.
+    """
 
     weight_configs = named_weight_configs()
     systems: list[tuple[str, dict[str, Any]]] = [
@@ -165,7 +184,11 @@ def run_rerank_and_eval() -> pd.DataFrame:
 
 
 def run_bootstrap_metrics() -> dict[str, Any]:
-    """Compute bootstrap confidence intervals for the main test comparison."""
+    """Compute bootstrap confidence intervals for the main test comparison.
+
+    Returns:
+        The bootstrap confidence-interval payload written to tracked artifacts.
+    """
 
     baseline = pd.read_parquet(selected_table_path("test_final", BASELINE_SYSTEM))
     contender = pd.read_parquet(selected_table_path("test_final", BEST_BALANCED))

@@ -6,6 +6,7 @@ from typing import Any, Protocol, cast
 
 import pandas as pd
 from datasets import Dataset, load_dataset
+from huggingface_hub.errors import HfHubHTTPError
 
 from factuality_rerank_xsum.utils.hf import dataset_sha
 from factuality_rerank_xsum.utils.io import read_yaml, write_json, write_text
@@ -215,7 +216,7 @@ def prepare_dataset(*, dataset_loader: DatasetLoader | None = None) -> PreparedD
         return _prepare_offline_fixture(config)
     try:
         return _prepare_online_dataset(config, dataset_loader=active_loader)
-    except Exception as exc:
+    except (ConnectionError, HfHubHTTPError, OSError) as exc:
         if bool(config.get("offline_fallback_on_error", False)):
             return _prepare_offline_fixture(config, error=exc)
         raise

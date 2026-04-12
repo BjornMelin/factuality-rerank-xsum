@@ -25,8 +25,7 @@ def run_hf_json(*args: str) -> dict[str, Any] | None:
 
     Returns:
         A JSON-like dictionary payload for the supported query, or `None` when
-        the CLI is unavailable, the query shape is unsupported, or the Hub
-        request fails.
+        the query shape is unsupported or the Hub request fails.
     """
 
     try:
