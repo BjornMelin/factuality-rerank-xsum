@@ -1,3 +1,12 @@
+"""Public rerank application helpers for selection and evaluation artifacts.
+
+This module exposes the persisted-config and selection entrypoints used by the
+factuality reranking workflow. It reads merged candidate tables via
+`merged_table_path`, persisted selection configs via `search_selection_path`,
+writes selected outputs via `selected_table_path`, and applies the core rerank
+steps built from `fuse_scores`, `select_top_candidate`, and `enrich_with_rouge`.
+"""
+
 from __future__ import annotations
 
 from typing import Any

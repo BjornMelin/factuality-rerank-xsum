@@ -68,7 +68,7 @@ def test_system_card_lines_change_with_runtime_mode() -> None:
             {
                 "requested": {**requested, "generator_mode": "offline_surrogate_generator"},
                 "dataset_mode": "fixture_preview",
-                "generator_mode": "offline_surrogate",
+                "generator_mode": "offline_surrogate_generator",
                 "online_execution": False,
             }
         )
@@ -83,7 +83,7 @@ def test_system_card_lines_change_with_runtime_mode() -> None:
     assert "Requested generator mode: `huggingface_generation`." in online
     assert "Executed generator mode: `huggingface_generation`." in online
     assert "Requested generator mode: `offline_surrogate_generator`." in offline
-    assert "Executed generator mode: `offline_surrogate`." in offline
+    assert "Executed generator mode: `offline_surrogate_generator`." in offline
 
 
 def test_markdown_table_extracts_scalar_beam_sizes() -> None:

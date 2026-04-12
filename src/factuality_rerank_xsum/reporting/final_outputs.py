@@ -28,7 +28,14 @@ from factuality_rerank_xsum.viz.plots import (
 
 
 def markdown_table(frame: pd.DataFrame) -> str:
-    """Render a small dataframe as a Markdown table."""
+    """Render a small dataframe as a Markdown table.
+
+    Args:
+        frame: Tabular values to serialize as a compact Markdown table.
+
+    Returns:
+        The Markdown table string with one header row and one row per record.
+    """
 
     headers = list(frame.columns)
     lines = [
@@ -42,7 +49,15 @@ def markdown_table(frame: pd.DataFrame) -> str:
 
 
 def qualitative_case_lines(title: str, frame: pd.DataFrame) -> list[str]:
-    """Render qualitative examples for report markdown files."""
+    """Render qualitative examples for report markdown files.
+
+    Args:
+        title: Markdown heading used for the examples section.
+        frame: Qualitative example rows with IDs, summaries, and deltas.
+
+    Returns:
+        The Markdown lines for the rendered examples section.
+    """
 
     lines = [f"# {title}", ""]
     for _, row in frame.iterrows():
@@ -60,7 +75,15 @@ def qualitative_case_lines(title: str, frame: pd.DataFrame) -> list[str]:
 
 
 def system_card_lines(runtime: dict[str, Any]) -> list[str]:
-    """Render the final system card from the runtime contract."""
+    """Render the final system card from the runtime contract.
+
+    Args:
+        runtime: Runtime contract payload containing requested assets, executed
+            modes, and online-execution status.
+
+    Returns:
+        The Markdown lines for the final system card.
+    """
 
     requested = runtime["requested"]
     execution_note = (

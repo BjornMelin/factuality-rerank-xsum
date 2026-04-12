@@ -7,6 +7,7 @@ from factuality_rerank_xsum.data.fixtures import (
     prepare_dataset,
     split_id_map,
 )
+from factuality_rerank_xsum.generation import offline as offline_generation
 from factuality_rerank_xsum.generation.offline import (
     CANDIDATE_COLUMNS,
     generate_candidates_for_examples,
@@ -178,6 +179,7 @@ def test_generate_candidates_for_examples_reuses_hf_runtime(
 ) -> None:
     import torch
 
+    offline_generation._cached_seq2seq_runtime.cache_clear()
     call_count = {"runtime": 0}
 
     class StubTokenizer:
@@ -237,3 +239,17 @@ def test_generate_candidates_for_examples_reuses_hf_runtime(
 
     assert len(rows) == 2
     assert call_count["runtime"] == 1
+
+
+def test_generate_candidates_for_examples_rejects_unknown_mode_even_when_empty() -> None:
+    with pytest.raises(ValueError, match="Unsupported generator mode"):
+        generate_candidates_for_examples(
+            [],
+            split="dev_smoke",
+            num_beams=1,
+            length_penalty=1.0,
+            no_repeat_ngram_size=3,
+            max_new_tokens=32,
+            min_new_tokens=8,
+            config={"mode": "bad-mode", "model_name_or_path": "stub-model"},
+        )

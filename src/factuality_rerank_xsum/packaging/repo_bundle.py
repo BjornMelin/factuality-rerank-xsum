@@ -36,6 +36,10 @@ def run_package_repo() -> Path:
 
     Returns:
         The path to the packaged repository zip.
+
+    Raises:
+        OSError: If tracked files cannot be listed, the archive cannot be
+            created, or the packaged outputs cannot be copied or recorded.
     """
 
     final_path = project_root().parent / "factuality-rerank-xsum.zip"
@@ -59,6 +63,8 @@ def run_package_repo() -> Path:
             for relative in _tracked_repo_files(root):
                 path = root / relative
                 if not path.is_file():
+                    continue
+                if path.is_symlink():
                     continue
                 if any(part in excluded_parts for part in relative.parts):
                     continue

@@ -19,6 +19,31 @@ from factuality_rerank_xsum.utils.io import read_yaml, write_json, write_text
 from factuality_rerank_xsum.utils.paths import artifact_path, config_path
 
 MERGE_KEYS = ["id", "candidate_hash"]
+SCORE_COLUMNS = {
+    "summac": [
+        "summac_style_support",
+        "summac_style_contradiction_penalty",
+        "summac_style_score",
+    ],
+    "factcc": [
+        "factcc_style_lexical_support",
+        "factcc_style_negation_mismatch",
+        "factcc_style_relation_penalty",
+        "factcc_style_score",
+    ],
+    "entity_support": [
+        "entity_precision",
+        "number_precision",
+        "date_precision",
+        "entity_support_score",
+        "unsupported_entity_count",
+        "unsupported_number_count",
+        "unsupported_date_count",
+        "unsupported_entities",
+        "unsupported_numbers",
+        "unsupported_dates",
+    ],
+}
 
 
 def _executed_stage_mode(stage: str) -> str:
@@ -75,15 +100,17 @@ def run_score_stage(stage: str) -> None:
     for split in PIPELINE_SPLITS:
         for beam in BEAM_SIZES:
             frame = pd.read_parquet(candidate_table_path(split, beam))
-            if stage == "summac":
+            if stage not in SCORE_COLUMNS:
+                msg = f"Unsupported score stage: {stage}"
+                raise ValueError(msg)
+            if frame.empty:
+                scored = pd.DataFrame(columns=[*MERGE_KEYS, *SCORE_COLUMNS[stage]])
+            elif stage == "summac":
                 scored = summac_score_dataframe(frame)
             elif stage == "factcc":
                 scored = factcc_score_dataframe(frame)
             elif stage == "entity_support":
                 scored = entity_score_dataframe(frame)
-            else:
-                msg = f"Unsupported score stage: {stage}"
-                raise ValueError(msg)
             target = score_table_path(stage, split, beam)
             target.parent.mkdir(parents=True, exist_ok=True)
             scored.to_parquet(target, index=False)

@@ -101,6 +101,46 @@ def test_runtime_contract_requires_all_online_modes(monkeypatch: pytest.MonkeyPa
     assert contract["factcc_mode"] == "heuristic_factcc_style_fallback"
 
 
+def test_runtime_contract_requires_executed_stage_summaries(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Do not declare online execution from requested modes alone."""
+
+    expected_root = Path("/expected-artifacts")
+    expected_dataset_manifest = expected_root / "data" / "dataset_manifest.json"
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.runtime.manifests.requested_runtime_config",
+        lambda: {
+            "dataset_name": "ds",
+            "dataset_revision": "rev-ds",
+            "generator_model": "gen",
+            "generator_revision": "rev-gen",
+            "generator_mode": "huggingface_generation",
+            "factcc_model": "factcc",
+            "factcc_revision": "rev-factcc",
+            "factcc_mode": "huggingface_text_classification",
+            "nli_model": "nli",
+            "nli_revision": "rev-nli",
+            "nli_mode": "huggingface_nli_consistency",
+        },
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.runtime.manifests.read_json_if_exists",
+        lambda path: {expected_dataset_manifest: {"dataset_mode": "online_hub"}}.get(path, {}),
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.runtime.manifests.artifact_path",
+        lambda *parts: expected_root.joinpath(*parts),
+    )
+
+    contract = runtime_contract()
+
+    assert contract["generator_mode"] == "huggingface_generation"
+    assert contract["factcc_mode"] == "huggingface_text_classification"
+    assert contract["nli_mode"] == "huggingface_nli_consistency"
+    assert contract["online_execution"] is False
+
+
 def test_dataset_sha_does_not_depend_on_hf_cli(monkeypatch: pytest.MonkeyPatch) -> None:
     """Resolve dataset SHAs through the Hub API even without the CLI."""
 

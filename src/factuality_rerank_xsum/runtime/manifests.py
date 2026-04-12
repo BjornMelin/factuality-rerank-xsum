@@ -115,17 +115,24 @@ def runtime_contract() -> dict[str, Any]:
     dataset_manifest = read_json_if_exists(artifact_path("data", "dataset_manifest.json"))
     model_manifest = read_json_if_exists(artifact_path("models", "baseline_info.json"))
     generation_summary = read_json_if_exists(artifact_path("generations", "generation_summary.json"))
-    factcc_stage_summary = read_json_if_exists(artifact_path("scores", "factcc", "stage_summary.json"))
-    summac_stage_summary = read_json_if_exists(artifact_path("scores", "summac", "stage_summary.json"))
+    factcc_stage_summary = read_json_if_exists(
+        artifact_path("scores", "factcc", "stage_summary.json")
+    )
+    summac_stage_summary = read_json_if_exists(
+        artifact_path("scores", "summac", "stage_summary.json")
+    )
     dataset_mode = str(dataset_manifest.get("dataset_mode") or env_report.get("mode") or "not_run")
-    generator_mode = str(generation_summary.get("generator_mode") or requested["generator_mode"])
-    factcc_mode = str(factcc_stage_summary.get("actual_mode") or requested["factcc_mode"])
-    nli_mode = str(summac_stage_summary.get("actual_mode") or requested["nli_mode"])
+    executed_generator_mode = generation_summary.get("generator_mode")
+    executed_factcc_mode = factcc_stage_summary.get("actual_mode")
+    executed_nli_mode = summac_stage_summary.get("actual_mode")
+    generator_mode = str(executed_generator_mode or requested["generator_mode"])
+    factcc_mode = str(executed_factcc_mode or requested["factcc_mode"])
+    nli_mode = str(executed_nli_mode or requested["nli_mode"])
     online_execution = (
         dataset_mode == "online_hub"
-        and generator_mode == "huggingface_generation"
-        and factcc_mode == "huggingface_text_classification"
-        and nli_mode == "huggingface_nli_consistency"
+        and executed_generator_mode == "huggingface_generation"
+        and executed_factcc_mode == "huggingface_text_classification"
+        and executed_nli_mode == "huggingface_nli_consistency"
     )
     return {
         "requested": requested,

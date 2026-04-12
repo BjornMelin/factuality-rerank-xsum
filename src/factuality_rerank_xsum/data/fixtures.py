@@ -59,6 +59,14 @@ FIXTURE_PATH = data_path("fixtures", "xsum_preview_fixture.jsonl")
 
 
 def _test_final_ids(normalized_ids: list[str]) -> list[str]:
+    """Select the tracked `test_final` slice for bounded fixture datasets.
+
+    For 16 or more IDs, this returns indices 8 through 15. For datasets with
+    more than 8 but fewer than 16 IDs, it returns the tail from index 8 onward.
+    Otherwise it returns the latter half of the list using floor division, with
+    an empty list preserved for empty inputs.
+    """
+
     if len(normalized_ids) >= 16:
         return normalized_ids[8:16]
     if len(normalized_ids) > 8:

@@ -77,6 +77,8 @@ CANDIDATE_COLUMNS = [
     "offline_generator_noise",
 ]
 
+SUPPORTED_GENERATOR_MODES = {"offline_surrogate_generator", "huggingface_generation"}
+
 
 def _relation_swap(text: str) -> str:
     lowered = text.lower()
@@ -175,6 +177,14 @@ def build_candidate_pool(example_id: str, document: str) -> list[tuple[str, str,
 
 def _generation_config() -> dict[str, Any]:
     return read_yaml(config_path("model", "bart_xsum_public.yaml"))
+
+
+def _validated_generation_mode(config: dict[str, Any]) -> str:
+    mode = str(config.get("mode", "huggingface_generation"))
+    if mode not in SUPPORTED_GENERATOR_MODES:
+        msg = f"Unsupported generator mode: {mode}"
+        raise ValueError(msg)
+    return mode
 
 
 def _requested_revision(config: dict[str, Any]) -> str | None:
@@ -387,7 +397,7 @@ def generate_model_candidates(
     """
 
     generation_config = config or _generation_config()
-    mode = str(generation_config.get("mode", "huggingface_generation"))
+    mode = _validated_generation_mode(generation_config)
     if mode == "offline_surrogate_generator":
         return generate_offline_candidates(
             example_id=example_id,
@@ -400,10 +410,6 @@ def generate_model_candidates(
             max_new_tokens=max_new_tokens,
             min_new_tokens=min_new_tokens,
         )
-    if mode != "huggingface_generation":
-        msg = f"Unsupported generator mode: {mode}"
-        raise ValueError(msg)
-
     import torch
 
     revision = _requested_revision(generation_config)
@@ -478,7 +484,7 @@ def generate_candidates_for_examples(
     """
 
     generation_config = config or _generation_config()
-    mode = str(generation_config.get("mode", "huggingface_generation"))
+    mode = _validated_generation_mode(generation_config)
     runtime = None
     if mode == "huggingface_generation":
         runtime = _cached_seq2seq_runtime(
