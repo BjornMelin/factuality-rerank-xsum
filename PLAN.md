@@ -371,7 +371,8 @@ If a future session changes execution, artifacts, docs, or prompts, it should at
 For repo-mutating work, the canonical local gate set remains:
 
 ```bash
-uv run ruff check
+uv run ruff check --fix
+uv run ruff format
 uv run mypy .
 uv run ty check
 uv run pytest

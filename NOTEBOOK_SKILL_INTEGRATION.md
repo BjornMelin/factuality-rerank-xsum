@@ -105,7 +105,7 @@ JSON.
 Example pattern:
 
 ```bash
-python "$JUPYTER_NOTEBOOK_CLI" \
+uv run python "$JUPYTER_NOTEBOOK_CLI" \
   --kind experiment \
   --title "XSum factual reranking analysis" \
   --out notebooks/02_candidate_analysis.ipynb \

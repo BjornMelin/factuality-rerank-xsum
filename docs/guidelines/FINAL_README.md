@@ -154,6 +154,6 @@ Sections: **Abstract**, **Intro**, **Background**, **Methods**, **Results/discus
 
 **Privacy:** opt out of public release in form.
 
-Submit PDF + code to course GitHub (solo) or team repo; [form](https://forms.gle/NOTYET). **Do not** change content after deadline or **late penalty**.
+Submit PDF + code to course GitHub (solo) or team repo, then complete the current course submission form distributed by the instructors. **Do not** change content after deadline or **late penalty**.
 
 Rubric feedback may take **up to ~1 month** after deadline; term grades may post before that feedback.
