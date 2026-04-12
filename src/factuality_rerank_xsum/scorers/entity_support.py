@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
-from typing import TypedDict
+from typing import TYPE_CHECKING, TypedDict
 
 import pandas as pd
 
@@ -12,6 +11,9 @@ from factuality_rerank_xsum.utils.text import (
     extract_numbers,
     lexical_precision,
 )
+
+if TYPE_CHECKING:
+    from collections.abc import Iterable
 
 
 class EntitySupportScore(TypedDict):

@@ -1,3 +1,5 @@
+"""Classify reranked summaries into lightweight factuality audit buckets."""
+
 from __future__ import annotations
 
 from typing import TypedDict
@@ -17,6 +19,16 @@ WORLD_KNOWLEDGE_ISSUE = "Source-unsupported but plausibly factual world knowledg
 
 
 class SummaryAudit(TypedDict):
+    """Structured review output for a single summary.
+
+    Parameters:
+        consistent: Whether the summary appears factually consistent.
+        primary_error_type: The dominant factuality issue category.
+        secondary_error_type: A fallback secondary category when needed.
+        world_knowledge_addition: Whether unsupported world knowledge was added.
+        notes: Short reviewer-oriented summary of the evidence.
+    """
+
     consistent: bool
     primary_error_type: str
     secondary_error_type: str
@@ -25,6 +37,16 @@ class SummaryAudit(TypedDict):
 
 
 def classify_summary(source: str, summary: str) -> SummaryAudit:
+    """Classify a summary into the manual-audit taxonomy.
+
+    Args:
+        source: Source document text.
+        summary: Candidate summary text.
+
+    Returns:
+        Structured factuality review metadata for the summary.
+    """
+
     entity = score_entity_support(source, summary)
     factcc = score_factcc_style(source, summary)
 
@@ -61,18 +83,27 @@ def classify_summary(source: str, summary: str) -> SummaryAudit:
 
 
 def build_audit_rows(comparison_frame: pd.DataFrame) -> pd.DataFrame:
+    """Build manual-audit rows from baseline and reranked comparisons.
+
+    Args:
+        comparison_frame: Per-example comparison rows for baseline and reranked
+            summaries.
+
+    Returns:
+        A dataframe shaped for downstream manual-audit reporting.
+    """
+
     rows: list[dict[str, object]] = []
     for _, row in comparison_frame.iterrows():
         baseline_review = classify_summary(str(row["document"]), str(row["baseline_summary"]))
         reranked_review = classify_summary(str(row["document"]), str(row["reranked_summary"]))
         selected_system = "reranked"
-        if baseline_review["consistent"] and not reranked_review["consistent"]:
+        if (baseline_review["consistent"] and not reranked_review["consistent"]) or (
+            reranked_review["consistent"] == baseline_review["consistent"]
+            and float(row["reranked_factcc_style_score"])
+            < float(row["baseline_factcc_style_score"])
+        ):
             selected_system = "baseline"
-        elif reranked_review["consistent"] == baseline_review["consistent"]:
-            if float(row["reranked_factcc_style_score"]) < float(
-                row["baseline_factcc_style_score"]
-            ):
-                selected_system = "baseline"
 
         selected_review = reranked_review if selected_system == "reranked" else baseline_review
         rows.append(

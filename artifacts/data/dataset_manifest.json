@@ -1,12 +1,40 @@
 {
-  "dataset_mode": "offline_preview_fixture",
+  "dataset_mode": "online_hub",
   "dataset_name_requested": "EdinburghNLP/xsum",
-  "dataset_revision_requested": "378fbf291bd25d5c8cbb3e0dc602301707be5693",
+  "dataset_revision_requested": "7d4d486c2f8ef850b1a11aead99b894ff3dd7da9",
+  "dataset_revision_resolved": "7d4d486c2f8ef850b1a11aead99b894ff3dd7da9",
   "fields": [
     "document",
     "summary",
     "id"
   ],
-  "note": "The executed run used a local fixture built from public XSum preview rows because the runtime could not resolve huggingface.co to download the official dataset snapshot.",
-  "rows_available": 16
+  "note": "Dataset materialized from the public Hugging Face Hub.",
+  "rows_available": 256,
+  "split_sampling": {
+    "dev_small": {
+      "limit": 16,
+      "rows_selected": 16,
+      "source_split": "validation"
+    },
+    "dev_smoke": {
+      "limit": 4,
+      "rows_selected": 4,
+      "source_split": "validation"
+    },
+    "test_final": {
+      "limit": 128,
+      "rows_selected": 128,
+      "source_split": "test"
+    },
+    "val_full": {
+      "limit": 128,
+      "rows_selected": 128,
+      "source_split": "validation"
+    },
+    "val_tune": {
+      "limit": 64,
+      "rows_selected": 64,
+      "source_split": "validation"
+    }
+  }
 }

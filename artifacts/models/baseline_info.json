@@ -1,6 +1,13 @@
 {
-  "actual_mode": "offline_surrogate_generator",
-  "reason": "The runtime could not fetch Hugging Face model files, so the executed run used a deterministic headline-style offline candidate generator while preserving the online hooks and config surface.",
+  "actual_mode": "huggingface_generation",
+  "baseline_revision_requested": "2179ab81d3f133e639f2957aec5380e9d56b2783",
+  "baseline_revision_resolved": "2179ab81d3f133e639f2957aec5380e9d56b2783",
+  "factcc_revision_requested": "c7b3148015d4ddc263f6e2acb2689e90ac061669",
+  "factcc_revision_resolved": "c7b3148015d4ddc263f6e2acb2689e90ac061669",
+  "nli_revision_requested": "a80a6eb013898011540b19bf1f64e21eb61e53d6",
+  "nli_revision_resolved": "a80a6eb013898011540b19bf1f64e21eb61e53d6",
+  "reason": "Generation and scoring are configured against public Hugging Face assets. This stage records the requested and resolved checkpoints without training.",
   "requested_baseline": "facebook/bart-large-xsum",
-  "requested_factcc_checkpoint": "manueldeprada/FactCC"
+  "requested_factcc_checkpoint": "manueldeprada/FactCC",
+  "requested_nli_checkpoint": "microsoft/deberta-base-mnli"
 }

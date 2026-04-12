@@ -1,4 +1,21 @@
 dataset_name: EdinburghNLP/xsum
-dataset_revision: 378fbf291bd25d5c8cbb3e0dc602301707be5693
-executed_mode: offline_preview_fixture
+dataset_revision: 7d4d486c2f8ef850b1a11aead99b894ff3dd7da9
+mode: online_hub
+offline_fallback_on_error: true
 fixture_path: data/fixtures/xsum_preview_fixture.jsonl
+split_sampling:
+  dev_smoke:
+    source_split: validation
+    limit: 4
+  dev_small:
+    source_split: validation
+    limit: 16
+  val_tune:
+    source_split: validation
+    limit: 64
+  val_full:
+    source_split: validation
+    limit: 128
+  test_final:
+    source_split: test
+    limit: 128

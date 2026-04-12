@@ -1,3 +1,6 @@
 model_name_or_path: facebook/bart-large-xsum
-revision: main
-executed_mode: offline_surrogate_generator
+revision: 2179ab81d3f133e639f2957aec5380e9d56b2783
+mode: huggingface_generation
+batch_size: 1
+max_source_length: 768
+device: auto

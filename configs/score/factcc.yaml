@@ -1,2 +1,2 @@
 requested_model: manueldeprada/FactCC
-executed_mode: heuristic_factcc_style
+mode: huggingface_factcc

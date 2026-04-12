@@ -1,2 +1,8 @@
-requested_model: SummaCConv
-executed_mode: heuristic_summac_style
+requested_model: microsoft/deberta-base-mnli
+revision: a80a6eb013898011540b19bf1f64e21eb61e53d6
+mode: huggingface_nli_consistency
+batch_size: 8
+max_length: 512
+summary_sentence_limit: 4
+source_chunk_size: 3
+source_chunk_limit: 8
