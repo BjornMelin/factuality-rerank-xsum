@@ -72,6 +72,16 @@ def metrics_for_selection(frame: pd.DataFrame) -> dict[str, float]:
         Aggregate ROUGE and factuality metrics for the selection.
     """
 
+    if frame.empty:
+        return {
+            **dict.fromkeys(ROUGE_KEYS, 0.0),
+            "summac_style_score": 0.0,
+            "factcc_style_score": 0.0,
+            "entity_support_score": 0.0,
+            "factuality_composite": 0.0,
+            "summary_len_tokens": 0.0,
+        }
+
     rouge = aggregate_rouge(
         frame["summary"].astype(str).tolist(),
         frame["reference"].astype(str).tolist(),

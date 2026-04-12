@@ -93,13 +93,15 @@ def requested_runtime_config() -> dict[str, Any]:
         "dataset_revision": _optional_text(data_config.get("dataset_revision")),
         "generator_model": str(generation_config["model_name_or_path"]),
         "generator_revision": _optional_text(generation_config.get("revision")),
-        "generator_mode": str(generation_config.get("mode", "huggingface_generation")),
+        "generator_mode": str(generation_config.get("mode") or "huggingface_generation"),
         "factcc_model": str(factcc_config["model_name_or_path"]),
         "factcc_revision": _optional_text(factcc_config.get("revision")),
-        "factcc_mode": str(factcc_config.get("mode", "huggingface_text_classification")),
+        "factcc_mode": str(
+            factcc_config.get("mode") or "huggingface_text_classification"
+        ),
         "nli_model": str(nli_config["requested_model"]),
         "nli_revision": _optional_text(nli_config.get("revision")),
-        "nli_mode": str(nli_config.get("mode", "huggingface_nli_consistency")),
+        "nli_mode": str(nli_config.get("mode") or "huggingface_nli_consistency"),
     }
 
 

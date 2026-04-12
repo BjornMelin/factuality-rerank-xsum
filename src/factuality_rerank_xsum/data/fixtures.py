@@ -123,8 +123,8 @@ def load_preview_fixture(path: Path | None = None) -> pd.DataFrame:
 
 def _split_samples(config: dict[str, Any]) -> list[SplitSample]:
     split_config = config.get("split_sampling")
-    if not isinstance(split_config, dict):
-        msg = "configs/data/xsum.yaml must define split_sampling"
+    if not isinstance(split_config, dict) or not split_config:
+        msg = "configs/data/xsum.yaml must define a non-empty split_sampling mapping"
         raise TypeError(msg)
     samples: list[SplitSample] = []
     for name, payload in split_config.items():
@@ -133,8 +133,11 @@ def _split_samples(config: dict[str, Any]) -> list[SplitSample]:
             raise TypeError(msg)
         source_split = payload.get("source_split")
         limit = payload.get("limit")
-        if not isinstance(source_split, str) or not isinstance(limit, int):
-            msg = f"Split sampling config for {name} must define string source_split and int limit"
+        if not isinstance(source_split, str):
+            msg = f"Split sampling config for {name} must define string source_split"
+            raise TypeError(msg)
+        if not isinstance(limit, int) or isinstance(limit, bool) or limit <= 0:
+            msg = f"Split sampling config for {name} must define positive int limit"
             raise TypeError(msg)
         samples.append(SplitSample(name=name, source_split=source_split, limit=limit))
     return samples
@@ -219,13 +222,14 @@ def _prepare_offline_fixture(
     config: dict[str, Any], error: Exception | None = None
 ) -> PreparedDataset:
     raw_fixture_path = config.get("fixture_path")
-    fixture_path = (
+    configured_path = (
         raw_fixture_path
         if isinstance(raw_fixture_path, Path)
         else Path(raw_fixture_path)
         if raw_fixture_path
         else FIXTURE_PATH
     )
+    fixture_path = configured_path if configured_path.is_absolute() else data_path().parent / configured_path
     frame = load_preview_fixture(fixture_path)
     manifest: dict[str, Any] = {
         "dataset_mode": "offline_preview_fixture",

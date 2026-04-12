@@ -12,7 +12,17 @@ from factuality_rerank_xsum.utils.paths import artifact_path, output_path, proje
 
 
 def _tracked_repo_files(root: Path) -> list[Path]:
-    """Return the tracked repository files relative to the project root."""
+    """Return the tracked repository files relative to the project root.
+
+    Args:
+        root: Project root directory used as the `git ls-files` working tree.
+
+    Returns:
+        The tracked file paths relative to `root`.
+
+    Raises:
+        OSError: If `git` is unavailable or the tracked file listing fails.
+    """
 
     git_binary = shutil.which("git")
     if git_binary is None:

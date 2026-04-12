@@ -1,3 +1,5 @@
+"""Unit tests for runtime contract validation and related runtime helpers."""
+
 from __future__ import annotations
 
 from pathlib import Path

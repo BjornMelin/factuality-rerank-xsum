@@ -1,12 +1,14 @@
 """Regression tests for fixture-backed dataset and generation helpers."""
 
 from typing import Any
+from typing import cast
 
 import pandas as pd
 import pytest
 import torch
 
 from factuality_rerank_xsum.data.fixtures import (
+    DatasetLoader,
     FIXTURE_PATH,
     load_preview_fixture,
     prepare_dataset,
@@ -191,6 +193,81 @@ def test_prepare_dataset_uses_default_fixture_when_fixture_path_is_null(
     prepare_dataset()
 
     assert captured["path"] == FIXTURE_PATH
+
+
+def test_prepare_dataset_resolves_relative_fixture_path_from_project_root(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Relative fixture paths should resolve from the repository root."""
+
+    captured: dict[str, object] = {}
+
+    def _capture_fixture(path: Any = None) -> pd.DataFrame:
+        captured["path"] = path
+        return load_preview_fixture(FIXTURE_PATH)
+
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.read_yaml",
+        lambda _path: {
+            "dataset_name": "owner/dataset",
+            "dataset_revision": None,
+            "mode": "offline_fixture",
+            "fixture_path": "data/fixtures/xsum_preview_fixture.jsonl",
+        },
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.load_preview_fixture",
+        _capture_fixture,
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.write_json",
+        lambda *_args, **_kwargs: None,
+    )
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.write_text",
+        lambda *_args, **_kwargs: None,
+    )
+    monkeypatch.setattr(pd.DataFrame, "to_parquet", lambda *_args, **_kwargs: None)
+
+    prepare_dataset()
+
+    assert captured["path"] == FIXTURE_PATH
+
+
+def test_prepare_dataset_rejects_empty_split_sampling(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Empty split sampling config should fail before dataset work starts."""
+
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.read_yaml",
+        lambda _path: {
+            "dataset_name": "owner/dataset",
+            "dataset_revision": None,
+            "mode": "online_hub",
+            "split_sampling": {},
+        },
+    )
+
+    with pytest.raises(TypeError, match="non-empty split_sampling mapping"):
+        prepare_dataset(dataset_loader=cast("DatasetLoader", lambda *_args, **_kwargs: None))
+
+
+def test_prepare_dataset_rejects_non_positive_split_limit(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Split sampling should reject zero, negative, and boolean limits."""
+
+    monkeypatch.setattr(
+        "factuality_rerank_xsum.data.fixtures.read_yaml",
+        lambda _path: {
+            "dataset_name": "owner/dataset",
+            "dataset_revision": None,
+            "mode": "online_hub",
+            "split_sampling": {"dev_smoke": {"source_split": "train", "limit": False}},
+        },
+    )
+
+    with pytest.raises(TypeError, match="dev_smoke"):
+        prepare_dataset(dataset_loader=cast("DatasetLoader", lambda *_args, **_kwargs: None))
 
 
 def test_generate_candidates_for_examples_reuses_hf_runtime(
