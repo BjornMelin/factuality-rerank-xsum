@@ -6,15 +6,15 @@ This repository studies factuality-aware reranking for XSum summarization. It ge
 
 ## Project Structure & Module Organization
 
-Implementation code lives in `src/factuality_rerank_xsum/`, organized by pipeline area: `generation/`, `scorers/`, `rerank/`, `eval/`, `audit/`, `viz/`, `data/`, `utils/`, and `cli/`. The numbered scripts in `scripts/` are stage entrypoints, not the main logic surface; put durable behavior in `src/` and keep script wrappers thin. Tests live in `tests/unit/`, configs in `configs/`, research docs in `docs/`, notebooks in `notebooks/`, and tracked outputs in `artifacts/`, `outputs/final/`, `data/processed/splits/`, and `VERSIONS.md`.
+Implementation code lives in `src/factuality_rerank_xsum/`, organized by pipeline area: `generation/`, `scoring/`, `rerank/`, `search/`, `evaluation/`, `audit/`, `reporting/`, `packaging/`, `viz/`, `data/`, `runtime/`, `utils/`, and `cli/`. Use the Typer CLI in `src/factuality_rerank_xsum/cli/` as the canonical stage surface and keep durable behavior in `src/`. Tests live in `tests/unit/`, configs in `configs/`, research docs in `docs/`, notebooks in `notebooks/`, and tracked outputs in `artifacts/`, `outputs/final/`, `data/processed/splits/`, and `VERSIONS.md`.
 
 ## Build, Test, and Development Commands
 
 Use `uv` for all environment and execution work.
 
 - `uv sync --locked --dev`: install the exact CI dependency set.
-- `make env`, `make smoke`, `make data`, `make train`, `make generate`, `make score`, `make search`, `make eval`, `make audit`, `make figures`, `make results-summary`, `make package`: run the canonical stage flow.
-- `uv run factuality-rerank-xsum <command>`: use the repo CLI for targeted stages such as `generate`, `score`, or `package`.
+- `make env`, `make smoke`, `make data`, `make train`, `make generate`, `make score`, `make search`, `make eval`, `make audit`, `make figures`, `make results-summary`, `make package`: run the canonical stage flow through the CLI.
+- `uv run factuality-rerank-xsum <command>`: use the repo CLI for targeted stages such as `generate`, `score`, `figures`, `results-summary`, or `package`.
 - `uv run ruff check && uv run ruff format --check && uv run mypy . && uv run pytest`: run the full local gate set used by CI.
 
 ## Environment & Validation Contract
@@ -49,7 +49,7 @@ Default stack for work in this repo: `$python-expert` + `$hugging-face` + `$gith
 
 ## Coding Style & Naming Conventions
 
-Target Python `3.11+` with 4-space indentation, explicit typing, and small, composable functions. Ruff enforces style and import order with a `100` character line length; mypy runs in strict mode. Use snake_case for modules, functions, config files, and YAML keys. Keep the numbered script naming pattern intact, for example `03_generate_candidates.py` and `10_rerank_and_eval.py`.
+Target Python `3.11+` with 4-space indentation, explicit typing, and small, composable functions. Ruff enforces style and import order with a `100` character line length; mypy runs in strict mode. Use snake_case for modules, functions, config files, YAML keys, and CLI helper functions.
 
 ## Testing Guidelines
 
@@ -57,11 +57,11 @@ Write deterministic `pytest` unit tests in `tests/unit/test_*.py`. Prefer direct
 
 ## Research Workflow & Artifact Rules
 
-This repository intentionally tracks generated research outputs. Do not hand-edit or casually regenerate files under `artifacts/`, `outputs/final/`, `data/processed/splits/`, or `VERSIONS.md`; if regeneration is required, mention it explicitly in the PR. Stage `07_score_candidates_minicheck_optional.py` is optional and is not part of the main `make` scoring path. The current checked-in results reflect an offline fallback run, not a full online XSum benchmark.
+This repository intentionally tracks generated research outputs. Do not hand-edit or casually regenerate files under `artifacts/`, `outputs/final/`, `data/processed/splits/`, or `VERSIONS.md`; if regeneration is required, mention it explicitly in the PR. The `uv run factuality-rerank-xsum minicheck-optional` stage is optional and is not part of the main `make` scoring path. The current checked-in results reflect an offline fallback run, not a full online XSum benchmark.
 
 Required final deliverables live under `outputs/final/`, including `main_metrics.csv`, `ablation_metrics.csv`, `pareto_points.csv`, `bootstrap_cis.json`, `manual_audit.csv`, `manual_audit_summary.json`, `figures/`, `tables/`, and `system_card.md`. The packaged handoff is not complete until those outputs, the packaged zip, and the summary docs all agree.
 
-Notebooks are secondary analysis surfaces. Use them to inspect saved artifacts and regenerate figures, but keep required experiment logic in `scripts/` and `src/`.
+Notebooks are secondary analysis surfaces. Use them to inspect saved artifacts and regenerate figures, but keep required experiment logic in the CLI and `src/`.
 
 ## Documentation & Claims
 

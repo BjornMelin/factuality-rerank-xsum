@@ -5,39 +5,37 @@ A reproducible summarization-analysis repository for factuality-aware reranking 
 ## What this repo contains
 
 - A full stage-by-stage pipeline from environment check through packaging.
-- An executed offline fallback run that generated the report-ready artifacts in `outputs/final/`.
+- Public PyPI and public Hugging Face defaults for install, dataset preparation, generation, and scoring.
+- Report-ready artifacts in `outputs/final/` generated from the current manifests and evaluation outputs.
 - Preserved prompts, plans, and references from the handoff bundle.
 
 ## Quick start
 
 ```bash
-uv sync
-uv run python scripts/00_env_check.py
-uv run python scripts/01_prepare_xsum.py
-uv run python scripts/03_generate_candidates.py
-uv run python scripts/04_score_candidates_summac.py
-uv run python scripts/05_score_candidates_factcc.py
-uv run python scripts/06_score_candidates_entity_support.py
-uv run python scripts/08_merge_candidate_scores.py
-uv run python scripts/09_search_weights.py
-uv run python scripts/10_rerank_and_eval.py
-uv run python scripts/11_bootstrap_metrics.py
-uv run python scripts/12_sample_manual_audit.py
-uv run python scripts/13_summarize_manual_audit.py
-uv run python scripts/14_make_tables_and_figures.py
-uv run python scripts/15_build_results_summary.py
-uv run python scripts/16_package_repo.py
+uv sync --locked --dev
+uv run factuality-rerank-xsum env
+uv run factuality-rerank-xsum data
+uv run factuality-rerank-xsum train
+uv run factuality-rerank-xsum generate
+uv run factuality-rerank-xsum score
+uv run factuality-rerank-xsum search
+uv run factuality-rerank-xsum evaluate
+uv run factuality-rerank-xsum audit
+uv run factuality-rerank-xsum package
 ```
 
-## Online public-data path
+## Runtime notes
 
-Install PyTorch with the official selector first. For a real public-data rerun, use separate online and metrics environments because the legacy SummaC dependency conflicts with the modern Hugging Face stack.
+- `uv sync --locked --dev` is the canonical base install path.
+- `hf` CLI auth and Hub revision checks are recorded by the env stage.
+- The rerank pipeline keeps the legacy `summac` and `factcc` stage names for artifact compatibility even though the implementations are model-backed.
+- After runtime or config changes, rerun `generate`, `score`, `search`, and `evaluate` before treating metric artifacts as refreshed.
 
-```bash
-uv sync --dev
-```
+Current executed dataset mode: `online_hub`. Current configured generator mode: `huggingface_generation`.
 
-The executed session could not reach Hugging Face, so the generated outputs document the offline fixture fallback rather than a full benchmark run.
+## Notebooks
+
+- `notebooks/` is a companion analysis surface over saved artifacts, not the canonical execution or reporting path.
 
 ## Key artifacts
 

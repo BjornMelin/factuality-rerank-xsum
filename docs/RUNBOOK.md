@@ -1,29 +1,24 @@
 # RUNBOOK
 
-## Fast path used in this session
+## Canonical install and runtime flow
 
-1. `uv sync`
-2. `uv run python scripts/00_env_check.py`
-3. `uv run python scripts/01_prepare_xsum.py`
-4. `uv run python scripts/02_train_or_load_bart.py`
-5. `uv run python scripts/03_generate_candidates.py`
-6. `uv run python scripts/04_score_candidates_summac.py`
-7. `uv run python scripts/05_score_candidates_factcc.py`
-8. `uv run python scripts/06_score_candidates_entity_support.py`
-9. `uv run python scripts/08_merge_candidate_scores.py`
-10. `uv run python scripts/09_search_weights.py`
-11. `uv run python scripts/10_rerank_and_eval.py`
-12. `uv run python scripts/11_bootstrap_metrics.py`
-13. `uv run python scripts/12_sample_manual_audit.py`
-14. `uv run python scripts/13_summarize_manual_audit.py`
-15. `uv run python scripts/14_make_tables_and_figures.py`
-16. `uv run python scripts/15_build_results_summary.py`
-17. `uv run python scripts/16_package_repo.py`
+1. `uv sync --locked --dev`
+2. `uv run factuality-rerank-xsum env`
+3. `uv run factuality-rerank-xsum data`
+4. `uv run factuality-rerank-xsum train`
+5. `uv run factuality-rerank-xsum generate`
+6. `uv run factuality-rerank-xsum score`
+7. `uv run factuality-rerank-xsum search`
+8. `uv run factuality-rerank-xsum evaluate`
+9. `uv run factuality-rerank-xsum audit`
+10. `uv run factuality-rerank-xsum package`
 
-## Online public-data path
+## Runtime verification
 
-- Install PyTorch with the official selector before attempting a full public-data rerun.
-- Because `summac==0.0.4` conflicts with the modern Hugging Face stack used by the requested online path, use separate `online` and `metrics` environments for a full rerun.
+- `hf` CLI availability and authentication are recorded in `artifacts/env/env_report.json`.
+- Dataset and model revisions are recorded in `artifacts/data/dataset_manifest.json` and `artifacts/models/baseline_info.json`.
+- Candidate generation uses the configured `facebook/bart-large-xsum` revision unless the model config explicitly changes mode.
+- After runtime or config changes, rerun `generate`, `score`, `search`, and `evaluate` before treating metric artifacts as refreshed.
 
 ## Artifacts
 
