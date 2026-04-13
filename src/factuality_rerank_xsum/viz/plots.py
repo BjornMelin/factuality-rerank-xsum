@@ -1,10 +1,14 @@
 from __future__ import annotations
 
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import matplotlib.pyplot as plt
-import pandas as pd
-from matplotlib.figure import Figure
+
+if TYPE_CHECKING:
+    from pathlib import Path
+
+    import pandas as pd
+    from matplotlib.figure import Figure
 
 
 def _save(fig: Figure, path: Path) -> None:

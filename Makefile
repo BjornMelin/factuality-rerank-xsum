@@ -1,40 +1,37 @@
+.PHONY: env smoke data train generate score search eval audit figures results-summary package
+
 env:
-	uv sync
+	uv sync --locked --dev
 
 smoke:
-	uv run python scripts/00_env_check.py
+	uv run factuality-rerank-xsum env
 
 data:
-	uv run python scripts/01_prepare_xsum.py
+	uv run factuality-rerank-xsum data
 
 train:
-	uv run python scripts/02_train_or_load_bart.py
+	uv run factuality-rerank-xsum train
 
 generate:
-	uv run python scripts/03_generate_candidates.py
+	uv run factuality-rerank-xsum generate
 
 score:
-	uv run python scripts/04_score_candidates_summac.py && \
-	uv run python scripts/05_score_candidates_factcc.py && \
-	uv run python scripts/06_score_candidates_entity_support.py && \
-	uv run python scripts/08_merge_candidate_scores.py
+	uv run factuality-rerank-xsum score
 
 search:
-	uv run python scripts/09_search_weights.py
+	uv run factuality-rerank-xsum search
 
 eval:
-	uv run python scripts/10_rerank_and_eval.py && \
-	uv run python scripts/11_bootstrap_metrics.py
+	uv run factuality-rerank-xsum evaluate
 
 audit:
-	uv run python scripts/12_sample_manual_audit.py && \
-	uv run python scripts/13_summarize_manual_audit.py
+	uv run factuality-rerank-xsum audit
 
 figures:
-	uv run python scripts/14_make_tables_and_figures.py
+	uv run factuality-rerank-xsum figures
 
 results-summary:
-	uv run python scripts/15_build_results_summary.py
+	uv run factuality-rerank-xsum results-summary
 
 package:
-	uv run python scripts/16_package_repo.py
+	uv run factuality-rerank-xsum package

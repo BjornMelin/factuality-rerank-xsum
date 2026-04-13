@@ -3,11 +3,12 @@
 ## Supported by executed artifacts
 
 - The repo implements the requested reranking study structure and artifact contract.
-- The executed offline fixture run shows that factuality-aware reranking can improve a surrogate factuality composite on the local fixture.
-- Entity/date/number support is useful as a targeted refinement in the executed fallback setting.
+- The repo now defaults to public PyPI installs and public Hugging Face runtime assets.
+- The rerank pipeline uses model-backed factuality scoring while preserving the legacy score-column contract required by downstream analysis.
+- Entity/date/number support remains a complementary signal alongside the model-backed scorers.
 
 ## Too strong for the executed run
 
 - Do not claim benchmark-level XSum gains.
-- Do not claim that BART or real SummaC / FactCC checkpoints were executed in this environment.
+- Do not claim more than the executed dataset and generator modes recorded in the manifests.
 - Do not claim human-annotator reliability beyond a single-pass assistant audit.

@@ -1,21 +1,26 @@
 {
   "dns_checks": [
     {
-      "error": "[Errno -3] Temporary failure in name resolution",
+      "error": "",
       "host": "huggingface.co",
-      "resolvable": false
+      "resolvable": true
     },
     {
-      "error": "[Errno -3] Temporary failure in name resolution",
+      "error": "",
       "host": "pypi.org",
-      "resolvable": false
+      "resolvable": true
     }
   ],
-  "mode": "offline_fixture_fallback",
-  "online_runtime_ready": false,
+  "hf_auth": {
+    "authenticated": true
+  },
+  "hf_cli_available": true,
+  "mode": "online_hf_ready",
+  "online_runtime_ready": true,
   "package_versions": {
-    "datasets": null,
-    "evaluate": null,
+    "accelerate": "1.13.0",
+    "datasets": "4.8.4",
+    "huggingface-hub": "1.10.1",
     "jsonlines": "4.0.0",
     "matplotlib": "3.10.8",
     "mypy": "1.20.0",
@@ -23,19 +28,34 @@
     "pandas": "2.3.3",
     "pyarrow": "22.0.0",
     "pytest": "9.0.3",
-    "rich": "14.3.4",
     "rouge-score": "0.1.2",
     "ruff": "0.15.10",
-    "scikit-learn": "1.8.0",
-    "summac": null,
-    "transformers": null
+    "sentencepiece": "0.2.1",
+    "torch": "2.11.0",
+    "transformers": "5.5.3",
+    "ty": "0.0.1a27",
+    "typer": "0.24.1"
   },
-  "platform": "Linux-4.4.0-x86_64-with-glibc2.41",
-  "python_version": "3.13.5",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_version": "3.12.13",
   "requested_online_path": {
-    "dataset": "EdinburghNLP/xsum",
-    "factcc": "manueldeprada/FactCC",
-    "model": "facebook/bart-large-xsum"
+    "dataset_name": "EdinburghNLP/xsum",
+    "dataset_revision": "7d4d486c2f8ef850b1a11aead99b894ff3dd7da9",
+    "factcc_mode": "huggingface_text_classification",
+    "factcc_model": "manueldeprada/FactCC",
+    "factcc_revision": "c7b3148015d4ddc263f6e2acb2689e90ac061669",
+    "generator_mode": "huggingface_generation",
+    "generator_model": "facebook/bart-large-xsum",
+    "generator_revision": "2179ab81d3f133e639f2957aec5380e9d56b2783",
+    "nli_mode": "huggingface_nli_consistency",
+    "nli_model": "microsoft/deberta-base-mnli",
+    "nli_revision": "a80a6eb013898011540b19bf1f64e21eb61e53d6"
   },
-  "uv_version": "uv 0.10.0"
+  "resolved_online_assets": {
+    "dataset_revision": "7d4d486c2f8ef850b1a11aead99b894ff3dd7da9",
+    "factcc_revision": "c7b3148015d4ddc263f6e2acb2689e90ac061669",
+    "generator_revision": "2179ab81d3f133e639f2957aec5380e9d56b2783",
+    "nli_revision": "a80a6eb013898011540b19bf1f64e21eb61e53d6"
+  },
+  "uv_version": "uv 0.11.2 (x86_64-unknown-linux-gnu)"
 }

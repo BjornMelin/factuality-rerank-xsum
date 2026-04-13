@@ -1,5 +1,5 @@
 {
-  "artifact_copy": "/mnt/data/factuality-rerank-xsum/artifacts/package/factuality-rerank-xsum.zip",
+  "artifact_copy": "artifacts/package/factuality-rerank-xsum.zip",
   "final_outputs": [
     "outputs/final/ablation_metrics.csv",
     "outputs/final/bootstrap_cis.json",
@@ -20,5 +20,5 @@
     "outputs/final/tables/qualitative_examples.csv",
     "outputs/final/tables/report_tables.md"
   ],
-  "repo_zip": "/mnt/data/factuality-rerank-xsum.zip"
+  "repo_zip": "../factuality-rerank-xsum.zip"
 }

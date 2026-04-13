@@ -2,17 +2,22 @@
 
 ## What actually ran
 
-- Implemented the full repository and stage-by-stage script surface from the handoff plan.
-- Executed the offline fixture fallback because the runtime could not resolve Hugging Face hosts.
-- Fixture rows available: 16.
+- Implemented the repository stage surface end to end with public-PyPI and public-Hub defaults.
+- Environment mode: `online_hf_ready`.
+- Dataset mode executed: `online_hub`.
+- Generator mode currently configured: `huggingface_generation`.
+- Dataset rows available: 256.
+- Dataset note: Dataset materialized from the public Hugging Face Hub.
+- Generator note: Generation and scoring are configured against public Hugging Face assets. This stage records the requested and resolved checkpoints without training.
+- Evaluation metrics below are sourced from the current artifacts on disk; rerun the full generation/scoring/evaluation chain to refresh them under any new runtime configuration.
 
-## Requested online path vs executed path
+## Requested assets and resolved revisions
 
-- Requested dataset: `EdinburghNLP/xsum`.
-- Requested generator: `facebook/bart-large-xsum`.
-- Requested factuality models: `SummaCConv` and `manueldeprada/FactCC`.
-- Executed generator: deterministic headline-style offline surrogate.
-- Executed factuality metrics: heuristic SummaC-style score, heuristic FactCC-style score, and entity/date/number support.
+- Dataset: `EdinburghNLP/xsum` requested at `7d4d486c2f8ef850b1a11aead99b894ff3dd7da9` resolved to `7d4d486c2f8ef850b1a11aead99b894ff3dd7da9`.
+- Generator: `facebook/bart-large-xsum` requested at `2179ab81d3f133e639f2957aec5380e9d56b2783` resolved to `2179ab81d3f133e639f2957aec5380e9d56b2783`.
+- FactCC scorer: `manueldeprada/FactCC` requested at `c7b3148015d4ddc263f6e2acb2689e90ac061669` resolved to `c7b3148015d4ddc263f6e2acb2689e90ac061669`.
+- NLI scorer: `microsoft/deberta-base-mnli` requested at `a80a6eb013898011540b19bf1f64e21eb61e53d6` resolved to `a80a6eb013898011540b19bf1f64e21eb61e53d6`.
+- Factuality score columns retain the legacy `summac_style_score` and `factcc_style_score` names for rerank compatibility, but the implementations are model-backed.
 
 ## Selected operating point
 
@@ -24,23 +29,16 @@
 ## Exact commands used
 
 ```bash
-uv sync --dev
-uv run python scripts/00_env_check.py
-uv run python scripts/01_prepare_xsum.py
-uv run python scripts/02_train_or_load_bart.py
-uv run python scripts/03_generate_candidates.py
-uv run python scripts/04_score_candidates_summac.py
-uv run python scripts/05_score_candidates_factcc.py
-uv run python scripts/06_score_candidates_entity_support.py
-uv run python scripts/08_merge_candidate_scores.py
-uv run python scripts/09_search_weights.py
-uv run python scripts/10_rerank_and_eval.py
-uv run python scripts/11_bootstrap_metrics.py
-uv run python scripts/12_sample_manual_audit.py
-uv run python scripts/13_summarize_manual_audit.py
-uv run python scripts/14_make_tables_and_figures.py
-uv run python scripts/15_build_results_summary.py
-uv run python scripts/16_package_repo.py
+uv sync --locked --dev
+uv run factuality-rerank-xsum env
+uv run factuality-rerank-xsum data
+uv run factuality-rerank-xsum train
+uv run factuality-rerank-xsum generate
+uv run factuality-rerank-xsum score
+uv run factuality-rerank-xsum search
+uv run factuality-rerank-xsum evaluate
+uv run factuality-rerank-xsum audit
+uv run factuality-rerank-xsum package
 ```
 
 ## Main test result
@@ -72,6 +70,6 @@ uv run python scripts/16_package_repo.py
 
 ## Limits on claims
 
-- The executed numbers describe the offline fixture fallback only.
-- The repo preserves the online public-data path, but those runs were not executed in this environment.
+- The manifests now prove public-PyPI installability and public-Hub readiness, but metric freshness still depends on rerunning generate/score/search/evaluate after runtime changes.
+- Do not interpret the bounded split configuration as a full benchmark-scale XSum sweep without explicitly increasing the configured limits and rerunning the full pipeline.
 - The assistant-generated manual audit is useful for error slicing, not for strong human-annotation claims.

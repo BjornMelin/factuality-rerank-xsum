@@ -5,38 +5,43 @@ build-backend = "hatchling.build"
 [project]
 name = "factuality-rerank-xsum"
 version = "0.1.0"
-description = "Reproducible XSum factuality-aware reranking repo with an executed offline fallback pipeline."
+description = "Reproducible XSum factuality-aware reranking repo with public Hugging Face runtime defaults."
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
-  {name = "OpenAI GPT-5.4 Pro build session"},
+  {name = "Bjorn Melin"},
 ]
 dependencies = [
+  "accelerate>=1.13,<2",
+  "datasets>=4.8.4,<5",
+  "huggingface-hub>=1.0,<2",
   "jsonlines>=4.0.0,<5",
   "matplotlib>=3.9,<4",
   "numpy>=1.26,<3",
   "pandas>=2.2,<3",
   "pyarrow>=21,<23",
   "pyyaml>=6.0,<7",
-  "rich>=13,<15",
   "rouge-score>=0.1.2",
-  "scikit-learn>=1.5,<2",
+  "sentencepiece>=0.2.1,<1",
+  "torch>=2.6,<3",
+  "transformers>=5.5.3,<6",
   "typer>=0.12,<1",
 ]
 
 [dependency-groups]
 dev = [
   "mypy>=1.11,<2",
-  "nbformat>=5.10,<6",
   "pandas-stubs>=2.2.2,<3",
   "pytest>=8,<10",
   "ruff>=0.6,<1",
+  "ty>=0.0.29,<0.1",
   "types-PyYAML>=6.0.12,<7",
 ]
 notebooks = [
   "ipykernel>=6.29,<7",
   "jupyterlab>=4.2,<5",
+  "nbformat>=5.10,<6",
 ]
 
 [project.scripts]
@@ -45,14 +50,23 @@ factuality-rerank-xsum = "factuality_rerank_xsum.cli.main:app"
 [tool.uv]
 package = true
 
+[[tool.uv.index]]
+url = "https://pypi.org/simple"
+default = true
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+src = ["src"]
 extend-exclude = ["notebooks/*.ipynb"]
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP", "B"]
+select = ["E", "W", "F", "I", "N", "UP", "B", "A", "C4", "SIM", "RET", "PTH", "PT", "T20", "RUF", "TCH", "ARG", "S"]
 ignore = ["B008", "E501"]
+fixable = ["ALL"]
+per-file-ignores = {"tests/**/*.py" = ["S101"]}
+# Deferred audit-lane rules:
+# - D, ANN, TRY, PL: currently too noisy for this repo's code patterns.
 
 [tool.ruff.format]
 docstring-code-format = true
@@ -60,6 +74,7 @@ docstring-code-format = true
 [tool.mypy]
 python_version = "3.11"
 strict = true
+exclude = '(^|/)(plugins|\.venv|artifacts|outputs)/'
 warn_unused_ignores = true
 warn_redundant_casts = true
 show_error_codes = true
@@ -68,15 +83,43 @@ plugins = []
 
 [[tool.mypy.overrides]]
 module = [
+  "accelerate",
+  "datasets",
+  "huggingface_hub",
+  "huggingface_hub.*",
   "jsonlines",
   "matplotlib",
   "matplotlib.*",
   "pyarrow",
   "pyarrow.*",
   "rouge_score",
+  "torch",
+  "torch.*",
+  "transformers",
+  "transformers.*",
   "typer",
 ]
 ignore_missing_imports = true
+
+[tool.ty.environment]
+python-version = "3.11"
+python-platform = "linux"
+root = ["./src"]
+
+[tool.ty.src]
+include = ["src", "tests"]
+exclude = [
+  "plugins",
+  "artifacts",
+  "outputs",
+  "notebooks",
+  "data",
+]
+respect-ignore-files = true
+
+[tool.ty.terminal]
+error-on-warning = true
+output-format = "full"
 
 
 [tool.pytest.ini_options]

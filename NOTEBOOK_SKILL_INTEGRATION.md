@@ -1,119 +1,150 @@
-# NOTEBOOK_SKILL_INTEGRATION.md
+# NOTEBOOK_SKILL_INTEGRATION
 
-This file explains how to use the attached `jupyter-notebook.zip` skill in the implementation repo.
+This file explains how to use notebook workflows in this repository without letting notebooks
+become the canonical execution surface.
 
----
+The repo is CLI-first. Notebooks are allowed and useful, but only as secondary analysis surfaces
+over tracked artifacts.
 
-## 1. Why this exists
+## 1. Why this file exists
 
-The project should be script-first, but notebooks are still valuable for:
-- sanity checks,
-- candidate inspection,
-- figure regeneration,
-- manual-audit review,
-- and presentation-ready analysis.
+An external GPT-5.4 Pro session may receive:
 
-The attached notebook skill provides a clean scaffolding path so the notebooks are structured, reproducible, and not hand-written raw JSON.
+- a live repository checkout
+- a packaged repo zip
+- selected Markdown files
+- a request to explore, debug, or present results with notebooks
 
----
+That session still needs clear notebook guidance for:
 
-## 2. Recommended notebook set
+- how notebooks fit into the repo
+- which notebooks are worth creating or maintaining
+- how to scaffold them safely
+- what is allowed in notebooks versus what must stay in the CLI and `src/`
 
-Create or maintain these notebooks:
+## 2. Canonical notebook policy
+
+Notebooks are secondary to:
+
+- `uv run factuality-rerank-xsum ...`
+- tracked outputs under `artifacts/` and `outputs/final/`
+- generated report-facing docs under `docs/`
+
+Notebooks should:
+
+- read saved artifacts
+- inspect candidates and metrics
+- regenerate presentation-oriented figures from tracked outputs
+- support qualitative analysis and manual-audit review
+
+Notebooks should not:
+
+- become the only place where official experiment logic lives
+- become the only place where final tables or figures can be recreated
+- replace the canonical CLI stage flow
+
+## 3. When to use the `jupyter-notebook` skill
+
+Use the `jupyter-notebook` skill when the task is to:
+
+- create a new notebook under `notebooks/`
+- clean up an existing `.ipynb`
+- scaffold a notebook with a stable structure instead of editing raw JSON
+
+The skill is especially useful in external-session or zip-upload workflows because it reduces the
+chance of hand-editing notebook JSON poorly.
+
+## 4. Recommended notebook set
+
+If notebooks are being created or refreshed, these are the preferred notebook roles:
 
 1. `notebooks/01_sanity_checks.ipynb`
 2. `notebooks/02_candidate_analysis.ipynb`
 3. `notebooks/03_final_figures.ipynb`
 4. `notebooks/04_manual_audit_review.ipynb`
 
----
+Suggested responsibilities:
 
-## 3. Skill setup
+- `01_sanity_checks`
+  - environment snapshot
+  - dataset sample and split checks
+  - candidate schema checks
+  - quick one-example generation/score inspection using saved artifacts
 
-If the implementation chat has access to the attached skill files, it should follow the skill README / `SKILL.md` pattern.
+- `02_candidate_analysis`
+  - candidate-count distributions
+  - beam-size comparisons
+  - score distributions
+  - score-correlation inspection
+  - qualitative candidate text review
 
-Expected helper path pattern:
+- `03_final_figures`
+  - report-table inspection
+  - Pareto and beam trade-off figure regeneration from saved outputs
+  - presentation-oriented visual review
+
+- `04_manual_audit_review`
+  - audit bucket distributions
+  - selected examples
+  - disagreement review
+  - paper/presentation candidate examples
+
+## 5. Setup and helper-path guidance
+
+If the notebook skill is installed in the normal Codex location, the typical helper-path pattern is:
+
 ```bash
 export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 export JUPYTER_NOTEBOOK_CLI="$CODEX_HOME/skills/jupyter-notebook/scripts/new_notebook.py"
 ```
 
-If the skill files are simply attached locally rather than installed under `$CODEX_HOME`, the build chat can call the local script path directly.
+If the helper is available through a plugin or local checkout instead, adapt the script path but
+keep the same behavior: use the helper to scaffold a clean notebook file rather than writing raw
+JSON.
 
-Example local pattern:
+Example pattern:
+
 ```bash
-python /path/to/jupyter-notebook/scripts/new_notebook.py \
+uv run python "$JUPYTER_NOTEBOOK_CLI" \
   --kind experiment \
-  --title "XSum factual reranking experiment notebook" \
+  --title "XSum factual reranking analysis" \
   --out notebooks/02_candidate_analysis.ipynb \
   --force
 ```
 
----
+## 6. Notebook input policy
 
-## 4. Notebook content policy
+Prefer reading these tracked sources:
 
-### 4.1 Keep notebooks lightweight
-Notebooks should:
-- read saved artifacts,
-- summarize results,
-- make plots,
-- and support qualitative analysis.
+- `artifacts/data/dataset.parquet`
+- `artifacts/generations/...`
+- `artifacts/scores/...`
+- `artifacts/search/...`
+- `artifacts/eval/...`
+- `artifacts/audit/...`
+- `outputs/final/...`
 
-They should **not** be the only place where the official experiment logic lives.
+Do not build notebooks around:
 
-### 4.2 Scripts remain authoritative
-All final outputs used by the paper must be reproducible from scripts:
-- training / baseline
-- candidate generation
-- scoring
-- reranking
-- final evaluation
-- figure generation
+- ad hoc local files outside the repo contract
+- one-off CSV exports with no tracked provenance
+- a separate notebook-only execution path
 
-### 4.3 Safe notebook responsibilities
-Good notebook jobs:
-- inspect candidate diversity
-- inspect top success and failure cases
-- regenerate presentation figures
-- summarize audit label distributions
-
----
-
-## 5. Recommended notebook sections
-
-### `01_sanity_checks.ipynb`
-- environment snapshot
-- dataset sample and split checks
-- tokenizer sanity checks
-- one-example generation demo
-- candidate parquet schema check
-
-### `02_candidate_analysis.ipynb`
-- candidate count distributions
-- beam-size comparisons
-- score histograms
-- score correlations
-- candidate text inspection
-
-### `03_final_figures.ipynb`
-- main result tables
-- Pareto frontier
-- beam trade-off plot
-- ablation chart
-- metric-vs-human scatter
-
-### `04_manual_audit_review.ipynb`
-- audit bucket distributions
-- error taxonomy chart
-- selected examples for paper
-- disagreement cases
-
----
-
-## 6. Validation rule
+## 7. Validation rule
 
 A notebook is acceptable only if:
-- it opens cleanly,
-- it reads from saved repo artifacts,
-- and it does not hide any unreproducible logic needed for the final paper.
+
+- it opens cleanly
+- it reads tracked repo artifacts
+- it does not replace a canonical CLI stage
+- it does not become the sole source of report claims
+- it remains understandable to another engineer or external GPT-5.4 Pro session
+
+## 8. Guidance for uploaded-zip sessions
+
+If a GPT-5.4 Pro session is working from an uploaded repo zip rather than a live checkout:
+
+- inspect which notebooks are already present before creating new ones
+- prefer notebooks that consume `outputs/final/` when shell execution is unavailable
+- avoid instructions that assume direct kernel execution unless the environment clearly supports it
+- keep notebook guidance subordinate to the tracked docs and artifacts in the zip
