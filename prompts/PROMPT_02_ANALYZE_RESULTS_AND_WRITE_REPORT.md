@@ -56,6 +56,8 @@ You are done only when you have:
 - Do not silently upgrade bounded-run findings into benchmark claims.
 - Do not treat proposal intent as if it were automatically implemented.
 - Do not use newer research papers as evidence of repo behavior.
+- If a gap requires new repo execution, say so explicitly instead of pretending
+  it was completed in this chat.
 
 ## Required preflight
 
@@ -176,4 +178,6 @@ Respond with these sections:
 6. `Slide Outline`
 7. `Limitations And Claim Boundaries`
 8. `Future Work And Deferred Upgrade Lanes`
+9. `Codex Follow-Up Needed` only if the draft is blocked by missing execution
+   work
 ```

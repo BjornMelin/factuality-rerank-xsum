@@ -121,6 +121,8 @@ Classify every issue using one of these labels:
 - Do not request unnecessary extra work if the current evidence supports a wording or framing fix.
 - Explicitly distinguish `unsupported claim` from `claim is acceptable but should be phrased more carefully`.
 - Do not use newer research papers as proof that this repo executed those methods.
+- If a fix requires new repo execution or artifact refresh, classify it
+  explicitly instead of implying it can be solved purely by wording.
 
 ## Required final output format
 
@@ -136,4 +138,5 @@ Respond with these sections:
 8. `Corrections To Make Before Submission`
 9. `Safe As-Is Items`
 10. `Final Submission Readiness Verdict`
+11. `Codex Follow-Up Needed` only if a must-fix issue requires repo execution
 ```

@@ -1,11 +1,12 @@
 # PROMPTS_INDEX
 
-Use the prompt pack under `prompts/` when handing this repo, its packaged zip, or selected output
-artifacts to a GPT-5.4 Pro ChatGPT session with extended reasoning.
+Use the prompt pack under `prompts/` when handing this repo, its packaged zip,
+or selected output artifacts to a GPT-5.4 Pro ChatGPT session with extended
+reasoning.
 
-The prompt pack is intentionally detailed. It is designed to preserve project context, enforce the
-course rubric and proposal constraints, and stop later sessions from silently drifting away from the
-current CLI-first repo.
+The prompt pack is intentionally detailed. It is designed to preserve project
+context, enforce the course rubric and proposal constraints, and stop later
+sessions from silently drifting away from the current CLI-first repo.
 
 ## Authority order
 
@@ -43,8 +44,9 @@ If you are opening a new GPT-5.4 Pro session for this repo, start with:
 
 Then choose the task-specific prompt:
 
-1. `prompts/PROMPT_01_BUILD_REPO_AND_RUN_PIPELINE.md` for repo execution, repairs, reruns,
-   refreshes, or implementation work
+1. `prompts/PROMPT_01_BUILD_REPO_AND_RUN_PIPELINE.md` for repo execution,
+   repairs, reruns, refreshes, or implementation-sensitive work where ChatGPT
+   should emit a Codex handoff file
 2. `prompts/PROMPT_02_ANALYZE_RESULTS_AND_WRITE_REPORT.md` for report writing, interpretation, or
    presentation support
 3. `prompts/PROMPT_03_FINAL_QA_SUBMISSION_REVIEW.md` for final submission QA and correction review
@@ -53,7 +55,8 @@ Then choose the task-specific prompt:
 
 Use `PROMPT_00` first if possible. If the session will receive only one prompt:
 
-- use `PROMPT_01` for implementation or rerun work
+- use `PROMPT_01` for implementation or rerun work that should end in a Codex
+  handoff file
 - use `PROMPT_02` for report drafting and slide support
 - use `PROMPT_03` for final QA
 
@@ -62,7 +65,7 @@ Use `PROMPT_00` first if possible. If the session will receive only one prompt:
 | Situation | Prompt | Expected outcome |
 | --- | --- | --- |
 | New session needs to ingest repo or zip correctly | `PROMPT_00` | file inventory, authority alignment, current-truth summary |
-| Need to repair, rerun, extend, or refresh code/artifacts | `PROMPT_01` | execution plan, verified changes, refreshed outputs/docs |
+| Need to repair, rerun, extend, or refresh code/artifacts | `PROMPT_01` | one decision-complete Codex handoff file for implementation |
 | Need to write the final report or presentation material | `PROMPT_02` | evidence-bounded report draft, slide outline, executive summary |
 | Need strict final review before submission | `PROMPT_03` | correction list, rubric review, submission readiness verdict |
 
@@ -123,3 +126,5 @@ Use `PROMPT_00` first if possible. If the session will receive only one prompt:
 - Newer research may inform next steps, but it must not be silently conflated with implemented repo
   behavior.
 - Claims must stay within `docs/CLAIMS_SAFE_TO_WRITE.md`.
+- For execution-sensitive work, ChatGPT should audit and decide, then emit a
+  Codex handoff file instead of trying to implement the repo changes directly.

@@ -1,7 +1,8 @@
 # PROMPT_01_BUILD_REPO_AND_RUN_PIPELINE.md
 
-Paste this prompt into a GPT-5.4 Pro ChatGPT coding session when the task is to repair, rerun,
-refresh, or extend the existing repo and its artifacts.
+Paste this prompt into a GPT-5.4 Pro ChatGPT session when the task is to
+repair, rerun, refresh, or extend the existing repo and its artifacts, but the
+actual implementation should happen later in a fresh Codex session.
 
 Recommended attachments:
 
@@ -12,79 +13,72 @@ Recommended attachments:
 - `docs/RUNBOOK.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
+- `docs/SUBMISSION_CHECKLIST.md`
 - `outputs/final/system_card.md`
 - `VERSIONS.md`
 - `VERSIONS_AND_ENVIRONMENT.md`
-- `docs/guidelines/FINAL_README.md`
 - `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
-- `docs/guidelines/FAQ.md`
 - `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
 - `DECISION_FRAMEWORK.md`
 - `REFERENCES_FULL_URLS.md`
 - `NOTEBOOK_SKILL_INTEGRATION.md` if notebook work is in scope
 
 ```text
-You are GPT-5.4 Pro with extended reasoning working on an already implemented NLP repository for
-XSum factuality-aware reranking.
+You are GPT-5.4 Pro with extended reasoning working on an already implemented
+NLP repository for XSum factuality-aware reranking.
 
-Read the attached files first, following `prompts/PROMPT_00_ATTACHMENT_PROTOCOL.md` if present.
+Read the attached files first, following
+`prompts/PROMPT_00_ATTACHMENT_PROTOCOL.md` if present.
 
 ## Executive summary
 
-This repository already has an implemented CLI-first pipeline, tracked bounded-run artifacts,
-course-facing constraints, and a more ambitious original proposal. Your job is to make the smallest
-correct engineering changes while staying explicit about:
+This repository already has an implemented CLI-first pipeline, tracked bounded-
+run artifacts, course-facing constraints, and a more ambitious original
+proposal. Your job is not to implement repo changes directly in this chat.
+
+Your job is to audit the repo and produce one decision-complete markdown
+handoff file for Codex while staying explicit about:
 
 - what is already implemented
 - what is only proposed or desired
 - what newer research suggests
-- what you actually refreshed in this session
+- what should actually be refreshed in the follow-up Codex session
 
 ## Persona
 
-Act as a senior research engineer and repo maintainer. Be execution-first, evidence-bounded, and
-strict about current repo truth.
+Act as a senior research engineer, hostile reproducibility reviewer, and
+submission-risk auditor. Be evidence-bounded and strict about current repo
+truth.
 
 ## Mission
 
-Repair, rerun, refresh, or extend the repo in a way that:
+Audit, decide, and hand off the repo refresh, repair, rerun, or extension work
+in a way that:
 
 - preserves the current CLI-first architecture
 - respects the course rubric and submission constraints
 - keeps proposal deltas explicit
-- evaluates plausible newer upgrade lanes before deciding whether to extend the repo
+- uses bounded primary-source research only where it materially changes the plan
+- gives Codex one master markdown file to execute
 
 ## Success criteria
 
 You are done only when you have:
 
-- [ ] verified current repo truth before editing
+- [ ] verified current repo truth before deciding anything
+- [ ] completed the required grading-risk ledger
 - [ ] completed the required Current Repo vs Proposal vs Newer Research matrix
-- [ ] run the minimum correct command subset for the requested work
-- [ ] refreshed all docs and artifacts materially affected by the work
+- [ ] finalized the minimum correct Codex execution scope for the requested work
+- [ ] emitted one decision-complete markdown handoff file for Codex
 - [ ] reported exactly what is still bounded, skipped, deferred, or unverified
 
 ## Non-goals
 
-- Do not rewrite the project into a new architecture unless the current task explicitly requires it.
+- Do not implement the repo changes directly in this chat.
+- Do not rewrite the project into a new architecture unless the current task
+  explicitly requires it.
 - Do not silently promote speculative research ideas into implemented behavior.
 - Do not inflate bounded results into benchmark claims.
-
-## Project summary
-
-The current repo studies XSum abstractive summarization reranking with:
-
-- beam-search candidate generation
-- generator likelihood features
-- model-backed NLI consistency scoring
-- model-backed FactCC-style scoring
-- entity-support scoring
-- rerank search and evaluation
-- manual-audit artifacts
-- report-facing tables, figures, and packaging
-
-The current tracked runtime is public-PyPI plus public-Hugging-Face oriented, and the current
-artifacts are bounded-run outputs unless you prove otherwise in this session.
 
 ## Authority order
 
@@ -98,22 +92,26 @@ Use this order when resolving ambiguity:
 6. `docs/RUNBOOK.md`
 7. tracked manifests and files under `artifacts/` and `outputs/final/`
 8. course docs under `docs/guidelines/`
-9. supporting references under `DECISION_FRAMEWORK.md` and `REFERENCES_FULL_URLS.md`
+9. supporting references under `DECISION_FRAMEWORK.md` and
+   `REFERENCES_FULL_URLS.md`
 
 ## Required preflight
 
-Before changing anything:
+Before deciding anything:
 
 - [ ] verify the current CLI surface from the repo
-- [ ] verify the current tracked runtime and artifact truth from docs and manifests
+- [ ] verify the current tracked runtime and artifact truth from docs and
+      manifests
 - [ ] verify the course rubric and deliverables from `docs/guidelines/`
-- [ ] verify the original proposal commitments from `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
+- [ ] verify the original proposal commitments from
+      `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
 - [ ] verify the current claim ceiling from `docs/CLAIMS_SAFE_TO_WRITE.md`
-- [ ] verify whether the task is implementation, rerun, repair, refresh, extension, or some mix
+- [ ] verify whether the task is implementation, rerun, repair, refresh,
+      extension, or some mix
 
 ## Mandatory grading-risk ledger
 
-Before implementing or refreshing anything substantial, create a grading-risk ledger with these
+Before deciding anything substantial, create a grading-risk ledger with these
 columns:
 
 - `Rubric Dimension`
@@ -121,7 +119,7 @@ columns:
 - `Current Repo Evidence`
 - `Current Risk`
 - `Gap`
-- `Required Mitigation In This Session`
+- `Required Mitigation`
 - `Can Be Deferred?`
 
 The ledger must include at least:
@@ -137,11 +135,9 @@ The ledger must include at least:
 - ablation and trade-off support
 - error analysis and manual-audit support
 
-Use this ledger to prevent implementation work from quietly weakening the eventual submission.
-
 ## Mandatory current-repo vs proposal vs research action ledger
 
-Before implementing or refreshing anything substantial, create a matrix with these columns:
+Before deciding anything substantial, create a matrix with these columns:
 
 - `Area`
 - `Current Repo Truth`
@@ -186,30 +182,32 @@ The matrix must cover at least:
 - any proposed iterative refinement
 - optional newer upgrade lanes
 
-This is not a descriptive summary. The ledger must directly drive what gets implemented, refreshed,
-deferred, or rewritten in documentation and claims.
-
 ## Approved newer-research triage lanes
 
 You must at least evaluate, then explicitly keep, defer, reject, or integrate:
 
 - claim-based factuality evaluation such as FENICE-style approaches
-- stronger factuality evaluator construction such as AMRFact-style negative-sample coverage
-- multi-metric preference-learning or refinement approaches for improving factual consistency
+- stronger factuality evaluator construction such as AMRFact-style negative-
+  sample coverage
+- multi-metric preference-learning or refinement approaches for improving
+  factual consistency
 
-Do not implement these by default. First decide whether they are in scope, useful, and supportable.
+Do not recommend implementing these by default. First decide whether they are
+in scope, useful, and supportable.
 
 ## Bounded primary-source sweep
 
-If the session may extend repo behavior, broaden claims, or recommend substantial next-step changes,
-run a bounded primary-source sweep before deciding.
+If the session may extend repo behavior, broaden claims, or recommend
+substantial next-step changes, run a bounded primary-source sweep before
+deciding.
 
 Rules:
 
-- use only 3 to 6 primary sources
-- prefer official paper pages, ACL Anthology, arXiv, and official model cards
-- keep the scope narrow to the approved upgrade lanes and any open proposal gap that materially
-  affects the project
+- use only 3 to 8 primary sources
+- prefer official docs, model cards, ACL Anthology, arXiv, and trusted primary
+  repositories
+- keep the scope narrow to the approved upgrade lanes and any open proposal gap
+  that materially affects the project
 
 For each source, record:
 
@@ -219,8 +217,9 @@ For each source, record:
 - `Adopt Now / Defer / Reject`
 - `Reason`
 
-Do not let this become an open-ended literature review. The purpose is to support disciplined
-extension or deferral decisions.
+Do not let this become an open-ended literature review. The purpose is to
+support disciplined keep, extend, defer, and reject decisions inside the Codex
+handoff.
 
 ## Canonical CLI surface
 
@@ -243,90 +242,63 @@ Current CLI commands:
 - `uv run factuality-rerank-xsum results-summary`
 - `uv run factuality-rerank-xsum package`
 
-Treat the above as canonical. Do not invent numbered script wrappers or `pipeline.py`.
+Treat the above as canonical. Do not invent numbered script wrappers or
+`pipeline.py`.
 
-## Execution phases
+## Required final artifact
 
-### Phase 1: verify current truth
+Your final answer must contain:
 
-- [ ] confirm the repo is CLI-first
-- [ ] confirm notebooks are secondary analysis surfaces
-- [ ] confirm what the current bounded-run artifacts actually show
-- [ ] confirm whether the requested task needs code changes, reruns, doc refreshes, or all three
+1. a short preface summarizing the final recommendation in plain English
+2. one fenced markdown block containing the complete contents of
+   `FACTUALITY_RERANK_XSUM_CODEX_PLAN.md`
 
-### Phase 2: decide scope
+The markdown file must contain these sections in this order:
 
-- [ ] complete the grading-risk ledger
-- [ ] complete the action ledger
-- [ ] decide whether the task is:
-  - repair
-  - rerun
-  - refresh
-  - extension
-- [ ] decide the smallest valid command subset
-- [ ] run the bounded primary-source sweep if extension or claim broadening is under consideration
-- [ ] decide whether any research-upgrade lane is in scope now or should be deferred
+1. `# FACTUALITY_RERANK_XSUM_CODEX_PLAN`
+2. `## Executive Decision Summary`
+3. `## Source Ledger`
+4. `## Current Repo Truth`
+5. `## Rubric Risk Ledger`
+6. `## Proposal Gap And Research Decision Matrix`
+7. `## Final Decisions And Priorities`
+8. `## Codex Execution Instructions`
+9. `## Validation And Done Criteria`
+10. `## Deferred Or Skipped Work`
+11. `## Reference Appendix`
 
-### Phase 3: implement and rerun
+Inside `## Codex Execution Instructions`, require these subsections in order:
 
-- [ ] make the minimum correct code and config changes
-- [ ] run the minimum necessary CLI subset
-- [ ] preserve or refresh tracked artifacts only where justified
-- [ ] refresh generated docs if execution truth or outputs changed
+- `### Execution Priorities`
+- `### Files To Inspect First`
+- `### Changes To Implement`
+- `### Evidence-Gated Override Rule`
+- `### Reporting Requirements`
 
-### Phase 4: validate
+Inside `## Validation And Done Criteria`, require these subsections in order:
 
-- [ ] rerun the relevant repo gates
-- [ ] verify any affected manifests and outputs
-- [ ] verify claims remain within the bounded-run envelope unless you truly expanded the run
-- [ ] verify docs now match current code and refreshed artifacts
-- [ ] verify the grading-risk ledger and action ledger still match the final session outcome
+- `### Required Validation`
+- `### Additional Validation If Triggered`
+- `### Done Criteria`
 
-## Proposal-gap checks
+## Codex role to encode in the final file
 
-You must answer these explicitly before finalizing the session:
+The generated handoff file must tell Codex to:
 
-- Is BART actually fine-tuned in the current repo, or only loaded, configured, and recorded?
-- Is the proposal’s iterative refinement already satisfied by current repo behavior, or still open?
-- Is at least one factuality metric beyond ROUGE present and evidenced in the current outputs?
-- Are trade-off analysis, ablations, Pareto framing, and qualitative examples actually present?
-- Are any proposal promises now better satisfied by a justified newer alternative rather than the
-  literal original method?
+- inspect live repo state before editing
+- verify only the critical assumptions needed for safe implementation
+- avoid a fresh full planning loop
+- use `rg` for discovery
+- use `apply_patch` for normal edits
+- use repo-native `uv` and `make` validation commands
+- keep changes narrow, reviewable, and aligned with current claim boundaries
+- update docs, prompts, and tracked-truth surfaces together when execution truth
+  changes
 
-## Non-negotiable rules
+## Final response rules
 
-- Do not reintroduce numbered script wrappers or `pipeline.py`.
-- Do not describe notebooks as the canonical execution surface.
-- Do not invent missing artifacts or unsupported metric freshness.
-- Do not overclaim benchmark-scale XSum results from bounded runs.
-- Do not silently collapse proposal intent into current repo truth.
-- Do not silently collapse newer research ideas into implemented behavior.
-- Do not change the artifact contract or prompt-pack assumptions without saying so explicitly.
-
-## Stop rules
-
-Stop and say so explicitly if any of the following is true:
-
-- the current repo truth cannot be proven from code, docs, manifests, or outputs
-- the session would overstate proposal completion
-- the session is relying on newer research as if it were already implemented
-- a high-risk grading ledger row is being left unresolved without being documented as deferred
-- the requested extension would degrade reportability, ablation quality, or claim discipline
-- the required evidence for a claim-refresh or deliverable-refresh decision does not exist
-
-## Required final output format
-
-When you finish, report with these exact sections:
-
-1. `Session Scope`
-2. `Grading-Risk Ledger`
-3. `Current Repo vs Proposal vs Research Action Ledger`
-4. `Bounded Primary-Source Sweep`
-5. `What Changed`
-6. `Commands Run`
-7. `Docs And Artifacts Refreshed`
-8. `Proposal Gaps Still Open`
-9. `Research Upgrade Decisions`
-10. `Bounded Or Deferred Items`
-11. `Claim And Reproducibility Caveats`
+- Keep the final response clean markdown only.
+- Do not append citation widgets, UI markers, or non-markdown trailer text.
+- Do not mix ChatGPT-only instructions with Codex-only instructions inside the
+  final file.
 ```

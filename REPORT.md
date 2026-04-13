@@ -140,7 +140,7 @@ So the correct design is not “minimal docs.” The correct design is:
 This division is better than distributed authority because an external GPT-5.4 Pro session can
 follow one primary contract and still access deeper reasoning when needed.
 
-## 8. Why the prompt pack is specialized for GPT-5.4 Pro
+## 8. Why the prompt pack is specialized for GPT-5.4 Pro plus Codex
 
 The prompt pack is intentionally specialized rather than generic because the real downstream task is
 not “any LLM may maybe do some analysis.”
@@ -149,13 +149,14 @@ It is specifically:
 
 - upload files and zip artifacts into ChatGPT
 - use GPT-5.4 Pro with extended reasoning
-- obtain a strong, evidence-bounded rerun, writing, or QA session
+- have ChatGPT do the audit, proposal/rubric reasoning, and bounded research
+- then obtain a strong Codex execution session when implementation work is required
 
 The prompt pack therefore needs:
 
 - explicit file-ingestion protocol
 - recommended attachment bundles
-- role-specific instructions for execution, writing, and QA
+- role-specific instructions for audit-to-Codex handoff, writing, and QA
 - strong boundaries around unsupported claims
 
 Generic prompts would be more portable but less effective for the actual workflow this repo needs.
@@ -194,6 +195,10 @@ with:
 - tracked outputs
 - current generated docs
 - and a detailed external-session handoff pack
+
+The highest-value external workflow is therefore no longer "ask ChatGPT to code
+everything." It is "use ChatGPT to audit, decide, and emit a precise Codex
+handoff, then let Codex execute against the live repo."
 
 That is the right shape for finishing the remaining work: reruns if needed, report writing, and
 submission QA.

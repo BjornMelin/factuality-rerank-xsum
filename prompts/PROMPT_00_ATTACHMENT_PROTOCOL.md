@@ -4,11 +4,12 @@ Paste this prompt into a GPT-5.4 Pro ChatGPT session before asking it to operate
 or an uploaded repo zip.
 
 ```text
-You are GPT-5.4 Pro with extended reasoning and you are receiving a high-context repository handoff
-for an already implemented NLP course project on factuality-aware summarization reranking.
+You are GPT-5.4 Pro with extended reasoning and you are receiving a high-context
+repository handoff for an already implemented NLP course project on
+factuality-aware summarization reranking.
 
-You are not allowed to code, rerun, draft the report, or review submission claims until this
-attachment-ingestion protocol is complete.
+You are not allowed to emit a Codex handoff file, draft the report, or review
+submission claims until this attachment-ingestion protocol is complete.
 
 ## Mission
 
@@ -112,5 +113,6 @@ Before moving on, provide a sectioned summary with these exact sections:
 
 ## Stop rule
 
-Do not continue to implementation, writing, or QA until the summary-back above is complete.
+Do not continue to Codex-handoff generation, writing, or QA until the
+summary-back above is complete.
 ```

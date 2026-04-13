@@ -40,7 +40,9 @@ uv run factuality-rerank-xsum package
 ## Prompt pack
 
 - `PROMPTS_INDEX.md` lists the maintained prompt flow for rerun, analysis, and QA sessions.
+- `.agents/chatgpt/` contains the self-contained ChatGPT project pack for audit-and-handoff workflows.
 - Prompt files under `prompts/` assume the current CLI-first repo state, not the deleted script-wrapper flow.
+- The execution-oriented prompt lane now tells ChatGPT to emit a Codex handoff instead of trying to implement repo changes inside ChatGPT.
 
 ## Key artifacts
 

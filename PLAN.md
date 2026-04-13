@@ -11,6 +11,19 @@ It is written for two valid execution contexts:
 The repo is already implemented. The next session should treat this file as a current-state
 execution and deliverables contract, not as a greenfield build prompt.
 
+For implementation-sensitive work, the preferred external workflow is now:
+
+1. ChatGPT inspects the repo snapshot and attached docs.
+2. ChatGPT audits current repo truth against proposal, rubric, and bounded
+   primary-source research.
+3. ChatGPT emits one decision-complete markdown handoff file for a fresh Codex
+   session.
+4. Codex inspects live repo state, verifies only critical assumptions, then
+   implements and validates the settled plan.
+
+Do not default to having ChatGPT directly implement or rerun the repo when the
+goal is code, experiment, or artifact changes.
+
 ## 1. Project anchor
 
 This project is a factuality-aware reranking study for XSum summarization.
