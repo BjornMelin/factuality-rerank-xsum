@@ -6,11 +6,12 @@ report or presentation material from the tracked repo artifacts.
 Recommended attachments:
 
 - repo zip or live repo access
-- `PLAN.md`
-- `README.md`
 - `REPORT.md`
+- `docs/RUNBOOK.md`
+- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
+- `README.md`
 - `docs/SLIDES_OUTLINE.md`
 - `outputs/final/system_card.md`
 - `outputs/final/tables/report_tables.md`
@@ -20,7 +21,6 @@ Recommended attachments:
 - `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
 - `docs/guidelines/FAQ.md`
 - `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
-- `DECISION_FRAMEWORK.md`
 - `REFERENCES_FULL_URLS.md`
 
 ```text
@@ -64,7 +64,8 @@ You are done only when you have:
 Before writing:
 
 - [ ] confirm which files and artifact folders actually exist
-- [ ] read `PLAN.md` for current-state and remaining-work framing
+- [ ] read `REPORT.md`, `docs/RUNBOOK.md`, and `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
+      for current-state and remaining-work framing
 - [ ] read `docs/RESULTS_SUMMARY.md`, `docs/CLAIMS_SAFE_TO_WRITE.md`, and
       `outputs/final/system_card.md` before interpreting metrics
 - [ ] read the course docs under `docs/guidelines/`

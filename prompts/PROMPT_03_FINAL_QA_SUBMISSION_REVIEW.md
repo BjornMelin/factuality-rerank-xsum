@@ -8,8 +8,9 @@ Recommended attachments:
 - final report draft
 - slide outline or presentation notes
 - repo zip or live repo access
-- `PLAN.md`
 - `REPORT.md`
+- `docs/RUNBOOK.md`
+- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
 - `docs/SUBMISSION_CHECKLIST.md`
@@ -51,7 +52,9 @@ You are done only when you have:
 
 Before reviewing:
 
-- [ ] read `PLAN.md`
+- [ ] read `REPORT.md`
+- [ ] read `docs/RUNBOOK.md`
+- [ ] read `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
 - [ ] read `docs/RESULTS_SUMMARY.md`
 - [ ] read `docs/CLAIMS_SAFE_TO_WRITE.md`
 - [ ] read `outputs/final/system_card.md`

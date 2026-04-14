@@ -7,19 +7,18 @@ actual implementation should happen later in a fresh Codex session.
 Recommended attachments:
 
 - repo zip or live repo access
-- `PLAN.md`
-- `README.md`
 - `REPORT.md`
 - `docs/RUNBOOK.md`
+- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
+- `README.md`
 - `docs/SUBMISSION_CHECKLIST.md`
 - `outputs/final/system_card.md`
 - `VERSIONS.md`
 - `VERSIONS_AND_ENVIRONMENT.md`
 - `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
 - `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
-- `DECISION_FRAMEWORK.md`
 - `REFERENCES_FULL_URLS.md`
 - `NOTEBOOK_SKILL_INTEGRATION.md` if notebook work is in scope
 
@@ -84,16 +83,15 @@ You are done only when you have:
 
 Use this order when resolving ambiguity:
 
-1. `PLAN.md`
-2. `docs/RESULTS_SUMMARY.md`
-3. `docs/CLAIMS_SAFE_TO_WRITE.md`
-4. `README.md`
-5. `REPORT.md`
-6. `docs/RUNBOOK.md`
+1. `REPORT.md`
+2. `docs/RUNBOOK.md`
+3. `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
+4. `docs/RESULTS_SUMMARY.md`
+5. `docs/CLAIMS_SAFE_TO_WRITE.md`
+6. `README.md`
 7. tracked manifests and files under `artifacts/` and `outputs/final/`
 8. course docs under `docs/guidelines/`
-9. supporting references under `DECISION_FRAMEWORK.md` and
-   `REFERENCES_FULL_URLS.md`
+9. supporting references under `REFERENCES_FULL_URLS.md`
 
 ## Required preflight
 
