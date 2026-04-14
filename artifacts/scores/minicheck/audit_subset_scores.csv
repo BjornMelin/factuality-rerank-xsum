@@ -1,52 +1,30 @@
 id,system,claim,document,expected_consistent,minicheck_label,minicheck_prob
-39055714,baseline,"The head of a troubled school trust has written to parents warning of ""unthinkable"" decisions it could have to make to save money, including shortening the school day and cutting teaching jobs.","Dave Baker, of the Olympus Trust which operates near Bristol, said government cuts had left it at ""crisis point"".
-Parents described the funding problem as ""diabolical"". A union said the idea was ""terrible"" but families deserved to know the truth about funding.
-A Department for Education (DfE) spokesman said new funding plans would increase the trust's budget by 2.4%.
-The Olympus Trust runs one secondary, one all-through school and five primary academies in South Gloucestershire, to the north of Bristol.
-In the letter Mr Baker warned parents of the ""unthinkable"" decisions the trust could be forced to make from September.
-These include shortening the school day ""because we cannot afford to staff lessons for the whole week"".
-Other proposals are cutting teaching and support jobs within the schools, increasing class sizes and reducing the curriculum.
-The letter also says parents may be asked to make regular financial contributions to supplement school funding.
-Mr Baker said South Gloucestershire was one of the five worst-funded local authorities so had less reserves to draw upon.
-Beckie Morton, a parent of two daughters at Charlborough Road Primary School, is anxious about the impact any cuts will have on her girls, aged 10 and seven.
-She said: ""It's shocking - I don't know what I'd do work-wise if they shortened the school day.
-""If they do this, all that will be left is the lessons and no extra support for pupils.
-""My eldest daughter suffers panic attacks and has received a lot of pastoral care - this will have a massive impact on her final year there.""
-Natalie, who has a son attending at Bradley Stoke Community School, called the proposals ""diabolical"".
-She said: ""At the moment we are hoping to have a special needs support worker for my son and if they cut funding he won't have that.
-""I don't blame the school, they are trying their best.""
-In December, the government announced the biggest shake-up of school funding for decades.
-The DfE said the current system was ""unfair, opaque and outdated"" and the changes would see more than half of England's schools get more cash.
-""We recognise that schools are facing cost pressures, which is why we will continue to provide support to help them use their funding in cost-effective ways, including improving the way they buy goods and services, soâ€Ž they get the best possible value. ""
-Kevin Courtney, chair of the National Union of Teachers (NUT), said schools were still facing an 8% reduction in spending power.
-He said: ""All schools in England will have less money in real terms per pupil in 2020 than they do now.
-""This cash they talk about doesn't keep pace with spending pressures on schools.
-""The proposals Mr Baker has mentioned are terrible and none of them should happen, but parents deserve to know the truth about the position schools are in.""
-The consultation on the new formula runs until 22 March 2017.",0,1,0.9812290668487549
-39055714,reranked,"The chief executive of a school trust has written to parents warning of ""unthinkable"" decisions it could have to make over funding.","Dave Baker, of the Olympus Trust which operates near Bristol, said government cuts had left it at ""crisis point"".
-Parents described the funding problem as ""diabolical"". A union said the idea was ""terrible"" but families deserved to know the truth about funding.
-A Department for Education (DfE) spokesman said new funding plans would increase the trust's budget by 2.4%.
-The Olympus Trust runs one secondary, one all-through school and five primary academies in South Gloucestershire, to the north of Bristol.
-In the letter Mr Baker warned parents of the ""unthinkable"" decisions the trust could be forced to make from September.
-These include shortening the school day ""because we cannot afford to staff lessons for the whole week"".
-Other proposals are cutting teaching and support jobs within the schools, increasing class sizes and reducing the curriculum.
-The letter also says parents may be asked to make regular financial contributions to supplement school funding.
-Mr Baker said South Gloucestershire was one of the five worst-funded local authorities so had less reserves to draw upon.
-Beckie Morton, a parent of two daughters at Charlborough Road Primary School, is anxious about the impact any cuts will have on her girls, aged 10 and seven.
-She said: ""It's shocking - I don't know what I'd do work-wise if they shortened the school day.
-""If they do this, all that will be left is the lessons and no extra support for pupils.
-""My eldest daughter suffers panic attacks and has received a lot of pastoral care - this will have a massive impact on her final year there.""
-Natalie, who has a son attending at Bradley Stoke Community School, called the proposals ""diabolical"".
-She said: ""At the moment we are hoping to have a special needs support worker for my son and if they cut funding he won't have that.
-""I don't blame the school, they are trying their best.""
-In December, the government announced the biggest shake-up of school funding for decades.
-The DfE said the current system was ""unfair, opaque and outdated"" and the changes would see more than half of England's schools get more cash.
-""We recognise that schools are facing cost pressures, which is why we will continue to provide support to help them use their funding in cost-effective ways, including improving the way they buy goods and services, soâ€Ž they get the best possible value. ""
-Kevin Courtney, chair of the National Union of Teachers (NUT), said schools were still facing an 8% reduction in spending power.
-He said: ""All schools in England will have less money in real terms per pupil in 2020 than they do now.
-""This cash they talk about doesn't keep pace with spending pressures on schools.
-""The proposals Mr Baker has mentioned are terrible and none of them should happen, but parents deserve to know the truth about the position schools are in.""
-The consultation on the new formula runs until 22 March 2017.",0,1,0.9794253706932068
+21967739,baseline,"It's the most common form of cancer in men, and it's one of the leading causes of cancer death in men.","According to Cancer Research UK some 41, 000 men are diagnosed with prostate cancer every year, but 10,700 will die of the disease, making it the fourth most common cause of cancer death - and second only to lung cancer in men.
+Given such a dire prognosis, and let's face it, given the financial profile of its victims, you might be forgiven for assuming that prostate cancer would be one of the most highly prioritised and well researched areas of oncology. Not a bit of it. Perhaps it's because men are squeamish, or don't like to talk about their health or visit the doctor, but prostate cancer has long been dubbed ""the Cinderella cancer"".
+""We just don't make enough of it"" according to consultant oncologist Professor Neil Burnet. ""On the whole men are less vocal about their health, and older men tend to be even more stoical, preferring to grin and bear it. But it means men are poor advocates, and as a result prostate cancer has been overlooked"".
+Based at Addenbrooke's Hospital on the outskirts of Cambridge, Prof Burnet is trying to improve the targeting and efficiency of radiotherapy treatments, and to reduce toxicity in the healthy tissue surrounding the prostate. The technique, called Image Guided Intensity Modulated Radiotherapy Treatment uses imaging provided by a CT scan to target the tumour before a powerful but precisely shaped radiation dose is administered.
+""What limits what we can do with radiotherapy are the side effects of the treatment, the toxicity.  And, since the prostate can move by up to a couple of centimetres from one day to the next, targeting the treatment is really important. The second half of this technology is in delivering intensity modulated radiotherapy, which allows us to match a higher dose of radiation to the shape of the tumour.""
+But if Image Guided IMRT offers the prospect of better outcomes for men with advanced or aggressive prostate cancer, how much better might it be to get in at an earlier stage?
+That - at least in part - was the motivation behind the Collaborative Oncological Gene/Environment Study, or COGES, which has announced the discovery of 80 new genetic markers for breast, ovarian and prostate cancer. In one of the largest research projects of its kind scientists from Cambridge University and the Institute of Cancer Research in London looked at samples from more than 200,000 people - half with, and half without, cancer.
+The results include 23 new gene variants associated with prostate cancer and 16 with aggressive forms of the disease. Initially at least that should help with the development of a viable screening test for the disease. In the longer term it may present new targets for drug treatment and better diagnosis, and a greater understanding of the mechanisms and basic biology of prostate cancer.
+""It's shocking, but we still don't have an adequate screening test for prostate cancer,"" says Ros Eeles, Professor of Oncogenetics at the Institute of Cancer Research and COGES study leader on prostate cancer. ""That's because the Prostate Specific Antigen, or PSA test, just isn't accurate enough and you'd have to treat between 12 and 48 men unnecessarily to save a single life. With this new information we could have a viable test in five to eight years"".
+If that still seems a long way off, surgical techniques have advanced dramatically when it comes to prostate cancer. These days consultant urologist Professor David Neal uses the DaVinci surgical robot to perform prostate surgery.
+Sitting at a computer console that looks like it would be more at home in an amusement arcade than an operating theatre, Prof Neal can perform a prostatectomy without ever touching his patient. And because the robotic arms of the device (which looks a little like a crab hovering over the operating table) are much thinner than the surgeon's, and the grappling and cutting tools at the sharp end are much smaller, what was once a major operation is now less invasive.
+As with Image Guided Intensity Modulated Radiotherapy collateral damage to surrounding healthy tissue is kept to a minimum.
+""The DaVinci robot has made a huge difference to prostate surgery"" says Prof Neal. ""It's still a major operation, but we can be very precise about what we remove and the function we're able to save. That's got to be good news for the patient"".",0,0,0.0900404080748558
+21967739,reranked,"Prostate cancer has been called ""the Cinderella cancer"".","According to Cancer Research UK some 41, 000 men are diagnosed with prostate cancer every year, but 10,700 will die of the disease, making it the fourth most common cause of cancer death - and second only to lung cancer in men.
+Given such a dire prognosis, and let's face it, given the financial profile of its victims, you might be forgiven for assuming that prostate cancer would be one of the most highly prioritised and well researched areas of oncology. Not a bit of it. Perhaps it's because men are squeamish, or don't like to talk about their health or visit the doctor, but prostate cancer has long been dubbed ""the Cinderella cancer"".
+""We just don't make enough of it"" according to consultant oncologist Professor Neil Burnet. ""On the whole men are less vocal about their health, and older men tend to be even more stoical, preferring to grin and bear it. But it means men are poor advocates, and as a result prostate cancer has been overlooked"".
+Based at Addenbrooke's Hospital on the outskirts of Cambridge, Prof Burnet is trying to improve the targeting and efficiency of radiotherapy treatments, and to reduce toxicity in the healthy tissue surrounding the prostate. The technique, called Image Guided Intensity Modulated Radiotherapy Treatment uses imaging provided by a CT scan to target the tumour before a powerful but precisely shaped radiation dose is administered.
+""What limits what we can do with radiotherapy are the side effects of the treatment, the toxicity.  And, since the prostate can move by up to a couple of centimetres from one day to the next, targeting the treatment is really important. The second half of this technology is in delivering intensity modulated radiotherapy, which allows us to match a higher dose of radiation to the shape of the tumour.""
+But if Image Guided IMRT offers the prospect of better outcomes for men with advanced or aggressive prostate cancer, how much better might it be to get in at an earlier stage?
+That - at least in part - was the motivation behind the Collaborative Oncological Gene/Environment Study, or COGES, which has announced the discovery of 80 new genetic markers for breast, ovarian and prostate cancer. In one of the largest research projects of its kind scientists from Cambridge University and the Institute of Cancer Research in London looked at samples from more than 200,000 people - half with, and half without, cancer.
+The results include 23 new gene variants associated with prostate cancer and 16 with aggressive forms of the disease. Initially at least that should help with the development of a viable screening test for the disease. In the longer term it may present new targets for drug treatment and better diagnosis, and a greater understanding of the mechanisms and basic biology of prostate cancer.
+""It's shocking, but we still don't have an adequate screening test for prostate cancer,"" says Ros Eeles, Professor of Oncogenetics at the Institute of Cancer Research and COGES study leader on prostate cancer. ""That's because the Prostate Specific Antigen, or PSA test, just isn't accurate enough and you'd have to treat between 12 and 48 men unnecessarily to save a single life. With this new information we could have a viable test in five to eight years"".
+If that still seems a long way off, surgical techniques have advanced dramatically when it comes to prostate cancer. These days consultant urologist Professor David Neal uses the DaVinci surgical robot to perform prostate surgery.
+Sitting at a computer console that looks like it would be more at home in an amusement arcade than an operating theatre, Prof Neal can perform a prostatectomy without ever touching his patient. And because the robotic arms of the device (which looks a little like a crab hovering over the operating table) are much thinner than the surgeon's, and the grappling and cutting tools at the sharp end are much smaller, what was once a major operation is now less invasive.
+As with Image Guided Intensity Modulated Radiotherapy collateral damage to surrounding healthy tissue is kept to a minimum.
+""The DaVinci robot has made a huge difference to prostate surgery"" says Prof Neal. ""It's still a major operation, but we can be very precise about what we remove and the function we're able to save. That's got to be good news for the patient"".",0,1,0.9861398935317993
 35345872,baseline,"Pakistan has lifted a ban on the video-sharing website YouTube, imposed after an anti-Islam video was posted online.","Pakistan's telecoms regulator said the ban was no longer necessary because Google, which owns YouTube, had now launched a Pakistan-specific version.
 YouTube has denied claims that the authorities can filter content.
 Many young Pakistanis have welcomed the lifting of the ban but some activists want details of the deal with Google.
@@ -127,7 +105,7 @@ Ballots of university support staff represented by Unison and Unite are also und
 Any action would take place during the autumn term, said a Unison spokeswoman.
 UCU is planning strike rallies in:
 Staff are also working to contract from Wednesday - refusing to set extra work, cover for absent colleagues or work overtime.",0,0,0.019331833347678185
-39070183,baseline,"A low-calorie diet can restore the function of a special type of cell in the pancreas, a study suggests.","Restoring the function of the organ - which helps control blood sugar levels - reversed symptoms of diabetes in animal experiments.
+39070183,baseline,"A low-calorie diet can rejuvenate a special type of cell in the pancreas, a study suggests.","Restoring the function of the organ - which helps control blood sugar levels - reversed symptoms of diabetes in animal experiments.
 The study, published in the journal Cell, says the diet reboots the body.
 Experts said the findings were ""potentially very exciting"" as they could become a new treatment for the disease.
 The experiments were on mice put on a modified form of the ""fasting-mimicking diet"".
@@ -157,7 +135,7 @@ He told the BBC: ""It boils down to do not try this at home, this is so much mor
 He said people could ""get into trouble"" with their health if it was done without medical guidance.
 Dr Emily Burns, research communications manager at Diabetes UK, said: ""This is potentially very exciting news, but we need to see if the results hold true in humans before we'll know more about what it means for people with diabetes.
 ""People with type-1 and type-2 diabetes would benefit immensely from treatments that can repair or regenerate insulin-producing cells in the pancreas.""
-Follow James on Twitter.",0,1,0.8157281279563904
+Follow James on Twitter.",0,1,0.9116031527519226
 39070183,reranked,"A low-calorie diet can rejuvenate a specific type of cell in the pancreas, a study suggests.","Restoring the function of the organ - which helps control blood sugar levels - reversed symptoms of diabetes in animal experiments.
 The study, published in the journal Cell, says the diet reboots the body.
 Experts said the findings were ""potentially very exciting"" as they could become a new treatment for the disease.
@@ -237,33 +215,31 @@ Everton boss Roberto Martinez: ""The atmosphere was perfect for us to start a ve
 Wolfsburg boss Dieter Hecking: ""It's obviously not the start we'd hoped for. We were lacking in certain areas, both in terms of finishing and defensive work.
 ""We should have gone into half-time a goal down and we got hit with a second just before the break. Straight after the restart, 3-0 down and the game is lost.
 ""We really weren't smart enough and showed a certain naivety.""",0,1,0.5171918272972107
-21967739,baseline,"It's the most common form of cancer in men, and it's one of the leading causes of cancer death in men.","According to Cancer Research UK some 41, 000 men are diagnosed with prostate cancer every year, but 10,700 will die of the disease, making it the fourth most common cause of cancer death - and second only to lung cancer in men.
-Given such a dire prognosis, and let's face it, given the financial profile of its victims, you might be forgiven for assuming that prostate cancer would be one of the most highly prioritised and well researched areas of oncology. Not a bit of it. Perhaps it's because men are squeamish, or don't like to talk about their health or visit the doctor, but prostate cancer has long been dubbed ""the Cinderella cancer"".
-""We just don't make enough of it"" according to consultant oncologist Professor Neil Burnet. ""On the whole men are less vocal about their health, and older men tend to be even more stoical, preferring to grin and bear it. But it means men are poor advocates, and as a result prostate cancer has been overlooked"".
-Based at Addenbrooke's Hospital on the outskirts of Cambridge, Prof Burnet is trying to improve the targeting and efficiency of radiotherapy treatments, and to reduce toxicity in the healthy tissue surrounding the prostate. The technique, called Image Guided Intensity Modulated Radiotherapy Treatment uses imaging provided by a CT scan to target the tumour before a powerful but precisely shaped radiation dose is administered.
-""What limits what we can do with radiotherapy are the side effects of the treatment, the toxicity.  And, since the prostate can move by up to a couple of centimetres from one day to the next, targeting the treatment is really important. The second half of this technology is in delivering intensity modulated radiotherapy, which allows us to match a higher dose of radiation to the shape of the tumour.""
-But if Image Guided IMRT offers the prospect of better outcomes for men with advanced or aggressive prostate cancer, how much better might it be to get in at an earlier stage?
-That - at least in part - was the motivation behind the Collaborative Oncological Gene/Environment Study, or COGES, which has announced the discovery of 80 new genetic markers for breast, ovarian and prostate cancer. In one of the largest research projects of its kind scientists from Cambridge University and the Institute of Cancer Research in London looked at samples from more than 200,000 people - half with, and half without, cancer.
-The results include 23 new gene variants associated with prostate cancer and 16 with aggressive forms of the disease. Initially at least that should help with the development of a viable screening test for the disease. In the longer term it may present new targets for drug treatment and better diagnosis, and a greater understanding of the mechanisms and basic biology of prostate cancer.
-""It's shocking, but we still don't have an adequate screening test for prostate cancer,"" says Ros Eeles, Professor of Oncogenetics at the Institute of Cancer Research and COGES study leader on prostate cancer. ""That's because the Prostate Specific Antigen, or PSA test, just isn't accurate enough and you'd have to treat between 12 and 48 men unnecessarily to save a single life. With this new information we could have a viable test in five to eight years"".
-If that still seems a long way off, surgical techniques have advanced dramatically when it comes to prostate cancer. These days consultant urologist Professor David Neal uses the DaVinci surgical robot to perform prostate surgery.
-Sitting at a computer console that looks like it would be more at home in an amusement arcade than an operating theatre, Prof Neal can perform a prostatectomy without ever touching his patient. And because the robotic arms of the device (which looks a little like a crab hovering over the operating table) are much thinner than the surgeon's, and the grappling and cutting tools at the sharp end are much smaller, what was once a major operation is now less invasive.
-As with Image Guided Intensity Modulated Radiotherapy collateral damage to surrounding healthy tissue is kept to a minimum.
-""The DaVinci robot has made a huge difference to prostate surgery"" says Prof Neal. ""It's still a major operation, but we can be very precise about what we remove and the function we're able to save. That's got to be good news for the patient"".",0,0,0.0900404080748558
-21967739,reranked,Prostate cancer is one of the world's leading causes of cancer death in men.,"According to Cancer Research UK some 41, 000 men are diagnosed with prostate cancer every year, but 10,700 will die of the disease, making it the fourth most common cause of cancer death - and second only to lung cancer in men.
-Given such a dire prognosis, and let's face it, given the financial profile of its victims, you might be forgiven for assuming that prostate cancer would be one of the most highly prioritised and well researched areas of oncology. Not a bit of it. Perhaps it's because men are squeamish, or don't like to talk about their health or visit the doctor, but prostate cancer has long been dubbed ""the Cinderella cancer"".
-""We just don't make enough of it"" according to consultant oncologist Professor Neil Burnet. ""On the whole men are less vocal about their health, and older men tend to be even more stoical, preferring to grin and bear it. But it means men are poor advocates, and as a result prostate cancer has been overlooked"".
-Based at Addenbrooke's Hospital on the outskirts of Cambridge, Prof Burnet is trying to improve the targeting and efficiency of radiotherapy treatments, and to reduce toxicity in the healthy tissue surrounding the prostate. The technique, called Image Guided Intensity Modulated Radiotherapy Treatment uses imaging provided by a CT scan to target the tumour before a powerful but precisely shaped radiation dose is administered.
-""What limits what we can do with radiotherapy are the side effects of the treatment, the toxicity.  And, since the prostate can move by up to a couple of centimetres from one day to the next, targeting the treatment is really important. The second half of this technology is in delivering intensity modulated radiotherapy, which allows us to match a higher dose of radiation to the shape of the tumour.""
-But if Image Guided IMRT offers the prospect of better outcomes for men with advanced or aggressive prostate cancer, how much better might it be to get in at an earlier stage?
-That - at least in part - was the motivation behind the Collaborative Oncological Gene/Environment Study, or COGES, which has announced the discovery of 80 new genetic markers for breast, ovarian and prostate cancer. In one of the largest research projects of its kind scientists from Cambridge University and the Institute of Cancer Research in London looked at samples from more than 200,000 people - half with, and half without, cancer.
-The results include 23 new gene variants associated with prostate cancer and 16 with aggressive forms of the disease. Initially at least that should help with the development of a viable screening test for the disease. In the longer term it may present new targets for drug treatment and better diagnosis, and a greater understanding of the mechanisms and basic biology of prostate cancer.
-""It's shocking, but we still don't have an adequate screening test for prostate cancer,"" says Ros Eeles, Professor of Oncogenetics at the Institute of Cancer Research and COGES study leader on prostate cancer. ""That's because the Prostate Specific Antigen, or PSA test, just isn't accurate enough and you'd have to treat between 12 and 48 men unnecessarily to save a single life. With this new information we could have a viable test in five to eight years"".
-If that still seems a long way off, surgical techniques have advanced dramatically when it comes to prostate cancer. These days consultant urologist Professor David Neal uses the DaVinci surgical robot to perform prostate surgery.
-Sitting at a computer console that looks like it would be more at home in an amusement arcade than an operating theatre, Prof Neal can perform a prostatectomy without ever touching his patient. And because the robotic arms of the device (which looks a little like a crab hovering over the operating table) are much thinner than the surgeon's, and the grappling and cutting tools at the sharp end are much smaller, what was once a major operation is now less invasive.
-As with Image Guided Intensity Modulated Radiotherapy collateral damage to surrounding healthy tissue is kept to a minimum.
-""The DaVinci robot has made a huge difference to prostate surgery"" says Prof Neal. ""It's still a major operation, but we can be very precise about what we remove and the function we're able to save. That's got to be good news for the patient"".",0,1,0.6257756948471069
-40181128,baseline,"Former England striker Carlton Cole says he has a ""long road ahead"" to recovery from a second kidney transplant but does not want to overdo it.","Media playback is not supported on this device
+36892983,baseline,Shares in BT have reacted with a mixture of relief and relief after the regulator Ofcom said it would not force the company into a spin-off.,"Relieved that the giant telecoms company would not be broken up, they piled into the shares, sending them up 3% in early trading.
+BT dodged a bullet - and, as the chief executive of Ofcom, Sharon White, admitted, it was for prosaic reasons.
+She said complications with land deals and BT's giant pension scheme meant there were ""practical obstacles"" to a break-up that would delay the process several years.
+It's the pension scheme that probably most influenced Ofcom's thinking. BT's retirement scheme, inherited from its time as a state-owned utility, has assets of about Â£40bn and a deficit, on some measures, of about Â£10bn, even though BT has poured in billions of pounds in recent years to redress the gap.
+Senior sources at the company say that about 80% of the scheme relates to Openreach, the internet infrastructure provider that BT's rivals would like to see spun off.
+Separating the pension as part of a break-up would be a costly headache - and there is the small matter of a government guarantee on part of the scheme, something that BT fought in the courts to preserve and won.
+Creating two new pension schemes, with the risk of weakening the financial resources of one or the other, might be too hot a political potato, even in the pursuit of faster broadband.
+BT's share price reaction might turn out to be overdone. Ms White plans to enforce the separation by introducing not only a new board to run Openreach, but also new articles of association that will give directors a duty to serve customers of the network as much as the company's owners.
+This holds out an obvious prospect of conflicts to come, and runs counter to the normal assumption that in private companies, the shareholder is king.
+It also carries an echo of the ""golden shares"" held by the government in Rolls-Royce and BAE Systems, two companies judged important for the defence of the realm. In each case, the golden share is actually enshrined by specific articles of association that give directors and the government powers beyond those normally enjoyed by company boards.
+BT's chief executive, Gavin Patterson, said he thought he could reach a compromise with Ofcom, but admitted they would need to see the detail of the new articles.
+If they prove too much at odds with BT's own desire to control Openreach - which it will still own - get ready for a court battle and perhaps, eventually, a full break-up.",0,0,0.09496518224477768
+36892983,reranked,"Shares in BT have jumped on news that the regulator, Ofcom, has ruled out spinning off the company into a new company.","Relieved that the giant telecoms company would not be broken up, they piled into the shares, sending them up 3% in early trading.
+BT dodged a bullet - and, as the chief executive of Ofcom, Sharon White, admitted, it was for prosaic reasons.
+She said complications with land deals and BT's giant pension scheme meant there were ""practical obstacles"" to a break-up that would delay the process several years.
+It's the pension scheme that probably most influenced Ofcom's thinking. BT's retirement scheme, inherited from its time as a state-owned utility, has assets of about Â£40bn and a deficit, on some measures, of about Â£10bn, even though BT has poured in billions of pounds in recent years to redress the gap.
+Senior sources at the company say that about 80% of the scheme relates to Openreach, the internet infrastructure provider that BT's rivals would like to see spun off.
+Separating the pension as part of a break-up would be a costly headache - and there is the small matter of a government guarantee on part of the scheme, something that BT fought in the courts to preserve and won.
+Creating two new pension schemes, with the risk of weakening the financial resources of one or the other, might be too hot a political potato, even in the pursuit of faster broadband.
+BT's share price reaction might turn out to be overdone. Ms White plans to enforce the separation by introducing not only a new board to run Openreach, but also new articles of association that will give directors a duty to serve customers of the network as much as the company's owners.
+This holds out an obvious prospect of conflicts to come, and runs counter to the normal assumption that in private companies, the shareholder is king.
+It also carries an echo of the ""golden shares"" held by the government in Rolls-Royce and BAE Systems, two companies judged important for the defence of the realm. In each case, the golden share is actually enshrined by specific articles of association that give directors and the government powers beyond those normally enjoyed by company boards.
+BT's chief executive, Gavin Patterson, said he thought he could reach a compromise with Ofcom, but admitted they would need to see the detail of the new articles.
+If they prove too much at odds with BT's own desire to control Openreach - which it will still own - get ready for a court battle and perhaps, eventually, a full break-up.",0,0,0.019531959667801857
+40181128,baseline,"Former England striker Carlton Cole says he has a ""long road ahead"" ahead of him to recovery from a second kidney transplant.","Media playback is not supported on this device
 ""If I push it, I could go backwards or end up back on medication,"" he said. ""There is also a chance of rejection.""
 The former Manchester United, Newcastle and Blackburn forward suffered kidney failure in 2015 after contracting an airborne virus.
 He has just returned to his role as a United ambassador following surgery.
@@ -277,8 +253,8 @@ He said: ""I still get very tired but I can do a lot more than I was able to two
 Earlier this week, another former Newcastle and England striker, Alan Shearer, told the BBC he felt English clubs were a long way off being able to challenge for the Champions League.
 Cole agrees, saying: ""From what I have seen in Europe, I am not sure any of the English teams will win it. They are miles apart.
 ""If you look at Real Madrid, Barcelona or Bayern Munich, a lot of the players people are talking about Premier League clubs paying £50m or £60m for can't get in their teams.
-""That tells you where they are at.""",0,0,0.14068040251731873
-40181128,reranked,"Former England and Manchester United striker Carlton Cole says he will not push himself too hard in his bid to recover from kidney failure, fearing it could backfire.","Media playback is not supported on this device
+""That tells you where they are at.""",0,1,0.6849649548530579
+40181128,reranked,"Former England and Manchester United striker Carlton Cole says he does not want to push himself too hard in his bid to recover from kidney failure, fearing it could backfire.","Media playback is not supported on this device
 ""If I push it, I could go backwards or end up back on medication,"" he said. ""There is also a chance of rejection.""
 The former Manchester United, Newcastle and Blackburn forward suffered kidney failure in 2015 after contracting an airborne virus.
 He has just returned to his role as a United ambassador following surgery.
@@ -292,7 +268,7 @@ He said: ""I still get very tired but I can do a lot more than I was able to two
 Earlier this week, another former Newcastle and England striker, Alan Shearer, told the BBC he felt English clubs were a long way off being able to challenge for the Champions League.
 Cole agrees, saying: ""From what I have seen in Europe, I am not sure any of the English teams will win it. They are miles apart.
 ""If you look at Real Madrid, Barcelona or Bayern Munich, a lot of the players people are talking about Premier League clubs paying £50m or £60m for can't get in their teams.
-""That tells you where they are at.""",0,0,0.27970564365386963
+""That tells you where they are at.""",0,0,0.4235824644565582
 34001040,baseline,Police investigating the discovery of a human skull on a motorway in Shropshire have said further skeletal remains have been found.,"On Thursday, a human skull was found alongside the M54 slip road by workers doing a survey of the junction four roundabout, near Telford.
 Police confirmed the skull was that of an adult male and had been there for at least two years.
 West Mercia Police said ""further skeletal remains"" were found close to the skull.
@@ -309,28 +285,6 @@ Det Chief Insp Neil Jamieson said: ""We are in the very early stages of this inv
 He said further forensic examinations and excavations were being carried out and police had been in contact with neighbouring forces asking for information about people who had been reported missing.
 Archaeological experts may be called in to help with the investigation.
 ""This will be a lengthy process but we will continue to update the public in due course,"" he added.",0,1,0.9853891730308533
-38537698,baseline,A judge has denied bail to four people accused of beating a mentally ill man and posting it on Facebook.,"Jordan Hill, Brittany Covington and Tesfaye Cooper, all 18, and Tanishia Covington, 24, appeared in a Chicago court on Friday.
-The four have been charged with hate crimes and aggravated kidnapping and battery, among other things.
-An online fundraiser for their victim has collected $51,000 (Â£42,500) so far.
-Denying the four suspects bail, Judge Maria Kuriakos Ciesil asked: ""Where was your sense of decency?""
-Prosecutors told the court the beating started in a van and continued at a house, where the suspects allegedly forced the 18-year-old white victim, who suffers from schizophrenia and attention deficit disorder, to drink toilet water and kiss the floor.
-Police allege the van was earlier stolen by Mr Hill, who is also accused of demanding $300 from the victim's mother while they held him captive, according to the Chicago Tribune.
-The court was also told the suspects stuffed a sock into his mouth, taped his mouth shut and bound his hands with a belt.
-In a video made for Facebook Live which was watched millions of times, the assailants can be heard making derogatory statements against white people and Donald Trump.
-The victim had been dropped off at a McDonalds to meet Mr Hill - who was one of his friends - on 31 December.
-He was found by a police officer on Tuesday, 3 January, a day after he was reported missing by his parents.
-Prosecutors say the suspects each face two hate crimes counts, one because of the victim's race and the other because of his disabilities.",0,1,0.619890570640564
-38537698,reranked,A judge has denied bail to four people accused of beating a disabled man and posting the video online.,"Jordan Hill, Brittany Covington and Tesfaye Cooper, all 18, and Tanishia Covington, 24, appeared in a Chicago court on Friday.
-The four have been charged with hate crimes and aggravated kidnapping and battery, among other things.
-An online fundraiser for their victim has collected $51,000 (Â£42,500) so far.
-Denying the four suspects bail, Judge Maria Kuriakos Ciesil asked: ""Where was your sense of decency?""
-Prosecutors told the court the beating started in a van and continued at a house, where the suspects allegedly forced the 18-year-old white victim, who suffers from schizophrenia and attention deficit disorder, to drink toilet water and kiss the floor.
-Police allege the van was earlier stolen by Mr Hill, who is also accused of demanding $300 from the victim's mother while they held him captive, according to the Chicago Tribune.
-The court was also told the suspects stuffed a sock into his mouth, taped his mouth shut and bound his hands with a belt.
-In a video made for Facebook Live which was watched millions of times, the assailants can be heard making derogatory statements against white people and Donald Trump.
-The victim had been dropped off at a McDonalds to meet Mr Hill - who was one of his friends - on 31 December.
-He was found by a police officer on Tuesday, 3 January, a day after he was reported missing by his parents.
-Prosecutors say the suspects each face two hate crimes counts, one because of the victim's race and the other because of his disabilities.",1,0,0.38562509417533875
 36792661,baseline,Controversial plans to move a statue commemorating the Falklands War have been given the go-ahead.,"The Yomper statue is currently located in front of the Royal Marines Museum at Eastney.
 The National Museum of the Royal Navy has started consulting over a proposed move to Portsmouth Historic Dockyard.
 Campaigners insist it is a local memorial to the conflict and ""belongs"" at Eastney.
@@ -355,6 +309,32 @@ Its motion stated: ""The Yomper statue has graced the seafront for many years, s
 NMRN director Jon Rawlinson said the new museum site would potentially have 750,000 visitors a year, compared to 40,000 at the current museum.
 ""He would be seen by far more people at the historic dockyard, but of course he was built for here [Eastney] and is part of here. ""
 He said no decision had been made and it would consider all comments submitted to its public consultation.",0,1,0.9773263335227966
+33935224,baseline,"A ban on fracking in Wales remains in place despite plans to devolve control over the industry to the Welsh Government, the government has said.","The UK government has announced measures to speed up development.
+Natural Resources Minister Carl Sargeant has written to councils reminding them of the temporary ban on fracking in Wales.
+He said fracking technology was ""unproven"", saying Welsh ministers preferred to look at renewable energy.
+Fracking is a process of using high pressure water to break up rocks deep underground to release gas and pipe it to the surface.
+It is a major industry in the United States, but there are concerns about safety, the environment and underground water.
+There have been protests against applications for test drilling for gas in both the Vale of Glamorgan and Wrexham, as well as sites in England.
+Energy Secretary Amber Rudd has stressed the UK government's support for fracking, and frustration at delays in its development.
+She has told councils in England to make decisions on applications within 16 weeks, to stop the process being ""dragged out for months"".
+In his letter to Welsh councils, Mr Sargeant said the new guidance only applied to England and that the moratorium in Wales remained in place.
+""The UK government's general support for oil and gas applications is contrary to the approach of the Welsh Government of promoting renewable and low carbon forms of energy through the planning system and other measures,"" he said.
+""We still see renewable energy as a key element in ensuring that Wales achieves sustainable development for the benefit of future generations.
+""Local planning authorities must ensure that planning applications for renewable energy projects are determined within statutory timescales.""
+Plans to devolve control over fracking were confirmed in the Queen's Speech in June following the Conservatives' general election victory.",0,0,0.46052947640419006
+33935224,reranked,Plans to devolve control over fracking in Wales have been put on hold until further notice.,"The UK government has announced measures to speed up development.
+Natural Resources Minister Carl Sargeant has written to councils reminding them of the temporary ban on fracking in Wales.
+He said fracking technology was ""unproven"", saying Welsh ministers preferred to look at renewable energy.
+Fracking is a process of using high pressure water to break up rocks deep underground to release gas and pipe it to the surface.
+It is a major industry in the United States, but there are concerns about safety, the environment and underground water.
+There have been protests against applications for test drilling for gas in both the Vale of Glamorgan and Wrexham, as well as sites in England.
+Energy Secretary Amber Rudd has stressed the UK government's support for fracking, and frustration at delays in its development.
+She has told councils in England to make decisions on applications within 16 weeks, to stop the process being ""dragged out for months"".
+In his letter to Welsh councils, Mr Sargeant said the new guidance only applied to England and that the moratorium in Wales remained in place.
+""The UK government's general support for oil and gas applications is contrary to the approach of the Welsh Government of promoting renewable and low carbon forms of energy through the planning system and other measures,"" he said.
+""We still see renewable energy as a key element in ensuring that Wales achieves sustainable development for the benefit of future generations.
+""Local planning authorities must ensure that planning applications for renewable energy projects are determined within statutory timescales.""
+Plans to devolve control over fracking were confirmed in the Queen's Speech in June following the Conservatives' general election victory.",1,0,0.05860298126935959
 30632453,baseline,German scientists believe they have found evidence that the deadly Ebola virus passed on to 11-year-old Emile Zidan in Guinea came from the same species of bat that killed him.,"They made the connection on an expedition to the boy's village, Meliandou.
 They took samples and chatted to locals to find out more about Ebola's source.
 The team's findings are published in EMBO Molecular Medicine.
@@ -380,7 +360,7 @@ He says it is vital to find out more about the bats.
 But culling the animals is not the answer.
 ""We need to find ways to live together with the wildlife. These bats catch insects and pests, such as mosquitoes. They can eat about a quarter of their body weight in insects a day.
 ""Killing them would not be a solution. You would have more malaria.""",0,0,0.3765835165977478
-30632453,reranked,German scientists believe they have found the source of the deadly Ebola virus that killed 11-year-old Emile Zidan in Guinea.,"They made the connection on an expedition to the boy's village, Meliandou.
+30632453,reranked,German scientists believe they have found the source of the deadly Ebola virus that killed 12-year-old Emile Zidan in Guinea.,"They made the connection on an expedition to the boy's village, Meliandou.
 They took samples and chatted to locals to find out more about Ebola's source.
 The team's findings are published in EMBO Molecular Medicine.
 Meliandou is a small village of 31 houses.
@@ -404,19 +384,13 @@ He says it is vital to find out more about the bats.
 ""The Ebola virus must jump through colonies from bat to bat, so we need to know more.""
 But culling the animals is not the answer.
 ""We need to find ways to live together with the wildlife. These bats catch insects and pests, such as mosquitoes. They can eat about a quarter of their body weight in insects a day.
-""Killing them would not be a solution. You would have more malaria.""",0,0,0.22033432126045227
-37248643,baseline,Torquay United boss Kevin Nicholson says he will not be getting any money from the sale of Kane O'Kane to Bournemouth.,"The National League sold the Republic of Ireland midfielder to the Cherries for £175,000 in 2012 and had a 15% sell-on clause included in the deal.
-O'Kane moved for an undisclosed fee, but Nicholson says any money will go to help the cash-strapped club.
-""I don't think I'll be getting anything,"" Nicholson told BBC Devon.
-""There's more important things.""
-The Gulls are still looking for new owners having been taken over by a consortium of local business people last summer.
-They were forced to close down the club's academy and drastically reduce the playing budget after millionaire former owner Thea Bristow left the club.",0,0,0.03326466307044029
-37248643,reranked,Torquay United chairman Kevin Nicholson says he will not receive any money from the sale of Kane O'Kane to Bournemouth.,"The National League sold the Republic of Ireland midfielder to the Cherries for £175,000 in 2012 and had a 15% sell-on clause included in the deal.
-O'Kane moved for an undisclosed fee, but Nicholson says any money will go to help the cash-strapped club.
-""I don't think I'll be getting anything,"" Nicholson told BBC Devon.
-""There's more important things.""
-The Gulls are still looking for new owners having been taken over by a consortium of local business people last summer.
-They were forced to close down the club's academy and drastically reduce the playing budget after millionaire former owner Thea Bristow left the club.",0,0,0.030257219448685646
+""Killing them would not be a solution. You would have more malaria.""",0,0,0.22680255770683289
+37666633,baseline,Police have released CCTV images of a man they want to speak to in connection with a serious assault in Aberdeen city centre.,"The incident happened near Corbett Place and Calais View at about 08:30 on Thursday.
+Officers are now urging anyone who saw the man to get in touch.
+He is described as being in his late teens or early 20s with dark, curly, short hair. He is about 5ft 9in and was wearing a dark top.",0,0,0.00962077733129263
+37666633,reranked,Police have released CCTV images of a man they want to speak to in connection with a serious assault in Edinburgh city centre.,"The incident happened near Corbett Place and Calais View at about 08:30 on Thursday.
+Officers are now urging anyone who saw the man to get in touch.
+He is described as being in his late teens or early 20s with dark, curly, short hair. He is about 5ft 9in and was wearing a dark top.",0,0,0.011142848059535027
 27119429,baseline,Hong Kong's financial regulator has fined Royal Bank of Scotland (RBS) 1.5bn Hong Kong dollars (£1.1bn) for failing to properly monitor its trading operations.,"The fine follows the conviction of former RBS trader, Shirlina Tsang, for fraud last year.
 She was sentenced to 50 months in prison after being caught falsifying records of emerging markets trades.
 Hong Kong regulators said RBS's controls were ""seriously inadequate"".
@@ -564,7 +538,7 @@ BM, who has a grey beard and was dressed for the hearing in a white shirt, canno
 The prosecutor Louise Gray asked for a provisional date of 2 July to be set for a plea and case management hearing.
 The defendant was granted unconditional bail although he remains subject to the restrictions imposed by his TPim.
 A trial date was not set.",0,0,0.49840909242630005
-18298438,reranked,An 18-year-old man has appeared in court charged with breaching restrictions imposed on terror suspects.,"It is believed to be the first alleged breach of the Terrorism Prevention and Investigation Measures (TPim).
+18298438,reranked,A 25-year-old man has appeared in court charged with breaching restrictions imposed in the wake of the Paris attacks.,"It is believed to be the first alleged breach of the Terrorism Prevention and Investigation Measures (TPim).
 The suspect appeared at the Old Bailey accused of failing to contact a monitoring company and report to a police station twice in January.
 The Home Office has refused to comment on the case.
 TPims replaced control orders in January 2012.
@@ -580,7 +554,13 @@ The allegations are that on 16 January he failed to contact a monitoring company
 BM, who has a grey beard and was dressed for the hearing in a white shirt, cannot be named nor have his address published for legal reasons.
 The prosecutor Louise Gray asked for a provisional date of 2 July to be set for a plea and case management hearing.
 The defendant was granted unconditional bail although he remains subject to the restrictions imposed by his TPim.
-A trial date was not set.",0,0,0.007676204200834036
+A trial date was not set.",0,0,0.0039969151839613914
+37250267,baseline,A buzzard that became stuck in a garden fence in Surrey has been freed by the RSPCA.,"The bird's head and wings became stuck in the wire fence in Bethesda while it was chasing a wood pigeon.
+RSPCA Inspector Mike Pugh, who freed the animal, said: ""The buzzard was feisty, but luckily, had not had much feather damage.
+""I released the bird back to the wild where he belongs straight away.""",0,0,0.07014522701501846
+37250267,reranked,A buzzard that got stuck in a garden fence in Surrey has been freed by the RSPCA.,"The bird's head and wings became stuck in the wire fence in Bethesda while it was chasing a wood pigeon.
+RSPCA Inspector Mike Pugh, who freed the animal, said: ""The buzzard was feisty, but luckily, had not had much feather damage.
+""I released the bird back to the wild where he belongs straight away.""",0,0,0.06140299513936043
 34787804,baseline,Japan legend Kazuyoshi Miura has signed a new contract with Japanese side Shonan Belles.,"The man known as Kazu, or 'King Kazu' by some fans, will stay with the second division side past his 49th birthday.
 Kazuyoshi first played for Brazilian side Santos in 1986, so his deal will see his career span over 30 years.
 ""I'm thankful to the club staff and supporters who always offer me support,"" said Miura, who scored 55 goals in 89 appearances for Japan.
@@ -675,20 +655,6 @@ A University of Oxford spokesman said it had ""thought carefully"" about how bes
 ""In the meantime, we intend to finish and occupy the buildings by the start of the next academic year in October as planned.""
 The city council said last month it was carrying out an independent review into the case.
 An online petition against the development on Roger Dudman Way has attracted more than 3,000 signatures.",0,1,0.9783761501312256
-32950992,baseline,Britain's Jessica Ennis-Hill is on course to qualify for the Rio Olympics after a second day of the heptathlon at the Gotzis Hypo-Meeting in Germany.,"The Olympic champion, 29, was third overall at the end of a promising first day - traditionally her strongest - with a score of 3,928 points.
-On Sunday she leapt a respectable 6.16m in the long jump but threw a disappointing 42.60m in the javelin.
-With the 800m remaining, she has 5,544 points, still on course for the 6,200 needed to qualify for the Rio Olympics.
-Ennis-Hill is competing in her first heptathlon since winning gold at London 2012.
-A top-12 finish and score of 6,075 points would also secure qualification for this summer's World Championships.
-Canada's Commonwealth champion and world silver medallist Brianne Theisen-Eaton leads ahead of the final event, remarkably achieving three personal bests on her way to a 5,834 score.
-Follow latest updates and reports on the second day of the Gotzis Hypo-Meeting on the BBC Sport website on Sunday, 31 May.",0,0,0.25102320313453674
-32950992,reranked,Britain's Jessica Ennis-Hill is on course to qualify for the Rio Olympics after a second day of the heptathlon at the Gotzis Hypo-Meeting in Germany.,"The Olympic champion, 29, was third overall at the end of a promising first day - traditionally her strongest - with a score of 3,928 points.
-On Sunday she leapt a respectable 6.16m in the long jump but threw a disappointing 42.60m in the javelin.
-With the 800m remaining, she has 5,544 points, still on course for the 6,200 needed to qualify for the Rio Olympics.
-Ennis-Hill is competing in her first heptathlon since winning gold at London 2012.
-A top-12 finish and score of 6,075 points would also secure qualification for this summer's World Championships.
-Canada's Commonwealth champion and world silver medallist Brianne Theisen-Eaton leads ahead of the final event, remarkably achieving three personal bests on her way to a 5,834 score.
-Follow latest updates and reports on the second day of the Gotzis Hypo-Meeting on the BBC Sport website on Sunday, 31 May.",0,0,0.25102320313453674
 37546354,baseline,The US has suspended talks with Russia aimed at ending the conflict in Syria.,"Washington blamed Russia and the Syrian government for intensifying their attacks against civilians.
 Last week, the US warned it would halt the talks unless Moscow stops bombing the city of Aleppo.
 Russia said it regretted the US move, accusing it of shifting the blame for the collapse of last month's truce.
@@ -753,11 +719,11 @@ It begins with the lines: ""If you want this choice position have a cheery dispo
 Other requirements included ""You must be kind, you must be fair. Bible stories you will share.
 ""Boy or girl it doesn't matter - but you must enjoy Harry Potter!""
 It ends with a promise by the children to keep the church tidy and not to ""talk in your sermons, we'll be good you'll see"".",0,1,0.7780746221542358
-39806255,reranked,A church has found a new vicar after a video featuring children singing a selection of qualities needed for the job went viral.,"The parishioners at St Paul's, Shipley, posted the video on Facebook in February after a traditional advert failed to attract any applicants.
+39806255,reranked,A church has appointed a new vicar after a video featuring children singing a selection of qualities needed for the job went viral.,"The parishioners at St Paul's, Shipley, posted the video on Facebook in February after a traditional advert failed to attract any applicants.
 It was viewed more than 30,000 times and attracted media coverage across the UK.
 The new vicar, Henriette Howarth, will take up the post next week.
 The song, written by the children with the help of the church's musical director Rachel Hesselwood, listed the qualities the new vicar needed.
 It begins with the lines: ""If you want this choice position have a cheery disposition. Make us laugh, smile lots, play games, tell jokes.""
 Other requirements included ""You must be kind, you must be fair. Bible stories you will share.
 ""Boy or girl it doesn't matter - but you must enjoy Harry Potter!""
-It ends with a promise by the children to keep the church tidy and not to ""talk in your sermons, we'll be good you'll see"".",0,1,0.7780746221542358
+It ends with a promise by the children to keep the church tidy and not to ""talk in your sermons, we'll be good you'll see"".",0,1,0.7802274227142334

@@ -12,8 +12,8 @@
     "tie_or_close": 8
   },
   "error_counts": {
-    "Entity swap / wrong named entity / unsupported named entity": 12,
-    "Negation / polarity / stance reversal": 6,
+    "Entity swap / wrong named entity / unsupported named entity": 13,
+    "Negation / polarity / stance reversal": 5,
     "No clear factual issue": 1,
     "Number or date distortion": 5
   },

@@ -6,16 +6,16 @@
   "status": "completed",
   "systems": {
     "baseline": {
-      "agreement_with_codex_labels": 0.666667,
-      "mean_minicheck_prob": 0.384814,
+      "agreement_with_codex_labels": 0.708333,
+      "mean_minicheck_prob": 0.359398,
       "rows": 24,
-      "support_rate": 0.333333
+      "support_rate": 0.291667
     },
     "reranked": {
-      "agreement_with_codex_labels": 0.5,
-      "mean_minicheck_prob": 0.464167,
+      "agreement_with_codex_labels": 0.541667,
+      "mean_minicheck_prob": 0.423064,
       "rows": 24,
-      "support_rate": 0.458333
+      "support_rate": 0.416667
     }
   }
 }

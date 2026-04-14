@@ -7,15 +7,15 @@
   "best_checkpoint": "artifacts/models/bart_xsum_finetuned/checkpoint-32",
   "eval_metrics": {
     "epoch": 2.0,
-    "eval_loss": 1.573978304862976,
-    "eval_rouge1": 0.456502,
-    "eval_rouge2": 0.227641,
-    "eval_rougeL": 0.373307,
-    "eval_rougeLsum": 0.373307,
-    "eval_runtime": 21.1448,
-    "eval_samples_per_second": 3.027,
-    "eval_steps_per_second": 1.513,
-    "eval_summary_len_tokens": 24.75
+    "eval_loss": 1.5753463506698608,
+    "eval_rouge1": 0.445084,
+    "eval_rouge2": 0.217512,
+    "eval_rougeL": 0.365978,
+    "eval_rougeLsum": 0.365978,
+    "eval_runtime": 17.7017,
+    "eval_samples_per_second": 3.615,
+    "eval_steps_per_second": 1.808,
+    "eval_summary_len_tokens": 24.625
   },
   "eval_rows": 64,
   "eval_split": "val_tune",
@@ -47,10 +47,10 @@
   "train_metrics": {
     "epoch": 2.0,
     "total_flos": 297028774526976.0,
-    "train_loss": 4.1181847006082535,
-    "train_runtime": 77.4325,
-    "train_samples_per_second": 3.306,
-    "train_steps_per_second": 0.413
+    "train_loss": 4.116261780261993,
+    "train_runtime": 68.0988,
+    "train_samples_per_second": 3.759,
+    "train_steps_per_second": 0.47
   },
   "train_rows": 128,
   "train_split": "train_finetune"

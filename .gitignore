@@ -41,3 +41,12 @@ artifacts/models/bart_xsum_finetuned/
 artifacts/models/minicheck/
 build/
 dist/
+
+# Local LaTeX build byproducts for the final report source
+docs/final-report/acl2023/final_report.aux
+docs/final-report/acl2023/final_report.bbl
+docs/final-report/acl2023/final_report.blg
+docs/final-report/acl2023/final_report.fdb_latexmk
+docs/final-report/acl2023/final_report.fls
+docs/final-report/acl2023/final_report.out
+docs/final-report/acl2023/final_report.pdf
