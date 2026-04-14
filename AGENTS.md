@@ -2,11 +2,26 @@
 
 ## Overview
 
-Repo studies factuality-aware reranking for XSum summarization. Generates candidate summaries, scores with factuality + quality signals, reranks, packages evaluation / audit / reporting artifacts for reproducible analysis. Research pipeline: durable outputs, submission docs, offline fallback when full online model execution unavailable.
+Repo studies factuality-aware reranking for XSum summarization. Generates candidate summaries, scores with factuality + quality signals, reranks, packages evaluation / audit / reporting artifacts for reproducible analysis. Research pipeline: durable outputs, submission docs, bounded-run evidence, and explicit artifact-truth guardrails.
 
 ## Project Structure & Module Organization
 
 Code in `src/factuality_rerank_xsum/` by area: `generation/`, `scoring/`, `rerank/`, `search/`, `evaluation/`, `audit/`, `reporting/`, `packaging/`, `viz/`, `data/`, `runtime/`, `utils/`, `cli/`. Typer CLI in `src/factuality_rerank_xsum/cli/` = canonical stage surface; keep durable behavior in `src/`. Tests `tests/unit/`, configs `configs/`, docs `docs/`, notebooks `notebooks/`, tracked outputs `artifacts/`, `outputs/final/`, `data/processed/splits/`, `VERSIONS.md`.
+
+## Documentation Authority
+
+Keep one current-state authority chain:
+
+- `REPORT.md`: canonical current-state handoff and results summary.
+- `docs/RUNBOOK.md`: canonical operator flow.
+- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`: checked-in execution checklist for future zero-context Codex sessions.
+- `docs/RESULTS_SUMMARY.md`: artifact-backed result snapshot.
+- `docs/CLAIMS_SAFE_TO_WRITE.md`: claim ceiling.
+- `README.md`: lightweight entrypoint only.
+
+Do not leave parallel authority orders across `AGENTS.md`, top-level docs, prompt-pack files, or `.agents/*`.
+Treat `prompts/*`, `PROMPTS_INDEX.md`, and `.agents/*` as support surfaces for external ChatGPT/Codex workflows, not current-state runtime authority.
+When runtime truth changes, update `README.md`, `REPORT.md`, `docs/RUNBOOK.md`, `docs/RESULTS_SUMMARY.md`, `docs/CLAIMS_SAFE_TO_WRITE.md`, and `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md` together.
 
 ## Build, Test, and Development Commands
 
@@ -15,6 +30,8 @@ Code in `src/factuality_rerank_xsum/` by area: `generation/`, `scoring/`, `reran
 - `uv sync --locked --dev`: install exact CI dependency set.
 - `make env`, `make smoke`, `make data`, `make train`, `make generate`, `make score`, `make search`, `make eval`, `make audit`, `make figures`, `make results-summary`, `make package`: canonical stage flow via CLI.
 - `uv run factuality-rerank-xsum <command>`: repo CLI for stages like `generate`, `score`, `figures`, `results-summary`, `package`.
+- Canonical full rerun chain:
+  `uv sync --locked --dev`, `env`, `data`, `train`, `generate`, `score`, `search`, `evaluate`, `audit`, `minicheck-optional`, `figures`, `results-summary`, `package`.
 - `uv run ruff check --fix && uv run ruff format && uv run mypy . && uv run ty check && uv run pytest`: full local gate set (CI).
 
 ## Environment & Validation Contract
@@ -43,6 +60,7 @@ Default stack: `$python-expert` + `$hugging-face` + `$github`.
 - Nontrivial work: explicit plan via `functions.update_plan`.
 - `functions.request_user_input` when assumptions risky, breaking, or hard to reverse.
 - Subagents: bounded, disjoint tasks only; explicit ownership, concrete outputs, clear do / don't constraints.
+- Prefer read-only subagents for broad documentation audits or comment-surface mapping.
 - `functions.send_message` or `functions.followup_task` to continue active agent; avoid overlapping spawns.
 - `functions.wait_agent` + `functions.close_agent` to finish delegation. No synthesize / finalize until every active subagent finished or explicitly closed.
 - Integrate subagent results before overlapping follow-up delegation.
@@ -57,15 +75,20 @@ Deterministic `pytest` in `tests/unit/test_*.py`. Prefer fusion, scorer, fixture
 
 ## Research Workflow & Artifact Rules
 
-Generated research outputs tracked. Do not hand-edit or casually regenerate `artifacts/`, `outputs/final/`, `data/processed/splits/`, `VERSIONS.md`; regeneration → call out in PR. `uv run factuality-rerank-xsum minicheck-optional` optional; not on main `make` scoring path. Checked-in results = bounded-run artifacts; read `docs/RESULTS_SUMMARY.md` + tracked manifests before benchmark-scale claims.
+Generated research outputs tracked. Do not hand-edit or casually regenerate `artifacts/`, `outputs/final/`, `data/processed/splits/`, `VERSIONS.md`; regeneration → call out in PR. Checked-in results = bounded-run artifacts; read `docs/RESULTS_SUMMARY.md` + tracked manifests before benchmark-scale claims.
 
-Final deliverables under `outputs/final/`: `main_metrics.csv`, `ablation_metrics.csv`, `pareto_points.csv`, `bootstrap_cis.json`, `manual_audit.csv`, `manual_audit_summary.json`, `figures/`, `tables/`, `system_card.md`. Handoff incomplete until those outputs, packaged zip, summary docs agree.
+Artifact truth is the trust gate. Do not treat report/package surfaces as current unless `artifacts/validation/artifact_truth_report.json` passes and the package, final outputs, and docs agree.
+`train` is a real bounded fine-tuning stage. Keep the public `facebook/bart-large-xsum` path as the explicit baseline comparator when touching generation, evaluation, or reporting.
+`uv run factuality-rerank-xsum minicheck-optional` is bounded subset validation on the audit sample; never present it as a main test-set metric.
+Audit wording must remain exact: `Codex / AI-assisted expert adjudication`, not human annotation.
+
+Final deliverables under `outputs/final/`: `main_metrics.csv`, `ablation_metrics.csv`, `pareto_points.csv`, `bootstrap_cis.json`, `manual_audit.csv`, `manual_audit_summary.json`, `figures/`, `tables/`, `system_card.md`, and `submission/` (`final_report.pdf`, `final_slides.pptx`, `final_slides.pdf`, `speaker_notes.md`, `submission_manifest.json`). Handoff incomplete until those outputs, the packaged zip, and the summary docs agree.
 
 Notebooks: secondary; inspect artifacts, regen figures; required experiment logic stays in CLI + `src/`.
 
 ## Documentation & Claims
 
-Align with `docs/CLAIMS_SAFE_TO_WRITE.md`. Changes to generated outputs or execution story → same-pass updates to `README.md`, `docs/RESULTS_SUMMARY.md`, `docs/SUBMISSION_CHECKLIST.md`. Offline fixture fallback → state plainly; no benchmark-level claims.
+Align with `docs/CLAIMS_SAFE_TO_WRITE.md`. Changes to generated outputs or execution story → same-pass updates to `README.md`, `REPORT.md`, `docs/RUNBOOK.md`, `docs/RESULTS_SUMMARY.md`, `docs/CLAIMS_SAFE_TO_WRITE.md`, `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`, and `docs/SUBMISSION_CHECKLIST.md`. Offline fixture fallback → state plainly; no benchmark-level claims.
 
 ## Commit & Pull Request Guidelines
 

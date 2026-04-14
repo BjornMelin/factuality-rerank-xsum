@@ -2,6 +2,14 @@
 
 A reproducible summarization-analysis repository for factuality-aware reranking on XSum.
 
+## Canonical docs
+
+- `REPORT.md`: canonical current-state handoff.
+- `docs/RUNBOOK.md`: canonical operator flow.
+- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`: checked-in execution checklist for future zero-context Codex sessions.
+- `docs/RESULTS_SUMMARY.md`: artifact-backed results snapshot.
+- `docs/CLAIMS_SAFE_TO_WRITE.md`: claim ceiling.
+
 ## What this repo contains
 
 - A CLI-first stage pipeline implemented in `src/` and exposed through `uv run factuality-rerank-xsum ...`.
@@ -37,7 +45,7 @@ uv run factuality-rerank-xsum package
 - `uv run factuality-rerank-xsum minicheck-optional` runs a bounded MiniCheck pass on the audit subset and records a structured deferral if the external evaluator cannot be installed.
 - After runtime or config changes, rerun `generate`, `score`, `search`, and `evaluate` before treating metric artifacts as refreshed.
 
-Current executed dataset mode: `online_hub`. Current configured generator mode: `huggingface_generation`.
+Current executed dataset mode: `online_hub`. Current executed generator mode: `huggingface_generation`.
 
 ## Notebooks
 
@@ -45,7 +53,7 @@ Current executed dataset mode: `online_hub`. Current configured generator mode: 
 
 ## Prompt pack
 
-- `PROMPTS_INDEX.md` lists the maintained prompt flow for rerun, analysis, and QA sessions.
+- `PROMPTS_INDEX.md` lists the maintained external ChatGPT prompt-routing flow.
 - Prompt files under `prompts/` assume the current CLI-first repo state, not the deleted script-wrapper flow.
 
 ## Key artifacts

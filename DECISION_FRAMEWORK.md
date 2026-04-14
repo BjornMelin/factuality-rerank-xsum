@@ -1,4 +1,11 @@
-# DECISION_FRAMEWORK.md - Comparison of the earlier handoff, the forked response, and the final merged package
+# DECISION_FRAMEWORK.md - archival handoff-comparison history
+
+Superseded as active repo authority.
+
+Keep this file only as historical context for how an earlier handoff package was
+evaluated. Current repo authority now lives in `REPORT.md`, `docs/RUNBOOK.md`,
+`docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`, `docs/RESULTS_SUMMARY.md`, and
+`docs/CLAIMS_SAFE_TO_WRITE.md`.
 
 This file records the custom weighted comparison used to decide what to keep, what to reject, and what to change.
 
@@ -7,19 +14,24 @@ This file records the custom weighted comparison used to decide what to keep, wh
 ## 1. Comparison targets
 
 ### A. Earlier handoff from this session
+
 Strengths:
+
 - stronger modernization of the FactCC path
 - stronger output artifact contract
 - stronger final-writing handoff
 - notebook support already present
 
 Weaknesses:
+
 - less detailed repo/runbook/prompt structure
 - weaker explicit execution gating
 - less detailed failure-handling logic
 
 ### B. Forked response
+
 Strengths:
+
 - stronger repo tree
 - stronger execution phases
 - stronger packaging and docs structure
@@ -27,13 +39,16 @@ Strengths:
 - better explanation that the candidate table is the central artifact
 
 Weaknesses:
+
 - some assumptions needed verification against current docs
 - QAGS still had too much visibility relative to its practical value
 - FactCC path needed harder modernization
 - needed explicit update for newer optional metrics and dataset/model revision pinning
 
 ### C. Final merged hardened package
+
 Strengths:
+
 - keeps the fork’s operational strength
 - keeps the earlier handoff’s modernization and deliverable contract
 - corrects brittle assumptions with current doc/package verification
@@ -45,7 +60,7 @@ Strengths:
 ## 2. Weights
 
 | Criterion | Weight |
-|---|---:|
+| --- | ---: |
 | Proposal fidelity | 15% |
 | Research grounding + freshness | 15% |
 | Implementation specificity | 20% |
@@ -59,7 +74,7 @@ Strengths:
 ## 3. Scores
 
 | Package | Proposal fidelity | Research grounding + freshness | Implementation specificity | Reproducibility + environment robustness | Analysis + audit design | Scope control + risk handling | Handoff + prompt usability | Final weighted score |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Earlier handoff (this session) | 9.4 | 9.2 | 8.8 | 8.9 | 9.3 | 9.0 | 8.7 | **9.05** |
 | Forked response | 9.5 | 8.8 | 9.6 | 9.3 | 9.4 | 9.4 | 9.5 | **9.36** |
 | Merged hardened handoff (final) | 9.7 | 9.8 | 9.7 | 9.7 | 9.8 | 9.8 | 9.9 | **9.76** |
@@ -69,6 +84,7 @@ Strengths:
 ## 4. Why the fork beat the earlier handoff on its own
 
 The forked response scored higher than the earlier handoff because it offered:
+
 - a more complete repo structure,
 - a clearer execution order,
 - stronger failure handling,
@@ -96,7 +112,7 @@ The merged package improves on the fork by:
 ## 6. Final keep / reject / modify table
 
 | Component | Keep | Modify | Reject | Final decision |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | XSum main dataset | Yes | No | No | Keep |
 | `facebook/bart-large-xsum` baseline | Yes | No | No | Keep |
 | Optional short fine-tune from `facebook/bart-large` | Yes | Minor | No | Keep as optional |

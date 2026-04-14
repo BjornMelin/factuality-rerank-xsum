@@ -8,22 +8,26 @@ The prompt pack is intentionally detailed. It is designed to preserve project
 context, enforce the course rubric and proposal constraints, and stop later
 sessions from silently drifting away from the current CLI-first repo.
 
-## Authority order
+## Repo authority order
 
 Every prompt in this pack should treat the repository authorities in this order:
 
-1. `PLAN.md`
-2. `docs/RESULTS_SUMMARY.md`
-3. `docs/CLAIMS_SAFE_TO_WRITE.md`
-4. `README.md`
-5. `REPORT.md`
-6. tracked manifests and files under `artifacts/` and `outputs/final/`
-7. supporting docs such as `VERSIONS.md`, `VERSIONS_AND_ENVIRONMENT.md`,
-   `NOTEBOOK_SKILL_INTEGRATION.md`, `DECISION_FRAMEWORK.md`, and `REFERENCES_FULL_URLS.md`
-8. the course-facing guidance under `docs/guidelines/`
+1. `REPORT.md`
+2. `docs/RUNBOOK.md`
+3. `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
+4. `docs/RESULTS_SUMMARY.md`
+5. `docs/CLAIMS_SAFE_TO_WRITE.md`
+6. `README.md`
+7. tracked manifests and files under `artifacts/` and `outputs/final/`
+8. supporting docs such as `VERSIONS.md`, `VERSIONS_AND_ENVIRONMENT.md`,
+   `NOTEBOOK_SKILL_INTEGRATION.md`, and `REFERENCES_FULL_URLS.md`
+9. the course-facing guidance under `docs/guidelines/`
 
 If any file disagrees with higher-priority authorities, the prompt user should report the mismatch
 instead of silently averaging the sources together.
+
+`PROMPTS_INDEX.md` is prompt-routing support only. It is not a competing
+current-state handoff.
 
 ## Execution modes
 
@@ -74,23 +78,22 @@ Use `PROMPT_00` first if possible. If the session will receive only one prompt:
 ### Minimal core bundle
 
 - repo zip or live repo access
-- `PLAN.md`
-- `README.md`
 - `REPORT.md`
+- `README.md`
+- `docs/RUNBOOK.md`
+- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
 
 ### Build or rerun bundle
 
 - everything in the minimal core bundle
-- `docs/RUNBOOK.md`
 - `VERSIONS.md`
 - `VERSIONS_AND_ENVIRONMENT.md`
 - `docs/guidelines/FINAL_README.md`
 - `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
 - `docs/guidelines/FAQ.md`
 - `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
-- `DECISION_FRAMEWORK.md`
 - `REFERENCES_FULL_URLS.md`
 - `NOTEBOOK_SKILL_INTEGRATION.md` if notebook work is actually in scope
 
@@ -106,7 +109,6 @@ Use `PROMPT_00` first if possible. If the session will receive only one prompt:
 - `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
 - `docs/guidelines/FAQ.md`
 - `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
-- `DECISION_FRAMEWORK.md`
 - `REFERENCES_FULL_URLS.md`
 
 ### Final QA bundle

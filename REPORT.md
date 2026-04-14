@@ -2,8 +2,10 @@
 
 This file is the canonical master handoff for the current repo state.
 
-Use it for grading, report writing, and repo handoff. Use `PLAN.md` as the
-execution contract and operator ledger that backs this summary.
+Use it for grading, report writing, and repo handoff. Use `docs/RUNBOOK.md`
+for the canonical operator flow and
+`docs/planning/CODEX_EXECUTION_REQUIREMENTS.md` for the checked-in future
+execution checklist.
 
 ## 1. Confirmed, disproven, bounded
 
@@ -103,7 +105,7 @@ Source: `artifacts/models/training_manifest.json`
   "audit_rows": 24,
   "scored_rows": 48,
   "baseline_support_rate": 0.333333,
-  "reranked_support_rate": 0.416667
+  "reranked_support_rate": 0.458333
 }
 ```
 
@@ -202,7 +204,7 @@ Why it mattered:
 
 ### Milestone 5: docs, package, and prompt readiness
 
-- Refreshed `README.md`, `PLAN.md`, `docs/RESULTS_SUMMARY.md`,
+- Refreshed `README.md`, `docs/RESULTS_SUMMARY.md`,
   `docs/CLAIMS_SAFE_TO_WRITE.md`, `docs/RUNBOOK.md`,
   `docs/SUBMISSION_CHECKLIST.md`, `docs/SLIDES_OUTLINE.md`, prompt surfaces,
   and package contents.
@@ -217,8 +219,8 @@ Why it mattered:
 | Lane | Status | ROUGE-Lsum | Factuality composite | Audit rows | Interpretation |
 | --- | --- | ---: | ---: | ---: | --- |
 | Prior committed repo state | Superseded | 0.1314 | 0.9827 | 8 | Not a like-for-like benchmark for the refreshed run; useful only as evidence that the prior repo story was stale and under-specified. |
-| Public baseline in the refreshed rerun | Current comparator | 0.3550 | 0.3264 | 24 | This is the explicit `facebook/bart-large-xsum` baseline path kept for honest comparison. |
-| Fine-tuned plus reranked final system | Current final result | 0.3460 | 0.4413 | 24 | The final system trades a small ROUGE drop for materially stronger factuality on the bounded run. |
+| Public baseline in the refreshed rerun | Current comparator | 0.3569 | 0.3324 | 24 | This is the explicit `facebook/bart-large-xsum` baseline path kept for honest comparison. |
+| Fine-tuned plus reranked final system | Current final result | 0.3398 | 0.4420 | 24 | The final system trades a moderate ROUGE drop for materially stronger factuality on the bounded run. |
 
 Important caveat:
 
@@ -245,24 +247,25 @@ Important caveat:
 
 | Metric | Public baseline | Final system | Delta |
 | --- | ---: | ---: | ---: |
-| ROUGE-Lsum | 0.3550 | 0.3460 | -0.0090 |
-| Factuality composite | 0.3264 | 0.4413 | +0.1149 |
-| Audit consistent rate | 0.0417 | 0.0833 | +0.0416 |
-| MiniCheck support rate | 0.3333 | 0.4167 | +0.0834 |
+| ROUGE-Lsum | 0.3569 | 0.3398 | -0.0171 |
+| Factuality composite | 0.3324 | 0.4420 | +0.1096 |
+| Audit consistent rate | 0.0000 | 0.0417 | +0.0417 |
+| MiniCheck support rate | 0.3333 | 0.4583 | +0.1250 |
 
 ### Confidence and refinement details
 
-- Bootstrap ROUGE-Lsum delta CI: `[-0.0247, 0.0067]`
-- Bootstrap factuality delta CI: `[0.0929, 0.1373]`
+- Bootstrap ROUGE-Lsum delta CI: `[-0.0310, -0.0029]`
+- Bootstrap factuality delta CI: `[0.0887, 0.1321]`
 - Iterative refinement ablation:
   `logprob_plus_summac_plus_factcc` -> `...plus_entity_support`
-  changes factuality composite from `0.4045` to `0.4080`
+  changes factuality composite from `0.4061` to `0.4106`
 
 Interpretation:
 
 - The final operating point improves factuality materially on the bounded run.
-- The ROUGE trade-off is small and the confidence interval crosses zero, so the
-  honest claim is a factuality-oriented trade-off, not a universal quality win.
+- The ROUGE trade-off is small but consistently negative on this bounded run,
+  so the honest claim is a factuality-oriented trade-off, not a universal
+  quality win.
 - Entity support remains justified as the refinement because it improves the
   factuality composite without requiring a new late-stage subsystem.
 
@@ -281,7 +284,7 @@ evidence is needed:
   `stage=package`, `ok=true`, `final_main_metrics_rows=8`,
   `final_audit_rows=24`
 - MiniCheck:
-  support rate `0.3333 -> 0.4167`
+  support rate `0.3333 -> 0.4583`
 - Package:
   `artifacts/package/factuality-rerank-xsum.zip` at `26M`
 
@@ -313,10 +316,19 @@ The repo is ready for:
 - `prompts/PROMPT_02_ANALYZE_RESULTS_AND_WRITE_REPORT.md`
 - `prompts/PROMPT_03_FINAL_QA_SUBMISSION_REVIEW.md`
 
+Submission-facing artifacts now exist under `outputs/final/submission/`:
+
+- `final_report.pdf`
+- `final_slides.pptx`
+- `final_slides.pdf`
+- `final_slides.md`
+- `speaker_notes.md`
+
 Those next steps should treat the following files as the core pack:
 
 - `REPORT.md`
-- `PLAN.md`
+- `docs/RUNBOOK.md`
+- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
 - `outputs/final/`
