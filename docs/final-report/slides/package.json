@@ -3,6 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "description": "Editable PowerPoint source for the final project presentation.",
+  "scripts": {
+    "build": "node final_slides.js",
+    "build:pdf": "node final_slides.js && uv run --group slides python scripts/normalize_pptx_fonts.py ../../../../outputs/final/submission/final_slides.pptx && soffice --headless --convert-to pdf --outdir ../../../../outputs/final/submission ../../../../outputs/final/submission/final_slides.pptx"
+  },
   "dependencies": {
     "pptxgenjs": "4.0.1"
   }

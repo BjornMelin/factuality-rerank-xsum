@@ -1,63 +1,44 @@
----
-marp: true
-title: "Factuality-Aware Reranking for Extreme Summarization"
-author: "Bjorn Melin"
-date: "April 2026"
-aspectratio: 169
-paginate: true
----
+# Final Presentation Outline
 
-## Problem and Setup
+## Slide 1: Reranking Improves Factuality on XSum
 
-- XSum rewards compression, so fluent hallucinations are common.
-- Overlap metrics alone do not tell us whether a summary is supported by the article.
-- Keep the public `facebook/bart-large-xsum` path as the baseline.
-- Headline trade-off: factuality composite `0.3324 -> 0.4420`, ROUGE-Lsum `0.3569 -> 0.3398`
-- Bounded scope: `train=128`, `val_tune=64`, `val_full=128`, `test=128`, qualitative subset `=24`
+- Open with the result, then immediately bound the claim.
+- Preview the method in one sentence: fine-tuned BART, beam candidates, and factuality-aware reranking.
 
----
+## Slide 2: What This Project Is Actually Doing
 
-## Method and Pipeline
+- Define the key terms before the problem slide: XSum, beam search, reranking, and ROUGE.
+- Frame the core idea clearly: generate multiple candidates, then use factuality-aware selection after generation.
 
-- Fine-tune `facebook/bart-large-xsum` on the bounded train split.
-- Generate beam candidates with sizes `4`, `8`, and `16`.
-- Rerank with likelihood, SummaC-style support, FactCC-style consistency, and entity support.
-- Select the operating point on validation search, then evaluate once on the test split.
+## Slide 3: Why Fluent XSum Summaries Can Still Be Wrong
 
----
+- XSum rewards compressed summaries that can still hallucinate.
+- Baseline stays the public BART XSum path; the gain should come from selection, not a swapped generator.
+- Objective: improve factual support while reporting the ROUGE trade-off honestly.
 
-## Pipeline Diagram
+## Slide 4: Generate Candidates, Score Them, Choose the Operating Point
 
-<div align="center">
-  <img src="../../../outputs/final/figures/pipeline_diagram.png" width="76%">
-</div>
+- Generate beam candidates, score them with support / consistency / entity-grounding signals, and search weights on validation.
+- Emphasize that the contribution is improved candidate selection, not a new generator architecture.
 
----
+## Slide 5: Reranking Improves Factuality, With a Modest ROUGE Trade-off
 
-## Search and Refinement
+- Factuality composite improves from `0.331` to `0.434`.
+- ROUGE-Lsum drops from `0.359` to `0.339`.
+- The selected operating point sits near the high-factuality knee of the validation frontier.
 
-![](../../../outputs/final/figures/pareto_frontier.png){ width=68% }
+## Slide 6: Qualitative Analysis
 
-- Selected operating point: `custom_0097`, beam `16`
-- Factuality-heavy weights: `logprob=0.0`, `summac=0.75`, `factcc=1.0`, `entity=0.5`
-- Main result: factuality composite `0.3324 -> 0.4420`
-- Bootstrap result: factuality CI stays positive while ROUGE CI stays slightly negative
+- 24-example stratified qualitative review with `Codex / AI-assisted expert adjudication`.
+- Dominant remaining failure mode: entity distortion.
+- Claims stay bounded; this is not a benchmark-scale XSum claim.
 
----
+## Slide 7: Takeaways
 
-## Qualitative Analysis and Limits
+- Reranking helps.
+- Entity grounding remains the main gap.
+- Best next step: stronger entity preservation plus more diverse candidates.
 
-![](../../../outputs/final/figures/error_taxonomy.png){ width=60% }
+## Slide 8: Questions
 
-- 24-example stratified qualitative analysis with `Codex / AI-assisted expert adjudication`
-- Dominant remaining failure: entity distortion (`12/24`)
-- This is a bounded study, not a benchmark-scale XSum claim
-
----
-
-## Takeaways
-
-- Simple reranking signals materially improve factuality on this bounded XSum run.
-- Entity support is a useful small refinement, not a silver bullet.
-- The strongest remaining gap is entity-level hallucination when all candidates drift the same way.
-- The next strongest improvements would likely come from better candidate diversity, stronger entity constraints, and broader external evaluation.
+- Minimal closing slide for Q&A.

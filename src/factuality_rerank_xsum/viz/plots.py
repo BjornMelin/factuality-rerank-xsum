@@ -72,6 +72,7 @@ def _draw_box(
     height: float,
     label: str,
     facecolor: str,
+    font_size: float = 10.5,
 ) -> tuple[float, float, float, float]:
     rect = FancyBboxPatch(
         (x, y),
@@ -89,7 +90,7 @@ def _draw_box(
         label,
         ha="center",
         va="center",
-        fontsize=10.5,
+        fontsize=font_size,
         color="#111827",
         fontweight="semibold",
     )
@@ -118,60 +119,65 @@ def _arrow(
 
 
 def make_pipeline_diagram(path: Path) -> None:
-    fig, ax = plt.subplots(figsize=(12, 3.35))
+    fig, ax = plt.subplots(figsize=(12, 4.8))
     ax.axis("off")
     ax.set_xlim(0, 1)
-    ax.set_ylim(0.04, 0.82)
+    ax.set_ylim(0.02, 0.98)
 
     load_box = _draw_box(
         ax,
         x=0.04,
-        y=0.58,
-        width=0.17,
-        height=0.17,
+        y=0.70,
+        width=0.18,
+        height=0.18,
         label="XSum split\nmaterialization",
         facecolor="#E8F1FB",
+        font_size=12.0,
     )
     generator_box = _draw_box(
         ax,
         x=0.285,
-        y=0.58,
-        width=0.20,
-        height=0.17,
+        y=0.70,
+        width=0.22,
+        height=0.18,
         label="Fine-tuned BART\n+ public baseline",
         facecolor="#E8F1FB",
+        font_size=12.0,
     )
     candidate_box = _draw_box(
         ax,
-        x=0.515,
-        y=0.58,
-        width=0.15,
-        height=0.17,
+        x=0.535,
+        y=0.70,
+        width=0.16,
+        height=0.18,
         label="Beam candidate\nsummaries",
         facecolor="#E8F1FB",
+        font_size=12.0,
     )
     search_box = _draw_box(
         ax,
-        x=0.705,
-        y=0.58,
-        width=0.13,
-        height=0.17,
+        x=0.73,
+        y=0.70,
+        width=0.14,
+        height=0.18,
         label="Weight\nsearch",
         facecolor="#FBECD9",
+        font_size=12.0,
     )
     final_box = _draw_box(
         ax,
-        x=0.85,
-        y=0.58,
-        width=0.12,
-        height=0.17,
+        x=0.89,
+        y=0.70,
+        width=0.08,
+        height=0.18,
         label="Evaluation,\naudit,\nreport",
         facecolor="#E8F6EC",
+        font_size=12.0,
     )
     group_box = FancyBboxPatch(
-        (0.49, 0.14),
-        0.26,
-        0.14,
+        (0.47, 0.17),
+        0.32,
+        0.23,
         boxstyle="round,pad=0.02,rounding_size=0.03",
         linewidth=1.2,
         edgecolor=PRIMARY,
@@ -179,58 +185,311 @@ def make_pipeline_diagram(path: Path) -> None:
     )
     ax.add_patch(group_box)
     ax.text(
-        0.59,
-        0.255,
+        0.63,
+        0.34,
         "Factuality scoring",
         ha="center",
         va="center",
-        fontsize=10.5,
+        fontsize=12.2,
         fontweight="bold",
         color="#111827",
     )
     _draw_box(
         ax,
-        x=0.505,
-        y=0.175,
-        width=0.055,
-        height=0.055,
-        label="SummaC",
+        x=0.49,
+        y=0.21,
+        width=0.09,
+        height=0.08,
+        label="Support",
         facecolor="#F3F4F6",
+        font_size=10.0,
     )
     _draw_box(
         ax,
-        x=0.57,
-        y=0.175,
-        width=0.055,
-        height=0.055,
-        label="FactCC",
+        x=0.595,
+        y=0.21,
+        width=0.09,
+        height=0.08,
+        label="Consistency",
         facecolor="#F3F4F6",
+        font_size=10.0,
     )
     _draw_box(
         ax,
-        x=0.635,
-        y=0.175,
-        width=0.07,
-        height=0.055,
-        label="Entity\nsupport",
+        x=0.70,
+        y=0.21,
+        width=0.09,
+        height=0.08,
+        label="Entity\ngrounding",
         facecolor="#F3F4F6",
+        font_size=9.6,
     )
 
-    _arrow(ax, (load_box[0] + load_box[2], 0.665), (generator_box[0], 0.665))
-    _arrow(ax, (generator_box[0] + generator_box[2], 0.665), (candidate_box[0], 0.665))
-    _arrow(ax, (candidate_box[0] + candidate_box[2], 0.665), (search_box[0], 0.665))
-    _arrow(ax, (search_box[0] + search_box[2], 0.665), (final_box[0], 0.665))
+    _arrow(ax, (load_box[0] + load_box[2], 0.79), (generator_box[0], 0.79))
+    _arrow(ax, (generator_box[0] + generator_box[2], 0.79), (candidate_box[0], 0.79))
+    _arrow(ax, (candidate_box[0] + candidate_box[2], 0.79), (search_box[0], 0.79))
+    _arrow(ax, (search_box[0] + search_box[2], 0.79), (final_box[0], 0.79))
     _arrow(
         ax,
         (candidate_box[0] + candidate_box[2] / 2, candidate_box[1]),
-        (0.62, 0.285),
+        (0.63, 0.395),
         connectionstyle="arc3,rad=0.0",
     )
     _arrow(
         ax,
-        (0.74, 0.23),
-        (search_box[0] + 0.03, search_box[1]),
+        (0.745, 0.325),
+        (search_box[0] + 0.04, search_box[1]),
         connectionstyle="arc3,rad=0.0",
+    )
+    _save(fig, path, use_tight_layout=False)
+
+
+def make_pipeline_diagram_slide(path: Path) -> None:
+    fig, ax = plt.subplots(figsize=(12, 5.1))
+    ax.axis("off")
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0.02, 0.98)
+
+    load_box = _draw_box(
+        ax,
+        x=0.04,
+        y=0.71,
+        width=0.18,
+        height=0.17,
+        label="XSum split\nmaterialization",
+        facecolor="#E8F1FB",
+        font_size=12.4,
+    )
+    generator_box = _draw_box(
+        ax,
+        x=0.285,
+        y=0.71,
+        width=0.22,
+        height=0.17,
+        label="Fine-tuned BART\n+ public baseline",
+        facecolor="#E8F1FB",
+        font_size=12.4,
+    )
+    candidate_box = _draw_box(
+        ax,
+        x=0.535,
+        y=0.71,
+        width=0.16,
+        height=0.17,
+        label="Beam candidate\nsummaries",
+        facecolor="#E8F1FB",
+        font_size=12.4,
+    )
+    search_box = _draw_box(
+        ax,
+        x=0.73,
+        y=0.71,
+        width=0.14,
+        height=0.17,
+        label="Weight\nsearch",
+        facecolor="#FBECD9",
+        font_size=12.4,
+    )
+    final_box = _draw_box(
+        ax,
+        x=0.89,
+        y=0.71,
+        width=0.08,
+        height=0.17,
+        label="Evaluation,\naudit,\nreport",
+        facecolor="#E8F6EC",
+        font_size=12.4,
+    )
+
+    score_group = FancyBboxPatch(
+        (0.455, 0.18),
+        0.34,
+        0.24,
+        boxstyle="round,pad=0.02,rounding_size=0.03",
+        linewidth=1.4,
+        edgecolor=PRIMARY,
+        facecolor="#F9FAFB",
+    )
+    ax.add_patch(score_group)
+    ax.text(
+        0.625,
+        0.365,
+        "Factuality scoring",
+        ha="center",
+        va="center",
+        fontsize=13.2,
+        fontweight="bold",
+        color="#111827",
+    )
+    _draw_box(
+        ax,
+        x=0.485,
+        y=0.22,
+        width=0.095,
+        height=0.085,
+        label="Support",
+        facecolor="#F3F4F6",
+        font_size=10.8,
+    )
+    _draw_box(
+        ax,
+        x=0.598,
+        y=0.22,
+        width=0.095,
+        height=0.085,
+        label="Consistency",
+        facecolor="#F3F4F6",
+        font_size=10.2,
+    )
+    _draw_box(
+        ax,
+        x=0.711,
+        y=0.22,
+        width=0.095,
+        height=0.085,
+        label="Entity\ngrounding",
+        facecolor="#F3F4F6",
+        font_size=9.8,
+    )
+
+    _arrow(ax, (load_box[0] + load_box[2], 0.795), (generator_box[0], 0.795))
+    _arrow(ax, (generator_box[0] + generator_box[2], 0.795), (candidate_box[0], 0.795))
+    _arrow(ax, (candidate_box[0] + candidate_box[2], 0.795), (search_box[0], 0.795))
+    _arrow(ax, (search_box[0] + search_box[2], 0.795), (final_box[0], 0.795))
+    _arrow(
+        ax,
+        (candidate_box[0] + candidate_box[2] / 2, candidate_box[1]),
+        (0.615, 0.415),
+        connectionstyle="arc3,rad=0.0",
+    )
+    _arrow(
+        ax,
+        (0.75, 0.34),
+        (search_box[0] + 0.045, search_box[1]),
+        connectionstyle="arc3,rad=0.0",
+    )
+    _save(fig, path, use_tight_layout=False)
+
+
+def make_pipeline_main_flow_diagram(path: Path) -> None:
+    fig, ax = plt.subplots(figsize=(12, 2.35))
+    ax.axis("off")
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0.55, 0.96)
+
+    load_box = _draw_box(
+        ax,
+        x=0.04,
+        y=0.68,
+        width=0.18,
+        height=0.17,
+        label="XSum split\nmaterialization",
+        facecolor="#E8F1FB",
+        font_size=12.4,
+    )
+    generator_box = _draw_box(
+        ax,
+        x=0.285,
+        y=0.68,
+        width=0.22,
+        height=0.17,
+        label="Fine-tuned BART\n+ public baseline",
+        facecolor="#E8F1FB",
+        font_size=12.4,
+    )
+    candidate_box = _draw_box(
+        ax,
+        x=0.535,
+        y=0.68,
+        width=0.16,
+        height=0.17,
+        label="Beam candidate\nsummaries",
+        facecolor="#E8F1FB",
+        font_size=12.4,
+    )
+    search_box = _draw_box(
+        ax,
+        x=0.73,
+        y=0.68,
+        width=0.14,
+        height=0.17,
+        label="Weight\nsearch",
+        facecolor="#FBECD9",
+        font_size=12.4,
+    )
+    final_box = _draw_box(
+        ax,
+        x=0.89,
+        y=0.68,
+        width=0.08,
+        height=0.17,
+        label="Evaluation,\naudit,\nreport",
+        facecolor="#E8F6EC",
+        font_size=12.4,
+    )
+
+    _arrow(ax, (load_box[0] + load_box[2], 0.765), (generator_box[0], 0.765))
+    _arrow(ax, (generator_box[0] + generator_box[2], 0.765), (candidate_box[0], 0.765))
+    _arrow(ax, (candidate_box[0] + candidate_box[2], 0.765), (search_box[0], 0.765))
+    _arrow(ax, (search_box[0] + search_box[2], 0.765), (final_box[0], 0.765))
+    _save(fig, path, use_tight_layout=False)
+
+
+def make_pipeline_scoring_module_diagram(path: Path) -> None:
+    fig, ax = plt.subplots(figsize=(5.2, 2.5))
+    ax.axis("off")
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+
+    score_group = FancyBboxPatch(
+        (0.06, 0.12),
+        0.88,
+        0.72,
+        boxstyle="round,pad=0.02,rounding_size=0.06",
+        linewidth=1.5,
+        edgecolor=PRIMARY,
+        facecolor="#F9FAFB",
+    )
+    ax.add_patch(score_group)
+    ax.text(
+        0.5,
+        0.67,
+        "Factuality scoring",
+        ha="center",
+        va="center",
+        fontsize=13.8,
+        fontweight="bold",
+        color="#111827",
+    )
+    _draw_box(
+        ax,
+        x=0.13,
+        y=0.26,
+        width=0.2,
+        height=0.18,
+        label="Support",
+        facecolor="#F3F4F6",
+        font_size=11.2,
+    )
+    _draw_box(
+        ax,
+        x=0.39,
+        y=0.26,
+        width=0.2,
+        height=0.18,
+        label="Consistency",
+        facecolor="#F3F4F6",
+        font_size=10.6,
+    )
+    _draw_box(
+        ax,
+        x=0.65,
+        y=0.26,
+        width=0.2,
+        height=0.18,
+        label="Entity\ngrounding",
+        facecolor="#F3F4F6",
+        font_size=10.0,
     )
     _save(fig, path, use_tight_layout=False)
 

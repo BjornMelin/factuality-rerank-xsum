@@ -1,52 +1,44 @@
----
-title: "Factuality-Aware Reranking for Extreme Summarization"
-author: "Bjorn Melin"
-date: "April 2026"
-aspectratio: 169
----
+# Final Presentation Outline
 
-## Problem and Setup
+## Slide 1: Reranking Improves Factuality on XSum
 
-- XSum rewards compression, so fluent hallucinations are common.
-- Overlap metrics alone do not tell us whether a summary is supported by the article.
-- Keep the public `facebook/bart-large-xsum` path as the baseline.
-- Ask whether reranking can trade a small amount of ROUGE for better factuality.
-- Headline trade-off: factuality composite `0.3324 -> 0.4420`, ROUGE-Lsum `0.3569 -> 0.3398`
-- Bounded scope: `train=128`, `val_tune=64`, `val_full=128`, `test=128`, qualitative subset `=24`
+- Open with the result, then immediately bound the claim.
+- Preview the method in one sentence: fine-tuned BART, beam candidates, and factuality-aware reranking.
 
-![](../figures/pipeline_diagram.png){ width=60% }
+## Slide 2: What This Project Is Actually Doing
 
-## Method and Main Result
+- Define the key terms before the problem slide: XSum, beam search, reranking, and ROUGE.
+- Frame the core idea clearly: generate multiple candidates, then use factuality-aware selection after generation.
 
-- Fine-tune `facebook/bart-large-xsum` on the bounded train split.
-- Generate beam candidates with sizes `4`, `8`, and `16`.
-- Rerank with likelihood, SummaC-style support, FactCC-style consistency, and entity support.
-- Select the operating point on validation search, then evaluate once on the test split.
-- Main result: factuality composite `0.3324 -> 0.4420`
-- Main trade-off: ROUGE-Lsum `0.3569 -> 0.3398`
-- Bootstrap result: factuality CI stays positive; ROUGE CI stays slightly negative
+## Slide 3: Why Fluent XSum Summaries Can Still Be Wrong
 
-## Search and Refinement
+- XSum rewards compressed summaries that can still hallucinate.
+- Baseline stays the public BART XSum path; the gain should come from selection, not a swapped generator.
+- Objective: improve factual support while reporting the ROUGE trade-off honestly.
 
-![](../figures/pareto_frontier.png){ width=54% }
+## Slide 4: Generate Candidates, Score Them, Choose the Operating Point
 
-- Selected operating point: `custom_0097`, beam `16`
-- Factuality-heavy weights: `logprob=0.0`, `summac=0.75`, `factcc=1.0`, `entity=0.5`
-- Refinement: add entity support after error analysis
-- Ablation: `0.4061 -> 0.4106`
+- Generate beam candidates, score them with support / consistency / entity-grounding signals, and search weights on validation.
+- Emphasize that the contribution is improved candidate selection, not a new generator architecture.
 
-## Qualitative Analysis and Limits
+## Slide 5: Reranking Improves Factuality, With a Modest ROUGE Trade-off
 
-![](../figures/error_taxonomy.png){ width=38% }
+- Factuality composite improves from `0.331` to `0.434`.
+- ROUGE-Lsum drops from `0.359` to `0.339`.
+- The selected operating point sits near the high-factuality knee of the validation frontier.
 
-- 24-example stratified qualitative analysis with `Codex / AI-assisted expert adjudication`
-- Outcome counts: reranker win `8`, baseline win `8`, tie/close `8`
-- Dominant remaining failure: entity distortion (`12/24`)
-- This is a bounded study, not a benchmark-scale XSum claim
+## Slide 6: Qualitative Analysis
 
-## Takeaways
+- 24-example stratified qualitative review with `Codex / AI-assisted expert adjudication`.
+- Dominant remaining failure mode: entity distortion.
+- Claims stay bounded; this is not a benchmark-scale XSum claim.
 
-- Simple reranking signals materially improve factuality on this bounded XSum run.
-- Entity support is a useful small refinement, not a silver bullet.
-- The strongest remaining gap is entity-level hallucination when all candidates drift the same way.
-- The next strongest improvements would likely come from better candidate diversity, stronger entity constraints, and broader external evaluation.
+## Slide 7: Takeaways
+
+- Reranking helps.
+- Entity grounding remains the main gap.
+- Best next step: stronger entity preservation plus more diverse candidates.
+
+## Slide 8: Questions
+
+- Minimal closing slide for Q&A.
