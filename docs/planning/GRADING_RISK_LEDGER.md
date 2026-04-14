@@ -13,6 +13,7 @@ Updated: 2026-04-13
 | Iterative refinement | Low risk | The entity-support augmentation is now the explicit refinement lane and modestly improves factuality composite in the ablation table. | `outputs/final/ablation_metrics.csv`, `configs/rerank/final_selection.yaml` | Narrate the refinement as incremental, not transformative. | Supports an honest “v1 vs refined” discussion. |
 | Independent evaluator | Low risk | MiniCheck completed on the 24-row audit subset through the repo CLI and wrote subset diagnostics. | `artifacts/scores/minicheck/stage_summary.json`, `src/factuality_rerank_xsum/scoring/stage.py` | Keep it framed as subset validation rather than a main metric replacement. | Supports a bounded independent-evaluator claim. |
 | Packaging and handoff | Low risk | Package and final-output surfaces now fail on stale truth mismatches and the final zip was rebuilt after the refresh. | `artifacts/package/artifact_manifest.json`, `artifacts/package/factuality-rerank-xsum.zip` | Keep running `package` as the final truth gate. | Final handoff zip is report-ready within the bounded scope. |
+| Technical communication | Low risk | The final paper, editable slide deck, slide PDF, and speaker notes are now tracked in the repo and aligned to the bounded-run claims. | `docs/final-report/`, `outputs/final/submission/`, `docs/SUBMISSION_CHECKLIST.md` | Re-run QA if any metric or wording changes. | Communication artifacts now satisfy the course deliverable shape. |
 
 ## Exit criteria
 

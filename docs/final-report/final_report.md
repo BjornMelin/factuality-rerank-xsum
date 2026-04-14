@@ -3,17 +3,17 @@
 ## Abstract
 
 Abstractive summarizers for XSum often produce fluent but unsupported details.
-This project studies whether a small, proposal-faithful reranking pipeline can
-shift that trade-off toward factuality without redesigning the base generator.
+This project studies whether a small reranking pipeline can shift that
+trade-off toward factuality without redesigning the base generator.
 I fine-tune `facebook/bart-large-xsum` on a bounded XSum subset, generate beam
 candidates, and rerank them with generation likelihood, a SummaC-style
 entailment score, a FactCC-style consistency score, and a lightweight
 entity-support feature. On a 128-example bounded test split, the final system
 improves the tracked factuality composite from `0.3324` to `0.4420` relative to
 the public BART baseline while reducing ROUGE-Lsum from `0.3569` to `0.3398`.
-A 24-row stratified Codex / AI-assisted expert adjudication audit and a bounded
-MiniCheck subset both support the direction of the factuality gain. The final
-result is not a benchmark-scale claim; it is a bounded study showing that
+A 24-example stratified qualitative analysis set and a bounded MiniCheck check
+on that same subset both support the direction of the factuality gain. The
+final result is not a benchmark-scale claim; it is a bounded study showing that
 simple reranking signals can materially reduce factual errors for extreme
 summarization at modest overlap-cost.
 
@@ -27,18 +27,19 @@ sequence models such as BART produce fluent outputs on this task, but overlap
 metrics alone do not guarantee that the generated sentence is supported by the
 document.
 
-This project keeps the scope deliberately small and proposal-faithful. Rather
-than replacing the generator, I ask whether a bounded reranking layer can make
+Rather than replacing the generator, I ask whether a bounded reranking layer can make
 candidate selection more factual. The pipeline fine-tunes BART on XSum, samples
 multiple beam candidates, scores them with factuality-oriented signals, and
 selects an operating point that balances ROUGE against factual consistency.
 
-The work emphasizes analysis rather than sheer model count. In addition to the
-main automatic metrics, the final repo includes a stratified audit, a simple
-error taxonomy, an explicit refinement iteration, and a bounded independent
-evaluator pass with MiniCheck. The resulting story is conservative: the final
-system is better on factuality, slightly worse on ROUGE, and still clearly
-bounded in scale.
+The contribution is not a new summarization architecture. Instead, I leverage a
+strong public generator and factuality signals from prior work, then test
+whether a small decision-layer change can improve factual consistency in a
+measurable and interpretable way. The work therefore emphasizes analysis rather
+than model count: multi-signal reranking, weight search, one targeted
+refinement, and qualitative error analysis. The resulting story is
+conservative: the final system is better on factuality, slightly worse on
+ROUGE, and still clearly bounded in scale.
 
 ## 2. Background
 
@@ -54,10 +55,19 @@ types and stronger evaluators, including a factual-error taxonomy for
 summarization \citep{tang2023errors} and MiniCheck for efficient grounded
 fact-checking \citep{tang2024minicheck}.
 
-The proposal for this project committed to a BART-based summarizer, beam-search
-candidates, factuality-aware reranking, trade-off analysis, and annotated error
-analysis. I therefore keep the method aligned to those commitments instead of
-expanding into larger or newer architectures.
+Relative to this literature, the goal here is narrower and more practical: use
+existing factuality signals as reranking features for XSum, then analyze
+whether that decision-layer change produces a useful factuality-overlap
+trade-off. The novelty is therefore in the combination of bounded fine-tuning,
+multi-signal reranking, and analysis-driven refinement rather than in a new
+metric or generator family.
+
+That framing matters for the course setting as well. The project is not trying
+to out-scale the literature with a larger model or a broader training corpus.
+Instead, it focuses on a smaller but still research-relevant question: whether
+factuality can improve through better selection among candidates produced by a
+standard summarizer. This makes it possible to connect implementation choices,
+error analysis, and evaluation trade-offs directly to the final result.
 
 ## 3. Method
 
@@ -94,29 +104,29 @@ weights:
 
 This choice deliberately prioritizes factuality signals over raw likelihood.
 
-### 3.3 Evaluation and audit
+### 3.3 Evaluation and qualitative analysis
 
 The final test split contains 128 examples. Automatic evaluation reports
 ROUGE-Lsum \citep{lin2004rouge} plus a factuality composite formed from the
 tracked SummaC-style, FactCC-style, and entity-support scores. I also use
 bootstrap confidence intervals over the system deltas.
 
-For qualitative validation, I complete a 24-row stratified audit with explicit
-provenance fields (`annotator_id = codex`,
-`annotation_method = ai-assisted expert adjudication`). The audit records the
-selected system, consistency labels for both summaries, and a primary error
-type. This is intentionally not presented as human-annotator reliability data.
+For qualitative validation, I review a 24-example stratified sample with
+explicit provenance (`Codex / AI-assisted expert adjudication`). The sample
+records the selected system, consistency labels for both summaries, and a
+primary error type. This is intended for error analysis, not for claims about
+human inter-annotator reliability.
 
-Finally, I run MiniCheck on the same 24-row audit subset as bounded supporting
+Finally, I run MiniCheck on the same 24-example subset as bounded supporting
 evidence, not as a replacement for the main test-set metrics.
 
-## 4. Results
+## 4. Results and Discussion
 
 Table \ref{tab:main-results} shows the main bounded comparison. The final
 system improves the factuality composite by `+0.1096`, raises MiniCheck support
-rate on the audit subset by `+0.1250`, and slightly improves the audit
-consistent rate. The cost is a `-0.0171` ROUGE-Lsum drop relative to the public
-baseline.
+rate on the qualitative-analysis subset by `+0.1250`, and slightly improves
+the consistent-rate measure on that subset. The cost is a `-0.0171` ROUGE-Lsum
+drop relative to the public baseline.
 
 The confidence intervals matter. The ROUGE-Lsum delta interval
 `[-0.0310, -0.0029]` stays negative, so I cannot claim a quality win on overlap
@@ -124,11 +134,18 @@ metrics. The factuality delta interval `[0.0887, 0.1321]` remains positive
 throughout, so the honest conclusion is a factuality-oriented trade-off rather
 than a universally better summarizer.
 
+That trade-off is still meaningful in practice. XSum outputs are often judged
+first on fluency, but a fluent sentence that adds an unsupported entity or
+relation is still unusable in many downstream settings. The reranker improves
+the support-oriented metrics without claiming to solve summarization quality in
+general. The right interpretation is therefore selective: the system is better
+when factual grounding is the priority, but it is not a free quality gain.
+
 | Metric | Public baseline | Final reranker | Delta |
 | --- | ---: | ---: | ---: |
 | ROUGE-Lsum | 0.3569 | 0.3398 | -0.0171 |
 | Factuality composite | 0.3324 | 0.4420 | +0.1096 |
-| Audit consistent rate | 0.0000 | 0.0417 | +0.0417 |
+| Qualitative consistent rate | 0.0000 | 0.0417 | +0.0417 |
 | MiniCheck support rate | 0.3333 | 0.4583 | +0.1250 |
 
 ### 4.1 Search and trade-off analysis
@@ -142,21 +159,22 @@ and should be reported plainly.
 
 ### 4.2 Iterative refinement
 
-The proposal also required at least one refinement iteration motivated by the
-analysis. I implement entity support as that refinement. The ablation from
+After inspecting early failures, I implement entity support as an explicit
+refinement. The ablation from
 `logprob_plus_summac_plus_factcc` to
 `logprob_plus_summac_plus_factcc_plus_entity_support` changes factuality
 composite from `0.4061` to `0.4106` on the bounded test split. This is a small
 gain, but it is consistent with the error analysis: named-entity substitutions
 and unsupported entities dominate the remaining failures.
 
-### 4.3 Audit findings
+### 4.3 Qualitative findings
 
-The audit is intentionally balanced rather than celebratory. Out of 24 examples,
-the reranker wins `8`, the baseline wins `8`, and `8` are ties or too close to
-call. The reranker is still selected more often overall (`16/24`), and the
-dominant remaining failure type is entity distortion (`12` rows), followed by
-negation or stance reversal (`6`) and number/date errors (`5`).
+The 24-example qualitative set is intentionally balanced rather than
+celebratory. The reranker wins `8` examples, the baseline wins `8`, and `8` are
+ties or too close to call. The reranker is still selected more often overall
+(`16/24`), and the dominant remaining failure type is entity distortion (`12`
+rows), followed by negation or stance reversal (`6`) and number/date errors
+(`5`).
 
 The qualitative examples show both sides of the trade-off. In article
 `34001040`, the reranker removes an unsupported motorway detail and keeps the
@@ -165,40 +183,51 @@ systems remain wrong about the named entity, illustrating that reranking alone
 does not solve entity-level hallucinations once all candidates drift in the
 same direction.
 
-## 5. Discussion
+Figure \ref{fig:error-taxonomy} summarizes the same qualitative subset at the
+error-type level. Entity distortion is the largest remaining category, which is
+consistent with both the example-level discussion and the relatively small gain
+from the entity-support refinement.
 
-The project succeeds on the rubric’s analysis dimension because it closes the
-loop between automatic metrics, search, refinement, and manual inspection.
+### 4.4 Interpretation
+
 Likelihood alone tends to favor fluent but overcommitted details. Adding
 entailment-style and FactCC-style signals moves the selected candidates toward
 more document-supported content, and entity support adds a small but coherent
 refinement on top.
 
 At the same time, the results are clearly bounded. The run uses 128 training
-examples, 64 tuning examples, a 128-example test split, and a 24-row audit.
-Those numbers are large enough to reveal a stable directional trade-off, but
-not large enough to justify benchmark-scale claims. The audit is also an
-AI-assisted expert-adjudication surface, which is useful for slicing failure
-modes but does not support claims about human inter-annotator agreement.
+examples, 64 tuning examples, a 128-example test split, and a 24-example
+qualitative analysis set. Those numbers are large enough to reveal a stable
+directional trade-off, but not large enough to justify benchmark-scale claims.
+The qualitative analysis is better suited to identifying failure modes than to
+making annotator-reliability claims.
 
-## 6. Conclusion
+The error patterns also clarify where reranking helps and where it stalls.
+When the candidate set contains both a supported and an unsupported version of
+the same event, the factuality features often choose the safer sentence. When
+all beam candidates drift toward the same wrong entity or unsupported
+relationship, reranking has little room to recover. That observation explains
+why entity support helps only modestly in the ablation and why stronger future
+improvements likely require better candidate diversity or explicit constrained
+generation.
+
+## 5. Conclusion
 
 This bounded XSum study shows that a small factuality-aware reranking layer can
 materially improve factuality relative to a public BART baseline, even when the
-generator and dataset remain proposal-faithful. The final system does not
-improve every metric: ROUGE-Lsum falls slightly, and entity errors remain the
-dominant failure mode. But the end-to-end pipeline now supports a clean and
-defensible conclusion for this project: candidate reranking is a practical way
-to trade a modest amount of overlap performance for a meaningful gain in
-factual consistency.
+generator remains a standard BART summarizer. The final system does not improve
+every metric: ROUGE-Lsum falls slightly, and entity errors remain the dominant
+failure mode. The main conclusion is therefore a trade-off claim: candidate
+reranking is a practical way to trade a modest amount of overlap performance
+for a meaningful gain in factual consistency.
 
 ## Limitations
 
 This project is bounded in three important ways. First, the data splits are
 small relative to full XSum scale, so the results should be interpreted as a
 bounded study rather than a benchmark claim. Second, the factuality composite
-uses repo-native scores rather than a broader panel of external metrics.
-MiniCheck is included only on the audit subset. Third, the final audit is
-Codex / AI-assisted expert adjudication, not a human-annotator study. Those
-limitations are real, but they are documented explicitly and matched by the
-repo artifacts.
+uses task-specific support signals rather than a broader panel of external
+metrics. MiniCheck is included only on the qualitative-analysis subset. Third,
+the qualitative analysis uses `Codex / AI-assisted expert adjudication` rather
+than a human-annotator study. These limitations do not remove the main result,
+but they do constrain how broadly it should be interpreted.

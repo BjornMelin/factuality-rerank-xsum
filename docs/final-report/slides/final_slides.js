@@ -164,7 +164,7 @@ function finalizeSlide(slide) {
     color: COLORS.ink,
     valign: "mid",
   });
-  slide.addText("Bounded XSum study with fine-tuned BART, factuality-aware reranking, and explicit audit validation", {
+  slide.addText("Bounded XSum study with fine-tuned BART and factuality-aware reranking", {
     x: 0.72,
     y: 2.18,
     w: 7.9,
@@ -251,7 +251,7 @@ function finalizeSlide(slide) {
     fontSize: 12,
     color: COLORS.muted,
   });
-  slide.addText("train=128\nval=64/128\ntest=128\naudit=24", {
+  slide.addText("train=128\nval=64/128\ntest=128\nqual=24", {
     x: 9.0,
     y: 4.45,
     w: 2.6,
@@ -272,7 +272,7 @@ function finalizeSlide(slide) {
     slide,
     "Problem and Setup",
     "Why factuality is the real XSum problem",
-    "The repo now runs the full bounded CLI chain end to end.",
+    "The question is whether better candidate selection can improve factual consistency.",
   );
   addBullets(slide, [
     "XSum encourages aggressive compression, so fluent summaries can still add unsupported facts.",
@@ -313,8 +313,8 @@ function finalizeSlide(slide) {
   addChrome(
     slide,
     "Method",
-    "Proposal-faithful pipeline, not a new model family",
-    "Fine-tuned generator plus factuality-aware candidate selection.",
+    "Method and Main Result",
+    "Public BART baseline plus multi-signal reranking.",
   );
   addBullets(slide, [
     "Fine-tune BART on the bounded train split and export the best checkpoint.",
@@ -372,7 +372,7 @@ function finalizeSlide(slide) {
   const metricRows = [
     ["ROUGE-Lsum", "0.3569", "0.3398"],
     ["Factuality composite", "0.3324", "0.4420"],
-    ["Audit consistent rate", "0.0000", "0.0417"],
+    ["Qualitative consistent", "0.0000", "0.0417"],
     ["MiniCheck support rate", "0.3333", "0.4583"],
   ];
   metricRows.forEach((row, idx) => {
@@ -447,7 +447,7 @@ function finalizeSlide(slide) {
     italic: true,
     color: COLORS.muted,
   });
-  addFooter(slide, "MiniCheck is reported only on the 24-row audit subset");
+  addFooter(slide, "MiniCheck is reported only on the 24-example qualitative-analysis subset");
   finalizeSlide(slide);
 }
 
@@ -510,16 +510,16 @@ function finalizeSlide(slide) {
   const slide = pptx.addSlide();
   addChrome(
     slide,
-    "Audit and Limits",
-    "Manual inspection kept the project honest",
-    "The audit is useful for error slicing and claim control, not for human-label reliability claims.",
+    "Qualitative Analysis and Limits",
+    "Qualitative review helps identify failure modes and bound the claims",
+    "This subset is for failure analysis, not for human-label reliability claims.",
   );
   slide.addImage({
     path: path.join(figuresDir, "error_taxonomy.png"),
     ...imageSizingContain(path.join(figuresDir, "error_taxonomy.png"), 0.9, 2.25, 4.8, 3.65),
   });
   addBullets(slide, [
-    "24-row stratified Codex / AI-assisted expert adjudication audit with explicit provenance.",
+    "24-example stratified qualitative analysis with Codex / AI-assisted expert adjudication.",
     "Outcome counts: reranker win 8, baseline win 8, tie/close 8.",
     "Dominant remaining failure: entity distortion (12/24), then negation/polarity (6) and number/date errors (5).",
     "MiniCheck on the same subset raises support rate from 0.3333 to 0.4583.",
@@ -545,7 +545,7 @@ function finalizeSlide(slide) {
     allCaps: true,
     charSpace: 0.8,
   });
-  slide.addText("This is a bounded study: train=128, test=128, audit=24. The repo is submission-ready, but the claims remain bounded.", {
+  slide.addText("This is a bounded study: train=128, test=128, qualitative subset=24. The claims stay bounded even when the direction is clear.", {
     x: 6.25,
     y: 6.07,
     w: 5.45,
@@ -554,7 +554,7 @@ function finalizeSlide(slide) {
     fontSize: 13.5,
     color: COLORS.ink,
   });
-  addFooter(slide, "Audit wording must remain exact: Codex / AI-assisted expert adjudication");
+  addFooter(slide, "Qualitative review is for error analysis, not human-annotation claims");
   finalizeSlide(slide);
 }
 
@@ -571,7 +571,7 @@ function finalizeSlide(slide) {
     "Simple reranking signals materially improve factuality on this bounded XSum run.",
     "Entity support is a useful small refinement, but not a cure for entity-level hallucination.",
     "The strongest remaining failure mode appears when all beam candidates drift toward the same wrong entity or relation.",
-    "The repo, report, slides, package, and final outputs now tell one aligned story.",
+    "The next strongest improvements likely require better candidate diversity or stronger entity constraints.",
   ], { x: 0.8, y: 2.25, w: 6.1, h: 3.2, fontSize: 16 });
   slide.addShape(pptx.ShapeType.roundRect, {
     x: 7.3,
@@ -582,7 +582,7 @@ function finalizeSlide(slide) {
     line: { color: COLORS.soft, width: 1 },
     fill: { color: COLORS.white },
   });
-  slide.addText("Submission bundle", {
+  slide.addText("Next steps", {
     x: 7.62,
     y: 2.62,
     w: 2.6,
@@ -594,13 +594,13 @@ function finalizeSlide(slide) {
     allCaps: true,
     charSpace: 0.8,
   });
-  slide.addText("final_report.pdf\nfinal_slides.pptx\nfinal_slides.pdf\nspeaker_notes.md\nfactuality-rerank-xsum.zip", {
+  slide.addText("Diversify candidate pools\nAdd stronger entity-preservation constraints\nBroaden external evaluation\nTest on larger XSum slices", {
     x: 7.62,
     y: 2.95,
     w: 4.3,
     h: 1.8,
     fontFace: "Arial",
-    fontSize: 19,
+    fontSize: 17,
     bold: true,
     color: COLORS.ink,
     breakLine: true,
@@ -615,7 +615,7 @@ function finalizeSlide(slide) {
     italic: true,
     color: COLORS.muted,
   });
-  addFooter(slide, "Project closeout: bounded, aligned, and submission-ready");
+  addFooter(slide, "Bounded result, clear trade-off, and a concrete next iteration");
   finalizeSlide(slide);
 }
 

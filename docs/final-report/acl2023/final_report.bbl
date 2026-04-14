@@ -1,0 +1,49 @@
+\begin{thebibliography}{9}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Kry{\'s}ci{\'n}ski et~al.(2020)Kry{\'s}ci{\'n}ski, McCann, Xiong, and Socher}]{kryscinski2020factcc}
+Wojciech Kry{\'s}ci{\'n}ski, Bryan McCann, Caiming Xiong, and Richard Socher. 2020.
+\newblock \href {https://aclanthology.org/2020.emnlp-main.750/} {Evaluating the factual consistency of abstractive text summarization}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing}, pages 9332--9346.
+
+\bibitem[{Laban et~al.(2022)Laban, Schnabel, Bennett, and Hearst}]{laban2022summac}
+Philippe Laban, Tobias Schnabel, Paul~N. Bennett, and Marti~A. Hearst. 2022.
+\newblock \href {https://aclanthology.org/2022.tacl-1.10/} {{SummaC}: Re-visiting {NLI}-based models for inconsistency detection in summarization}.
+\newblock \emph{Transactions of the Association for Computational Linguistics}, 10:163--177.
+
+\bibitem[{Lewis et~al.(2020)Lewis, Liu, Goyal, Ghazvininejad, Mohamed, Levy, Stoyanov, and Zettlemoyer}]{lewis2020bart}
+Mike Lewis, Yinhan Liu, Naman Goyal, Marjan Ghazvininejad, Abdelrahman Mohamed, Omer Levy, Veselin Stoyanov, and Luke Zettlemoyer. 2020.
+\newblock \href {https://aclanthology.org/2020.acl-main.703/} {{BART}: Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics}, pages 7871--7880.
+
+\bibitem[{Lin(2004)}]{lin2004rouge}
+Chin-Yew Lin. 2004.
+\newblock \href {https://aclanthology.org/W04-1013/} {{ROUGE}: A package for automatic evaluation of summaries}.
+\newblock In \emph{Text Summarization Branches Out}, pages 74--81.
+
+\bibitem[{Narayan et~al.(2018)Narayan, Cohen, and Lapata}]{narayan2018xsum}
+Shashi Narayan, Shay~B. Cohen, and Mirella Lapata. 2018.
+\newblock \href {https://aclanthology.org/D18-1206/} {Don't give me the details, just the summary! topic-aware convolutional neural networks for extreme summarization}.
+\newblock In \emph{Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing}, pages 1797--1807.
+
+\bibitem[{Pagnoni et~al.(2021)Pagnoni, Balachandran, and Tsvetkov}]{pagnoni2021frank}
+Artidoro Pagnoni, Vidhisha Balachandran, and Yulia Tsvetkov. 2021.
+\newblock \href {https://aclanthology.org/2021.naacl-main.383/} {Understanding factuality in abstractive summarization with {FRANK}: A benchmark for factuality metrics}.
+\newblock In \emph{Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics}, pages 4812--4829.
+
+\bibitem[{Tang et~al.(2023)Tang, Goyal, Fabbri, Laban, Xu, Yavuz, Kry{\'s}ci{\'n}ski, Rousseau, and Durrett}]{tang2023errors}
+Liyan Tang, Tanya Goyal, Alex Fabbri, Philippe Laban, Jiacheng Xu, Semih Yavuz, Wojciech Kry{\'s}ci{\'n}ski, Justin Rousseau, and Greg Durrett. 2023.
+\newblock \href {https://aclanthology.org/2023.acl-long.650/} {Understanding factual errors in summarization: Errors, summarizers, datasets, error detectors}.
+\newblock In \emph{Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics}, pages 11726--11744.
+
+\bibitem[{Tang et~al.(2024)Tang, Laban, and Durrett}]{tang2024minicheck}
+Liyan Tang, Philippe Laban, and Greg Durrett. 2024.
+\newblock \href {https://aclanthology.org/2024.emnlp-main.499/} {{MiniCheck}: Efficient fact-checking of {LLM}s on grounding documents}.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing}, pages 9008--9026.
+
+\bibitem[{Wang et~al.(2020)Wang, Cho, and Lewis}]{wang2020qags}
+Alex Wang, Kyunghyun Cho, and Mike Lewis. 2020.
+\newblock \href {https://aclanthology.org/2020.acl-main.450/} {Asking and answering questions to evaluate the factual consistency of summaries}.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics}, pages 5008--5020.
+
+\end{thebibliography}

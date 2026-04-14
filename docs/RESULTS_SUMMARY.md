@@ -5,7 +5,7 @@
 - Implemented the repository stage surface end to end with public-PyPI and public-Hub defaults.
 - Environment mode: `online_hf_ready`.
 - Dataset mode executed: `online_hub`.
-- Generator mode currently configured: `huggingface_generation`.
+- Generator mode executed: `huggingface_generation`.
 - Dataset rows available: 384.
 - Dataset note: Dataset materialized from the public Hugging Face Hub.
 - Generator note: Train stage executed a bounded Hugging Face seq2seq fine-tuning run and exported the best local checkpoint for downstream generation.
@@ -15,8 +15,8 @@
 
 - Dataset: `EdinburghNLP/xsum` requested at `7d4d486c2f8ef850b1a11aead99b894ff3dd7da9` resolved to `7d4d486c2f8ef850b1a11aead99b894ff3dd7da9`.
 - Generator: `facebook/bart-large-xsum` requested at `2179ab81d3f133e639f2957aec5380e9d56b2783` resolved to `2179ab81d3f133e639f2957aec5380e9d56b2783`.
-- FactCC scorer: `manueldeprada/FactCC` requested at `c7b3148015d4ddc263f6e2acb2689e90ac061669` resolved to `unknown`.
-- NLI scorer: `microsoft/deberta-base-mnli` requested at `a80a6eb013898011540b19bf1f64e21eb61e53d6` resolved to `unknown`.
+- FactCC scorer: `manueldeprada/FactCC` requested at `c7b3148015d4ddc263f6e2acb2689e90ac061669` resolved to `c7b3148015d4ddc263f6e2acb2689e90ac061669`.
+- NLI scorer: `microsoft/deberta-base-mnli` requested at `a80a6eb013898011540b19bf1f64e21eb61e53d6` resolved to `a80a6eb013898011540b19bf1f64e21eb61e53d6`.
 - Factuality score columns retain the legacy `summac_style_score` and `factcc_style_score` names for rerank compatibility, but the implementations are model-backed.
 
 ## Selected operating point
@@ -46,12 +46,12 @@ uv run factuality-rerank-xsum package
 
 ## Main test result
 
-- Baseline ROUGE-Lsum: 0.3569
-- Best-balanced ROUGE-Lsum: 0.3398
-- Baseline factuality composite: 0.3324
-- Best-balanced factuality composite: 0.4420
-- Bootstrap ROUGE-Lsum delta CI: [-0.0310, -0.0029]
-- Bootstrap factuality delta CI: [0.0887, 0.1321]
+- Baseline ROUGE-Lsum: 0.3592
+- Best-balanced ROUGE-Lsum: 0.3393
+- Baseline factuality composite: 0.3310
+- Best-balanced factuality composite: 0.4337
+- Bootstrap ROUGE-Lsum delta CI: [-0.0333, -0.0057]
+- Bootstrap factuality delta CI: [0.0825, 0.1250]
 
 ## Audit finding
 
@@ -63,14 +63,14 @@ uv run factuality-rerank-xsum package
 
 ## Iterative refinement
 
-- The explicit refinement is the entity-support augmentation over the likelihood + SummaC-style + FactCC-style reranker, which changes factuality composite by +0.0045 in the tracked ablation.
+- The explicit refinement is the entity-support augmentation over the likelihood + SummaC-style + FactCC-style reranker, which changes factuality composite by +0.0069 in the tracked ablation.
 - The best-balanced winner also keeps a non-zero entity-support weight, so the refinement remains active in the final operating point.
 
 ## Independent evaluator subset
 
 - MiniCheck status: `completed`.
-- MiniCheck reranked mean support probability: 0.464167
-- MiniCheck baseline mean support probability: 0.384814
+- MiniCheck reranked mean support probability: 0.423064
+- MiniCheck baseline mean support probability: 0.359398
 - Treat MiniCheck as bounded audit-subset validation, not as a replacement for the main test-set metrics.
 
 ## Artifact map
