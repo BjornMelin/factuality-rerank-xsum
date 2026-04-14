@@ -37,5 +37,7 @@ skills-lock.json
 
 # Repository artifacts
 artifacts/package/*.zip
+artifacts/models/bart_xsum_finetuned/
+artifacts/models/minicheck/
 build/
 dist/

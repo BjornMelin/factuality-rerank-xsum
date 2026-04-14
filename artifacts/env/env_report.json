@@ -33,7 +33,7 @@
     "sentencepiece": "0.2.1",
     "torch": "2.11.0",
     "transformers": "5.5.3",
-    "ty": "0.0.1a27",
+    "ty": "0.0.29",
     "typer": "0.24.1"
   },
   "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
