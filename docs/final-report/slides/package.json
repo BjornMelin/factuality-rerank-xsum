@@ -1,0 +1,9 @@
+{
+  "name": "factuality-rerank-xsum-slides",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Editable PowerPoint source for the final project presentation.",
+  "dependencies": {
+    "pptxgenjs": "4.0.1"
+  }
+}
