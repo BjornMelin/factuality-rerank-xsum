@@ -1,5 +1,11 @@
 # Final Project Guidelines
 
+Superseded as the preferred long-form course guide.
+
+Use `docs/guidelines/FINAL_PROJECT_GUIDELINES.md` as the canonical long-form
+course reference. Keep this file only as a compatibility mirror for older
+links.
+
 ## Introduction
 
 Beyond programming assignments, you do a final project: significant NLP implementation and/or application. Expect:
