@@ -4,7 +4,7 @@
   "min_candidates_per_example": 8,
   "missing_ids": [],
   "non_empty_summaries": true,
-  "observed_ids": 8,
-  "requested_ids": 8,
-  "rows": 64
+  "observed_ids": 16,
+  "requested_ids": 16,
+  "rows": 128
 }

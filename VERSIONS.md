@@ -33,5 +33,5 @@
 - sentencepiece: `0.2.1`
 - torch: `2.11.0`
 - transformers: `5.5.3`
-- ty: `0.0.1a27`
 - typer: `0.24.1`
+- ty: `0.0.29`

@@ -1,10 +1,10 @@
 {
   "has_nan_scores": false,
-  "max_candidates_per_example": 13,
-  "min_candidates_per_example": 11,
+  "max_candidates_per_example": 16,
+  "min_candidates_per_example": 16,
   "missing_ids": [],
   "non_empty_summaries": true,
-  "observed_ids": 8,
-  "requested_ids": 8,
-  "rows": 97
+  "observed_ids": 128,
+  "requested_ids": 128,
+  "rows": 2048
 }

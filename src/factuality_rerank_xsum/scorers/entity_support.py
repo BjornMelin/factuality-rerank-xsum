@@ -90,6 +90,7 @@ def score_dataframe(frame: pd.DataFrame) -> pd.DataFrame:
         records.append(
             {
                 "id": row["id"],
+                "candidate_id": row["candidate_id"],
                 "candidate_hash": row["candidate_hash"],
                 **score_entity_support(str(row["document"]), str(row["summary"])),
             }

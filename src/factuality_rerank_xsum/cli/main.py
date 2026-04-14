@@ -40,7 +40,7 @@ def data() -> None:
 
 @app.command()
 def train() -> None:
-    """Record the configured generator and scorer checkpoints."""
+    """Run bounded fine-tuning and write checkpoint metadata."""
 
     run_train_or_load_bart()
 
@@ -64,7 +64,7 @@ def score() -> None:
 
 @app.command("minicheck-optional")
 def minicheck_optional() -> None:
-    """Record that the optional MiniCheck stage was skipped."""
+    """Run the bounded optional MiniCheck evaluator or record a deferral."""
 
     run_optional_minicheck_placeholder()
 

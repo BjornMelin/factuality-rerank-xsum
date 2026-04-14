@@ -37,6 +37,18 @@ def make_report_context(
             },
         ]
     )
+    ablation = pd.DataFrame(
+        [
+            {
+                "system": "logprob_plus_summac_plus_factcc",
+                "factuality_composite": 0.55,
+            },
+            {
+                "system": "logprob_plus_summac_plus_factcc_plus_entity_support",
+                "factuality_composite": 0.58,
+            },
+        ]
+    )
     runtime: dict[str, Any] = {
         "requested": {
             "dataset_name": "EdinburghNLP/xsum",
@@ -82,7 +94,11 @@ def make_report_context(
             "rows": 12,
             "baseline_consistent_rate": 0.42,
             "reranked_consistent_rate": 0.75,
+            "annotator_ids": ["codex"],
+            "annotation_method_counts": {"ai-assisted expert adjudication": 12},
         },
+        minicheck_summary={},
+        ablation=ablation,
         best_config={
             "system": "best_balanced",
             "beam_size": 8,
@@ -102,7 +118,7 @@ def test_runtime_command_helpers_keep_cli_only_contract() -> None:
         "```",
     ]
     assert ordered_runtime_commands()[0] == "1. `uv sync --locked --dev`"
-    assert ordered_runtime_commands()[-1] == "10. `uv run factuality-rerank-xsum package`"
+    assert ordered_runtime_commands()[-1] == "13. `uv run factuality-rerank-xsum package`"
 
 
 def test_results_summary_lines_report_runtime_and_cli_commands() -> None:
@@ -111,7 +127,7 @@ def test_results_summary_lines_report_runtime_and_cli_commands() -> None:
 
     assert "Environment mode: `online_hf_ready`." in rendered
     assert "Dataset mode executed: `online_hub`." in rendered
-    assert "Generator mode currently configured: `huggingface_generation`." in rendered
+    assert "Generator mode executed: `huggingface_generation`." in rendered
     assert "resolved to `resolved-gen`" in rendered
     assert "uv run factuality-rerank-xsum package" in rendered
     assert "scripts/14_make_tables_and_figures.py" not in rendered
@@ -121,6 +137,8 @@ def test_readme_lines_reflect_cli_first_authority() -> None:
     context = make_report_context()
     readme = "\n".join(readme_lines(context))
 
+    assert "## Canonical docs" in readme
+    assert "`docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`" in readme
     assert "CLI-first stage pipeline" in readme
     assert "maintained prompt pack in `prompts/`" in readme
     assert "Preserved prompts, plans, and references from the handoff bundle." not in readme
@@ -130,14 +148,18 @@ def test_runbook_and_checklist_reflect_runtime_modes() -> None:
     runbook = "\n".join(runbook_lines())
     checklist = "\n".join(
         submission_checklist_lines(
-            make_report_context(dataset_mode="fixture_preview", generator_mode="offline_surrogate")
+            make_report_context(
+                dataset_mode="offline_preview_fixture",
+                generator_mode="offline_surrogate_generator",
+            )
         )
     )
 
+    assert "This is the canonical operator flow for the live repository." in runbook
     assert "1. `uv sync --locked --dev`" in runbook
-    assert "10. `uv run factuality-rerank-xsum package`" in runbook
-    assert "- [x] Dataset stage executed in `fixture_preview` mode." in checklist
-    assert "- [x] Generator stage executed in `offline_surrogate` mode." in checklist
+    assert "13. `uv run factuality-rerank-xsum package`" in runbook
+    assert "- [x] Dataset stage executed in `offline_preview_fixture` mode." in checklist
+    assert "- [x] Generator stage executed in `offline_surrogate_generator` mode." in checklist
 
 
 def test_required_metrics_row_raises_when_system_is_missing() -> None:

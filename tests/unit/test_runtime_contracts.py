@@ -43,8 +43,10 @@ def test_score_summac_style_rejects_unknown_mode() -> None:
 def test_merge_scores_raises_when_stage_values_are_missing() -> None:
     """Fail when a scorer merge leaves stage values missing."""
 
-    base = pd.DataFrame([{"id": "x1", "candidate_hash": "h1", "document": "doc"}])
-    scores = pd.DataFrame(columns=["id", "candidate_hash", "summac_style_score"])
+    base = pd.DataFrame(
+        [{"id": "x1", "candidate_id": 0, "candidate_hash": "h1", "document": "doc"}]
+    )
+    scores = pd.DataFrame(columns=["id", "candidate_id", "candidate_hash", "summac_style_score"])
 
     with pytest.raises(ValueError, match="Missing summac scores after merge"):
         _merge_scores(base, scores, stage="summac")
@@ -110,7 +112,10 @@ def test_run_sample_manual_audit_creates_output_directories(
 
     result = run_sample_manual_audit()
 
-    assert result.equals(audit)
+    assert len(result) == 1
+    assert result.loc[0, "annotator_id"] == "codex"
+    assert result.loc[0, "annotation_method"] == "ai-assisted expert adjudication"
+    assert result.loc[0, "sample_rank"] == 1
     assert (tmp_path / "audit" / "manual_audit_template.csv").exists()
     assert (tmp_path / "audit" / "manual_audit_completed.csv").exists()
     assert (tmp_path / "audit" / "audit_examples_for_paper.csv").exists()

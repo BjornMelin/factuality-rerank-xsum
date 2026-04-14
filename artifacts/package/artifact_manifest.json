@@ -15,10 +15,17 @@
     "outputs/final/manual_audit.csv",
     "outputs/final/manual_audit_summary.json",
     "outputs/final/pareto_points.csv",
+    "outputs/final/submission/factuality-rerank-xsum.zip",
+    "outputs/final/submission/final_report.pdf",
+    "outputs/final/submission/final_slides.md",
+    "outputs/final/submission/final_slides.pdf",
+    "outputs/final/submission/final_slides.pptx",
+    "outputs/final/submission/speaker_notes.md",
+    "outputs/final/submission/submission_manifest.json",
     "outputs/final/system_card.md",
     "outputs/final/tables/audit_taxonomy_table.csv",
     "outputs/final/tables/qualitative_examples.csv",
     "outputs/final/tables/report_tables.md"
   ],
-  "repo_zip": "../factuality-rerank-xsum.zip"
+  "repo_zip": "factuality-rerank-xsum.zip"
 }

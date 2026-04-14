@@ -9,7 +9,7 @@
     "id"
   ],
   "note": "Dataset materialized from the public Hugging Face Hub.",
-  "rows_available": 256,
+  "rows_available": 384,
   "split_sampling": {
     "dev_small": {
       "limit": 16,
@@ -25,6 +25,11 @@
       "limit": 128,
       "rows_selected": 128,
       "source_split": "test"
+    },
+    "train_finetune": {
+      "limit": 128,
+      "rows_selected": 128,
+      "source_split": "train"
     },
     "val_full": {
       "limit": 128,

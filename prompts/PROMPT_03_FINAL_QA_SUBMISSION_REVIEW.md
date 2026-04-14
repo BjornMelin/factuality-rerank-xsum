@@ -8,8 +8,9 @@ Recommended attachments:
 - final report draft
 - slide outline or presentation notes
 - repo zip or live repo access
-- `PLAN.md`
 - `REPORT.md`
+- `docs/RUNBOOK.md`
+- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
 - `docs/SUBMISSION_CHECKLIST.md`
@@ -51,7 +52,9 @@ You are done only when you have:
 
 Before reviewing:
 
-- [ ] read `PLAN.md`
+- [ ] read `REPORT.md`
+- [ ] read `docs/RUNBOOK.md`
+- [ ] read `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
 - [ ] read `docs/RESULTS_SUMMARY.md`
 - [ ] read `docs/CLAIMS_SAFE_TO_WRITE.md`
 - [ ] read `outputs/final/system_card.md`
@@ -94,7 +97,8 @@ Check all of the following:
 - [ ] baseline and selected reranker are described accurately
 - [ ] methodology matches the current repo and tracked outputs
 - [ ] ablations are represented accurately
-- [ ] manual audit and error taxonomy are represented accurately
+- [ ] manual audit and error taxonomy are represented accurately, including Codex / AI-assisted provenance wording
+- [ ] MiniCheck subset evidence, if cited, is described as bounded subset validation rather than a full test-set metric
 - [ ] limitations are explicit and sufficient
 - [ ] bounded-run caveats are not hidden
 - [ ] figures and tables exist and are used correctly
@@ -121,6 +125,8 @@ Classify every issue using one of these labels:
 - Do not request unnecessary extra work if the current evidence supports a wording or framing fix.
 - Explicitly distinguish `unsupported claim` from `claim is acceptable but should be phrased more carefully`.
 - Do not use newer research papers as proof that this repo executed those methods.
+- If a fix requires new repo execution or artifact refresh, classify it
+  explicitly instead of implying it can be solved purely by wording.
 
 ## Required final output format
 
@@ -136,4 +142,5 @@ Respond with these sections:
 8. `Corrections To Make Before Submission`
 9. `Safe As-Is Items`
 10. `Final Submission Readiness Verdict`
+11. `Codex Follow-Up Needed` only if a must-fix issue requires repo execution
 ```

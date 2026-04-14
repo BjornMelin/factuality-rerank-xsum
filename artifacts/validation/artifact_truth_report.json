@@ -1,0 +1,182 @@
+{
+  "audit": {
+    "missing_provenance_columns": [],
+    "rows": 24,
+    "summary_rows": 24
+  },
+  "checked_at_utc": "2026-04-14T07:04:04.170086+00:00",
+  "dataset_splits": {
+    "dev_small": {
+      "requested_rows": 16,
+      "split_id_rows": 16
+    },
+    "dev_smoke": {
+      "requested_rows": 4,
+      "split_id_rows": 4
+    },
+    "test_final": {
+      "requested_rows": 128,
+      "split_id_rows": 128
+    },
+    "train_finetune": {
+      "requested_rows": 128,
+      "split_id_rows": 128
+    },
+    "val_full": {
+      "requested_rows": 128,
+      "split_id_rows": 128
+    },
+    "val_tune": {
+      "requested_rows": 64,
+      "split_id_rows": 64
+    }
+  },
+  "errors": [],
+  "evaluation": {
+    "test_final": {
+      "baseline_best_likelihood": {
+        "expected_rows": 128,
+        "rows": 128
+      },
+      "best_balanced": {
+        "expected_rows": 128,
+        "rows": 128
+      },
+      "comparison": {
+        "expected_rows": 128,
+        "rows": 128
+      }
+    },
+    "val_full": {
+      "baseline_best_likelihood": {
+        "expected_rows": 128,
+        "rows": 128
+      },
+      "best_balanced": {
+        "expected_rows": 128,
+        "rows": 128
+      },
+      "comparison": {
+        "expected_rows": 128,
+        "rows": 128
+      }
+    }
+  },
+  "final_outputs": {
+    "final_audit_rows": 24,
+    "final_main_metrics_rows": 8
+  },
+  "generation": {
+    "beam_sizes": [
+      4,
+      8,
+      16
+    ],
+    "generator_mode": "huggingface_generation",
+    "splits": {
+      "dev_small": {
+        "beams": {
+          "16": {
+            "expected_rows": 256,
+            "rows": 256,
+            "unique_ids": 16
+          },
+          "4": {
+            "expected_rows": 64,
+            "rows": 64,
+            "unique_ids": 16
+          },
+          "8": {
+            "expected_rows": 128,
+            "rows": 128,
+            "unique_ids": 16
+          }
+        },
+        "examples": 16
+      },
+      "dev_smoke": {
+        "beams": {
+          "16": {
+            "expected_rows": 64,
+            "rows": 64,
+            "unique_ids": 4
+          },
+          "4": {
+            "expected_rows": 16,
+            "rows": 16,
+            "unique_ids": 4
+          },
+          "8": {
+            "expected_rows": 32,
+            "rows": 32,
+            "unique_ids": 4
+          }
+        },
+        "examples": 4
+      },
+      "test_final": {
+        "beams": {
+          "16": {
+            "expected_rows": 2048,
+            "rows": 2048,
+            "unique_ids": 128
+          },
+          "4": {
+            "expected_rows": 512,
+            "rows": 512,
+            "unique_ids": 128
+          },
+          "8": {
+            "expected_rows": 1024,
+            "rows": 1024,
+            "unique_ids": 128
+          }
+        },
+        "examples": 128
+      },
+      "val_full": {
+        "beams": {
+          "16": {
+            "expected_rows": 2048,
+            "rows": 2048,
+            "unique_ids": 128
+          },
+          "4": {
+            "expected_rows": 512,
+            "rows": 512,
+            "unique_ids": 128
+          },
+          "8": {
+            "expected_rows": 1024,
+            "rows": 1024,
+            "unique_ids": 128
+          }
+        },
+        "examples": 128
+      },
+      "val_tune": {
+        "beams": {
+          "16": {
+            "expected_rows": 1024,
+            "rows": 1024,
+            "unique_ids": 64
+          },
+          "4": {
+            "expected_rows": 256,
+            "rows": 256,
+            "unique_ids": 64
+          },
+          "8": {
+            "expected_rows": 512,
+            "rows": 512,
+            "unique_ids": 64
+          }
+        },
+        "examples": 64
+      }
+    }
+  },
+  "ok": true,
+  "require_final_outputs": true,
+  "stage": "package"
+}

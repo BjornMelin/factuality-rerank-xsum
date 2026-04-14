@@ -1,0 +1,20 @@
+{
+  "updated": "2026-04-14",
+  "scope": "bounded_xsum_submission_bundle",
+  "deliverables": {
+    "report_markdown": "docs/final-report/final_report.md",
+    "report_tex": "docs/final-report/acl2023/final_report.tex",
+    "report_pdf": "outputs/final/submission/final_report.pdf",
+    "slides_markdown": "outputs/final/submission/final_slides.md",
+    "slides_js": "docs/final-report/slides/final_slides.js",
+    "slides_pptx": "outputs/final/submission/final_slides.pptx",
+    "slides_pdf": "outputs/final/submission/final_slides.pdf",
+    "speaker_notes": "outputs/final/submission/speaker_notes.md",
+    "code_bundle_zip": "outputs/final/submission/factuality-rerank-xsum.zip"
+  },
+  "claim_contract": {
+    "audit_wording": "Codex / AI-assisted expert adjudication",
+    "minicheck_scope": "audit_subset_only",
+    "run_scope": "bounded_not_benchmark_scale"
+  }
+}

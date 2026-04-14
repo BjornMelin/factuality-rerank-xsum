@@ -3,6 +3,7 @@ from __future__ import annotations
 from functools import cache
 from typing import TYPE_CHECKING, Any
 
+from factuality_rerank_xsum.runtime.manifests import repo_relative_display_path
 from factuality_rerank_xsum.utils.io import read_yaml
 from factuality_rerank_xsum.utils.paths import config_path
 from factuality_rerank_xsum.utils.text import (
@@ -192,6 +193,12 @@ def _requested_revision(config: dict[str, Any]) -> str | None:
     return value or None
 
 
+def _recorded_model_name(model_name_or_path: str) -> str:
+    """Normalize local runtime paths before persisting them into artifacts."""
+
+    return repo_relative_display_path(model_name_or_path)
+
+
 @cache
 def _cached_seq2seq_runtime(
     model_name_or_path: str,
@@ -237,6 +244,37 @@ def _runtime_rows_from_outputs(
     model: Any,
     outputs: Any,
 ) -> list[dict[str, object]]:
+    return _runtime_rows_from_batched_outputs(
+        examples=[{"id": example_id, "document": document, "summary": reference}],
+        split=split,
+        num_beams=num_beams,
+        length_penalty=length_penalty,
+        no_repeat_ngram_size=no_repeat_ngram_size,
+        max_new_tokens=max_new_tokens,
+        min_new_tokens=min_new_tokens,
+        model_name_or_path=model_name_or_path,
+        revision=revision,
+        tokenizer=tokenizer,
+        model=model,
+        outputs=outputs,
+    )
+
+
+def _runtime_rows_from_batched_outputs(
+    *,
+    examples: list[dict[str, str]],
+    split: str,
+    num_beams: int,
+    length_penalty: float,
+    no_repeat_ngram_size: int,
+    max_new_tokens: int,
+    min_new_tokens: int,
+    model_name_or_path: str,
+    revision: str | None,
+    tokenizer: Any,
+    model: Any,
+    outputs: Any,
+) -> list[dict[str, object]]:
     decoded_summaries = tokenizer.batch_decode(outputs.sequences, skip_special_tokens=True)
     beam_indices = getattr(outputs, "beam_indices", None)
     transition_tensor = None
@@ -253,56 +291,72 @@ def _runtime_rows_from_outputs(
         pad_token_id = tokenizer.eos_token_id if tokenizer.eos_token_id is not None else 0
 
     rows: list[dict[str, object]] = []
-    for rank, summary in enumerate(decoded_summaries):
-        cleaned_summary = normalize_whitespace(summary)
-        summary_token_ids = tokenizer(
-            cleaned_summary,
-            add_special_tokens=False,
-            truncation=False,
-        )["input_ids"]
-        token_count = max(len(summary_token_ids), 1)
-        per_token_scores: list[float] = []
-        if transition_tensor is not None:
-            generated_length = int((outputs.sequences[rank] != pad_token_id).sum().item())
-            trimmed = transition_tensor[rank][: max(generated_length - 1, 1)].tolist()
-            per_token_scores = [float(score) for score in trimmed if float(score) <= 0.0]
-        sequence_score_hf = None
-        if sequence_scores is not None:
-            sequence_score_hf = float(sequence_scores[rank].item())
-        token_logprob_sum, token_logprob_avg = _sequence_scores(
-            per_token_scores,
-            sequence_score_hf=sequence_score_hf,
-            token_count=token_count,
-            length_penalty=length_penalty,
-        )
-        rows.append(
-            {
-                "id": example_id,
-                "split": split,
-                "document": document,
-                "reference": reference,
-                "candidate_id": rank,
-                "beam_rank": rank,
-                "summary": cleaned_summary,
-                "summary_token_ids": summary_token_ids,
-                "summary_len_tokens": token_count,
-                "sequence_score_hf": round(sequence_score_hf or 0.0, 6),
-                "token_logprob_sum": round(token_logprob_sum, 6),
-                "token_logprob_avg": round(token_logprob_avg, 6),
-                "num_beams": num_beams,
-                "length_penalty": length_penalty,
-                "no_repeat_ngram_size": no_repeat_ngram_size,
-                "max_new_tokens": max_new_tokens,
-                "min_new_tokens": min_new_tokens,
-                "candidate_hash": hash_text(cleaned_summary),
-                "candidate_strategy": f"hf_beam_{rank}",
-                "transition_score_proxy": [round(float(score), 6) for score in per_token_scores],
-                "generator_mode": "huggingface_generation",
-                "requested_model": model_name_or_path,
-                "requested_revision": revision or "",
-            }
-        )
+    for example_index, example in enumerate(examples):
+        start = example_index * num_beams
+        end = start + num_beams
+        for rank, summary in enumerate(decoded_summaries[start:end]):
+            sequence_index = start + rank
+            cleaned_summary = normalize_whitespace(summary)
+            summary_token_ids = tokenizer(
+                cleaned_summary,
+                add_special_tokens=False,
+                truncation=False,
+            )["input_ids"]
+            token_count = max(len(summary_token_ids), 1)
+            per_token_scores: list[float] = []
+            if transition_tensor is not None:
+                generated_length = int(
+                    (outputs.sequences[sequence_index] != pad_token_id).sum().item()
+                )
+                trimmed = transition_tensor[sequence_index][: max(generated_length - 1, 1)].tolist()
+                per_token_scores = [float(score) for score in trimmed if float(score) <= 0.0]
+            sequence_score_hf = None
+            if sequence_scores is not None:
+                sequence_score_hf = float(sequence_scores[sequence_index].item())
+            token_logprob_sum, token_logprob_avg = _sequence_scores(
+                per_token_scores,
+                sequence_score_hf=sequence_score_hf,
+                token_count=token_count,
+                length_penalty=length_penalty,
+            )
+            rows.append(
+                {
+                    "id": example["id"],
+                    "split": split,
+                    "document": example["document"],
+                    "reference": example["summary"],
+                    "candidate_id": rank,
+                    "beam_rank": rank,
+                    "summary": cleaned_summary,
+                    "summary_token_ids": summary_token_ids,
+                    "summary_len_tokens": token_count,
+                    "sequence_score_hf": round(sequence_score_hf or 0.0, 6),
+                    "token_logprob_sum": round(token_logprob_sum, 6),
+                    "token_logprob_avg": round(token_logprob_avg, 6),
+                    "num_beams": num_beams,
+                    "length_penalty": length_penalty,
+                    "no_repeat_ngram_size": no_repeat_ngram_size,
+                    "max_new_tokens": max_new_tokens,
+                    "min_new_tokens": min_new_tokens,
+                    "candidate_hash": hash_text(cleaned_summary),
+                    "candidate_strategy": f"hf_beam_{rank}",
+                    "transition_score_proxy": [
+                        round(float(score), 6) for score in per_token_scores
+                    ],
+                    "generator_mode": "huggingface_generation",
+                    "requested_model": _recorded_model_name(model_name_or_path),
+                    "requested_revision": revision or "",
+                }
+            )
     return rows
+
+
+def _effective_hf_batch_size(config: dict[str, Any], *, num_beams: int) -> int:
+    """Scale the configured HF batch size down for wider beam searches."""
+
+    configured = max(int(config.get("batch_size", 1)), 1)
+    beam_divisor = max(num_beams // 4, 1)
+    return max(configured // beam_divisor, 1)
 
 
 def generate_offline_candidates(
@@ -396,20 +450,58 @@ def generate_model_candidates(
         OSError: If the Hugging Face runtime cannot be initialized.
     """
 
+    return generate_model_candidates_batch(
+        examples=[
+            {"id": example_id, "document": document, "summary": reference},
+        ],
+        split=split,
+        num_beams=num_beams,
+        length_penalty=length_penalty,
+        no_repeat_ngram_size=no_repeat_ngram_size,
+        max_new_tokens=max_new_tokens,
+        min_new_tokens=min_new_tokens,
+        config=config,
+        runtime=runtime,
+    )
+
+
+def generate_model_candidates_batch(
+    *,
+    examples: list[dict[str, str]],
+    split: str,
+    num_beams: int,
+    length_penalty: float,
+    no_repeat_ngram_size: int,
+    max_new_tokens: int,
+    min_new_tokens: int,
+    config: dict[str, Any] | None = None,
+    runtime: tuple[Any, Any, Any] | None = None,
+) -> list[dict[str, object]]:
+    """Generate candidates for a batch of examples with either offline or HF generation."""
+
+    if not examples:
+        return []
+
     generation_config = config or _generation_config()
     mode = _validated_generation_mode(generation_config)
     if mode == "offline_surrogate_generator":
-        return generate_offline_candidates(
-            example_id=example_id,
-            split=split,
-            document=document,
-            reference=reference,
-            num_beams=num_beams,
-            length_penalty=length_penalty,
-            no_repeat_ngram_size=no_repeat_ngram_size,
-            max_new_tokens=max_new_tokens,
-            min_new_tokens=min_new_tokens,
-        )
+        rows: list[dict[str, object]] = []
+        for example in examples:
+            rows.extend(
+                generate_offline_candidates(
+                    example_id=example["id"],
+                    split=split,
+                    document=example["document"],
+                    reference=example["summary"],
+                    num_beams=num_beams,
+                    length_penalty=length_penalty,
+                    no_repeat_ngram_size=no_repeat_ngram_size,
+                    max_new_tokens=max_new_tokens,
+                    min_new_tokens=min_new_tokens,
+                )
+            )
+        return rows
+
     import torch
 
     revision = _requested_revision(generation_config)
@@ -419,9 +511,10 @@ def generate_model_candidates(
         str(generation_config.get("device", "auto")),
     )
     encoded = tokenizer(
-        document,
+        [example["document"] for example in examples],
         max_length=int(generation_config.get("max_source_length", 1024)),
         truncation=True,
+        padding=True,
         return_tensors="pt",
     )
     encoded = move_batch_to_device(encoded, device)
@@ -438,11 +531,9 @@ def generate_model_candidates(
             output_scores=True,
             return_dict_in_generate=True,
         )
-    return _runtime_rows_from_outputs(
-        example_id=example_id,
+    return _runtime_rows_from_batched_outputs(
+        examples=examples,
         split=split,
-        document=document,
-        reference=reference,
         num_beams=num_beams,
         length_penalty=length_penalty,
         no_repeat_ngram_size=no_repeat_ngram_size,
@@ -495,15 +586,16 @@ def generate_candidates_for_examples(
             _requested_revision(generation_config),
             str(generation_config.get("device", "auto")),
         )
+        batch_size = _effective_hf_batch_size(generation_config, num_beams=num_beams)
+    else:
+        batch_size = 1
 
     generated: list[dict[str, object]] = []
-    for row in source_rows:
+    for start in range(0, len(source_rows), batch_size):
         generated.extend(
-            generate_model_candidates(
-                example_id=row["id"],
+            generate_model_candidates_batch(
+                examples=source_rows[start : start + batch_size],
                 split=split,
-                document=row["document"],
-                reference=row["summary"],
                 num_beams=num_beams,
                 length_penalty=length_penalty,
                 no_repeat_ngram_size=no_repeat_ngram_size,

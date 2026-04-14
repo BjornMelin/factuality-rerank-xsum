@@ -55,6 +55,11 @@ def load_seq2seq_runtime(
 
     tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, revision=revision, use_fast=True)
     model = AutoModelForSeq2SeqLM.from_pretrained(model_name_or_path, revision=revision)
+    if getattr(model, "generation_config", None) is not None:
+        # Local checkpoints may persist length defaults that would otherwise warn on every
+        # `generate()` call when the repo drives decoding with max/min_new_tokens.
+        model.generation_config.max_length = None
+        model.generation_config.min_length = None
     device = select_torch_device(device_preference)
     model.to(device)
     model.eval()

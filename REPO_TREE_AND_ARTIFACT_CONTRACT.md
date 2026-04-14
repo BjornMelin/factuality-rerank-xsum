@@ -1,5 +1,11 @@
 # REPO_TREE_AND_ARTIFACT_CONTRACT
 
+Superseded by `REPORT.md`, `docs/RUNBOOK.md`, and
+`docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`.
+
+Keep this file only as an archival snapshot of an older contract summary. Do
+not treat it as active authority.
+
 This file summarizes the active repo surfaces and the tracked artifact contract.
 
 ## Active top-level authorities

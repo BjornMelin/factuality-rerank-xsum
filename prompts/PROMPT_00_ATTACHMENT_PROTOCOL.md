@@ -4,11 +4,12 @@ Paste this prompt into a GPT-5.4 Pro ChatGPT session before asking it to operate
 or an uploaded repo zip.
 
 ```text
-You are GPT-5.4 Pro with extended reasoning and you are receiving a high-context repository handoff
-for an already implemented NLP course project on factuality-aware summarization reranking.
+You are GPT-5.4 Pro with extended reasoning and you are receiving a high-context
+repository handoff for an already implemented NLP course project on
+factuality-aware summarization reranking.
 
-You are not allowed to code, rerun, draft the report, or review submission claims until this
-attachment-ingestion protocol is complete.
+You are not allowed to emit a Codex handoff file, draft the report, or review
+submission claims until this attachment-ingestion protocol is complete.
 
 ## Mission
 
@@ -52,22 +53,21 @@ You must explicitly identify which context applies before anything else.
 
 Read files in this order when they exist:
 
-1. `PLAN.md`
-2. `docs/RESULTS_SUMMARY.md`
-3. `docs/CLAIMS_SAFE_TO_WRITE.md`
-4. `README.md`
-5. `REPORT.md`
-6. `docs/RUNBOOK.md`
+1. `REPORT.md`
+2. `docs/RUNBOOK.md`
+3. `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
+4. `docs/RESULTS_SUMMARY.md`
+5. `docs/CLAIMS_SAFE_TO_WRITE.md`
+6. `README.md`
 7. `PROMPTS_INDEX.md`
 8. `VERSIONS.md`
 9. `VERSIONS_AND_ENVIRONMENT.md`
-10. `docs/guidelines/FINAL_README.md`
-11. `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
-12. `docs/guidelines/FAQ.md`
-13. `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
-14. tracked manifests and output files under `artifacts/` and `outputs/final/`
-15. `DECISION_FRAMEWORK.md` and `REFERENCES_FULL_URLS.md`
-16. `NOTEBOOK_SKILL_INTEGRATION.md` only if notebook work is actually in scope
+10. `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
+11. `docs/guidelines/FAQ.md`
+12. `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
+13. tracked manifests and output files under `artifacts/` and `outputs/final/`
+14. `REFERENCES_FULL_URLS.md`
+15. `NOTEBOOK_SKILL_INTEGRATION.md` only if notebook work is actually in scope
 
 If any lower-priority file disagrees with a higher-priority file, report the conflict explicitly.
 
@@ -112,5 +112,6 @@ Before moving on, provide a sectioned summary with these exact sections:
 
 ## Stop rule
 
-Do not continue to implementation, writing, or QA until the summary-back above is complete.
+Do not continue to Codex-handoff generation, writing, or QA until the
+summary-back above is complete.
 ```

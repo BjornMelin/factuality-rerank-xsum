@@ -237,13 +237,14 @@ def score_dataframe(frame: pd.DataFrame) -> pd.DataFrame:
             records.append(
                 {
                     "id": row["id"],
+                    "candidate_id": row["candidate_id"],
                     "candidate_hash": row["candidate_hash"],
                     **_heuristic_score(str(row["document"]), str(row["summary"])),
                 }
             )
         return pd.DataFrame.from_records(records)
 
-    row_boundaries: list[tuple[int, int, str, str, Any, Any]] = []
+    row_boundaries: list[tuple[int, int, str, str, Any, Any, Any]] = []
     premises: list[str] = []
     hypotheses: list[str] = []
     for _, row in frame.iterrows():
@@ -263,12 +264,20 @@ def score_dataframe(frame: pd.DataFrame) -> pd.DataFrame:
             premises.extend(chunks)
             hypotheses.extend([sentence] * len(chunks))
         row_boundaries.append(
-            (start, len(premises), source, summary, row["id"], row["candidate_hash"])
+            (
+                start,
+                len(premises),
+                source,
+                summary,
+                row["id"],
+                row["candidate_id"],
+                row["candidate_hash"],
+            )
         )
 
     probabilities = _nli_probabilities(premises, hypotheses, config=config)
     records = []
-    for start, end, source, summary, example_id, candidate_hash in row_boundaries:
+    for start, end, source, summary, example_id, candidate_id, candidate_hash in row_boundaries:
         row_pairs = probabilities[start:end]
         chunk_count = max(
             len(
@@ -297,6 +306,7 @@ def score_dataframe(frame: pd.DataFrame) -> pd.DataFrame:
         records.append(
             {
                 "id": example_id,
+                "candidate_id": candidate_id,
                 "candidate_hash": candidate_hash,
                 "summac_style_support": round(support, 6),
                 "summac_style_contradiction_penalty": round(contradiction_penalty, 6),

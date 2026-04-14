@@ -14,6 +14,7 @@ from factuality_rerank_xsum.constants import (
     BEST_FACTUALITY,
     BEST_SIMPLE,
 )
+from factuality_rerank_xsum.runtime.artifact_truth import assert_artifact_truth
 from factuality_rerank_xsum.runtime.manifests import runtime_contract
 from factuality_rerank_xsum.utils.io import write_text
 from factuality_rerank_xsum.utils.paths import artifact_path, output_path
@@ -86,6 +87,14 @@ def system_card_lines(runtime: dict[str, Any]) -> list[str]:
     """
 
     requested = runtime["requested"]
+    dataset_manifest = runtime.get("dataset_manifest", {})
+    generation_summary = runtime.get("generation_summary", {})
+    split_sampling = dataset_manifest.get("split_sampling", {})
+    split_summary = ", ".join(
+        f"{name}={details.get('rows_selected', '?')}"
+        for name, details in sorted(split_sampling.items())
+    )
+    active_generator_label = generation_summary.get("generator_label") or "unknown"
     execution_note = (
         "The repository is configured for the public Hugging Face runtime path."
         if runtime["online_execution"]
@@ -106,6 +115,15 @@ def system_card_lines(runtime: dict[str, Any]) -> list[str]:
         f"- Executed dataset mode: `{runtime['dataset_mode']}`.",
         f"- Requested generator mode: `{requested['generator_mode']}`.",
         f"- Executed generator mode: `{runtime['generator_mode']}`.",
+        f"- Active generator label: `{active_generator_label}`.",
+        (
+            f"- Bounded split materialization: {split_summary}."
+            if split_summary
+            else "- Bounded split materialization is recorded in `artifacts/data/dataset_manifest.json`."
+        ),
+        "- Public `facebook/bart-large-xsum` remains the explicit baseline comparator.",
+        "- Audit provenance is Codex / AI-assisted expert adjudication, not human annotation.",
+        "- MiniCheck subset evidence, when present, is bounded audit-subset validation rather than a main test-set metric.",
         (
             "- Intended use: reproducible reranking runs, artifact inspection, "
             "report writing, and submission QA over tracked outputs."
@@ -117,6 +135,7 @@ def system_card_lines(runtime: dict[str, Any]) -> list[str]:
 def run_make_tables_and_figures() -> None:
     """Build report-ready tables, figures, examples, and system card outputs."""
 
+    assert_artifact_truth(stage_name="figures", require_final_outputs=False)
     final_root = output_path("final")
     final_root.mkdir(parents=True, exist_ok=True)
     metrics = pd.read_csv(artifact_path("eval", "system_metrics.csv"))
@@ -184,9 +203,11 @@ def run_make_tables_and_figures() -> None:
     plot_error_taxonomy(audit_summary, output_path("final", "figures", "error_taxonomy.png"))
 
     comparison = pd.read_csv(comparison_table_path("test_final"))
-    scatter_frame = audit.merge(
-        comparison[["id", "reranked_factcc_style_score"]], on="id", how="left"
-    )
+    scatter_frame = audit.copy()
+    if "reranked_factcc_style_score" not in scatter_frame.columns:
+        scatter_frame = scatter_frame.merge(
+            comparison[["id", "reranked_factcc_style_score"]], on="id", how="left"
+        )
     plot_metric_vs_human_scatter(
         scatter_frame,
         output_path("final", "figures", "metric_vs_human_scatter.png"),

@@ -6,11 +6,12 @@ report or presentation material from the tracked repo artifacts.
 Recommended attachments:
 
 - repo zip or live repo access
-- `PLAN.md`
-- `README.md`
 - `REPORT.md`
+- `docs/RUNBOOK.md`
+- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
+- `README.md`
 - `docs/SLIDES_OUTLINE.md`
 - `outputs/final/system_card.md`
 - `outputs/final/tables/report_tables.md`
@@ -20,7 +21,6 @@ Recommended attachments:
 - `docs/guidelines/FINAL_PROJECT_GUIDELINES.md`
 - `docs/guidelines/FAQ.md`
 - `docs/guidelines/FINAL_PROJECT_PROPOSAL.md`
-- `DECISION_FRAMEWORK.md`
 - `REFERENCES_FULL_URLS.md`
 
 ```text
@@ -56,13 +56,16 @@ You are done only when you have:
 - Do not silently upgrade bounded-run findings into benchmark claims.
 - Do not treat proposal intent as if it were automatically implemented.
 - Do not use newer research papers as evidence of repo behavior.
+- If a gap requires new repo execution, say so explicitly instead of pretending
+  it was completed in this chat.
 
 ## Required preflight
 
 Before writing:
 
 - [ ] confirm which files and artifact folders actually exist
-- [ ] read `PLAN.md` for current-state and remaining-work framing
+- [ ] read `REPORT.md`, `docs/RUNBOOK.md`, and `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`
+      for current-state and remaining-work framing
 - [ ] read `docs/RESULTS_SUMMARY.md`, `docs/CLAIMS_SAFE_TO_WRITE.md`, and
       `outputs/final/system_card.md` before interpreting metrics
 - [ ] read the course docs under `docs/guidelines/`
@@ -100,6 +103,8 @@ State explicitly:
 - the main empirical result
 - the strongest ablation or trade-off story
 - the manual-audit takeaway
+- the audit provenance wording to use (`Codex / AI-assisted expert adjudication`)
+- the MiniCheck audit-subset takeaway, if present
 - the dominant bounded-run caveats
 
 ## Course-rubric checklist
@@ -176,4 +181,6 @@ Respond with these sections:
 6. `Slide Outline`
 7. `Limitations And Claim Boundaries`
 8. `Future Work And Deferred Upgrade Lanes`
+9. `Codex Follow-Up Needed` only if the draft is blocked by missing execution
+   work
 ```

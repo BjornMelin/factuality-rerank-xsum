@@ -4,6 +4,9 @@ mode: online_hub
 offline_fallback_on_error: false
 fixture_path: data/fixtures/xsum_preview_fixture.jsonl
 split_sampling:
+  train_finetune:
+    source_split: train
+    limit: 128
   dev_smoke:
     source_split: validation
     limit: 4
