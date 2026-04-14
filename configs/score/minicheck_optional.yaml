@@ -1,2 +1,4 @@
-enabled: false
-reason: Optional metric not executed on the required path.
+install_spec: git+https://github.com/Liyan06/MiniCheck.git
+model_name: roberta-large
+max_rows: 24
+cache_dir: artifacts/models/minicheck

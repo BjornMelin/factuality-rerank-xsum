@@ -86,6 +86,7 @@ def split_id_map(ids: list[str]) -> dict[str, list[str]]:
 
     normalized = [str(value) for value in ids]
     return {
+        "train_finetune": normalized[:8],
         "dev_smoke": normalized[:4],
         "dev_small": normalized[:8],
         "val_tune": normalized[:8],

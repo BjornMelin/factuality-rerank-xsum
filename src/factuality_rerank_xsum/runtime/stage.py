@@ -11,6 +11,7 @@ from factuality_rerank_xsum.runtime.manifests import (
     requested_runtime_config,
     uv_version,
 )
+from factuality_rerank_xsum.training.stage import run_real_finetune
 from factuality_rerank_xsum.utils.hf import hf_cli_available, run_hf_json
 from factuality_rerank_xsum.utils.io import write_json, write_text
 from factuality_rerank_xsum.utils.paths import artifact_path, project_root
@@ -127,28 +128,7 @@ def run_env_check() -> dict[str, Any]:
 
 
 def run_train_or_load_bart() -> dict[str, Any]:
-    """Record the configured generator and scorer checkpoints."""
+    """Run the bounded fine-tuning lane and write model manifests."""
 
-    requested = requested_runtime_config()
-    asset_info = _asset_info(requested)
-    payload = {
-        "requested_baseline": requested["generator_model"],
-        "requested_factcc_checkpoint": requested["factcc_model"],
-        "requested_nli_checkpoint": requested["nli_model"],
-        "baseline_revision_requested": requested["generator_revision"],
-        "baseline_revision_resolved": (
-            asset_info["generator"].get("sha") if asset_info["generator"] else None
-        ),
-        "factcc_revision_requested": requested["factcc_revision"],
-        "factcc_revision_resolved": (
-            asset_info["factcc"].get("sha") if asset_info["factcc"] else None
-        ),
-        "nli_revision_requested": requested["nli_revision"],
-        "nli_revision_resolved": asset_info["nli"].get("sha") if asset_info["nli"] else None,
-        "reason": (
-            "Generation and scoring are configured against public Hugging Face assets. "
-            "This stage records the requested and resolved checkpoints without training."
-        ),
-    }
-    write_json(artifact_path("models", "baseline_info.json"), payload)
-    return payload
+    _ = artifact_path("models")
+    return run_real_finetune()

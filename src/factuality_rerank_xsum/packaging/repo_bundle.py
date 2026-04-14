@@ -7,8 +7,13 @@ import subprocess
 import zipfile
 from pathlib import Path
 
+from factuality_rerank_xsum.runtime.artifact_truth import assert_artifact_truth
 from factuality_rerank_xsum.utils.io import write_json
-from factuality_rerank_xsum.utils.paths import artifact_path, output_path, project_root
+from factuality_rerank_xsum.utils.paths import (
+    artifact_path,
+    output_path,
+    project_root,
+)
 
 
 def _tracked_repo_files(root: Path) -> list[Path]:
@@ -52,6 +57,7 @@ def run_package_repo() -> Path:
             created, or the packaged outputs cannot be copied or recorded.
     """
 
+    assert_artifact_truth(stage_name="package", require_final_outputs=True)
     final_path = project_root().parent / "factuality-rerank-xsum.zip"
     try:
         if final_path.exists():

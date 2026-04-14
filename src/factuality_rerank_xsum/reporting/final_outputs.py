@@ -14,6 +14,7 @@ from factuality_rerank_xsum.constants import (
     BEST_FACTUALITY,
     BEST_SIMPLE,
 )
+from factuality_rerank_xsum.runtime.artifact_truth import assert_artifact_truth
 from factuality_rerank_xsum.runtime.manifests import runtime_contract
 from factuality_rerank_xsum.utils.io import write_text
 from factuality_rerank_xsum.utils.paths import artifact_path, output_path
@@ -117,6 +118,7 @@ def system_card_lines(runtime: dict[str, Any]) -> list[str]:
 def run_make_tables_and_figures() -> None:
     """Build report-ready tables, figures, examples, and system card outputs."""
 
+    assert_artifact_truth(stage_name="figures", require_final_outputs=False)
     final_root = output_path("final")
     final_root.mkdir(parents=True, exist_ok=True)
     metrics = pd.read_csv(artifact_path("eval", "system_metrics.csv"))
@@ -184,9 +186,11 @@ def run_make_tables_and_figures() -> None:
     plot_error_taxonomy(audit_summary, output_path("final", "figures", "error_taxonomy.png"))
 
     comparison = pd.read_csv(comparison_table_path("test_final"))
-    scatter_frame = audit.merge(
-        comparison[["id", "reranked_factcc_style_score"]], on="id", how="left"
-    )
+    scatter_frame = audit.copy()
+    if "reranked_factcc_style_score" not in scatter_frame.columns:
+        scatter_frame = scatter_frame.merge(
+            comparison[["id", "reranked_factcc_style_score"]], on="id", how="left"
+        )
     plot_metric_vs_human_scatter(
         scatter_frame,
         output_path("final", "figures", "metric_vs_human_scatter.png"),

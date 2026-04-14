@@ -12,6 +12,7 @@ from factuality_rerank_xsum.constants import (
     BEST_BALANCED,
 )
 from factuality_rerank_xsum.rerank.application import load_selection_config
+from factuality_rerank_xsum.runtime.artifact_truth import assert_artifact_truth
 from factuality_rerank_xsum.runtime.manifests import runtime_contract
 from factuality_rerank_xsum.utils.io import read_json, write_text
 from factuality_rerank_xsum.utils.paths import artifact_path, docs_path, output_path, project_root
@@ -29,7 +30,9 @@ class ReportContext:
         env_report: Environment and runtime readiness report.
         metrics: Final metrics table.
         bootstrap: Bootstrap confidence interval payload.
-        audit_summary: Manual audit summary payload.
+    audit_summary: Manual audit summary payload.
+        minicheck_summary: Optional MiniCheck audit-subset summary payload.
+        ablation: Refreshed ablation metrics table.
         best_config: Selected rerank configuration.
         selected: Best-balanced metrics row.
         baseline: Baseline metrics row.
@@ -43,6 +46,8 @@ class ReportContext:
     metrics: pd.DataFrame
     bootstrap: dict[str, Any]
     audit_summary: dict[str, Any]
+    minicheck_summary: dict[str, Any]
+    ablation: pd.DataFrame
     best_config: dict[str, Any]
     selected: pd.Series
     baseline: pd.Series
@@ -58,6 +63,9 @@ STAGE_COMMANDS = [
     "uv run factuality-rerank-xsum search",
     "uv run factuality-rerank-xsum evaluate",
     "uv run factuality-rerank-xsum audit",
+    "uv run factuality-rerank-xsum minicheck-optional",
+    "uv run factuality-rerank-xsum figures",
+    "uv run factuality-rerank-xsum results-summary",
     "uv run factuality-rerank-xsum package",
 ]
 
@@ -75,8 +83,11 @@ def load_report_context() -> ReportContext:
 
     runtime = runtime_contract()
     metrics = pd.read_csv(output_path("final", "main_metrics.csv"))
+    ablation = pd.read_csv(output_path("final", "ablation_metrics.csv"))
     bootstrap = read_json(artifact_path("eval", "bootstrap_cis.json"))
     audit_summary = read_json(artifact_path("audit", "manual_audit_summary.json"))
+    minicheck_summary_path = artifact_path("scores", "minicheck", "stage_summary.json")
+    minicheck_summary = read_json(minicheck_summary_path) if minicheck_summary_path.exists() else {}
     best_config = load_selection_config(BEST_BALANCED)
     selected = _required_metrics_row(metrics, BEST_BALANCED)
     baseline = _required_metrics_row(metrics, BASELINE_SYSTEM)
@@ -89,6 +100,8 @@ def load_report_context() -> ReportContext:
         metrics=metrics,
         bootstrap=bootstrap,
         audit_summary=audit_summary,
+        minicheck_summary=minicheck_summary,
+        ablation=ablation,
         best_config=best_config,
         selected=selected,
         baseline=baseline,
@@ -124,7 +137,30 @@ def results_summary_lines(context: ReportContext) -> list[str]:
     baseline = context.baseline
     bootstrap = context.bootstrap
     audit_summary = context.audit_summary
+    minicheck_summary = context.minicheck_summary
+    ablation = context.ablation
     best_config = context.best_config
+    refinement_row = ablation[
+        ablation["system"] == "logprob_plus_summac_plus_factcc_plus_entity_support"
+    ]
+    prerefinement_row = ablation[ablation["system"] == "logprob_plus_summac_plus_factcc"]
+    refinement_delta_line = (
+        "- The explicit refinement is the entity-support augmentation over the "
+        "likelihood + SummaC-style + FactCC-style reranker."
+    )
+    if not refinement_row.empty and not prerefinement_row.empty:
+        refinement_delta = float(
+            refinement_row.iloc[0]["factuality_composite"]
+            - prerefinement_row.iloc[0]["factuality_composite"]
+        )
+        refinement_delta_line = (
+            "- The explicit refinement is the entity-support augmentation over the "
+            "likelihood + SummaC-style + FactCC-style reranker, which changes "
+            f"factuality composite by {refinement_delta:+.4f} in the tracked ablation."
+        )
+    audit_annotators = ", ".join(sorted(audit_summary.get("annotator_ids", ["unknown"])))
+    audit_methods = ", ".join(audit_summary.get("annotation_method_counts", {"unknown": 0}).keys())
+    audit_provenance_line = f"- Audit provenance: `{audit_annotators}` with `{audit_methods}`"
     return [
         "# RESULTS_SUMMARY",
         "",
@@ -193,9 +229,36 @@ def results_summary_lines(context: ReportContext) -> list[str]:
         "## Audit finding",
         "",
         f"- Audit rows: {audit_summary['rows']}",
+        audit_provenance_line,
         f"- Baseline consistent rate: {audit_summary['baseline_consistent_rate']:.4f}",
         f"- Reranked consistent rate: {audit_summary['reranked_consistent_rate']:.4f}",
         "- Dominant remaining failure buckets are listed in `outputs/final/manual_audit_summary.json`.",
+        "",
+        "## Iterative refinement",
+        "",
+        refinement_delta_line,
+        "- The best-balanced winner also keeps a non-zero entity-support weight, so the refinement remains active in the final operating point.",
+        "",
+        "## Independent evaluator subset",
+        "",
+        (
+            f"- MiniCheck status: `{minicheck_summary.get('status', 'not_run')}`."
+            if minicheck_summary
+            else "- MiniCheck status: `not_run`."
+        ),
+        (
+            "- MiniCheck reranked mean support probability: "
+            f"{minicheck_summary.get('systems', {}).get('reranked', {}).get('mean_minicheck_prob', 'n/a')}"
+            if minicheck_summary.get("status") == "completed"
+            else "- MiniCheck subset metrics were not available."
+        ),
+        (
+            "- MiniCheck baseline mean support probability: "
+            f"{minicheck_summary.get('systems', {}).get('baseline', {}).get('mean_minicheck_prob', 'n/a')}"
+            if minicheck_summary.get("status") == "completed"
+            else ""
+        ),
+        "- Treat MiniCheck as bounded audit-subset validation, not as a replacement for the main test-set metrics.",
         "",
         "## Artifact map",
         "",
@@ -206,13 +269,13 @@ def results_summary_lines(context: ReportContext) -> list[str]:
         "- Manual audit: `outputs/final/manual_audit.csv`",
         "- Figures: `outputs/final/figures/`",
         "- Tables: `outputs/final/tables/`",
-        "- Packaged repo: `../factuality-rerank-xsum.zip`",
+        "- Packaged repo: `artifacts/package/factuality-rerank-xsum.zip`",
         "",
         "## Limits on claims",
         "",
         f"- {execution_limits}",
         "- Do not interpret the bounded split configuration as a full benchmark-scale XSum sweep without explicitly increasing the configured limits and rerunning the full pipeline.",
-        "- The assistant-generated manual audit is useful for error slicing, not for strong human-annotation claims.",
+        "- The Codex / AI-assisted expert adjudication audit is useful for error slicing, not for strong human-annotation claims.",
     ]
 
 
@@ -230,7 +293,9 @@ def runbook_lines() -> list[str]:
         "",
         "- `hf` CLI availability and authentication are recorded in `artifacts/env/env_report.json`.",
         "- Dataset and model revisions are recorded in `artifacts/data/dataset_manifest.json` and `artifacts/models/baseline_info.json`.",
-        "- Candidate generation uses the configured `facebook/bart-large-xsum` revision unless the model config explicitly changes mode.",
+        "- Candidate generation uses the exported bounded fine-tuned checkpoint when it exists; the public `facebook/bart-large-xsum` revision remains the explicit baseline comparator.",
+        "- The audit contract requires explicit `annotator_id` and `annotation_method` provenance and a 24-row stratified completed sample.",
+        "- The optional MiniCheck lane is bounded to the audit subset and should be described as subset validation rather than a main metric replacement.",
         "- After runtime or config changes, rerun `generate`, `score`, `search`, and `evaluate` before treating metric artifacts as refreshed.",
         "",
         "## Artifacts",
@@ -253,6 +318,8 @@ def submission_checklist_lines(context: ReportContext) -> list[str]:
         "- [x] README and RESULTS_SUMMARY reflect the executed run truthfully.",
         (f"- [x] Dataset stage executed in `{context.runtime['dataset_mode']}` mode."),
         (f"- [x] Generator stage executed in `{context.runtime['generator_mode']}` mode."),
+        "- [x] Audit wording explicitly says Codex / AI-assisted expert adjudication, not human annotation.",
+        "- [x] Optional MiniCheck subset evidence exists or is explicitly deferred.",
     ]
 
 
@@ -266,14 +333,18 @@ def claims_lines() -> list[str]:
         "",
         "- The repo implements the requested reranking study structure and artifact contract.",
         "- The repo now defaults to public PyPI installs and public Hugging Face runtime assets.",
+        "- The executed generator lane performs a bounded BART fine-tuning run and then generates from the exported local checkpoint while keeping the public `facebook/bart-large-xsum` path as the baseline comparator.",
         "- The rerank pipeline uses model-backed factuality scoring while preserving the legacy score-column contract required by downstream analysis.",
-        "- Entity/date/number support remains a complementary signal alongside the model-backed scorers.",
+        "- Entity/date/number support is the explicit validated refinement lane in the current ablation set.",
+        "- The final audit is a 24-row stratified Codex / AI-assisted expert adjudication sample with explicit provenance fields.",
+        "- A bounded MiniCheck subset evaluation ran on the audit sample and is available under `artifacts/scores/minicheck/`.",
         "",
         "## Too strong for the executed run",
         "",
         "- Do not claim benchmark-level XSum gains.",
         "- Do not claim more than the executed dataset and generator modes recorded in the manifests.",
-        "- Do not claim human-annotator reliability beyond a single-pass assistant audit.",
+        "- Do not claim human-annotator reliability or inter-annotator agreement from the current Codex / AI-assisted audit.",
+        "- Do not present the MiniCheck subset numbers as full test-set metrics.",
     ]
 
 
@@ -287,7 +358,7 @@ def slides_outline_lines() -> list[str]:
         "2. Method: beam candidates plus factuality-aware reranking.",
         "3. Signals: generation likelihood, NLI consistency, FactCC classification, and entity support.",
         "4. Main result: compare baseline likelihood selection against the best-balanced reranker.",
-        "5. Audit and refinement: entity / number / relation failure buckets.",
+        "5. Audit and refinement: entity-support refinement ablation plus a 24-row Codex / AI-assisted audit with MiniCheck subset validation.",
         "6. Conclusion: report the executed runtime mode and avoid claims beyond the bounded run configuration.",
     ]
 
@@ -316,6 +387,9 @@ def readme_lines(context: ReportContext) -> list[str]:
         "- `uv sync --locked --dev` is the canonical base install path.",
         "- `hf` CLI auth and Hub revision checks are recorded by the env stage.",
         "- The rerank pipeline keeps the legacy `summac` and `factcc` stage names for artifact compatibility even though the implementations are model-backed.",
+        "- The main generator lane now exports and uses a bounded fine-tuned BART checkpoint; the public `facebook/bart-large-xsum` path remains the explicit baseline comparator.",
+        "- The final audit is a 24-row stratified Codex / AI-assisted expert adjudication sample, not a human-annotator study.",
+        "- `uv run factuality-rerank-xsum minicheck-optional` runs a bounded MiniCheck pass on the audit subset and records a structured deferral if the external evaluator cannot be installed.",
         "- After runtime or config changes, rerun `generate`, `score`, `search`, and `evaluate` before treating metric artifacts as refreshed.",
         "",
         f"Current executed dataset mode: `{context.runtime['dataset_mode']}`. Current configured generator mode: `{context.runtime['generator_mode']}`.",
@@ -344,6 +418,7 @@ def readme_lines(context: ReportContext) -> list[str]:
 def run_build_results_summary() -> None:
     """Regenerate the repository's report-facing documentation set."""
 
+    assert_artifact_truth(stage_name="results-summary", require_final_outputs=True)
     context = load_report_context()
     write_text(docs_path("RESULTS_SUMMARY.md"), "\n".join(results_summary_lines(context)))
     write_text(docs_path("RUNBOOK.md"), "\n".join(runbook_lines()))

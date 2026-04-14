@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import json
+import subprocess
+
 import pandas as pd
 
 from factuality_rerank_xsum.artifacts.layout import (
@@ -16,9 +19,9 @@ from factuality_rerank_xsum.scorers.factcc_style import score_dataframe as factc
 from factuality_rerank_xsum.scorers.summac_style import HF_MODE as SUMMAC_HF_MODE
 from factuality_rerank_xsum.scorers.summac_style import score_dataframe as summac_score_dataframe
 from factuality_rerank_xsum.utils.io import read_yaml, write_json, write_text
-from factuality_rerank_xsum.utils.paths import artifact_path, config_path
+from factuality_rerank_xsum.utils.paths import artifact_path, config_path, project_root
 
-MERGE_KEYS = ["id", "candidate_hash"]
+MERGE_KEYS = ["id", "candidate_id", "candidate_hash"]
 SCORE_COLUMNS = {
     "summac": [
         "summac_style_support",
@@ -139,11 +142,145 @@ def run_score_candidates_entity_support() -> None:
 
 
 def run_optional_minicheck_placeholder() -> None:
-    """Record that the optional MiniCheck stage was intentionally skipped."""
+    """Run a bounded MiniCheck audit-subset evaluation or record a deferral."""
 
-    write_text(
-        artifact_path("scores", "minicheck", "NOT_RUN.md"),
-        "# MiniCheck optional stage not executed\n\nThe executed run stayed on the required path.\n",
+    config = read_yaml(config_path("score", "minicheck_optional.yaml"))
+    output_dir = artifact_path("scores", "minicheck")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    audit = pd.read_csv(artifact_path("audit", "manual_audit_completed.csv")).head(
+        int(config.get("max_rows", 24))
+    )
+
+    records: list[dict[str, object]] = []
+    for row in audit.itertuples(index=False):
+        records.append(
+            {
+                "id": str(row.id),
+                "system": "baseline",
+                "claim": str(row.baseline_summary),
+                "document": str(row.document),
+                "expected_consistent": int(bool(row.baseline_consistent)),
+            }
+        )
+        records.append(
+            {
+                "id": str(row.id),
+                "system": "reranked",
+                "claim": str(row.reranked_summary),
+                "document": str(row.document),
+                "expected_consistent": int(bool(row.reranked_consistent)),
+            }
+        )
+
+    input_path = output_dir / "audit_subset_input.json"
+    output_path = output_dir / "audit_subset_output.json"
+    input_path.write_text(json.dumps(records), encoding="utf-8")
+
+    model_name = str(config.get("model_name", "roberta-large"))
+    install_spec = str(config["install_spec"])
+    cache_dir = str(
+        (project_root() / str(config.get("cache_dir", "artifacts/models/minicheck"))).resolve()
+    )
+    script = """
+import json
+import sys
+from pathlib import Path
+from minicheck.minicheck import MiniCheck
+
+input_path = Path(sys.argv[1])
+output_path = Path(sys.argv[2])
+model_name = sys.argv[3]
+cache_dir = sys.argv[4]
+records = json.loads(input_path.read_text(encoding="utf-8"))
+scorer = MiniCheck(model_name=model_name, cache_dir=cache_dir)
+pred_label, raw_prob, _, _ = scorer.score(
+    docs=[record["document"] for record in records],
+    claims=[record["claim"] for record in records],
+)
+for record, label, probability in zip(records, pred_label, raw_prob, strict=True):
+    record["minicheck_label"] = int(label)
+    record["minicheck_prob"] = float(probability)
+output_path.write_text(json.dumps(records), encoding="utf-8")
+""".strip()
+    command = [
+        "uv",
+        "run",
+        "--with",
+        install_spec,
+        "python",
+        "-c",
+        script,
+        str(input_path),
+        str(output_path),
+        model_name,
+        cache_dir,
+    ]
+    result = subprocess.run(  # noqa: S603
+        command,
+        cwd=str(project_root()),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    summary_path = output_dir / "stage_summary.json"
+    if result.returncode != 0 or not output_path.exists():
+        payload = {
+            "status": "deferred",
+            "model_name": model_name,
+            "install_spec": install_spec,
+            "audit_rows": len(audit),
+            "returncode": result.returncode,
+            "stdout_tail": result.stdout[-2000:],
+            "stderr_tail": result.stderr[-2000:],
+        }
+        write_json(summary_path, payload)
+        write_text(
+            output_dir / "NOT_RUN.md",
+            "\n".join(
+                [
+                    "# MiniCheck optional stage deferred",
+                    "",
+                    f"- Status: {payload['status']}",
+                    f"- Model: `{model_name}`",
+                    f"- Audit rows attempted: `{len(audit)}`",
+                    f"- Install spec: `{install_spec}`",
+                    f"- Return code: `{result.returncode}`",
+                    "",
+                    "The bounded MiniCheck feasibility attempt did not complete in the current environment.",
+                ]
+            ),
+        )
+        return
+
+    scored = pd.DataFrame(json.loads(output_path.read_text(encoding="utf-8")))
+    scored.to_csv(output_dir / "audit_subset_scores.csv", index=False)
+    write_json(
+        summary_path,
+        {
+            "status": "completed",
+            "model_name": model_name,
+            "install_spec": install_spec,
+            "audit_rows": len(audit),
+            "scored_rows": len(scored),
+            "systems": {
+                system: {
+                    "rows": len(system_frame),
+                    "mean_minicheck_prob": round(float(system_frame["minicheck_prob"].mean()), 6),
+                    "support_rate": round(float(system_frame["minicheck_label"].mean()), 6),
+                    "agreement_with_codex_labels": round(
+                        float(
+                            (
+                                system_frame["minicheck_label"].astype(int)
+                                == system_frame["expected_consistent"].astype(int)
+                            ).mean()
+                        ),
+                        6,
+                    ),
+                }
+                for system, system_frame in scored.groupby("system")
+            },
+        },
     )
 
 

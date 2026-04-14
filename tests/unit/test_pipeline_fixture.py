@@ -30,6 +30,7 @@ def test_preview_fixture_has_expected_minimum_size() -> None:
     frame = load_preview_fixture()
     assert len(frame) >= 16
     split_map = split_id_map(frame["id"].astype(str).tolist())
+    assert "train_finetune" in split_map
     assert len(split_map["test_final"]) == 8
 
 
@@ -121,8 +122,8 @@ def test_run_generate_candidates_preserves_schema_for_empty_outputs(
         ],
     )
     monkeypatch.setattr(
-        "factuality_rerank_xsum.generation.stage.read_yaml",
-        lambda _path: {
+        "factuality_rerank_xsum.generation.stage.active_generator_config",
+        lambda: {
             "mode": "offline_surrogate_generator",
             "model_name_or_path": "offline-surrogate",
             "revision": None,
@@ -312,8 +313,8 @@ def test_run_generate_candidates_reports_missing_requested_ids(
         ],
     )
     monkeypatch.setattr(
-        "factuality_rerank_xsum.generation.stage.read_yaml",
-        lambda _path: {
+        "factuality_rerank_xsum.generation.stage.active_generator_config",
+        lambda: {
             "mode": "offline_surrogate_generator",
             "model_name_or_path": "offline-surrogate",
             "revision": None,

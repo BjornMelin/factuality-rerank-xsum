@@ -8,10 +8,17 @@ import pandas as pd
 
 from factuality_rerank_xsum.artifacts.layout import candidate_table_path
 from factuality_rerank_xsum.constants import PIPELINE_SPLITS
-from factuality_rerank_xsum.data.fixtures import ids_for_split, load_dataset_table
+from factuality_rerank_xsum.data.fixtures import (
+    ids_for_split,
+    load_dataset_table,
+)
 from factuality_rerank_xsum.generation.offline import (
     CANDIDATE_COLUMNS,
     generate_candidates_for_examples,
+)
+from factuality_rerank_xsum.runtime.manifests import (
+    active_generator_config,
+    repo_relative_display_path,
 )
 from factuality_rerank_xsum.utils.io import read_yaml, write_json
 from factuality_rerank_xsum.utils.paths import artifact_path, config_path
@@ -44,7 +51,11 @@ def example_rows(split: str) -> list[dict[str, str]]:
     rows = frame[frame["id"].isin(ids_for_split(split))].copy()
     rows = rows.sort_values("id").reset_index(drop=True)
     return [
-        {"id": str(row.id), "document": str(row.document), "summary": str(row.summary)}
+        {
+            "id": str(row.id),
+            "document": str(row.document),
+            "summary": str(row.summary),
+        }
         for row in rows.itertuples(index=False)
     ]
 
@@ -101,13 +112,16 @@ def run_generate_candidates() -> dict[str, Any]:
     """
 
     beams = config_beams()
-    generation_config = read_yaml(config_path("model", "bart_xsum_public.yaml"))
+    generation_config = active_generator_config()
     summary: dict[str, Any] = {
         "splits": {},
         "beam_sizes": [beam["num_beams"] for beam in beams],
         "generator_mode": generation_config.get("mode", "huggingface_generation"),
-        "generator_model": generation_config["model_name_or_path"],
+        "generator_model": repo_relative_display_path(generation_config["model_name_or_path"]),
         "generator_revision": generation_config.get("revision"),
+        "generator_label": generation_config.get("generator_label", "bart_xsum_public"),
+        "baseline_generator_model": generation_config.get("baseline_generator_model"),
+        "baseline_generator_revision": generation_config.get("baseline_generator_revision"),
     }
     for split in PIPELINE_SPLITS:
         split_rows = example_rows(split)
@@ -125,6 +139,11 @@ def run_generate_candidates() -> dict[str, Any]:
                 config=generation_config,
             )
             frame = pd.DataFrame.from_records(generated, columns=CANDIDATE_COLUMNS)
+            if (
+                generation_config.get("mode") == "huggingface_generation"
+                and "offline_generator_noise" in frame.columns
+            ):
+                frame = frame.drop(columns=["offline_generator_noise"])
             target = candidate_table_path(split, int(beam["num_beams"]))
             target.parent.mkdir(parents=True, exist_ok=True)
             frame.to_parquet(target, index=False)
@@ -133,5 +152,5 @@ def run_generate_candidates() -> dict[str, Any]:
                 target.parent / "integrity_report.json",
                 generation_integrity_report(frame, requested_ids),
             )
-    write_json(artifact_path("generations", "generation_summary.json"), summary)
+        write_json(artifact_path("generations", "generation_summary.json"), summary)
     return summary
