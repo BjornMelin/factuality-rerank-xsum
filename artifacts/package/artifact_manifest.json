@@ -20,5 +20,5 @@
     "outputs/final/tables/qualitative_examples.csv",
     "outputs/final/tables/report_tables.md"
   ],
-  "repo_zip": "../factuality-rerank-xsum.zip"
+  "repo_zip": "factuality-rerank-xsum.zip"
 }

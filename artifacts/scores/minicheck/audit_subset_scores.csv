@@ -1,0 +1,763 @@
+id,system,claim,document,expected_consistent,minicheck_label,minicheck_prob
+39055714,baseline,"The head of a troubled school trust has written to parents warning of ""unthinkable"" decisions it could have to make to save money, including shortening the school day and cutting teaching jobs.","Dave Baker, of the Olympus Trust which operates near Bristol, said government cuts had left it at ""crisis point"".
+Parents described the funding problem as ""diabolical"". A union said the idea was ""terrible"" but families deserved to know the truth about funding.
+A Department for Education (DfE) spokesman said new funding plans would increase the trust's budget by 2.4%.
+The Olympus Trust runs one secondary, one all-through school and five primary academies in South Gloucestershire, to the north of Bristol.
+In the letter Mr Baker warned parents of the ""unthinkable"" decisions the trust could be forced to make from September.
+These include shortening the school day ""because we cannot afford to staff lessons for the whole week"".
+Other proposals are cutting teaching and support jobs within the schools, increasing class sizes and reducing the curriculum.
+The letter also says parents may be asked to make regular financial contributions to supplement school funding.
+Mr Baker said South Gloucestershire was one of the five worst-funded local authorities so had less reserves to draw upon.
+Beckie Morton, a parent of two daughters at Charlborough Road Primary School, is anxious about the impact any cuts will have on her girls, aged 10 and seven.
+She said: ""It's shocking - I don't know what I'd do work-wise if they shortened the school day.
+""If they do this, all that will be left is the lessons and no extra support for pupils.
+""My eldest daughter suffers panic attacks and has received a lot of pastoral care - this will have a massive impact on her final year there.""
+Natalie, who has a son attending at Bradley Stoke Community School, called the proposals ""diabolical"".
+She said: ""At the moment we are hoping to have a special needs support worker for my son and if they cut funding he won't have that.
+""I don't blame the school, they are trying their best.""
+In December, the government announced the biggest shake-up of school funding for decades.
+The DfE said the current system was ""unfair, opaque and outdated"" and the changes would see more than half of England's schools get more cash.
+""We recognise that schools are facing cost pressures, which is why we will continue to provide support to help them use their funding in cost-effective ways, including improving the way they buy goods and services, soâ€Ž they get the best possible value. ""
+Kevin Courtney, chair of the National Union of Teachers (NUT), said schools were still facing an 8% reduction in spending power.
+He said: ""All schools in England will have less money in real terms per pupil in 2020 than they do now.
+""This cash they talk about doesn't keep pace with spending pressures on schools.
+""The proposals Mr Baker has mentioned are terrible and none of them should happen, but parents deserve to know the truth about the position schools are in.""
+The consultation on the new formula runs until 22 March 2017.",0,1,0.9812290668487549
+39055714,reranked,"The chief executive of a school trust has written to parents warning of ""unthinkable"" decisions it could have to make over funding.","Dave Baker, of the Olympus Trust which operates near Bristol, said government cuts had left it at ""crisis point"".
+Parents described the funding problem as ""diabolical"". A union said the idea was ""terrible"" but families deserved to know the truth about funding.
+A Department for Education (DfE) spokesman said new funding plans would increase the trust's budget by 2.4%.
+The Olympus Trust runs one secondary, one all-through school and five primary academies in South Gloucestershire, to the north of Bristol.
+In the letter Mr Baker warned parents of the ""unthinkable"" decisions the trust could be forced to make from September.
+These include shortening the school day ""because we cannot afford to staff lessons for the whole week"".
+Other proposals are cutting teaching and support jobs within the schools, increasing class sizes and reducing the curriculum.
+The letter also says parents may be asked to make regular financial contributions to supplement school funding.
+Mr Baker said South Gloucestershire was one of the five worst-funded local authorities so had less reserves to draw upon.
+Beckie Morton, a parent of two daughters at Charlborough Road Primary School, is anxious about the impact any cuts will have on her girls, aged 10 and seven.
+She said: ""It's shocking - I don't know what I'd do work-wise if they shortened the school day.
+""If they do this, all that will be left is the lessons and no extra support for pupils.
+""My eldest daughter suffers panic attacks and has received a lot of pastoral care - this will have a massive impact on her final year there.""
+Natalie, who has a son attending at Bradley Stoke Community School, called the proposals ""diabolical"".
+She said: ""At the moment we are hoping to have a special needs support worker for my son and if they cut funding he won't have that.
+""I don't blame the school, they are trying their best.""
+In December, the government announced the biggest shake-up of school funding for decades.
+The DfE said the current system was ""unfair, opaque and outdated"" and the changes would see more than half of England's schools get more cash.
+""We recognise that schools are facing cost pressures, which is why we will continue to provide support to help them use their funding in cost-effective ways, including improving the way they buy goods and services, soâ€Ž they get the best possible value. ""
+Kevin Courtney, chair of the National Union of Teachers (NUT), said schools were still facing an 8% reduction in spending power.
+He said: ""All schools in England will have less money in real terms per pupil in 2020 than they do now.
+""This cash they talk about doesn't keep pace with spending pressures on schools.
+""The proposals Mr Baker has mentioned are terrible and none of them should happen, but parents deserve to know the truth about the position schools are in.""
+The consultation on the new formula runs until 22 March 2017.",0,1,0.9794253706932068
+35345872,baseline,"Pakistan has lifted a ban on the video-sharing website YouTube, imposed after an anti-Islam video was posted online.","Pakistan's telecoms regulator said the ban was no longer necessary because Google, which owns YouTube, had now launched a Pakistan-specific version.
+YouTube has denied claims that the authorities can filter content.
+Many young Pakistanis have welcomed the lifting of the ban but some activists want details of the deal with Google.
+They say there should be greater transparency of the terms agreed between Google and the government.
+A Pakistan Telecommunication Authority (PTA) official confirmed to the BBC that all internet service providers had been directed to open access to YouTube.
+The Pakistan Telecommunication Company Ltd posted on its Facebook page on Monday: ""Welcome Back YouTube"".
+Pakistan's ministry of information technology said: ""Google has provided an online web process through which requests for blocking access of offending material can be made by the PTA to Google directly.
+""Google/YouTube will accordingly restrict access to the said offending material for users within Pakistan.""
+However, a YouTube spokeswoman said government requests for the removal of content would not automatically be granted.
+""We have clear community guidelines, and when videos violate those rules, we remove them,"" she said.
+""In addition, where we have launched YouTube locally and we are notified that a video is illegal in that country, we may restrict access to it after a thorough review.""
+She said requests by governments for content to be removed would be recorded in YouTube's Transparency Report.
+Pakistan's ban on YouTube was imposed by the Supreme Court in 2012 after the US-made film Innocence of Muslims was uploaded.
+The amateur-made video was condemned in the Muslim world and sparked widespread protests for its mocking portrayal of the Prophet Muhammad.
+More than a dozen people died in protests in Pakistan.
+Blasphemy is a crime in Pakistan and can carry the death penalty, although such a sentence has not been carried out.
+Google revealed last week that it had launched local versions of YouTube for Nepal, Pakistan and Sri Lanka.",0,1,0.9434230923652649
+35345872,reranked,"Pakistan has lifted a ban on the video-sharing website YouTube, imposed after an anti-Islam video was made and widely condemned.","Pakistan's telecoms regulator said the ban was no longer necessary because Google, which owns YouTube, had now launched a Pakistan-specific version.
+YouTube has denied claims that the authorities can filter content.
+Many young Pakistanis have welcomed the lifting of the ban but some activists want details of the deal with Google.
+They say there should be greater transparency of the terms agreed between Google and the government.
+A Pakistan Telecommunication Authority (PTA) official confirmed to the BBC that all internet service providers had been directed to open access to YouTube.
+The Pakistan Telecommunication Company Ltd posted on its Facebook page on Monday: ""Welcome Back YouTube"".
+Pakistan's ministry of information technology said: ""Google has provided an online web process through which requests for blocking access of offending material can be made by the PTA to Google directly.
+""Google/YouTube will accordingly restrict access to the said offending material for users within Pakistan.""
+However, a YouTube spokeswoman said government requests for the removal of content would not automatically be granted.
+""We have clear community guidelines, and when videos violate those rules, we remove them,"" she said.
+""In addition, where we have launched YouTube locally and we are notified that a video is illegal in that country, we may restrict access to it after a thorough review.""
+She said requests by governments for content to be removed would be recorded in YouTube's Transparency Report.
+Pakistan's ban on YouTube was imposed by the Supreme Court in 2012 after the US-made film Innocence of Muslims was uploaded.
+The amateur-made video was condemned in the Muslim world and sparked widespread protests for its mocking portrayal of the Prophet Muhammad.
+More than a dozen people died in protests in Pakistan.
+Blasphemy is a crime in Pakistan and can carry the death penalty, although such a sentence has not been carried out.
+Google revealed last week that it had launched local versions of YouTube for Nepal, Pakistan and Sri Lanka.",0,1,0.9501010179519653
+35926534,baseline,"Everton have agreed a loan deal for Oxford United midfielder Callum Kenny until the end of the season, subject to international clearance.","The 19-year-old will now be eligible to play against Barnsley in the Football League Trophy final on Sunday.
+Kenny, who joined up with the England Under-20 squad over Easter, has so far made 13 appearances for the U's.
+""He has done really well for us and is enjoying his football,"" said Oxford head coach Michael Appleton.
+""He is highly thought of at Goodison Park and has a big future.""",0,0,0.003821857739239931
+35926534,reranked,Oxford United midfielder Callum Kenny has signed a new one-year contract with the League One club.,"The 19-year-old will now be eligible to play against Barnsley in the Football League Trophy final on Sunday.
+Kenny, who joined up with the England Under-20 squad over Easter, has so far made 13 appearances for the U's.
+""He has done really well for us and is enjoying his football,"" said Oxford head coach Michael Appleton.
+""He is highly thought of at Goodison Park and has a big future.""",0,0,0.003083491465076804
+36369346,baseline,A 24-hour strike by university staff has been called off in a dispute over pay.,"The University and College Union says the 1.1% rise offered by the universities is ""an insult"".
+But the Universities and Colleges Employers Association said the walkout was ""disappointing given the very good pay offer"".
+Unions representing university support staff are balloting on the offer, with strike action possible in the autumn.
+UCU says its members have suffered a real-terms pay cut of 14.% since 2009 and complains the squeeze on staff salaries has come as university leaders enjoyed hefty increases.
+""A 1.1% pay offer is an insult to hardworking staff, especially in light of the 5% pay rise vice-chancellors have enjoyed while holding down staff pay,"" said general secretary Sally Hunt.
+""Industrial action which impacts on students is never taken lightly, but members feel that they have been left with no alternative.
+""If the employers wish to see a swift end to this dispute, and avoid further disruption, they need to come back to the table with a much-improved offer.""
+Summer exams are still running at some universities, though many have finished.
+A spokesman for the employers anticipated only ""minor impact and minimal student disruption"".
+""Even for examinations which are still taking place at some higher education institutions, more than nine out of 10 report that a no to low impact is anticipated,"" said the spokesman.
+""We would like to see the UCU consulting its members on the final offer.""
+The employers say the offer is ""at, and, for some, beyond, a limit of affordability for higher education institutions and the very best offer that will be available this year"".
+They maintain the weighting of the offer means the worst paid university staff will get a rise of more than 5%.
+They say they have also offered talks on zero-hours contracts and on improving lower pay for female academics.
+But UCU says it rejected the 1.1% offer as it was only a marginal improvement on the original 1% on which it had balloted members.
+Ballots of university support staff represented by Unison and Unite are also under way on the improved offer, with both unions recommending it be rejected.
+Any action would take place during the autumn term, said a Unison spokeswoman.
+UCU is planning strike rallies in:
+Staff are also working to contract from Wednesday - refusing to set extra work, cover for absent colleagues or work overtime.",0,0,0.008849729783833027
+36369346,reranked,A one-day strike by university staff has been called off in a dispute over pay.,"The University and College Union says the 1.1% rise offered by the universities is ""an insult"".
+But the Universities and Colleges Employers Association said the walkout was ""disappointing given the very good pay offer"".
+Unions representing university support staff are balloting on the offer, with strike action possible in the autumn.
+UCU says its members have suffered a real-terms pay cut of 14.% since 2009 and complains the squeeze on staff salaries has come as university leaders enjoyed hefty increases.
+""A 1.1% pay offer is an insult to hardworking staff, especially in light of the 5% pay rise vice-chancellors have enjoyed while holding down staff pay,"" said general secretary Sally Hunt.
+""Industrial action which impacts on students is never taken lightly, but members feel that they have been left with no alternative.
+""If the employers wish to see a swift end to this dispute, and avoid further disruption, they need to come back to the table with a much-improved offer.""
+Summer exams are still running at some universities, though many have finished.
+A spokesman for the employers anticipated only ""minor impact and minimal student disruption"".
+""Even for examinations which are still taking place at some higher education institutions, more than nine out of 10 report that a no to low impact is anticipated,"" said the spokesman.
+""We would like to see the UCU consulting its members on the final offer.""
+The employers say the offer is ""at, and, for some, beyond, a limit of affordability for higher education institutions and the very best offer that will be available this year"".
+They maintain the weighting of the offer means the worst paid university staff will get a rise of more than 5%.
+They say they have also offered talks on zero-hours contracts and on improving lower pay for female academics.
+But UCU says it rejected the 1.1% offer as it was only a marginal improvement on the original 1% on which it had balloted members.
+Ballots of university support staff represented by Unison and Unite are also under way on the improved offer, with both unions recommending it be rejected.
+Any action would take place during the autumn term, said a Unison spokeswoman.
+UCU is planning strike rallies in:
+Staff are also working to contract from Wednesday - refusing to set extra work, cover for absent colleagues or work overtime.",0,0,0.019331833347678185
+39070183,baseline,"A low-calorie diet can restore the function of a special type of cell in the pancreas, a study suggests.","Restoring the function of the organ - which helps control blood sugar levels - reversed symptoms of diabetes in animal experiments.
+The study, published in the journal Cell, says the diet reboots the body.
+Experts said the findings were ""potentially very exciting"" as they could become a new treatment for the disease.
+The experiments were on mice put on a modified form of the ""fasting-mimicking diet"".
+When people go on it they spend five days on a low calorie, low protein, low carbohydrate but high unsaturated-fat diet.
+It resembles a vegan diet with nuts and soups, but with around 800 to 1,100 calories a day.
+Then they have 25 days eating what they want - so overall it mimics periods of feast and famine.
+Previous research has suggested it can slow the pace of ageing.
+But animal experiments showed the diet regenerated a special type of cell in the pancreas called a beta cell.
+These are the cells that detect sugar in the blood and release the hormone insulin if it gets too high.
+Dr Valter Longo, from the University of Southern California, said: ""Our conclusion is that by pushing the mice into an extreme state and then bringing them back - by starving them and then feeding them again - the cells in the pancreas are triggered to use some kind of developmental reprogramming that rebuilds the part of the organ that's no longer functioning.""
+There were benefits in both type 1 and type 2 diabetes in the mouse experiments.
+Type 1 is caused by the immune system destroying beta cells and type 2 is largely caused by lifestyle and the body no longer responding to insulin.
+Further tests on tissue samples from people with type 1 diabetes produced similar effects.
+Dr Longo said: ""Medically, these findings have the potential to be very important because we've shown - at least in mouse models - that you can use diet to reverse the symptoms of diabetes.
+""Scientifically, the findings are perhaps even more important because we've shown that you can use diet to reprogram cells without having to make any genetic alterations.""
+BBC reporter Peter Bowes took part in a separate trial with Dr Valter Longo.
+He said: ""During each five-day fasting cycle, when I ate about a quarter of the average person's diet, I lost between 2kg and 4kg (4.4-8.8lbs).
+""But before the next cycle came round, 25 days of eating normally had returned me almost to my original weight.
+""But not all consequences of the diet faded so quickly.""
+His blood pressure was lower as was a hormone called IGF-1, which is linked to some cancers.
+He said: ""The very small meals I was given during the five-day fast were far from gourmet cooking, but I was glad to have something to eat""
+Peter Bowes: Fasting for science
+Peter Bowes: Intermittent fasting and the good things it did to my body
+Separate trials of the diet in people have been shown to improve blood sugar levels. The latest findings help to explain why.
+However, Dr Longo said people should not rush off and crash diet.
+He told the BBC: ""It boils down to do not try this at home, this is so much more sophisticated than people realise.""
+He said people could ""get into trouble"" with their health if it was done without medical guidance.
+Dr Emily Burns, research communications manager at Diabetes UK, said: ""This is potentially very exciting news, but we need to see if the results hold true in humans before we'll know more about what it means for people with diabetes.
+""People with type-1 and type-2 diabetes would benefit immensely from treatments that can repair or regenerate insulin-producing cells in the pancreas.""
+Follow James on Twitter.",0,1,0.8157281279563904
+39070183,reranked,"A low-calorie diet can rejuvenate a specific type of cell in the pancreas, a study suggests.","Restoring the function of the organ - which helps control blood sugar levels - reversed symptoms of diabetes in animal experiments.
+The study, published in the journal Cell, says the diet reboots the body.
+Experts said the findings were ""potentially very exciting"" as they could become a new treatment for the disease.
+The experiments were on mice put on a modified form of the ""fasting-mimicking diet"".
+When people go on it they spend five days on a low calorie, low protein, low carbohydrate but high unsaturated-fat diet.
+It resembles a vegan diet with nuts and soups, but with around 800 to 1,100 calories a day.
+Then they have 25 days eating what they want - so overall it mimics periods of feast and famine.
+Previous research has suggested it can slow the pace of ageing.
+But animal experiments showed the diet regenerated a special type of cell in the pancreas called a beta cell.
+These are the cells that detect sugar in the blood and release the hormone insulin if it gets too high.
+Dr Valter Longo, from the University of Southern California, said: ""Our conclusion is that by pushing the mice into an extreme state and then bringing them back - by starving them and then feeding them again - the cells in the pancreas are triggered to use some kind of developmental reprogramming that rebuilds the part of the organ that's no longer functioning.""
+There were benefits in both type 1 and type 2 diabetes in the mouse experiments.
+Type 1 is caused by the immune system destroying beta cells and type 2 is largely caused by lifestyle and the body no longer responding to insulin.
+Further tests on tissue samples from people with type 1 diabetes produced similar effects.
+Dr Longo said: ""Medically, these findings have the potential to be very important because we've shown - at least in mouse models - that you can use diet to reverse the symptoms of diabetes.
+""Scientifically, the findings are perhaps even more important because we've shown that you can use diet to reprogram cells without having to make any genetic alterations.""
+BBC reporter Peter Bowes took part in a separate trial with Dr Valter Longo.
+He said: ""During each five-day fasting cycle, when I ate about a quarter of the average person's diet, I lost between 2kg and 4kg (4.4-8.8lbs).
+""But before the next cycle came round, 25 days of eating normally had returned me almost to my original weight.
+""But not all consequences of the diet faded so quickly.""
+His blood pressure was lower as was a hormone called IGF-1, which is linked to some cancers.
+He said: ""The very small meals I was given during the five-day fast were far from gourmet cooking, but I was glad to have something to eat""
+Peter Bowes: Fasting for science
+Peter Bowes: Intermittent fasting and the good things it did to my body
+Separate trials of the diet in people have been shown to improve blood sugar levels. The latest findings help to explain why.
+However, Dr Longo said people should not rush off and crash diet.
+He told the BBC: ""It boils down to do not try this at home, this is so much more sophisticated than people realise.""
+He said people could ""get into trouble"" with their health if it was done without medical guidance.
+Dr Emily Burns, research communications manager at Diabetes UK, said: ""This is potentially very exciting news, but we need to see if the results hold true in humans before we'll know more about what it means for people with diabetes.
+""People with type-1 and type-2 diabetes would benefit immensely from treatments that can repair or regenerate insulin-producing cells in the pancreas.""
+Follow James on Twitter.",0,1,0.9291663765907288
+29240782,baseline,Everton eased into the Europa League group stage with a comfortable win over German side Wolfsburg at Goodison Park.,"The Toffees, back in the tournament for the first time since 2010, controlled much of the game as a Ricardo Rodriguez own goal and a Seamus Coleman header gave them a 2-0 half-time lead.
+Leighton Baines put the game beyond Wolfsburg with a second-half penalty.
+Kevin Mirallas drilled in a late fourth for Everton before Rodriguez grabbed a consolation with a curled free-kick.
+The win puts Everton top of Group H and was just reward for manager Roberto Martinez, who underlined his intention to take the competition seriously by naming a strong side, after calling it ""the perfect next step"" for the club.
+The Toffees narrowly missed out on the Champions League last season as they finished fifth in the Premier League, but with their participation in this season's Europa League ending a four-year absence, Martinez has expressed a determination to go as far as possible.
+Everton's attacking display on Thursday will certainly give him confidence of progressing from a group that also contains French side Lille and Russians FK Krasnodar.
+Martinez had opted not to rest any of his first-team regulars for the visit of Wolfsburg, naming the same side that defeated West Brom 2-0 in the Premier League on Saturday.
+Romelu Lukaku got his first of the campaign in that game and the striker spearheaded an exciting, attacking quartet that also included Aiden McGeady, Naismith and Mirallas.
+They have all contributed to Everton's impressive statistic of having scored at least two goals in every game this season, and it was of little surprise they each played significant roles in the goals against Wolfsburg.
+Naismith was the first to make a telling contribution, forcing the opener with Everton's first attack. After winning possession, Naismith ran into the area to receive a Baines pass before stabbing a shot at goal. Rodriguez tried to clear, but the ball cannoned off goalkeeper Diego Benaglio, and hit the Wolfsburg full-back again before ending up in his own net.
+That was Everton's first goal in Europe at Goodison Park since beating Sporting Lisbon 2-1 in February 2010, and it had the buoyant home crowd hungry for more.
+Everton duly attempted to deliver, with full-backs Baines and Coleman becoming more adventurous as Wolfsburg offered little going forward, and their attacking instincts resulted in the home side's second goal on the stroke of half-time.
+Mirallas's drive was weakly pushed into the path of Baines, who had followed the shot into the area, and he knocked the ball across goal for Coleman to nod in.
+Wolfsburg boss Dieter Hecking introduced Germany midfielder Aaron Hunt for the start of the second half, but within seconds of the restart Everton went further ahead. This time, Robin Knoche's foul on McGeady was deemed to have occurred inside the area, and Baines confidently despatched the resulting penalty.
+The goal effectively ended Wolfsburg's hopes of returning to Germany with anything to show but, with nothing to lose, they embarked on a spell of dominance.
+For a good 30 minutes they enjoyed the lion's share of possession and attempts on goal, as Tim Howard produced saves from Luiz Gustavo's opportunistic shot and Rodriguez's well-struck free-kick.
+Former Arsenal striker Nicklas Bendtner was introduced after the hour, with Wolfsburg boss Hecking sensing a possible goal, but instead it was Everton who grabbed a fourth. Mirallas peeled away from defenders to run on to substitute Samuel Eto'o's through ball and he coolly slotted in at Benaglio's near post.
+There was still time for Wolfsburg to get the consolation their 27 shots on goal deserved, Rodriguez making some amends for his early own goal with a curling free-kick.
+Everton boss Roberto Martinez: ""The atmosphere was perfect for us to start a very good performance.
+""I thought there were two very good sides. On the night the scoreline probably doesn't reflect the difference between the two sides.
+""We scored at the right times. Our work-rate was magnificent. We had to defend and we did that really well but every time we went forward we had a clinical touch about us.""
+Wolfsburg boss Dieter Hecking: ""It's obviously not the start we'd hoped for. We were lacking in certain areas, both in terms of finishing and defensive work.
+""We should have gone into half-time a goal down and we got hit with a second just before the break. Straight after the restart, 3-0 down and the game is lost.
+""We really weren't smart enough and showed a certain naivety.""",0,0,0.07227720320224762
+29240782,reranked,Everton marked their return to European competition with a comfortable win over German side Wolfsburg at Goodison Park.,"The Toffees, back in the tournament for the first time since 2010, controlled much of the game as a Ricardo Rodriguez own goal and a Seamus Coleman header gave them a 2-0 half-time lead.
+Leighton Baines put the game beyond Wolfsburg with a second-half penalty.
+Kevin Mirallas drilled in a late fourth for Everton before Rodriguez grabbed a consolation with a curled free-kick.
+The win puts Everton top of Group H and was just reward for manager Roberto Martinez, who underlined his intention to take the competition seriously by naming a strong side, after calling it ""the perfect next step"" for the club.
+The Toffees narrowly missed out on the Champions League last season as they finished fifth in the Premier League, but with their participation in this season's Europa League ending a four-year absence, Martinez has expressed a determination to go as far as possible.
+Everton's attacking display on Thursday will certainly give him confidence of progressing from a group that also contains French side Lille and Russians FK Krasnodar.
+Martinez had opted not to rest any of his first-team regulars for the visit of Wolfsburg, naming the same side that defeated West Brom 2-0 in the Premier League on Saturday.
+Romelu Lukaku got his first of the campaign in that game and the striker spearheaded an exciting, attacking quartet that also included Aiden McGeady, Naismith and Mirallas.
+They have all contributed to Everton's impressive statistic of having scored at least two goals in every game this season, and it was of little surprise they each played significant roles in the goals against Wolfsburg.
+Naismith was the first to make a telling contribution, forcing the opener with Everton's first attack. After winning possession, Naismith ran into the area to receive a Baines pass before stabbing a shot at goal. Rodriguez tried to clear, but the ball cannoned off goalkeeper Diego Benaglio, and hit the Wolfsburg full-back again before ending up in his own net.
+That was Everton's first goal in Europe at Goodison Park since beating Sporting Lisbon 2-1 in February 2010, and it had the buoyant home crowd hungry for more.
+Everton duly attempted to deliver, with full-backs Baines and Coleman becoming more adventurous as Wolfsburg offered little going forward, and their attacking instincts resulted in the home side's second goal on the stroke of half-time.
+Mirallas's drive was weakly pushed into the path of Baines, who had followed the shot into the area, and he knocked the ball across goal for Coleman to nod in.
+Wolfsburg boss Dieter Hecking introduced Germany midfielder Aaron Hunt for the start of the second half, but within seconds of the restart Everton went further ahead. This time, Robin Knoche's foul on McGeady was deemed to have occurred inside the area, and Baines confidently despatched the resulting penalty.
+The goal effectively ended Wolfsburg's hopes of returning to Germany with anything to show but, with nothing to lose, they embarked on a spell of dominance.
+For a good 30 minutes they enjoyed the lion's share of possession and attempts on goal, as Tim Howard produced saves from Luiz Gustavo's opportunistic shot and Rodriguez's well-struck free-kick.
+Former Arsenal striker Nicklas Bendtner was introduced after the hour, with Wolfsburg boss Hecking sensing a possible goal, but instead it was Everton who grabbed a fourth. Mirallas peeled away from defenders to run on to substitute Samuel Eto'o's through ball and he coolly slotted in at Benaglio's near post.
+There was still time for Wolfsburg to get the consolation their 27 shots on goal deserved, Rodriguez making some amends for his early own goal with a curling free-kick.
+Everton boss Roberto Martinez: ""The atmosphere was perfect for us to start a very good performance.
+""I thought there were two very good sides. On the night the scoreline probably doesn't reflect the difference between the two sides.
+""We scored at the right times. Our work-rate was magnificent. We had to defend and we did that really well but every time we went forward we had a clinical touch about us.""
+Wolfsburg boss Dieter Hecking: ""It's obviously not the start we'd hoped for. We were lacking in certain areas, both in terms of finishing and defensive work.
+""We should have gone into half-time a goal down and we got hit with a second just before the break. Straight after the restart, 3-0 down and the game is lost.
+""We really weren't smart enough and showed a certain naivety.""",0,1,0.5171918272972107
+21967739,baseline,"It's the most common form of cancer in men, and it's one of the leading causes of cancer death in men.","According to Cancer Research UK some 41, 000 men are diagnosed with prostate cancer every year, but 10,700 will die of the disease, making it the fourth most common cause of cancer death - and second only to lung cancer in men.
+Given such a dire prognosis, and let's face it, given the financial profile of its victims, you might be forgiven for assuming that prostate cancer would be one of the most highly prioritised and well researched areas of oncology. Not a bit of it. Perhaps it's because men are squeamish, or don't like to talk about their health or visit the doctor, but prostate cancer has long been dubbed ""the Cinderella cancer"".
+""We just don't make enough of it"" according to consultant oncologist Professor Neil Burnet. ""On the whole men are less vocal about their health, and older men tend to be even more stoical, preferring to grin and bear it. But it means men are poor advocates, and as a result prostate cancer has been overlooked"".
+Based at Addenbrooke's Hospital on the outskirts of Cambridge, Prof Burnet is trying to improve the targeting and efficiency of radiotherapy treatments, and to reduce toxicity in the healthy tissue surrounding the prostate. The technique, called Image Guided Intensity Modulated Radiotherapy Treatment uses imaging provided by a CT scan to target the tumour before a powerful but precisely shaped radiation dose is administered.
+""What limits what we can do with radiotherapy are the side effects of the treatment, the toxicity.  And, since the prostate can move by up to a couple of centimetres from one day to the next, targeting the treatment is really important. The second half of this technology is in delivering intensity modulated radiotherapy, which allows us to match a higher dose of radiation to the shape of the tumour.""
+But if Image Guided IMRT offers the prospect of better outcomes for men with advanced or aggressive prostate cancer, how much better might it be to get in at an earlier stage?
+That - at least in part - was the motivation behind the Collaborative Oncological Gene/Environment Study, or COGES, which has announced the discovery of 80 new genetic markers for breast, ovarian and prostate cancer. In one of the largest research projects of its kind scientists from Cambridge University and the Institute of Cancer Research in London looked at samples from more than 200,000 people - half with, and half without, cancer.
+The results include 23 new gene variants associated with prostate cancer and 16 with aggressive forms of the disease. Initially at least that should help with the development of a viable screening test for the disease. In the longer term it may present new targets for drug treatment and better diagnosis, and a greater understanding of the mechanisms and basic biology of prostate cancer.
+""It's shocking, but we still don't have an adequate screening test for prostate cancer,"" says Ros Eeles, Professor of Oncogenetics at the Institute of Cancer Research and COGES study leader on prostate cancer. ""That's because the Prostate Specific Antigen, or PSA test, just isn't accurate enough and you'd have to treat between 12 and 48 men unnecessarily to save a single life. With this new information we could have a viable test in five to eight years"".
+If that still seems a long way off, surgical techniques have advanced dramatically when it comes to prostate cancer. These days consultant urologist Professor David Neal uses the DaVinci surgical robot to perform prostate surgery.
+Sitting at a computer console that looks like it would be more at home in an amusement arcade than an operating theatre, Prof Neal can perform a prostatectomy without ever touching his patient. And because the robotic arms of the device (which looks a little like a crab hovering over the operating table) are much thinner than the surgeon's, and the grappling and cutting tools at the sharp end are much smaller, what was once a major operation is now less invasive.
+As with Image Guided Intensity Modulated Radiotherapy collateral damage to surrounding healthy tissue is kept to a minimum.
+""The DaVinci robot has made a huge difference to prostate surgery"" says Prof Neal. ""It's still a major operation, but we can be very precise about what we remove and the function we're able to save. That's got to be good news for the patient"".",0,0,0.0900404080748558
+21967739,reranked,Prostate cancer is one of the world's leading causes of cancer death in men.,"According to Cancer Research UK some 41, 000 men are diagnosed with prostate cancer every year, but 10,700 will die of the disease, making it the fourth most common cause of cancer death - and second only to lung cancer in men.
+Given such a dire prognosis, and let's face it, given the financial profile of its victims, you might be forgiven for assuming that prostate cancer would be one of the most highly prioritised and well researched areas of oncology. Not a bit of it. Perhaps it's because men are squeamish, or don't like to talk about their health or visit the doctor, but prostate cancer has long been dubbed ""the Cinderella cancer"".
+""We just don't make enough of it"" according to consultant oncologist Professor Neil Burnet. ""On the whole men are less vocal about their health, and older men tend to be even more stoical, preferring to grin and bear it. But it means men are poor advocates, and as a result prostate cancer has been overlooked"".
+Based at Addenbrooke's Hospital on the outskirts of Cambridge, Prof Burnet is trying to improve the targeting and efficiency of radiotherapy treatments, and to reduce toxicity in the healthy tissue surrounding the prostate. The technique, called Image Guided Intensity Modulated Radiotherapy Treatment uses imaging provided by a CT scan to target the tumour before a powerful but precisely shaped radiation dose is administered.
+""What limits what we can do with radiotherapy are the side effects of the treatment, the toxicity.  And, since the prostate can move by up to a couple of centimetres from one day to the next, targeting the treatment is really important. The second half of this technology is in delivering intensity modulated radiotherapy, which allows us to match a higher dose of radiation to the shape of the tumour.""
+But if Image Guided IMRT offers the prospect of better outcomes for men with advanced or aggressive prostate cancer, how much better might it be to get in at an earlier stage?
+That - at least in part - was the motivation behind the Collaborative Oncological Gene/Environment Study, or COGES, which has announced the discovery of 80 new genetic markers for breast, ovarian and prostate cancer. In one of the largest research projects of its kind scientists from Cambridge University and the Institute of Cancer Research in London looked at samples from more than 200,000 people - half with, and half without, cancer.
+The results include 23 new gene variants associated with prostate cancer and 16 with aggressive forms of the disease. Initially at least that should help with the development of a viable screening test for the disease. In the longer term it may present new targets for drug treatment and better diagnosis, and a greater understanding of the mechanisms and basic biology of prostate cancer.
+""It's shocking, but we still don't have an adequate screening test for prostate cancer,"" says Ros Eeles, Professor of Oncogenetics at the Institute of Cancer Research and COGES study leader on prostate cancer. ""That's because the Prostate Specific Antigen, or PSA test, just isn't accurate enough and you'd have to treat between 12 and 48 men unnecessarily to save a single life. With this new information we could have a viable test in five to eight years"".
+If that still seems a long way off, surgical techniques have advanced dramatically when it comes to prostate cancer. These days consultant urologist Professor David Neal uses the DaVinci surgical robot to perform prostate surgery.
+Sitting at a computer console that looks like it would be more at home in an amusement arcade than an operating theatre, Prof Neal can perform a prostatectomy without ever touching his patient. And because the robotic arms of the device (which looks a little like a crab hovering over the operating table) are much thinner than the surgeon's, and the grappling and cutting tools at the sharp end are much smaller, what was once a major operation is now less invasive.
+As with Image Guided Intensity Modulated Radiotherapy collateral damage to surrounding healthy tissue is kept to a minimum.
+""The DaVinci robot has made a huge difference to prostate surgery"" says Prof Neal. ""It's still a major operation, but we can be very precise about what we remove and the function we're able to save. That's got to be good news for the patient"".",0,1,0.6257756948471069
+40181128,baseline,"Former England striker Carlton Cole says he has a ""long road ahead"" to recovery from a second kidney transplant but does not want to overdo it.","Media playback is not supported on this device
+""If I push it, I could go backwards or end up back on medication,"" he said. ""There is also a chance of rejection.""
+The former Manchester United, Newcastle and Blackburn forward suffered kidney failure in 2015 after contracting an airborne virus.
+He has just returned to his role as a United ambassador following surgery.
+The 45-year-old is not even allowed to fly to Barcelona for a Manchester United legends game on 30 June.
+Cole said: ""It is a long road ahead. It is a tough road and different to the battles I have had before.
+""It is not like getting a football injury, when you go to the gym and work a bit harder.""
+His 28-year-old nephew Alexander provided the donor kidney - ""a noble job"" as Cole described it.
+Cole has improved physically and has lost most of the weight he gained through his illness.
+And while there is still more work to do, Cole, who will be United's assistant manager for the return legends game against Barcelona at Old Trafford on 2 September, is looking forward to playing if a similar match is staged in 2018.
+He said: ""I still get very tired but I can do a lot more than I was able to two years ago. If this game is played next year I want to be out there.""
+Earlier this week, another former Newcastle and England striker, Alan Shearer, told the BBC he felt English clubs were a long way off being able to challenge for the Champions League.
+Cole agrees, saying: ""From what I have seen in Europe, I am not sure any of the English teams will win it. They are miles apart.
+""If you look at Real Madrid, Barcelona or Bayern Munich, a lot of the players people are talking about Premier League clubs paying £50m or £60m for can't get in their teams.
+""That tells you where they are at.""",0,0,0.14068040251731873
+40181128,reranked,"Former England and Manchester United striker Carlton Cole says he will not push himself too hard in his bid to recover from kidney failure, fearing it could backfire.","Media playback is not supported on this device
+""If I push it, I could go backwards or end up back on medication,"" he said. ""There is also a chance of rejection.""
+The former Manchester United, Newcastle and Blackburn forward suffered kidney failure in 2015 after contracting an airborne virus.
+He has just returned to his role as a United ambassador following surgery.
+The 45-year-old is not even allowed to fly to Barcelona for a Manchester United legends game on 30 June.
+Cole said: ""It is a long road ahead. It is a tough road and different to the battles I have had before.
+""It is not like getting a football injury, when you go to the gym and work a bit harder.""
+His 28-year-old nephew Alexander provided the donor kidney - ""a noble job"" as Cole described it.
+Cole has improved physically and has lost most of the weight he gained through his illness.
+And while there is still more work to do, Cole, who will be United's assistant manager for the return legends game against Barcelona at Old Trafford on 2 September, is looking forward to playing if a similar match is staged in 2018.
+He said: ""I still get very tired but I can do a lot more than I was able to two years ago. If this game is played next year I want to be out there.""
+Earlier this week, another former Newcastle and England striker, Alan Shearer, told the BBC he felt English clubs were a long way off being able to challenge for the Champions League.
+Cole agrees, saying: ""From what I have seen in Europe, I am not sure any of the English teams will win it. They are miles apart.
+""If you look at Real Madrid, Barcelona or Bayern Munich, a lot of the players people are talking about Premier League clubs paying £50m or £60m for can't get in their teams.
+""That tells you where they are at.""",0,0,0.27970564365386963
+34001040,baseline,Police investigating the discovery of a human skull on a motorway in Shropshire have said further skeletal remains have been found.,"On Thursday, a human skull was found alongside the M54 slip road by workers doing a survey of the junction four roundabout, near Telford.
+Police confirmed the skull was that of an adult male and had been there for at least two years.
+West Mercia Police said ""further skeletal remains"" were found close to the skull.
+The eastbound entry slip road remains partially closed.
+Det Chief Insp Neil Jamieson said: ""We are in the very early stages of this investigation and inquiries are ongoing.""
+He said further forensic examinations and excavations were being carried out and police had been in contact with neighbouring forces asking for information about people who had been reported missing.
+Archaeological experts may be called in to help with the investigation.
+""This will be a lengthy process but we will continue to update the public in due course,"" he added.",0,0,0.4114731550216675
+34001040,reranked,Police investigating the discovery of a human skull on a motorway have said further remains have been found.,"On Thursday, a human skull was found alongside the M54 slip road by workers doing a survey of the junction four roundabout, near Telford.
+Police confirmed the skull was that of an adult male and had been there for at least two years.
+West Mercia Police said ""further skeletal remains"" were found close to the skull.
+The eastbound entry slip road remains partially closed.
+Det Chief Insp Neil Jamieson said: ""We are in the very early stages of this investigation and inquiries are ongoing.""
+He said further forensic examinations and excavations were being carried out and police had been in contact with neighbouring forces asking for information about people who had been reported missing.
+Archaeological experts may be called in to help with the investigation.
+""This will be a lengthy process but we will continue to update the public in due course,"" he added.",0,1,0.9853891730308533
+38537698,baseline,A judge has denied bail to four people accused of beating a mentally ill man and posting it on Facebook.,"Jordan Hill, Brittany Covington and Tesfaye Cooper, all 18, and Tanishia Covington, 24, appeared in a Chicago court on Friday.
+The four have been charged with hate crimes and aggravated kidnapping and battery, among other things.
+An online fundraiser for their victim has collected $51,000 (Â£42,500) so far.
+Denying the four suspects bail, Judge Maria Kuriakos Ciesil asked: ""Where was your sense of decency?""
+Prosecutors told the court the beating started in a van and continued at a house, where the suspects allegedly forced the 18-year-old white victim, who suffers from schizophrenia and attention deficit disorder, to drink toilet water and kiss the floor.
+Police allege the van was earlier stolen by Mr Hill, who is also accused of demanding $300 from the victim's mother while they held him captive, according to the Chicago Tribune.
+The court was also told the suspects stuffed a sock into his mouth, taped his mouth shut and bound his hands with a belt.
+In a video made for Facebook Live which was watched millions of times, the assailants can be heard making derogatory statements against white people and Donald Trump.
+The victim had been dropped off at a McDonalds to meet Mr Hill - who was one of his friends - on 31 December.
+He was found by a police officer on Tuesday, 3 January, a day after he was reported missing by his parents.
+Prosecutors say the suspects each face two hate crimes counts, one because of the victim's race and the other because of his disabilities.",0,1,0.619890570640564
+38537698,reranked,A judge has denied bail to four people accused of beating a disabled man and posting the video online.,"Jordan Hill, Brittany Covington and Tesfaye Cooper, all 18, and Tanishia Covington, 24, appeared in a Chicago court on Friday.
+The four have been charged with hate crimes and aggravated kidnapping and battery, among other things.
+An online fundraiser for their victim has collected $51,000 (Â£42,500) so far.
+Denying the four suspects bail, Judge Maria Kuriakos Ciesil asked: ""Where was your sense of decency?""
+Prosecutors told the court the beating started in a van and continued at a house, where the suspects allegedly forced the 18-year-old white victim, who suffers from schizophrenia and attention deficit disorder, to drink toilet water and kiss the floor.
+Police allege the van was earlier stolen by Mr Hill, who is also accused of demanding $300 from the victim's mother while they held him captive, according to the Chicago Tribune.
+The court was also told the suspects stuffed a sock into his mouth, taped his mouth shut and bound his hands with a belt.
+In a video made for Facebook Live which was watched millions of times, the assailants can be heard making derogatory statements against white people and Donald Trump.
+The victim had been dropped off at a McDonalds to meet Mr Hill - who was one of his friends - on 31 December.
+He was found by a police officer on Tuesday, 3 January, a day after he was reported missing by his parents.
+Prosecutors say the suspects each face two hate crimes counts, one because of the victim's race and the other because of his disabilities.",1,0,0.38562509417533875
+36792661,baseline,Controversial plans to move a statue commemorating the Falklands War have been given the go-ahead.,"The Yomper statue is currently located in front of the Royal Marines Museum at Eastney.
+The National Museum of the Royal Navy has started consulting over a proposed move to Portsmouth Historic Dockyard.
+Campaigners insist it is a local memorial to the conflict and ""belongs"" at Eastney.
+The Yomper statue was created by Philip Jackson, depicting a royal marine marching across the islands during the 1982 conflict and was unveiled by former prime minister, Lady Thatcher, in 1992.
+The National Museum of the Royal Navy (NMRN) is planning to relocate the Royal Marines Museum from Eastney to Portsmouth Historic Dockyard as part of a Â£13m lottery funded project and wants to take the statue with it.
+An online petition against moving the statue has attracted more than 1,800 signatories, saying it was ""now considered as our local Falklands War Memorial"".
+Sheila Mackie who set it up said: ""The imposing scale of The Yomper needs space and adequate distance to be fully appreciated, and the visualization of the part in the major campaign that the statue represents couldn't be achieved in an interior space.""
+Conservative-led Portsmouth City Council also voted to express a ""clear preference"" that the statue remain where it it is.
+Its motion stated: ""The Yomper statue has graced the seafront for many years, serving as a reminder of both the Falklands War and of the Marines' historical association with Eastney.""
+NMRN director Jon Rawlinson said the new museum site would potentially have 750,000 visitors a year, compared to 40,000 at the current museum.
+""He would be seen by far more people at the historic dockyard, but of course he was built for here [Eastney] and is part of here. ""
+He said no decision had been made and it would consider all comments submitted to its public consultation.",0,0,0.029421227052807808
+36792661,reranked,"An online petition against plans to move a statue commemorating the Falklands War has attracted more than 1,800 signatures.","The Yomper statue is currently located in front of the Royal Marines Museum at Eastney.
+The National Museum of the Royal Navy has started consulting over a proposed move to Portsmouth Historic Dockyard.
+Campaigners insist it is a local memorial to the conflict and ""belongs"" at Eastney.
+The Yomper statue was created by Philip Jackson, depicting a royal marine marching across the islands during the 1982 conflict and was unveiled by former prime minister, Lady Thatcher, in 1992.
+The National Museum of the Royal Navy (NMRN) is planning to relocate the Royal Marines Museum from Eastney to Portsmouth Historic Dockyard as part of a Â£13m lottery funded project and wants to take the statue with it.
+An online petition against moving the statue has attracted more than 1,800 signatories, saying it was ""now considered as our local Falklands War Memorial"".
+Sheila Mackie who set it up said: ""The imposing scale of The Yomper needs space and adequate distance to be fully appreciated, and the visualization of the part in the major campaign that the statue represents couldn't be achieved in an interior space.""
+Conservative-led Portsmouth City Council also voted to express a ""clear preference"" that the statue remain where it it is.
+Its motion stated: ""The Yomper statue has graced the seafront for many years, serving as a reminder of both the Falklands War and of the Marines' historical association with Eastney.""
+NMRN director Jon Rawlinson said the new museum site would potentially have 750,000 visitors a year, compared to 40,000 at the current museum.
+""He would be seen by far more people at the historic dockyard, but of course he was built for here [Eastney] and is part of here. ""
+He said no decision had been made and it would consider all comments submitted to its public consultation.",0,1,0.9773263335227966
+30632453,baseline,German scientists believe they have found evidence that the deadly Ebola virus passed on to 11-year-old Emile Zidan in Guinea came from the same species of bat that killed him.,"They made the connection on an expedition to the boy's village, Meliandou.
+They took samples and chatted to locals to find out more about Ebola's source.
+The team's findings are published in EMBO Molecular Medicine.
+Meliandou is a small village of 31 houses.
+It sits deep within the Guinean forest region, surrounded by towering reeds and oil palm cultivations - these are believed to have attracted the fruit bats carrying the virus passed on to Emile.
+During their four-week field trip in April 2014, Dr Fabian Leendertz and colleagues found a large tree stump situated about 50m from Emile's home.
+Villagers reported that children used to play frequently in the hollow tree.
+Emile - who died of Ebola in December 2013 - used to play there, according to his friends.
+The villagers said that the tree burned on March 24, 2014 and that once the tree caught fire, there issued a ""rain of bats"".
+A large number of these insectivorous free-tailed bats - Mops condylurus in Latin - were collected by the villagers for food, but disposed of the next day after a government-led ban on bushmeat consumption was announced.
+While bushmeat is thought to be a possible source of Ebola, the scientists believe it didn't trigger the outbreak.
+Instead, it was Emile's exposure to the bats and their droppings as he played with his friends in the hollowed tree.
+The scientists took and tested ash samples from the tree and found DNA traces that were a match for the animals.
+While they were unable to test any of the bushmeat that the villagers had disposed of, they captured and tested any living bats they could find in and around Meliandou.
+No Ebola could be detected in any of these hundred or so animals, however.
+But previous tests show this species of bat can carry Ebola.
+Dr Leendertz, from the Robert Koch Institute in Germany, and his colleagues say this must be a pretty rare occurrence though.
+Dr Leendertz said: ""That is also obvious when you think about how many tonnes of bat meat is consumed every year.
+""If more bats carried the virus, we would see outbreaks all the time.""
+He says it is vital to find out more about the bats.
+""They have moved into human settlements. They do not just live in the trees but also under the roofs of houses in the villages.
+""The Ebola virus must jump through colonies from bat to bat, so we need to know more.""
+But culling the animals is not the answer.
+""We need to find ways to live together with the wildlife. These bats catch insects and pests, such as mosquitoes. They can eat about a quarter of their body weight in insects a day.
+""Killing them would not be a solution. You would have more malaria.""",0,0,0.3765835165977478
+30632453,reranked,German scientists believe they have found the source of the deadly Ebola virus that killed 11-year-old Emile Zidan in Guinea.,"They made the connection on an expedition to the boy's village, Meliandou.
+They took samples and chatted to locals to find out more about Ebola's source.
+The team's findings are published in EMBO Molecular Medicine.
+Meliandou is a small village of 31 houses.
+It sits deep within the Guinean forest region, surrounded by towering reeds and oil palm cultivations - these are believed to have attracted the fruit bats carrying the virus passed on to Emile.
+During their four-week field trip in April 2014, Dr Fabian Leendertz and colleagues found a large tree stump situated about 50m from Emile's home.
+Villagers reported that children used to play frequently in the hollow tree.
+Emile - who died of Ebola in December 2013 - used to play there, according to his friends.
+The villagers said that the tree burned on March 24, 2014 and that once the tree caught fire, there issued a ""rain of bats"".
+A large number of these insectivorous free-tailed bats - Mops condylurus in Latin - were collected by the villagers for food, but disposed of the next day after a government-led ban on bushmeat consumption was announced.
+While bushmeat is thought to be a possible source of Ebola, the scientists believe it didn't trigger the outbreak.
+Instead, it was Emile's exposure to the bats and their droppings as he played with his friends in the hollowed tree.
+The scientists took and tested ash samples from the tree and found DNA traces that were a match for the animals.
+While they were unable to test any of the bushmeat that the villagers had disposed of, they captured and tested any living bats they could find in and around Meliandou.
+No Ebola could be detected in any of these hundred or so animals, however.
+But previous tests show this species of bat can carry Ebola.
+Dr Leendertz, from the Robert Koch Institute in Germany, and his colleagues say this must be a pretty rare occurrence though.
+Dr Leendertz said: ""That is also obvious when you think about how many tonnes of bat meat is consumed every year.
+""If more bats carried the virus, we would see outbreaks all the time.""
+He says it is vital to find out more about the bats.
+""They have moved into human settlements. They do not just live in the trees but also under the roofs of houses in the villages.
+""The Ebola virus must jump through colonies from bat to bat, so we need to know more.""
+But culling the animals is not the answer.
+""We need to find ways to live together with the wildlife. These bats catch insects and pests, such as mosquitoes. They can eat about a quarter of their body weight in insects a day.
+""Killing them would not be a solution. You would have more malaria.""",0,0,0.22033432126045227
+37248643,baseline,Torquay United boss Kevin Nicholson says he will not be getting any money from the sale of Kane O'Kane to Bournemouth.,"The National League sold the Republic of Ireland midfielder to the Cherries for £175,000 in 2012 and had a 15% sell-on clause included in the deal.
+O'Kane moved for an undisclosed fee, but Nicholson says any money will go to help the cash-strapped club.
+""I don't think I'll be getting anything,"" Nicholson told BBC Devon.
+""There's more important things.""
+The Gulls are still looking for new owners having been taken over by a consortium of local business people last summer.
+They were forced to close down the club's academy and drastically reduce the playing budget after millionaire former owner Thea Bristow left the club.",0,0,0.03326466307044029
+37248643,reranked,Torquay United chairman Kevin Nicholson says he will not receive any money from the sale of Kane O'Kane to Bournemouth.,"The National League sold the Republic of Ireland midfielder to the Cherries for £175,000 in 2012 and had a 15% sell-on clause included in the deal.
+O'Kane moved for an undisclosed fee, but Nicholson says any money will go to help the cash-strapped club.
+""I don't think I'll be getting anything,"" Nicholson told BBC Devon.
+""There's more important things.""
+The Gulls are still looking for new owners having been taken over by a consortium of local business people last summer.
+They were forced to close down the club's academy and drastically reduce the playing budget after millionaire former owner Thea Bristow left the club.",0,0,0.030257219448685646
+27119429,baseline,Hong Kong's financial regulator has fined Royal Bank of Scotland (RBS) 1.5bn Hong Kong dollars (£1.1bn) for failing to properly monitor its trading operations.,"The fine follows the conviction of former RBS trader, Shirlina Tsang, for fraud last year.
+She was sentenced to 50 months in prison after being caught falsifying records of emerging markets trades.
+Hong Kong regulators said RBS's controls were ""seriously inadequate"".
+The Securities and Futures Commission (SFC) also said there were ""significant weaknesses in its procedures, management systems and internal controls.""
+But the regulator said the fine took into account the bank's speedy action in alerting the authorities once it had discovered the illegal trades, which took place in its emerging markets rates business in 2011.
+""This deserves substantial credit and is the reason why today's sanctions are not heavier ones,"" Mark Steward, the SFC's head of enforcement, said in a statement.
+RBS responded with a statement, reading: ""We put in place a comprehensive remediation programme that strengthened our governance and supervisory oversight, and our control environment.""
+The fine is relatively small compared to others the bank has received in the last few years.
+In December RBS agreed to pay 391m euros (£320m) in penalties to the European Commission for its role in the attempted rigging of Yen Libor and Euribor - the Tokyo and euro equivalents of the London interbank offered rate, or Libor.
+In the same month it was fined $100m (£60m) by US regulators for violations of US sanctions against Iran, Sudan, Burma, and Cuba.
+The bank was found to have removed location information on payments made to US financial institutions from countries such as Iran and Cuba.",0,0,0.02573707140982151
+27119429,reranked,Hong Kong's financial regulator has fined Royal Bank of Scotland (RBS) 1.8bn Hong Kong dollars (£1.1bn) for failing to properly supervise a trading operation.,"The fine follows the conviction of former RBS trader, Shirlina Tsang, for fraud last year.
+She was sentenced to 50 months in prison after being caught falsifying records of emerging markets trades.
+Hong Kong regulators said RBS's controls were ""seriously inadequate"".
+The Securities and Futures Commission (SFC) also said there were ""significant weaknesses in its procedures, management systems and internal controls.""
+But the regulator said the fine took into account the bank's speedy action in alerting the authorities once it had discovered the illegal trades, which took place in its emerging markets rates business in 2011.
+""This deserves substantial credit and is the reason why today's sanctions are not heavier ones,"" Mark Steward, the SFC's head of enforcement, said in a statement.
+RBS responded with a statement, reading: ""We put in place a comprehensive remediation programme that strengthened our governance and supervisory oversight, and our control environment.""
+The fine is relatively small compared to others the bank has received in the last few years.
+In December RBS agreed to pay 391m euros (£320m) in penalties to the European Commission for its role in the attempted rigging of Yen Libor and Euribor - the Tokyo and euro equivalents of the London interbank offered rate, or Libor.
+In the same month it was fined $100m (£60m) by US regulators for violations of US sanctions against Iran, Sudan, Burma, and Cuba.
+The bank was found to have removed location information on payments made to US financial institutions from countries such as Iran and Cuba.",0,0,0.026444602757692337
+30689144,baseline,"There may now be more multi-millionaires and billionaires than ever before in the world, but the wealth gap between the world's top 1% and the rest of us has grown even wider.","While $50m is the starting point for serious wealth, ""in reality your spending power and investing power really gets to the next level when you get to around $100m"", says Catherine Tillotson.
+Ms Tillotson is joint managing partner of Scorpio Partnership, a London-based firm which advises the super-rich on how to manage their assets, and she says there is a reason for this dividing line between the wealthy elite and the rest of us.
+""This is the point at which families will start to think about employing people purely to help them manage their financial affairs,"" she says.
+There may now be more multi-millionaires and billionaires than ever before in the world, but since the 2008 global financial crisis the wealth gap between the world's top 1% and the rest of us has grown.
+This increasingly stark division between haves and have-nots is leading to increasing rancour towards the very wealthy, say many social commentators.
+Robert Kuhn is better placed than many to understand this hostility - a former investment banker and corporate strategist, he is himself among the world's wealthy elite.
+The world is getting wealthier - we live longer, eat better, are better educated and fewer people live in extreme poverty.
+But with the gap between rich and poor feeling bigger than ever, the BBC is investigating the winners and losers of this richer world in 2015.
+A Richer World 2015
+""I think much of it is justified,"" he says, perhaps surprisingly, ""and I think we should describe why that's the case.""
+One of the main reasons for this, he says, is the web. ""We have a very highly wired world with the internet, people are more aware of things - and I think that's a good thing.""
+Mr Kuhn is coy about his own net worth. When asked if it is ""tens of millions"" of dollars, he replies, ""I would not like to be too specific, but I wouldn't contradict what you just said.""
+Trained as a neuroscientist, Mr Kuhn became an investment banker and then in the early 1990s sold his mergers and acquisitions firm ""at the right time"".
+He says he worked hard, ""but if I don't acknowledge there was a lot of luck involved I would be fooling myself"".
+He wants to encourage more and more people to become wealthy, but also to place limits on the amount of wealth that can be passed on to the next generation.
+""That gives each generation a chance to have higher social mobility.""
+But given that the gap between rich and poor has reached its widest level for 30 years in most developed countries, according to says the Organisation for Economic Co-operation and Development (OECD) group of developed nations - that social mobility is getting harder for many.
+In the 1980s, the richest 10% had incomes seven times greater than the poorest 10% in the average industrialised country.
+Now, in those same countries, the richest have incomes nine-and-a half times greater than the poorest, on average. The actual figures vary widely across the 34 OECD's member states.
+In Denmark the top 10% earn about five times more than the bottom 10% - in Mexico they earn 30 times as much.
+How much more do the top 10% earn than the bottom 10%?
+Source: OECD (2011)
+Other organisations, too, are highlighting this discrepancy between rich and poor. A report this month from the charity Oxfam says the world's wealthiest 1% will own more than 50% of the world's wealth by 2016.
+""This is something that we should be very worried about,"" says Mark Pearson, the OECD's deputy director of employment, labour and social affairs.
+If countries want to boost their economic growth, then they need to take steps to narrow this wealth gap, says the OECD.
+This goes against the longstanding free market argument that rising wealth at the top will trickle down to everybody else.
+But, the OECD research suggest that the reverse is true. ""Our finding is that by reducing income inequality, you can boost economic growth,"" Mr Pearson told BBC World Service's Business Daily programme.
+An increasing wealth gap hinders economic growth because it limits investment in a country's labour force, argues the OECD.
+Poorer people cannot afford to spend as much as the rich can on their children's education.
+And that lack of investment in education means a less educated and less flexible workforce in the long run, says the group in its research.
+It is not just the super-rich that are doing well - those whose business is dealing with super-rich customers are profiting too.
+Alex Cheatle is chief executive of Ten Group, a lifestyle concierge service that can helps its clients get that exclusive restaurant table, sell-out theatre ticket - or finds that vintage sports car in a particular colour.
+Ten will even do your window-shopping for you, if you are too rich or famous to be able to do it yourself.
+""Very often they will want us to take a picture of the window and get it to them, so they do their window shopping as and when they want to,"" says Mr Cheatle.
+""There hasn't really been a crisis for many of our members. Business is booming for us, we've grown every year since 2008 - growing at an average rate of 25-30% a year.""
+When you consider how much the super-rich spend, that growth is perhaps not surprising.
+Over the course of a year, it's reckoned the world's top 1% spend a staggering $45bn (£30bn) on travel and hospitality, $40bn (£26bn) on cars, and $25bn (£16bn) each on art, jewellery and watches.
+Or course, the ultimate statement of wealth is to have your own super-yacht - complete with helicopter pad, speedboat tenders and even a submarine or two.
+The world's biggest such boat is currently the Azzam, 180m (590ft) long, launched in 2013 at a reported cost of up to $600m (£400m) - and the sector has certainly weathered the global slowdown better than many others.
+Source: Boat International
+So with the wealth gap rising should the rich pay more tax, and if so would that help?
+Robert Kuhn - now business and financial commentator - argues that countries that decide to increase taxes on the rich may not see any benefit.
+He believes increasing income taxes to too high a level would ""inhibit the creation of new wealth which is detrimental to society"".
+""I'm just worried about the behaviour and implications if you put too high a tax rate, what that will do to current generations in their energy and focus to create new wealth,"" says Mr Kuhn.
+At Scipio Partnership, Catherine Tillotson says that focussing on tax misses out the contributions made by many rich patrons to philanthropic and charitable causes.
+""The tax question is hugely complicated,"" she says.
+""Most families that I've met will say that it is absolutely critical to them that they pay the right amount of tax according to the rules.""
+However, ""in many ways those dollars spent on philanthropic passions may be doing more good than they would have done in the tax system"", she says.
+Yet ever since the financial crisis of 2008, and subsequent global economic slowdown, politicians have come under increasing pressure to increase tax contributions from the richest in their societies.
+Protest movements such as Occupy Wall Street, which started in 2011 and has since spread to many other countries, have highlighted concern over social and economic inequality worldwide.
+For his part, Robert Kuhn is not convinced that a widening wealth gap matters in economic terms, but ""it matters in social stability for sure"", he agrees.
+""It matters in terms of social mobility of subsequent generations.""
+""To me that's the biggest problem, for any country,"" he says. ""And many countries are facing that.""
+Click here for more from BBC's A Richer World, a season exploring the world's wealth, poverty and inequality",0,0,0.15119026601314545
+30689144,reranked,"There may now be more multi-millionaires and billionaires than ever before in the world, but the wealth gap between the world's top 1% and the rest of us is getting even wider.","While $50m is the starting point for serious wealth, ""in reality your spending power and investing power really gets to the next level when you get to around $100m"", says Catherine Tillotson.
+Ms Tillotson is joint managing partner of Scorpio Partnership, a London-based firm which advises the super-rich on how to manage their assets, and she says there is a reason for this dividing line between the wealthy elite and the rest of us.
+""This is the point at which families will start to think about employing people purely to help them manage their financial affairs,"" she says.
+There may now be more multi-millionaires and billionaires than ever before in the world, but since the 2008 global financial crisis the wealth gap between the world's top 1% and the rest of us has grown.
+This increasingly stark division between haves and have-nots is leading to increasing rancour towards the very wealthy, say many social commentators.
+Robert Kuhn is better placed than many to understand this hostility - a former investment banker and corporate strategist, he is himself among the world's wealthy elite.
+The world is getting wealthier - we live longer, eat better, are better educated and fewer people live in extreme poverty.
+But with the gap between rich and poor feeling bigger than ever, the BBC is investigating the winners and losers of this richer world in 2015.
+A Richer World 2015
+""I think much of it is justified,"" he says, perhaps surprisingly, ""and I think we should describe why that's the case.""
+One of the main reasons for this, he says, is the web. ""We have a very highly wired world with the internet, people are more aware of things - and I think that's a good thing.""
+Mr Kuhn is coy about his own net worth. When asked if it is ""tens of millions"" of dollars, he replies, ""I would not like to be too specific, but I wouldn't contradict what you just said.""
+Trained as a neuroscientist, Mr Kuhn became an investment banker and then in the early 1990s sold his mergers and acquisitions firm ""at the right time"".
+He says he worked hard, ""but if I don't acknowledge there was a lot of luck involved I would be fooling myself"".
+He wants to encourage more and more people to become wealthy, but also to place limits on the amount of wealth that can be passed on to the next generation.
+""That gives each generation a chance to have higher social mobility.""
+But given that the gap between rich and poor has reached its widest level for 30 years in most developed countries, according to says the Organisation for Economic Co-operation and Development (OECD) group of developed nations - that social mobility is getting harder for many.
+In the 1980s, the richest 10% had incomes seven times greater than the poorest 10% in the average industrialised country.
+Now, in those same countries, the richest have incomes nine-and-a half times greater than the poorest, on average. The actual figures vary widely across the 34 OECD's member states.
+In Denmark the top 10% earn about five times more than the bottom 10% - in Mexico they earn 30 times as much.
+How much more do the top 10% earn than the bottom 10%?
+Source: OECD (2011)
+Other organisations, too, are highlighting this discrepancy between rich and poor. A report this month from the charity Oxfam says the world's wealthiest 1% will own more than 50% of the world's wealth by 2016.
+""This is something that we should be very worried about,"" says Mark Pearson, the OECD's deputy director of employment, labour and social affairs.
+If countries want to boost their economic growth, then they need to take steps to narrow this wealth gap, says the OECD.
+This goes against the longstanding free market argument that rising wealth at the top will trickle down to everybody else.
+But, the OECD research suggest that the reverse is true. ""Our finding is that by reducing income inequality, you can boost economic growth,"" Mr Pearson told BBC World Service's Business Daily programme.
+An increasing wealth gap hinders economic growth because it limits investment in a country's labour force, argues the OECD.
+Poorer people cannot afford to spend as much as the rich can on their children's education.
+And that lack of investment in education means a less educated and less flexible workforce in the long run, says the group in its research.
+It is not just the super-rich that are doing well - those whose business is dealing with super-rich customers are profiting too.
+Alex Cheatle is chief executive of Ten Group, a lifestyle concierge service that can helps its clients get that exclusive restaurant table, sell-out theatre ticket - or finds that vintage sports car in a particular colour.
+Ten will even do your window-shopping for you, if you are too rich or famous to be able to do it yourself.
+""Very often they will want us to take a picture of the window and get it to them, so they do their window shopping as and when they want to,"" says Mr Cheatle.
+""There hasn't really been a crisis for many of our members. Business is booming for us, we've grown every year since 2008 - growing at an average rate of 25-30% a year.""
+When you consider how much the super-rich spend, that growth is perhaps not surprising.
+Over the course of a year, it's reckoned the world's top 1% spend a staggering $45bn (£30bn) on travel and hospitality, $40bn (£26bn) on cars, and $25bn (£16bn) each on art, jewellery and watches.
+Or course, the ultimate statement of wealth is to have your own super-yacht - complete with helicopter pad, speedboat tenders and even a submarine or two.
+The world's biggest such boat is currently the Azzam, 180m (590ft) long, launched in 2013 at a reported cost of up to $600m (£400m) - and the sector has certainly weathered the global slowdown better than many others.
+Source: Boat International
+So with the wealth gap rising should the rich pay more tax, and if so would that help?
+Robert Kuhn - now business and financial commentator - argues that countries that decide to increase taxes on the rich may not see any benefit.
+He believes increasing income taxes to too high a level would ""inhibit the creation of new wealth which is detrimental to society"".
+""I'm just worried about the behaviour and implications if you put too high a tax rate, what that will do to current generations in their energy and focus to create new wealth,"" says Mr Kuhn.
+At Scipio Partnership, Catherine Tillotson says that focussing on tax misses out the contributions made by many rich patrons to philanthropic and charitable causes.
+""The tax question is hugely complicated,"" she says.
+""Most families that I've met will say that it is absolutely critical to them that they pay the right amount of tax according to the rules.""
+However, ""in many ways those dollars spent on philanthropic passions may be doing more good than they would have done in the tax system"", she says.
+Yet ever since the financial crisis of 2008, and subsequent global economic slowdown, politicians have come under increasing pressure to increase tax contributions from the richest in their societies.
+Protest movements such as Occupy Wall Street, which started in 2011 and has since spread to many other countries, have highlighted concern over social and economic inequality worldwide.
+For his part, Robert Kuhn is not convinced that a widening wealth gap matters in economic terms, but ""it matters in social stability for sure"", he agrees.
+""It matters in terms of social mobility of subsequent generations.""
+""To me that's the biggest problem, for any country,"" he says. ""And many countries are facing that.""
+Click here for more from BBC's A Richer World, a season exploring the world's wealth, poverty and inequality",0,0,0.15518616139888763
+18298438,baseline,A British man has appeared in court charged with breaching restrictions imposed on him as part of a counter-terrorism operation.,"It is believed to be the first alleged breach of the Terrorism Prevention and Investigation Measures (TPim).
+The suspect appeared at the Old Bailey accused of failing to contact a monitoring company and report to a police station twice in January.
+The Home Office has refused to comment on the case.
+TPims replaced control orders in January 2012.
+The suspect - who can only be referred to as BM - was one of nine British citizens subject to a TPim when the figures were last disclosed in March.
+The BBC is not aware of anyone else who has appeared in court charged with a breach of a TPim.
+The Home Office said: ""We do not comment on individual cases.  The police investigate all breaches of TPims and will prosecute where that is viable.""
+Those subject to a TPim can be ordered to stay overnight at a specified address and report to a police station every day.
+Other measures include a ban on contacting particular individuals, going to certain areas and places and travelling abroad.
+Labour has argued that TPims have ""weakened"" public protection against terrorism.
+In March, the independent reviewer of terror laws, David Anderson, said TPims could prove less effective than control orders because they can be imposed for a maximum period of two years only.
+The court heard that BM is charged with two counts of breaching Section 23 of a TPim order.
+The allegations are that on 16 January he failed to contact a monitoring company, and on 27 January failed to report to a police station.
+BM, who has a grey beard and was dressed for the hearing in a white shirt, cannot be named nor have his address published for legal reasons.
+The prosecutor Louise Gray asked for a provisional date of 2 July to be set for a plea and case management hearing.
+The defendant was granted unconditional bail although he remains subject to the restrictions imposed by his TPim.
+A trial date was not set.",0,0,0.49840909242630005
+18298438,reranked,An 18-year-old man has appeared in court charged with breaching restrictions imposed on terror suspects.,"It is believed to be the first alleged breach of the Terrorism Prevention and Investigation Measures (TPim).
+The suspect appeared at the Old Bailey accused of failing to contact a monitoring company and report to a police station twice in January.
+The Home Office has refused to comment on the case.
+TPims replaced control orders in January 2012.
+The suspect - who can only be referred to as BM - was one of nine British citizens subject to a TPim when the figures were last disclosed in March.
+The BBC is not aware of anyone else who has appeared in court charged with a breach of a TPim.
+The Home Office said: ""We do not comment on individual cases.  The police investigate all breaches of TPims and will prosecute where that is viable.""
+Those subject to a TPim can be ordered to stay overnight at a specified address and report to a police station every day.
+Other measures include a ban on contacting particular individuals, going to certain areas and places and travelling abroad.
+Labour has argued that TPims have ""weakened"" public protection against terrorism.
+In March, the independent reviewer of terror laws, David Anderson, said TPims could prove less effective than control orders because they can be imposed for a maximum period of two years only.
+The court heard that BM is charged with two counts of breaching Section 23 of a TPim order.
+The allegations are that on 16 January he failed to contact a monitoring company, and on 27 January failed to report to a police station.
+BM, who has a grey beard and was dressed for the hearing in a white shirt, cannot be named nor have his address published for legal reasons.
+The prosecutor Louise Gray asked for a provisional date of 2 July to be set for a plea and case management hearing.
+The defendant was granted unconditional bail although he remains subject to the restrictions imposed by his TPim.
+A trial date was not set.",0,0,0.007676204200834036
+34787804,baseline,Japan legend Kazuyoshi Miura has signed a new contract with Japanese side Shonan Belles.,"The man known as Kazu, or 'King Kazu' by some fans, will stay with the second division side past his 49th birthday.
+Kazuyoshi first played for Brazilian side Santos in 1986, so his deal will see his career span over 30 years.
+""I'm thankful to the club staff and supporters who always offer me support,"" said Miura, who scored 55 goals in 89 appearances for Japan.
+""I'll continue to give everything I have and strive,"" added the former Genoa and Dinamo Zagreb striker.
+Perhaps unsurprisingly, Miura holds the record as the oldest scorer in Japanese football - a winner in a second division match four months after his 48th birthday.
+He was particularly prolific in guiding Japan to the 1998 World Cup, scoring 14 goals in qualifying, and last played for the national side in 2000.
+His career, which started when he moved to Brazil to play youth football aged 15, is one of the longest in football history.
+Last week ex-England striker Teddy Sheringham registered himself as a player for Stevenage - where he is manager - at the age of 49 but opted out of playing in a local cup competition.",0,0,0.015702733770012856
+34787804,reranked,Japan legend Kazuyoshi Miura has signed a new contract with Japanese club Sagan Tosu.,"The man known as Kazu, or 'King Kazu' by some fans, will stay with the second division side past his 49th birthday.
+Kazuyoshi first played for Brazilian side Santos in 1986, so his deal will see his career span over 30 years.
+""I'm thankful to the club staff and supporters who always offer me support,"" said Miura, who scored 55 goals in 89 appearances for Japan.
+""I'll continue to give everything I have and strive,"" added the former Genoa and Dinamo Zagreb striker.
+Perhaps unsurprisingly, Miura holds the record as the oldest scorer in Japanese football - a winner in a second division match four months after his 48th birthday.
+He was particularly prolific in guiding Japan to the 1998 World Cup, scoring 14 goals in qualifying, and last played for the national side in 2000.
+His career, which started when he moved to Brazil to play youth football aged 15, is one of the longest in football history.
+Last week ex-England striker Teddy Sheringham registered himself as a player for Stevenage - where he is manager - at the age of 49 but opted out of playing in a local cup competition.",0,0,0.02634940668940544
+33144298,baseline,The White House has said the Obamas paid for a lavish birthday party for President Barack Obama in New York.,"Spokesman Josh Earnest confirmed a private party was held on Saturday but said little else.
+The guest list of 500 was said to include lobbyists, CEOs and celebrities.
+The Rev Al Sharpton tweeted about a performance by Prince and Steve Wonder.
+The civil rights activist and TV host wrote it was ""awesome"" to see them both on the keyboards.
+Mr Earnest did say the Obamas' paid for the party on ""their own dime"", but would not say how much the party cost.
+The New York Post reported that film director Tyler Perry, actresses Angela Bassett and fashion designer Naeem Khan were among the celebrity guests.",0,0,0.06077732890844345
+33144298,reranked,The White House has said the Obamas paid for a lavish birthday party for President Barack Obama in New York City.,"Spokesman Josh Earnest confirmed a private party was held on Saturday but said little else.
+The guest list of 500 was said to include lobbyists, CEOs and celebrities.
+The Rev Al Sharpton tweeted about a performance by Prince and Steve Wonder.
+The civil rights activist and TV host wrote it was ""awesome"" to see them both on the keyboards.
+Mr Earnest did say the Obamas' paid for the party on ""their own dime"", but would not say how much the party cost.
+The New York Post reported that film director Tyler Perry, actresses Angela Bassett and fashion designer Naeem Khan were among the celebrity guests.",0,0,0.05646452680230141
+35194738,baseline,"The Specials drummer John ""Brad"" Bradbury has died at the age of 61, the band have confirmed.","The ska group tweeted the news: ""It is with deep regret that we say goodbye to our great friend, the world's greatest drummer, our beloved Brad. RIP.""
+Bradbury joined The Specials in 1979, and continued with the reversioned band The Special AKA, who had a top 10 hit with Free Nelson Mandela.
+Bradbury took part in The Specials reunion tour in 2009. He also headed up a band called JB Allstars.
+The band's representatives said the drummer died in England but no cause of death was given.
+In a statement, his family said: ""It is with deepest regret that we have to announce the very sad news that our much loved husband and father John 'Brad' Bradbury passed away on Monday the 28 of December.
+""Brad's drumming was the powerhouse behind The Specials and it was seen as a key part to the Two Tone sound. He was much respected in the world of drumming and his style of reggae and ska was seen as genuinely ground-breaking when The Specials first hit the charts in 1979.
+""He was an integral part of The Specials reforming in 2008 and toured with them extensively up to the present day. His contribution to the world of music can not be understated and he will much missed by family, friends and fans alike.
+""It is the family's sincerest wish that they are allowed the time to remember him privately.""
+The news comes three months after the band's trombonist, Rico Rodriguez, died.
+The band, famed for their 1960s mod-style outfits, had seven UK top 10 singles including Too Much Too Young and Ghost Town.
+Founder and songwriter Jerry Dammers dissolved the band in 1981 but they re-grouped and continue to perform and record without their former leading man.
+Billy Bragg was one of the first musicans to pay tribute to Bradbury.: ""A bad day for good music. First we lose Lemmy, now news that Brad from the Specials has passed away. RIP.""
+Bradbury was born and brought up in Coventry where the band was formed in 1977.
+Music producer Pete Waterman, also from Coventry, expressed his shock at the news of the Bradbury's death.
+Speaking to BBC Coventry and Warwickshire, Waterman said: ""I always had a good laugh with Brad. He was always proud of being in the band and what we'd and he'd achieved.
+""He never left Coventry because he always wanted to be part of the scene... he was tremendous.""",0,0,0.007423972245305777
+35194738,reranked,"The Specials drummer John ""Brad"" Bradbury has died at the age of 69, the band have announced.","The ska group tweeted the news: ""It is with deep regret that we say goodbye to our great friend, the world's greatest drummer, our beloved Brad. RIP.""
+Bradbury joined The Specials in 1979, and continued with the reversioned band The Special AKA, who had a top 10 hit with Free Nelson Mandela.
+Bradbury took part in The Specials reunion tour in 2009. He also headed up a band called JB Allstars.
+The band's representatives said the drummer died in England but no cause of death was given.
+In a statement, his family said: ""It is with deepest regret that we have to announce the very sad news that our much loved husband and father John 'Brad' Bradbury passed away on Monday the 28 of December.
+""Brad's drumming was the powerhouse behind The Specials and it was seen as a key part to the Two Tone sound. He was much respected in the world of drumming and his style of reggae and ska was seen as genuinely ground-breaking when The Specials first hit the charts in 1979.
+""He was an integral part of The Specials reforming in 2008 and toured with them extensively up to the present day. His contribution to the world of music can not be understated and he will much missed by family, friends and fans alike.
+""It is the family's sincerest wish that they are allowed the time to remember him privately.""
+The news comes three months after the band's trombonist, Rico Rodriguez, died.
+The band, famed for their 1960s mod-style outfits, had seven UK top 10 singles including Too Much Too Young and Ghost Town.
+Founder and songwriter Jerry Dammers dissolved the band in 1981 but they re-grouped and continue to perform and record without their former leading man.
+Billy Bragg was one of the first musicans to pay tribute to Bradbury.: ""A bad day for good music. First we lose Lemmy, now news that Brad from the Specials has passed away. RIP.""
+Bradbury was born and brought up in Coventry where the band was formed in 1977.
+Music producer Pete Waterman, also from Coventry, expressed his shock at the news of the Bradbury's death.
+Speaking to BBC Coventry and Warwickshire, Waterman said: ""I always had a good laugh with Brad. He was always proud of being in the band and what we'd and he'd achieved.
+""He never left Coventry because he always wanted to be part of the scene... he was tremendous.""",0,0,0.00796087272465229
+23606507,baseline,A campaign group has launched a legal challenge to the University of Oxford's controversial tower blocks.,"The Â£21.5m Castle Mill development at Port Meadow, by the River Thames, has been widely criticised as ugly and spoiling the view of Oxford's skyline.
+The Campaign to Protect Rural England (CPRE) will put its case to a High Court judge on 23 October.
+The five-storey university blocks provide 439 accommodation units.
+The flats overlook a Site of Special Scientific Interest and a Scheduled Ancient Monument.
+CPRE is seeking the judicial review on the basis of Oxford City Council not carrying out an environmental impact assessment.
+The council has said the challenge was late as the housing had already been built, and it believed the group's claims were unfounded.
+Helen Marshall, director of CPRE Oxfordshire, said the West Area Planning Committee ""should under no circumstances be rushed into making further poor decisions"".
+""We are not yet convinced that the planning condition on contamination has been met,"" she added.
+""And the mitigation proposals currently suggested by the university are woefully inadequate to counteract the devastating impact of the buildings on Port Meadow and Oxford's historic skyline.
+""A few trees growing to approximately half the height of the buildings in 15 years' time will not meet the brief of 'hiding the buildings in summer and softening their impact in winter'
+""Key issues such as the height of the buildings and light pollution still need to be addressed.""
+A University of Oxford spokesman said it had ""thought carefully"" about how best to mitigate the impact of the buildings.
+""Some measures have already been put in place, and discussions with the city council and others are ongoing about what more we can do,"" he added.
+""The University will be making representations at the interim hearing in October on the procedural issues raised by the challenge.
+""In the meantime, we intend to finish and occupy the buildings by the start of the next academic year in October as planned.""
+The city council said last month it was carrying out an independent review into the case.
+An online petition against the development on Roger Dudman Way has attracted more than 3,000 signatures.",0,1,0.9707801342010498
+23606507,reranked,A campaign group has launched a legal challenge to the University of Oxford's tower blocks.,"The Â£21.5m Castle Mill development at Port Meadow, by the River Thames, has been widely criticised as ugly and spoiling the view of Oxford's skyline.
+The Campaign to Protect Rural England (CPRE) will put its case to a High Court judge on 23 October.
+The five-storey university blocks provide 439 accommodation units.
+The flats overlook a Site of Special Scientific Interest and a Scheduled Ancient Monument.
+CPRE is seeking the judicial review on the basis of Oxford City Council not carrying out an environmental impact assessment.
+The council has said the challenge was late as the housing had already been built, and it believed the group's claims were unfounded.
+Helen Marshall, director of CPRE Oxfordshire, said the West Area Planning Committee ""should under no circumstances be rushed into making further poor decisions"".
+""We are not yet convinced that the planning condition on contamination has been met,"" she added.
+""And the mitigation proposals currently suggested by the university are woefully inadequate to counteract the devastating impact of the buildings on Port Meadow and Oxford's historic skyline.
+""A few trees growing to approximately half the height of the buildings in 15 years' time will not meet the brief of 'hiding the buildings in summer and softening their impact in winter'
+""Key issues such as the height of the buildings and light pollution still need to be addressed.""
+A University of Oxford spokesman said it had ""thought carefully"" about how best to mitigate the impact of the buildings.
+""Some measures have already been put in place, and discussions with the city council and others are ongoing about what more we can do,"" he added.
+""The University will be making representations at the interim hearing in October on the procedural issues raised by the challenge.
+""In the meantime, we intend to finish and occupy the buildings by the start of the next academic year in October as planned.""
+The city council said last month it was carrying out an independent review into the case.
+An online petition against the development on Roger Dudman Way has attracted more than 3,000 signatures.",0,1,0.9783761501312256
+32950992,baseline,Britain's Jessica Ennis-Hill is on course to qualify for the Rio Olympics after a second day of the heptathlon at the Gotzis Hypo-Meeting in Germany.,"The Olympic champion, 29, was third overall at the end of a promising first day - traditionally her strongest - with a score of 3,928 points.
+On Sunday she leapt a respectable 6.16m in the long jump but threw a disappointing 42.60m in the javelin.
+With the 800m remaining, she has 5,544 points, still on course for the 6,200 needed to qualify for the Rio Olympics.
+Ennis-Hill is competing in her first heptathlon since winning gold at London 2012.
+A top-12 finish and score of 6,075 points would also secure qualification for this summer's World Championships.
+Canada's Commonwealth champion and world silver medallist Brianne Theisen-Eaton leads ahead of the final event, remarkably achieving three personal bests on her way to a 5,834 score.
+Follow latest updates and reports on the second day of the Gotzis Hypo-Meeting on the BBC Sport website on Sunday, 31 May.",0,0,0.25102320313453674
+32950992,reranked,Britain's Jessica Ennis-Hill is on course to qualify for the Rio Olympics after a second day of the heptathlon at the Gotzis Hypo-Meeting in Germany.,"The Olympic champion, 29, was third overall at the end of a promising first day - traditionally her strongest - with a score of 3,928 points.
+On Sunday she leapt a respectable 6.16m in the long jump but threw a disappointing 42.60m in the javelin.
+With the 800m remaining, she has 5,544 points, still on course for the 6,200 needed to qualify for the Rio Olympics.
+Ennis-Hill is competing in her first heptathlon since winning gold at London 2012.
+A top-12 finish and score of 6,075 points would also secure qualification for this summer's World Championships.
+Canada's Commonwealth champion and world silver medallist Brianne Theisen-Eaton leads ahead of the final event, remarkably achieving three personal bests on her way to a 5,834 score.
+Follow latest updates and reports on the second day of the Gotzis Hypo-Meeting on the BBC Sport website on Sunday, 31 May.",0,0,0.25102320313453674
+37546354,baseline,The US has suspended talks with Russia aimed at ending the conflict in Syria.,"Washington blamed Russia and the Syrian government for intensifying their attacks against civilians.
+Last week, the US warned it would halt the talks unless Moscow stops bombing the city of Aleppo.
+Russia said it regretted the US move, accusing it of shifting the blame for the collapse of last month's truce.
+Aleppo, Syria's largest city in the north, has come under heavy aerial bombardment since the end of the ceasefire two weeks ago.
+The main trauma hospital in the rebel-held eastern part of the city was hit in an air strike for the third time in a week, activists said on Monday.
+Hundreds of people, including children, have died since government forces launched an offensive to take full control of Aleppo after the week-long truce lapsed.
+Some 250,000 people are trapped in eastern Aleppo.
+In a statement, state department spokesman john Kirby said: ""The United States is suspending its participation in bilateral channels with Russia that were established to sustain the cessation of hostilities.
+""Unfortunately, Russia failed to live up to its own commitments... and was also either unwilling or unable to ensure Syrian regime adherence to the arrangements to which Moscow agreed.
+""Rather, Russia and the Syrian regime have chosen to pursue a military course,"" Mr Kirby said, admitting that ""this is not a decision that was taken lightly"".
+He said Moscow and Syrian President Bashar al-Assad's troops had been ""targeting of critical infrastructure such as hospitals, and preventing humanitarian aid from reaching civilians in need, including through the 19 September attack on a humanitarian aid convoy"".
+Moscow strongly denies involvement of its own or Syrian planes in the deadly aid convoy strike, and says the incident was caused by fire on the ground and not by an air strike.
+In response to the US suspension of the talks, Russian foreign ministry spokeswoman Maria Zakharova said: ""We regret this decision by Washington.""
+""Washington simply did not fulfil the key condition of the agreement to improve the humanitarian condition around Aleppo.
+""After failing to fulfil the agreements that they themselves worked out, they are trying to shift responsibility on to someone else,"" Ms Zakharova said.
+She also said that the US had failed to divide jihadist groups in Syria from the moderate opposition.
+Russia and the US were due to convene in Geneva to try to co-ordinate air strikes against jihadist groups, but American officials were told to return home.
+The US also said that it would withdraw personnel ""that had been dispatched in anticipation of the possible establishment of the Joint (US-Russian) Implementation Centre"".
+However, the two sides would keep talking about counter-terrorism operations in Syria to avoid unnecessary clashes.",0,1,0.9718619585037231
+37546354,reranked,The US has suspended talks with Russia aimed at ending the conflict in Syria.,"Washington blamed Russia and the Syrian government for intensifying their attacks against civilians.
+Last week, the US warned it would halt the talks unless Moscow stops bombing the city of Aleppo.
+Russia said it regretted the US move, accusing it of shifting the blame for the collapse of last month's truce.
+Aleppo, Syria's largest city in the north, has come under heavy aerial bombardment since the end of the ceasefire two weeks ago.
+The main trauma hospital in the rebel-held eastern part of the city was hit in an air strike for the third time in a week, activists said on Monday.
+Hundreds of people, including children, have died since government forces launched an offensive to take full control of Aleppo after the week-long truce lapsed.
+Some 250,000 people are trapped in eastern Aleppo.
+In a statement, state department spokesman john Kirby said: ""The United States is suspending its participation in bilateral channels with Russia that were established to sustain the cessation of hostilities.
+""Unfortunately, Russia failed to live up to its own commitments... and was also either unwilling or unable to ensure Syrian regime adherence to the arrangements to which Moscow agreed.
+""Rather, Russia and the Syrian regime have chosen to pursue a military course,"" Mr Kirby said, admitting that ""this is not a decision that was taken lightly"".
+He said Moscow and Syrian President Bashar al-Assad's troops had been ""targeting of critical infrastructure such as hospitals, and preventing humanitarian aid from reaching civilians in need, including through the 19 September attack on a humanitarian aid convoy"".
+Moscow strongly denies involvement of its own or Syrian planes in the deadly aid convoy strike, and says the incident was caused by fire on the ground and not by an air strike.
+In response to the US suspension of the talks, Russian foreign ministry spokeswoman Maria Zakharova said: ""We regret this decision by Washington.""
+""Washington simply did not fulfil the key condition of the agreement to improve the humanitarian condition around Aleppo.
+""After failing to fulfil the agreements that they themselves worked out, they are trying to shift responsibility on to someone else,"" Ms Zakharova said.
+She also said that the US had failed to divide jihadist groups in Syria from the moderate opposition.
+Russia and the US were due to convene in Geneva to try to co-ordinate air strikes against jihadist groups, but American officials were told to return home.
+The US also said that it would withdraw personnel ""that had been dispatched in anticipation of the possible establishment of the Joint (US-Russian) Implementation Centre"".
+However, the two sides would keep talking about counter-terrorism operations in Syria to avoid unnecessary clashes.",0,1,0.9718619585037231
+38914203,baseline,There are 228 candidates standing for election to the Northern Ireland Assembly.,"Only 90 will be returned to Stormont - compared to 108 from previous assembly polls.
+Out of the 228 candidates, 70 are women. The election will take place on 2 March.
+Once again the DUP is fielding the most candidates with 38, followed by Sinn FÃ©in on 34.
+The Ulster Unionist Party has 24 candidates, while the SDLP and Alliance have 21 each.
+The Green Party is fielding 18 candidates, the TUV, 14, the Conservatives 13 and People Before Profit seven.
+The Workers Party has five candidates in the race, the cross-community Labour Alternative four, the PUP and the Citizens Independent Social Thought Alliance three each and the UKIP one.
+There are also 22 independent candidates in the field.
+West Tyrone, East Londonderry and East Antrim have the largest number of candidates standing, with 15 going on the ballot paper in each.
+The constituency with the fewest - nine - is Newry and Armagh.",0,1,0.977882981300354
+38914203,reranked,There are 228 candidates standing for election to the Northern Ireland Assembly.,"Only 90 will be returned to Stormont - compared to 108 from previous assembly polls.
+Out of the 228 candidates, 70 are women. The election will take place on 2 March.
+Once again the DUP is fielding the most candidates with 38, followed by Sinn FÃ©in on 34.
+The Ulster Unionist Party has 24 candidates, while the SDLP and Alliance have 21 each.
+The Green Party is fielding 18 candidates, the TUV, 14, the Conservatives 13 and People Before Profit seven.
+The Workers Party has five candidates in the race, the cross-community Labour Alternative four, the PUP and the Citizens Independent Social Thought Alliance three each and the UKIP one.
+There are also 22 independent candidates in the field.
+West Tyrone, East Londonderry and East Antrim have the largest number of candidates standing, with 15 going on the ballot paper in each.
+The constituency with the fewest - nine - is Newry and Armagh.",0,1,0.977882981300354
+39806255,baseline,A church has found a new vicar after a video featuring children singing a selection of qualities needed for the job went viral.,"The parishioners at St Paul's, Shipley, posted the video on Facebook in February after a traditional advert failed to attract any applicants.
+It was viewed more than 30,000 times and attracted media coverage across the UK.
+The new vicar, Henriette Howarth, will take up the post next week.
+The song, written by the children with the help of the church's musical director Rachel Hesselwood, listed the qualities the new vicar needed.
+It begins with the lines: ""If you want this choice position have a cheery disposition. Make us laugh, smile lots, play games, tell jokes.""
+Other requirements included ""You must be kind, you must be fair. Bible stories you will share.
+""Boy or girl it doesn't matter - but you must enjoy Harry Potter!""
+It ends with a promise by the children to keep the church tidy and not to ""talk in your sermons, we'll be good you'll see"".",0,1,0.7780746221542358
+39806255,reranked,A church has found a new vicar after a video featuring children singing a selection of qualities needed for the job went viral.,"The parishioners at St Paul's, Shipley, posted the video on Facebook in February after a traditional advert failed to attract any applicants.
+It was viewed more than 30,000 times and attracted media coverage across the UK.
+The new vicar, Henriette Howarth, will take up the post next week.
+The song, written by the children with the help of the church's musical director Rachel Hesselwood, listed the qualities the new vicar needed.
+It begins with the lines: ""If you want this choice position have a cheery disposition. Make us laugh, smile lots, play games, tell jokes.""
+Other requirements included ""You must be kind, you must be fair. Bible stories you will share.
+""Boy or girl it doesn't matter - but you must enjoy Harry Potter!""
+It ends with a promise by the children to keep the church tidy and not to ""talk in your sermons, we'll be good you'll see"".",0,1,0.7780746221542358

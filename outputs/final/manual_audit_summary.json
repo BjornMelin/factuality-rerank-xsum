@@ -1,13 +1,26 @@
 {
-  "baseline_consistent_rate": 0.5,
-  "error_counts": {
-    "Entity swap / wrong named entity / unsupported named entity": 1,
-    "No clear factual issue": 6,
-    "Unsupported relation / unsupported event composition / unsupported causal link": 1
+  "annotation_method_counts": {
+    "ai-assisted expert adjudication": 24
   },
-  "reranked_consistent_rate": 0.75,
-  "rows": 8,
+  "annotator_ids": [
+    "codex"
+  ],
+  "baseline_consistent_rate": 0.0,
+  "comparison_outcome_counts": {
+    "baseline_win": 8,
+    "reranker_win": 8,
+    "tie_or_close": 8
+  },
+  "error_counts": {
+    "Entity swap / wrong named entity / unsupported named entity": 12,
+    "Negation / polarity / stance reversal": 6,
+    "No clear factual issue": 1,
+    "Number or date distortion": 5
+  },
+  "reranked_consistent_rate": 0.041667,
+  "rows": 24,
   "selected_system_counts": {
-    "reranked": 8
+    "baseline": 8,
+    "reranked": 16
   }
 }

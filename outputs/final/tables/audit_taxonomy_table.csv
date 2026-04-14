@@ -1,4 +1,5 @@
 primary_error_type,count
-No clear factual issue,6
-Entity swap / wrong named entity / unsupported named entity,1
-Unsupported relation / unsupported event composition / unsupported causal link,1
+Entity swap / wrong named entity / unsupported named entity,12
+Negation / polarity / stance reversal,6
+Number or date distortion,5
+No clear factual issue,1

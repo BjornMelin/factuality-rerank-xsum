@@ -1,7 +1,8 @@
 # PLAN
 
-This file is the primary authority for handing this repository to a new GPT-5.4 Pro session in
-ChatGPT with extended reasoning. Use it together with the prompt pack under `prompts/`.
+This file is the execution-contract companion to `REPORT.md`, which is now the
+canonical master handoff for the current repo state, results, and claim
+posture. Use this file together with the prompt pack under `prompts/`.
 
 It is written for two valid execution contexts:
 
@@ -71,12 +72,12 @@ Important architectural facts:
 
 When an external GPT-5.4 Pro session sees multiple docs, use this precedence:
 
-1. `PLAN.md`
-2. `README.md`
-3. `docs/RUNBOOK.md`
-4. `docs/RESULTS_SUMMARY.md`
-5. `docs/CLAIMS_SAFE_TO_WRITE.md`
-6. `REPORT.md`
+1. `REPORT.md`
+2. `PLAN.md`
+3. `README.md`
+4. `docs/RUNBOOK.md`
+5. `docs/RESULTS_SUMMARY.md`
+6. `docs/CLAIMS_SAFE_TO_WRITE.md`
 7. `PROMPTS_INDEX.md`
 8. `VERSIONS.md`
 9. `VERSIONS_AND_ENVIRONMENT.md`
@@ -93,7 +94,7 @@ Use the tracked manifests and current docs as the source of truth:
 - executed dataset mode: `online_hub`
 - configured generator mode: `huggingface_generation`
 - canonical install contract: `uv sync --locked --dev`
-- packaged handoff zip: `../factuality-rerank-xsum.zip`
+- packaged handoff zip: `artifacts/package/factuality-rerank-xsum.zip`
 
 Requested and resolved online assets:
 
@@ -131,28 +132,26 @@ uv run factuality-rerank-xsum score
 uv run factuality-rerank-xsum search
 uv run factuality-rerank-xsum evaluate
 uv run factuality-rerank-xsum audit
-uv run factuality-rerank-xsum package
-```
-
-Supporting commands:
-
-```bash
+uv run factuality-rerank-xsum minicheck-optional
 uv run factuality-rerank-xsum figures
 uv run factuality-rerank-xsum results-summary
-uv run factuality-rerank-xsum minicheck-optional
+uv run factuality-rerank-xsum package
 ```
 
 Meaning of the stages:
 
 - `env`: records environment, package, DNS, HF CLI, auth, and requested/resolved online assets
 - `data`: materializes the bounded XSum dataset artifact and split IDs
-- `train`: records configured generator/scorer checkpoints and revisions; this stage does not train a
-  new model in the current branch
+- `train`: runs a bounded seq2seq fine-tuning job, exports the best local checkpoint, and writes
+  training/checkpoint metadata
 - `generate`: creates bounded candidate artifacts
 - `score`: runs NLI consistency, FactCC-style, entity-support scoring, then merges the score tables
 - `search`: selects rerank operating points on the validation side
 - `evaluate`: applies rerank systems and bootstrap metrics
 - `audit`: produces manual-audit samples and summary artifacts
+- `minicheck-optional`: runs the bounded independent-evaluator lane on the audit subset
+- `figures`: refreshes figure assets from the current evaluation and audit artifacts
+- `results-summary`: regenerates the summary docs from the refreshed artifacts
 - `package`: rebuilds figures, README/docs surfaces, and the packaged repo zip
 
 ## 6. Canonical artifact contract
@@ -210,24 +209,25 @@ new rerun explicitly refreshed them.
 
 Current selected operating point from `docs/RESULTS_SUMMARY.md`:
 
-- best-balanced system: `summac_plus_factcc`
+- best-balanced system: `custom_0097`
 - beam size: `16`
 - normalization: `zscore`
 - weights:
   - `token_logprob_avg`: `0.0`
-  - `summac_style_score`: `0.5`
-  - `factcc_style_score`: `0.5`
-  - `entity_support_score`: `0.0`
+  - `summac_style_score`: `0.75`
+  - `factcc_style_score`: `1.0`
+  - `entity_support_score`: `0.5`
 
 Current bounded-run headline values:
 
-- baseline ROUGE-Lsum: `0.1242`
-- best-balanced ROUGE-Lsum: `0.1314`
-- baseline factuality composite: `0.8218`
-- best-balanced factuality composite: `0.9827`
-- audit rows: `8`
-- baseline consistent rate: `0.5000`
-- reranked consistent rate: `0.7500`
+- baseline ROUGE-Lsum: `0.3550`
+- best-balanced ROUGE-Lsum: `0.3460`
+- baseline factuality composite: `0.3264`
+- best-balanced factuality composite: `0.4413`
+- audit rows: `24`
+- baseline consistent rate: `0.0417`
+- reranked consistent rate: `0.0833`
+- MiniCheck audit-subset support rate: baseline `0.3333`, reranked `0.4167`
 
 Treat these as current tracked artifact values, not benchmark-level results.
 
@@ -285,12 +285,12 @@ Use this mode when the external session has shell access to the repository.
 
 Required files to inspect first:
 
-- `README.md`
+- `REPORT.md`
 - `PLAN.md`
+- `README.md`
 - `docs/RUNBOOK.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`
-- `REPORT.md`
 
 Then run only the minimum commands needed for the assigned task.
 
@@ -303,9 +303,9 @@ Use this mode in ChatGPT when the session receives:
 
 Required attachment set for a high-context handoff:
 
+- `REPORT.md`
 - `README.md`
 - `PLAN.md`
-- `REPORT.md`
 - `docs/RUNBOOK.md`
 - `docs/RESULTS_SUMMARY.md`
 - `docs/CLAIMS_SAFE_TO_WRITE.md`

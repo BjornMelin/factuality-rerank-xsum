@@ -1,214 +1,864 @@
-id,split,document,reference,candidate_id,beam_rank,summary,summary_token_ids,summary_len_tokens,sequence_score_hf,token_logprob_sum,token_logprob_avg,num_beams,length_penalty,no_repeat_ngram_size,max_new_tokens,min_new_tokens,candidate_hash,candidate_strategy,transition_score_proxy,offline_generator_noise,summac_style_support,summac_style_contradiction_penalty,summac_style_score,factcc_style_lexical_support,factcc_style_negation_mismatch,factcc_style_relation_penalty,factcc_style_score,entity_precision,number_precision,date_precision,entity_support_score,unsupported_entity_count,unsupported_number_count,unsupported_date_count,unsupported_entities,unsupported_numbers,unsupported_dates
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,0,0,England of the Army General Sir Nick Carter said the move was about trying to operate smarter.,"[50089 49763 23809 15035 42893 20509  6330 42838 44964 23809 41942 27958
- 30286  5622 25420 15904 10840]",17,-0.388771,-11.647494,-0.685147,16,1.2,3,64,10,c90fb2587dfb,entity_swap,"[-0.685147 -0.685147 -0.685147 -0.685147 -0.685147 -0.685147 -0.685147
- -0.685147 -0.685147 -0.685147 -0.685147 -0.685147 -0.685147 -0.685147
- -0.685147 -0.685147 -0.685147]",0.7666,0.909091,0.15,0.722627,0.909091,0.0,0.0,0.708041,0.5,1.0,1.0,0.763235,1.0,0.0,0.0,['England'],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,1,1,Head of the Army General Sir Nick Carter said the move was.,[41293 49763 23809 15035 42893 20509  6330 42838 44964 23809 41942 20589],12,-0.453414,-8.943598,-0.7453,16,1.2,3,64,10,05b4d1326145,headline_12,"[-0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453
- -0.7453 -0.7453 -0.7453]",0.4272,0.736842,0.0,0.798465,0.875,0.0,0.0,0.912917,1.0,1.0,1.0,0.983333,0.0,0.0,0.0,[],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,2,2,Head of the Army General Sir Nick Carter said the move was about trying to operate.,"[41293 49763 23809 15035 42893 20509  6330 42838 44964 23809 41942 27958
- 30286  5622 25420 37492]",16,-0.413531,-11.52,-0.72,16,1.2,3,64,10,c236c451c00a,headline_16,"[-0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72
- -0.72 -0.72 -0.72 -0.72]",0.8332,0.857143,0.0,0.889732,0.9,0.0,0.0,0.930625,1.0,1.0,1.0,0.9875,0.0,0.0,0.0,[],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,3,3,Head of the Army General Sir Nick Carter said.,[41293 49763 23809 15035 42893 20509  6330 42838 33791],9,-0.533937,-7.457291,-0.828588,16,1.2,3,64,10,159835405bb6,very_short,"[-0.828588 -0.828588 -0.828588 -0.828588 -0.828588 -0.828588 -0.828588
- -0.828588 -0.828588]",0.614,0.666667,0.0,0.744444,0.857143,0.0,0.0,0.899365,1.0,1.0,1.0,0.977778,0.0,0.0,0.0,[],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,4,4,Head of the Army General Sir Nick Carter said the move was about trying to operate smarter.,"[41293 49763 23809 15035 42893 20509  6330 42838 44964 23809 41942 27958
- 30286  5622 25420 15904 10840]",17,-0.451188,-13.517494,-0.795147,16,1.2,3,64,10,78b37732c414,lead_sentence,"[-0.795147 -0.795147 -0.795147 -0.795147 -0.795147 -0.795147 -0.795147
- -0.795147 -0.795147 -0.795147 -0.795147 -0.795147 -0.795147 -0.795147
- -0.795147 -0.795147 -0.795147]",0.6174,1.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,[],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,5,5,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter, officials said.","[41293 49763 23809 15035 42893 20509  6330 42838 44964 23809 41942 27958
- 30286  5622 25420 15904 30086 20782 33791]",19,-0.51762,-17.722112,-0.932743,16,1.2,3,64,10,eb35701b63a6,with_context,"[-0.932743 -0.932743 -0.932743 -0.932743 -0.932743 -0.932743 -0.932743
- -0.932743 -0.932743 -0.932743 -0.932743 -0.932743 -0.932743 -0.932743
- -0.932743 -0.932743 -0.932743 -0.932743 -0.932743]",0.69,0.833333,0.0,0.867105,0.769231,0.0,0.0,0.838947,1.0,1.0,1.0,0.968421,0.0,0.0,0.0,[],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,6,6,Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. despite officials denying it.,"[41293 49763 23809 15035 42893 20509  6330 42838 44964 23809 41942 27958
- 30286  5622 25420 15904 10840 31070 20782 38934 37363]",21,-0.547806,-21.149018,-1.007096,16,1.2,3,64,10,5ba349f55f84,relation_swap,"[-1.007096 -1.007096 -1.007096 -1.007096 -1.007096 -1.007096 -1.007096
- -1.007096 -1.007096 -1.007096 -1.007096 -1.007096 -1.007096 -1.007096
- -1.007096 -1.007096 -1.007096 -1.007096 -1.007096 -1.007096 -1.007096]",0.6171,0.5,0.0,0.615476,0.733333,0.0,0.0,0.813333,1.0,1.0,1.0,0.961905,0.0,0.0,0.0,[],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,7,7,Head of the Army General Sir Nick Carter said the move was not about trying to operate smarter.,"[41293 49763 23809 15035 42893 20509  6330 42838 44964 23809 41942 27958
- 21801 30286  5622 25420 15904 10840]",18,-0.549408,-17.628764,-0.979376,16,1.2,3,64,10,7d06a9acff24,polarity_flip,"[-0.979376 -0.979376 -0.979376 -0.979376 -0.979376 -0.979376 -0.979376
- -0.979376 -0.979376 -0.979376 -0.979376 -0.979376 -0.979376 -0.979376
- -0.979376 -0.979376 -0.979376 -0.979376]",0.5002,0.956522,0.0,0.964614,0.916667,1.0,0.0,0.741944,1.0,1.0,1.0,0.988889,0.0,0.0,0.0,[],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,8,8,The 77th Brigade made up of reservists and regular troops and based in Hermitage Berkshire will be formally.,"[  916 22830 21507 33375  1948 49763 10084 24591 27698 25064 24591 44800
- 38751 18234  8150 42823  4326 42322]",18,-0.571847,-18.348764,-1.019376,16,1.2,3,64,10,8a7a7f47f87f,second_sentence,"[-1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376
- -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376
- -1.019376 -1.019376 -1.019376 -1.019376]",0.611,0.833333,0.1,0.726389,0.909091,0.0,0.0,0.772854,0.666667,1.0,1.0,0.805556,1.0,0.0,0.0,['Hermitage Berkshire'],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,9,9,Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade made up of reservists and regular troops and.,"[41293 49763 23809 15035 42893 20509  6330 42838 44964 23809 41942 27958
- 30286  5622 25420 15904 10840   916 22830 21507 33375  1948 49763 10084
- 24591 27698 25064 23784]",28,-0.601814,-32.813434,-1.171908,16,1.2,3,64,10,24d4beda5d54,first_two_28,"[-1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908]",0.5521,0.833333,0.0,0.871428,0.947368,0.0,0.0,0.960789,1.0,1.0,1.0,0.985714,0.0,0.0,0.0,[],[],[]
-31070114,dev_smoke,"Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade, made up of reservists and regular troops and based in Hermitage, Berkshire, will be formally created in April. It has been inspired by the Chindits who fought in Burma in World War Two...",The Army is setting up a new unit that will use psychological operations and social media to help fight wars in the information age.,10,10,Head of the Army General Sir Nick Carter said the move was about trying to operate smarter. The 77th Brigade made up of reservists and regular troops and based in Hermitage Berkshire will be.,"[41293 49763 23809 15035 42893 20509  6330 42838 44964 23809 41942 27958
- 30286  5622 25420 15904 10840   916 22830 21507 33375  1948 49763 10084
- 24591 27698 25064 24591 44800 38751 18234  8150 42823 34683]",34,-0.611953,-42.120454,-1.238837,16,1.2,3,64,10,2dba9970770b,longer_blend,"[-1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837]",0.9501,0.916667,0.06,0.849118,0.954545,0.0,0.0,0.870719,0.8,1.0,1.0,0.886471,1.0,0.0,0.0,['Hermitage Berkshire'],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,0,0,South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge.,[ 1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228 26719],12,-0.453414,-8.943598,-0.7453,16,1.2,3,64,10,73b937b20798,headline_12,"[-0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453
- -0.7453 -0.7453 -0.7453]",0.6412,0.56,0.1,0.528333,0.875,0.0,0.0,0.760417,0.666667,1.0,1.0,0.833333,1.0,0.0,0.0,['Cowbridge.'],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,1,1,Not South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday.,"[12053  1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228
- 12664 23260  9004 38751 23809   312  7257 49763 23809 18077  3381  4310
- 11629 15766 18228 29382]",28,-0.422077,-23.013434,-0.821908,16,1.2,3,64,10,07e2d85047ec,polarity_flip,"[-0.821908 -0.821908 -0.821908 -0.821908 -0.821908 -0.821908 -0.821908
- -0.821908 -0.821908 -0.821908 -0.821908 -0.821908 -0.821908 -0.821908
- -0.821908 -0.821908 -0.821908 -0.821908 -0.821908 -0.821908 -0.821908
- -0.821908 -0.821908 -0.821908 -0.821908 -0.821908 -0.821908 -0.821908]",0.5775,0.971429,0.1,0.83922,0.944444,1.0,0.0,0.608797,0.666667,1.0,1.0,0.842593,2.0,0.0,0.0,['Not South Wales Police' 'Tuesday.'],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,2,2,South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the.,"[ 1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228 12664
- 23260  9004 38751 21305]",16,-0.413531,-11.52,-0.72,16,1.2,3,64,10,dd60d03a340c,headline_16,"[-0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72
- -0.72 -0.72 -0.72 -0.72]",0.9337,0.714286,0.0,0.782589,0.909091,0.0,0.0,0.936534,1.0,1.0,1.0,0.9875,0.0,0.0,0.0,[],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,3,3,South Wales Police are investigating the robbery at Lloyds.,[ 1187 35988 42685 27375 33988 23809 17165  3381 31241],9,-0.533937,-7.457291,-0.828588,16,1.2,3,64,10,1a03eb9b99c8,very_short,"[-0.828588 -0.828588 -0.828588 -0.828588 -0.828588 -0.828588 -0.828588
- -0.828588 -0.828588]",0.8002,0.434783,0.15,0.364281,0.833333,0.0,0.0,0.655139,0.5,1.0,1.0,0.752778,1.0,0.0,0.0,['Lloyds.'],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,4,4,South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday.,"[ 1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228 12664
- 23260  9004 38751 23809   312  7257 49763 23809 18077  3381  4310 11629
- 15766 18228 29382]",27,-0.467774,-24.415887,-0.904292,16,1.2,3,64,10,9f733e1b88c1,lead_sentence,"[-0.904292 -0.904292 -0.904292 -0.904292 -0.904292 -0.904292 -0.904292
- -0.904292 -0.904292 -0.904292 -0.904292 -0.904292 -0.904292 -0.904292
- -0.904292 -0.904292 -0.904292 -0.904292 -0.904292 -0.904292 -0.904292
- -0.904292 -0.904292 -0.904292 -0.904292 -0.904292 -0.904292]",0.059,1.0,0.05,0.93125,1.0,0.0,0.0,0.92375,0.833333,1.0,1.0,0.925,1.0,0.0,0.0,['Tuesday.'],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,5,5,South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12 30.,"[ 1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228 12664
- 23260  9004 38751 23809   312  7257 49763 23809 18077  3381  4310 40754]",24,-0.491674,-22.280816,-0.928367,16,1.2,3,64,10,0c860d16a6e6,lead_24,"[-0.928367 -0.928367 -0.928367 -0.928367 -0.928367 -0.928367 -0.928367
- -0.928367 -0.928367 -0.928367 -0.928367 -0.928367 -0.928367 -0.928367
- -0.928367 -0.928367 -0.928367 -0.928367 -0.928367 -0.928367 -0.928367
- -0.928367 -0.928367 -0.928367]",0.347,0.875,0.125,0.745833,0.933333,0.0,0.0,0.782083,1.0,0.5,1.0,0.858333,0.0,1.0,0.0,[],['30.'],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,6,6,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area, officials said.","[ 1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228 12664
- 23260  9004 38751 23809   312  7257 20782 33791]",20,-0.519235,-18.905996,-0.9453,16,1.2,3,64,10,92fc9650864a,with_context,"[-0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453
- -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453
- -0.9453 -0.9453]",0.7134,0.774194,0.0,0.823145,0.857143,0.0,0.0,0.896643,1.0,1.0,1.0,0.97,0.0,0.0,0.0,[],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,7,7,Scotland are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday.,"[30904 27375 33988 23809 17165  3381 41898 18621 18228 12664 23260  9004
- 38751 23809   312  7257 49763 23809 18077  3381  4310 11629 15766 18228
- 29382]",25,-0.545033,-25.938857,-1.037554,16,1.2,3,64,10,b33e311d24e6,entity_swap,"[-1.037554 -1.037554 -1.037554 -1.037554 -1.037554 -1.037554 -1.037554
- -1.037554 -1.037554 -1.037554 -1.037554 -1.037554 -1.037554 -1.037554
- -1.037554 -1.037554 -1.037554 -1.037554 -1.037554 -1.037554 -1.037554
- -1.037554 -1.037554 -1.037554 -1.037554]",0.8033,0.875,0.1,0.766667,0.933333,0.0,0.0,0.80125,0.666667,1.0,1.0,0.841667,2.0,0.0,0.0,['Scotland' 'Tuesday.'],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,8,8,South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 15:30 BST on Tuesday.,"[ 1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228 12664
- 23260  9004 38751 23809   312  7257 49763 23809 18077  3381  5731 11629
- 15766 18228 29382]",27,-0.545366,-28.465887,-1.054292,16,1.2,3,64,10,30eba9ea2d83,number_swap,"[-1.054292 -1.054292 -1.054292 -1.054292 -1.054292 -1.054292 -1.054292
- -1.054292 -1.054292 -1.054292 -1.054292 -1.054292 -1.054292 -1.054292
- -1.054292 -1.054292 -1.054292 -1.054292 -1.054292 -1.054292 -1.054292
- -1.054292 -1.054292 -1.054292 -1.054292 -1.054292 -1.054292]",0.915,0.941176,0.175,0.728959,0.941176,0.0,0.0,0.714072,0.833333,0.5,1.0,0.792308,1.0,1.0,0.0,['Tuesday.'],['15'],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,9,9,South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. despite officials denying it.,"[ 1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228 12664
- 23260  9004 38751 23809   312  7257 49763 23809 18077  3381  4310 11629
- 15766 18228 29382 31070 20782 38934 37363]",31,-0.549528,-33.855056,-1.092099,16,1.2,3,64,10,5eb613094c1a,relation_swap,"[-1.092099 -1.092099 -1.092099 -1.092099 -1.092099 -1.092099 -1.092099
- -1.092099 -1.092099 -1.092099 -1.092099 -1.092099 -1.092099 -1.092099
- -1.092099 -1.092099 -1.092099 -1.092099 -1.092099 -1.092099 -1.092099
- -1.092099 -1.092099 -1.092099 -1.092099 -1.092099 -1.092099 -1.092099
- -1.092099 -1.092099 -1.092099]",0.8927,0.5,0.05,0.549583,0.809524,0.0,0.0,0.790607,0.833333,1.0,1.0,0.898333,1.0,0.0,0.0,['Tuesday.'],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,10,10,Officers are trying to trace a suspect captured on CCTV cameras within the bank.,"[38394 27375  5622 25420 38806 45422 34474 32170 18228 10995 38689 27353
- 23809 42354]",14,-0.601324,-14.271261,-1.019376,16,1.2,3,64,10,0883a432fc3e,second_sentence,"[-1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376
- -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376]",0.9677,1.0,0.15,0.79375,1.0,0.0,0.0,0.77125,0.5,1.0,1.0,0.775,1.0,0.0,0.0,['Officers'],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,11,11,South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12 30 BST on Tuesday. Officers.,"[ 1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228 12664
- 23260  9004 38751 23809   312  7257 49763 23809 18077  3381  4310 11629
- 15766 18228 29382 42592]",28,-0.601814,-32.813434,-1.171908,16,1.2,3,64,10,b12b8895f3e2,first_two_28,"[-1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908]",0.1017,0.5,0.05,0.550893,0.944444,0.0,0.0,0.880139,0.833333,1.0,1.0,0.903571,1.0,0.0,0.0,['Tuesday. Officers.'],[],[]
-32138822,dev_smoke,"South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12:30 BST on Tuesday. Officers are trying to trace a suspect captured on CCTV cameras within the bank. The man is described as 50-60 years of age, 5ft 9ins (1.75m) to 6ft (1.82m) tall with black hair...",A large amount of cash has been stolen in a daylight bank robbery in Cardiff.,12,12,South Wales Police are investigating the robbery at Lloyds Bank on Cowbridge Road East in the Canton area of the city at 12 30 BST on Tuesday. Officers are trying to trace a suspect.,"[ 1187 35988 42685 27375 33988 23809 17165  3381 41898 18621 18228 12664
- 23260  9004 38751 23809   312  7257 49763 23809 18077  3381  4310 11629
- 15766 18228 29382 38394 27375  5622 25420 38806 45422 45960]",34,-0.611953,-42.120454,-1.238837,16,1.2,3,64,10,b4c208f9856d,longer_blend,"[-1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837]",0.7238,0.730769,0.0,0.793665,0.952381,0.0,0.0,0.962871,1.0,1.0,1.0,0.982353,0.0,0.0,0.0,[],[],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",0,0,Sarah Sands 32 killed her 77-year-old neighbour Michael Pleasted weeks after finding.,[28508 16533 18225  4381 39913  3958 10609  5704 19633 39807  7337 36700],12,-0.453414,-8.943598,-0.7453,16,1.2,3,64,10,1b3248ec3705,headline_12,"[-0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453
- -0.7453 -0.7453 -0.7453]",0.4652,0.666667,0.125,0.58125,0.909091,0.0,0.0,0.754659,1.0,0.5,1.0,0.825,0.0,1.0,0.0,[],['32'],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",1,1,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was not told.","[28508 16533 18225  4381 39913  3958 10609  5704 19633 39807  7337 12766
- 34312 19876 23552 23900 34455 20560 23809 34225  3211 27958 21801 28041]",24,-0.417529,-18.920816,-0.788367,16,1.2,3,64,10,b3f161530c4f,polarity_flip,"[-0.788367 -0.788367 -0.788367 -0.788367 -0.788367 -0.788367 -0.788367
- -0.788367 -0.788367 -0.788367 -0.788367 -0.788367 -0.788367 -0.788367
- -0.788367 -0.788367 -0.788367 -0.788367 -0.788367 -0.788367 -0.788367
- -0.788367 -0.788367 -0.788367]",0.4604,0.974359,0.0,0.978686,0.95,1.0,0.0,0.764583,1.0,1.0,1.0,0.991667,0.0,0.0,0.0,[],[],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",2,2,Sarah Sands 32 killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused.,"[28508 16533 18225  4381 39913  3958 10609  5704 19633 39807  7337 12766
- 34312 19876 23552  2329]",16,-0.413531,-11.52,-0.72,16,1.2,3,64,10,b1a0fa37db62,headline_16,"[-0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72
- -0.72 -0.72 -0.72 -0.72]",0.4229,0.787879,0.125,0.675284,0.928571,0.0,0.0,0.771696,1.0,0.5,1.0,0.8375,0.0,1.0,0.0,[],['32'],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",3,3,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told.","[28508 16533 18225  4381 39913  3958 10609  5704 19633 39807  7337 12766
- 34312 19876 23552 23900 34455 20560 23809 34225  3211 27958 28041]",23,-0.463947,-19.977521,-0.868588,16,1.2,3,64,10,1d7b7a0584f0,lead_sentence,"[-0.868588 -0.868588 -0.868588 -0.868588 -0.868588 -0.868588 -0.868588
- -0.868588 -0.868588 -0.868588 -0.868588 -0.868588 -0.868588 -0.868588
- -0.868588 -0.868588 -0.868588 -0.868588 -0.868588 -0.868588 -0.868588
- -0.868588 -0.868588]",0.1279,1.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,[],[],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",4,4,Sarah Sands.,[28508 38833],2,-0.832059,-1.911569,-0.955784,16,1.2,3,64,10,66827a833970,lead_clause,[-0.955784 -0.955784],0.6539,0.095238,0.3,0.0,0.5,0.0,0.0,0.1825,0.0,1.0,1.0,0.45,1.0,0.0,0.0,['Sarah Sands.'],[],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",5,5,"Sarah Sands 32 killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, officials said.","[28508 16533 18225  4381 39913  3958 10609  5704 19633 39807  7337 12766
- 34312 19876 23552 23900 34455 20560 20782 33791]",20,-0.519235,-18.905996,-0.9453,16,1.2,3,64,10,a9ff37bdf2fe,with_context,"[-0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453
- -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453
- -0.9453 -0.9453]",0.7243,0.864865,0.125,0.732399,0.888889,0.0,0.0,0.745028,1.0,0.5,1.0,0.835,0.0,1.0,0.0,[],['32'],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",6,6,"Fifa, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told.","[22891 18225  4381 39913  3958 10609  5704 19633 39807  7337 12766 34312
- 19876 23552 23900 34455 20560 23809 34225  3211 27958 28041]",22,-0.543316,-22.179909,-1.008178,16,1.2,3,64,10,7635febe8f3b,entity_swap,"[-1.008178 -1.008178 -1.008178 -1.008178 -1.008178 -1.008178 -1.008178
- -1.008178 -1.008178 -1.008178 -1.008178 -1.008178 -1.008178 -1.008178
- -1.008178 -1.008178 -1.008178 -1.008178 -1.008178 -1.008178 -1.008178
- -1.008178]",0.1767,0.918919,0.1,0.799417,0.944444,0.0,0.0,0.808207,0.666667,1.0,1.0,0.840909,1.0,0.0,0.0,['Fifa'],[],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",7,7,"Sarah Sands, 35, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told.","[28508 16533 29043  4381 39913  3958 10609  5704 19633 39807  7337 12766
- 34312 19876 23552 23900 34455 20560 23809 34225  3211 27958 28041]",23,-0.544068,-23.427521,-1.018588,16,1.2,3,64,10,169b9f2126ef,number_swap,"[-1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588
- -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588
- -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588
- -1.018588 -1.018588]",0.0832,0.947368,0.125,0.802102,0.947368,0.0,0.0,0.793996,1.0,0.5,1.0,0.866304,0.0,1.0,0.0,[],"['35,']",[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",8,8,"Sarah Sands, 32, injured her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told.","[28508 16533 18225 24699 39913  3958 10609  5704 19633 39807  7337 12766
- 34312 19876 23552 23900 34455 20560 23809 34225  3211 27958 28041]",23,-0.549409,-23.657521,-1.028588,16,1.2,3,64,10,bee6ff8e4d72,relation_swap,"[-1.028588 -1.028588 -1.028588 -1.028588 -1.028588 -1.028588 -1.028588
- -1.028588 -1.028588 -1.028588 -1.028588 -1.028588 -1.028588 -1.028588
- -1.028588 -1.028588 -1.028588 -1.028588 -1.028588 -1.028588 -1.028588
- -1.028588 -1.028588]",0.417,0.947368,0.0,0.958352,0.947368,0.0,1.0,0.762746,1.0,1.0,1.0,0.991304,0.0,0.0,0.0,[],[],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",9,9,She told police that Mr Pleasted who had been charged with sexual assaults on two children aged under.,"[44335  5789 33547 21120  5146 19633 40397  3309  7239 29691 40449 30183
- 19548 18228  7016 31235 27258 44249]",18,-0.571847,-18.348764,-1.019376,16,1.2,3,64,10,6752f6066c3c,second_sentence,"[-1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376
- -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376
- -1.019376 -1.019376 -1.019376 -1.019376]",0.551,0.814815,0.0,0.858333,0.916667,0.0,0.0,0.941944,1.0,1.0,1.0,0.988889,0.0,0.0,0.0,[],[],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",10,10,Sarah Sands 32 killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys the Old Bailey was told. She told police that Mr.,"[28508 16533 18225  4381 39913  3958 10609  5704 19633 39807  7337 12766
- 34312 19876 23552 23900 34455 20560 23809 34225  3211 27958 28041 44335
-  5789 33547 21120 13705]",28,-0.601814,-32.813434,-1.171908,16,1.2,3,64,10,dbeaccfb2c67,first_two_28,"[-1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908]",0.0837,0.611111,0.185,0.462441,0.954545,0.0,0.0,0.700205,0.8,0.5,1.0,0.756429,1.0,1.0,0.0,['Mr.'],['32'],[]
-33258866,dev_smoke,"Sarah Sands, 32, killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys, the Old Bailey was told. She told police that Mr Pleasted, who had been charged with sexual assaults on two children aged under 13, had been asking for trouble. He was killed in his Canning Town flat...","A woman stabbed a suspected paedophile to death in east London before handing herself into police, a court has heard.",11,11,Sarah Sands 32 killed her 77-year-old neighbour Michael Pleasted weeks after finding out he allegedly abused three boys the Old Bailey was told. She told police that Mr Pleasted who had been charged with.,"[28508 16533 18225  4381 39913  3958 10609  5704 19633 39807  7337 12766
- 34312 19876 23552 23900 34455 20560 23809 34225  3211 27958 28041 44335
-  5789 33547 21120  5146 19633 40397  3309  7239 29691  2477]",34,-0.611953,-42.120454,-1.238837,16,1.2,3,64,10,09e80eeb3ce1,longer_blend,"[-1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837]",0.272,0.772727,0.125,0.667413,0.961538,0.0,0.0,0.798015,1.0,0.5,1.0,0.851471,0.0,1.0,0.0,[],['32'],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,0,0,Christopher Williams 25 who was living in Derby died at the scene.,[19630 33297 34789 40397 27958 43789 38751  9973 45139  3381 23809 37202],12,-0.453414,-8.943598,-0.7453,16,1.2,3,64,10,7bb1c7730bad,headline_12,"[-0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453 -0.7453
- -0.7453 -0.7453 -0.7453]",0.3391,0.691358,0.0,0.756019,0.875,0.0,0.0,0.90125,1.0,1.0,1.0,0.95,0.0,0.0,0.0,[],[],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,1,1,"Christopher Williams, 25, who was not living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016.","[19630 33297 34789 40397 27958 21801 43789 38751  9973 45139  3381 23809
- 29706 49763 23809 45228 18228 23809 31330 38751 36214 18228 34789 46205
- 17289]",25,-0.41896,-19.938857,-0.797554,16,1.2,3,64,10,0b12cd64f0df,polarity_flip,"[-0.797554 -0.797554 -0.797554 -0.797554 -0.797554 -0.797554 -0.797554
- -0.797554 -0.797554 -0.797554 -0.797554 -0.797554 -0.797554 -0.797554
- -0.797554 -0.797554 -0.797554 -0.797554 -0.797554 -0.797554 -0.797554
- -0.797554 -0.797554 -0.797554 -0.797554]",0.2835,0.965517,0.0,0.972138,0.933333,1.0,0.0,0.753867,1.0,1.0,1.0,0.992,0.0,0.0,0.0,[],[],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,2,2,Christopher Williams 25 who was living in Derby died at the scene of the crash on.,"[19630 33297 34789 40397 27958 43789 38751  9973 45139  3381 23809 29706
- 49763 23809 45228 29051]",16,-0.413531,-11.52,-0.72,16,1.2,3,64,10,737af77da129,headline_16,"[-0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72 -0.72
- -0.72 -0.72 -0.72 -0.72]",0.6476,0.79646,0.0,0.83797,0.9,0.0,0.0,0.921875,1.0,1.0,1.0,0.9625,0.0,0.0,0.0,[],[],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,3,3,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016.","[19630 33297 34789 40397 27958 43789 38751  9973 45139  3381 23809 29706
- 49763 23809 45228 18228 23809 31330 38751 36214 18228 34789 46205 17289]",24,-0.465194,-21.080816,-0.878367,16,1.2,3,64,10,a5d1f5a5eb29,lead_sentence,"[-0.878367 -0.878367 -0.878367 -0.878367 -0.878367 -0.878367 -0.878367
- -0.878367 -0.878367 -0.878367 -0.878367 -0.878367 -0.878367 -0.878367
- -0.878367 -0.878367 -0.878367 -0.878367 -0.878367 -0.878367 -0.878367
- -0.878367 -0.878367 -0.878367]",0.8271,1.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,[],[],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,4,4,Christopher Williams.,[19630 23124],2,-0.832059,-1.911569,-0.955784,16,1.2,3,64,10,f3533cba19d8,lead_clause,[-0.955784 -0.955784],0.4714,0.125,0.3,0.0,0.5,0.0,0.0,0.1825,0.0,1.0,1.0,0.45,1.0,0.0,0.0,['Christopher Williams.'],[],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,5,5,"Christopher Williams 25 who was living in Derby died at the scene of the crash on the A52, officials said.","[19630 33297 34789 40397 27958 43789 38751  9973 45139  3381 23809 29706
- 49763 23809 45228 18228 23809 31330 20782 33791]",20,-0.519235,-18.905996,-0.9453,16,1.2,3,64,10,0e0bed372276,with_context,"[-0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453
- -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453 -0.9453
- -0.9453 -0.9453]",0.5662,0.808824,0.0,0.846618,0.833333,0.0,0.0,0.877667,1.0,1.0,1.0,0.96,0.0,0.0,0.0,[],[],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,6,6,"Scotland, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016.","[30904 34789 40397 27958 43789 38751  9973 45139  3381 23809 29706 49763
- 23809 45228 18228 23809 31330 38751 36214 18228 34789 46205 17289]",23,-0.544068,-23.427521,-1.018588,16,1.2,3,64,10,4419a016a20c,entity_swap,"[-1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588
- -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588
- -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588 -1.018588
- -1.018588 -1.018588]",0.1061,0.888889,0.075,0.811368,0.923077,0.0,0.0,0.832581,0.75,1.0,1.0,0.878804,1.0,0.0,0.0,['Scotland'],[],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,7,7,"Christopher Williams, 28, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016.","[19630 33297 44094 40397 27958 43789 38751  9973 45139  3381 23809 29706
- 49763 23809 45228 18228 23809 31330 38751 36214 18228 34789 46205 17289]",24,-0.544636,-24.680816,-1.028367,16,1.2,3,64,10,abdd54b511a8,number_swap,"[-1.028367 -1.028367 -1.028367 -1.028367 -1.028367 -1.028367 -1.028367
- -1.028367 -1.028367 -1.028367 -1.028367 -1.028367 -1.028367 -1.028367
- -1.028367 -1.028367 -1.028367 -1.028367 -1.028367 -1.028367 -1.028367
- -1.028367 -1.028367 -1.028367]",0.8901,0.962963,0.0625,0.892014,0.928571,0.0,0.0,0.86628,1.0,0.75,1.0,0.929167,0.0,1.0,0.0,[],"['28,']",[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,8,8,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. despite officials denying it.","[19630 33297 34789 40397 27958 43789 38751  9973 45139  3381 23809 29706
- 49763 23809 45228 18228 23809 31330 38751 36214 18228 34789 46205 17289
- 31070 20782 38934 37363]",28,-0.55046,-30.013434,-1.071908,16,1.2,3,64,10,6a291e5dad08,relation_swap,"[-1.071908 -1.071908 -1.071908 -1.071908 -1.071908 -1.071908 -1.071908
- -1.071908 -1.071908 -1.071908 -1.071908 -1.071908 -1.071908 -1.071908
- -1.071908 -1.071908 -1.071908 -1.071908 -1.071908 -1.071908 -1.071908
- -1.071908 -1.071908 -1.071908 -1.071908 -1.071908 -1.071908 -1.071908]",0.3328,0.5,0.0,0.617857,0.777778,0.0,0.0,0.845556,1.0,1.0,1.0,0.971429,0.0,0.0,0.0,[],[],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,9,9,Garry Allen 33 of Cressing Road Braintree Essex was arrested at the time and has now been charged.,"[27731 30760  1346 49763 29795 23260 40431 15228 27958 14113  3381 23809
- 48489 24591 28000  1928  7239 44095]",18,-0.571847,-18.348764,-1.019376,16,1.2,3,64,10,9d8470b6640f,second_sentence,"[-1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376
- -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376 -1.019376
- -1.019376 -1.019376 -1.019376 -1.019376]",0.3104,0.769231,0.4,0.291506,0.909091,0.0,0.0,0.351326,0.5,0.0,1.0,0.458333,1.0,1.0,0.0,['Cressing Road Braintree Essex'],['33'],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,10,10,Christopher Williams 25 who was living in Derby died at the scene of the crash on the A52 in Bottesford on 25 May 2016. Garry Allen 33 of.,"[19630 33297 34789 40397 27958 43789 38751  9973 45139  3381 23809 29706
- 49763 23809 45228 18228 23809 31330 38751 36214 18228 34789 46205 17289
- 27731 30760  1346  8131]",28,-0.601814,-32.813434,-1.171908,16,1.2,3,64,10,cb1da0af74e1,first_two_28,"[-1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908
- -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908 -1.171908]",0.0064,0.657895,0.1,0.605921,0.944444,0.0,0.0,0.811389,1.0,0.6,1.0,0.85,0.0,2.0,0.0,[],['52' '33'],[]
-39652762,dev_smoke,"Christopher Williams, 25, who was living in Derby, died at the scene of the crash on the A52, in Bottesford, on 25 May 2016. Garry Allen, 33, of Cressing Road, Braintree, Essex, was arrested at the time and has now been charged with causing death by dangerous driving. He is due to appear at Leicester Magistrates' Court...",A man has been charged nearly a year after a collision in which a motorcyclist died in Leicestershire.,11,11,Christopher Williams 25 who was living in Derby died at the scene of the crash on the A52 in Bottesford on 25 May 2016. Garry Allen 33 of Cressing Road Braintree Essex was arrested.,"[19630 33297 34789 40397 27958 43789 38751  9973 45139  3381 23809 29706
- 49763 23809 45228 18228 23809 31330 38751 36214 18228 34789 46205 17289
- 27731 30760  1346 49763 29795 23260 40431 15228 27958  1557]",34,-0.611953,-42.120454,-1.238837,16,1.2,3,64,10,af9a81c59f37,longer_blend,"[-1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837
- -1.238837 -1.238837 -1.238837 -1.238837 -1.238837 -1.238837]",0.8865,0.804348,0.15,0.644805,0.954545,0.0,0.0,0.738616,0.833333,0.6,1.0,0.766176,1.0,2.0,0.0,['Cressing Road Braintree Essex'],['52' '33'],[]
+id,split,document,reference,candidate_id,beam_rank,summary,summary_token_ids,summary_len_tokens,sequence_score_hf,token_logprob_sum,token_logprob_avg,num_beams,length_penalty,no_repeat_ngram_size,max_new_tokens,min_new_tokens,candidate_hash,candidate_strategy,transition_score_proxy,generator_mode,requested_model,requested_revision,summac_style_support,summac_style_contradiction_penalty,summac_style_score,factcc_style_lexical_support,factcc_style_negation_mismatch,factcc_style_relation_penalty,factcc_style_score,entity_precision,number_precision,date_precision,entity_support_score,unsupported_entity_count,unsupported_number_count,unsupported_date_count,unsupported_entities,unsupported_numbers,unsupported_dates
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,0,0,Google has hired the administrator of the far-right internet site 4chan to work on its social media efforts.,"[20441    34  4547     5 11417     9     5   444    12  4070  2888  1082
+   204 14717     7   173    15    63   592   433  1170     4]",22,-0.281361,-12.750041,-0.579547,16,1.2,3,64,10,32a72fdecb9c,hf_beam_0,"[-0.080505 -2.957622 -0.054772 -0.60018  -0.023673 -0.93061  -0.071824
+ -0.353051 -1.635615 -0.025993 -0.028354 -1.264662 -0.869932 -0.134723
+ -0.032876 -0.909133 -1.40159  -0.25124  -0.382774 -0.046898 -0.449436
+ -0.196203 -0.038982 -0.009394]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.02073,0.760897,0.0,0.000971,0.0,0.0,0.140826,1.0,1.0,1.0,0.933333,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,1,1,Google has hired the administrator of the far-right internet site 4chan to help build its social media presence.,"[20441    34  4547     5 11417     9     5   444    12  4070  2888  1082
+   204 14717     7   244  1119    63   592   433  2621     4]",22,-0.306942,-13.909275,-0.63224,16,1.2,3,64,10,7a3062e342f1,hf_beam_1,"[-0.080505 -2.957622 -0.054772 -0.60018  -0.023673 -0.93061  -0.071824
+ -0.353051 -1.635615 -0.025993 -0.028354 -1.264662 -0.869932 -0.134723
+ -0.032876 -0.909133 -1.238883 -0.763943 -0.511221 -0.032158 -0.465995
+ -0.867708 -0.04662  -0.009222]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.021715,0.811079,0.0,0.000351,0.0,0.0,0.136965,1.0,1.0,1.0,0.911111,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,2,2,Google has hired the administrator of the far-right website 4chan to help build its social media presence.,"[20441    34  4547     5 11417     9     5   444    12  4070   998   204
+ 14717     7   244  1119    63   592   433  2621     4]",21,-0.310157,-13.355181,-0.635961,16,1.2,3,64,10,f484e863d748,hf_beam_2,"[-0.080505 -2.957622 -0.054772 -0.60018  -0.023673 -0.93061  -0.071824
+ -0.353051 -1.635615 -0.025993 -0.028354 -1.609562 -0.090005 -0.033114
+ -0.959116 -1.199543 -0.786386 -0.50072  -0.032653 -0.464261 -0.846225
+ -0.062161 -0.009235]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.013908,0.832124,0.0,0.000154,0.0,0.0,0.136013,1.0,1.0,1.0,0.905882,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,3,3,Google has hired the administrator of the far-right internet site 4chan to help build its social media efforts.,"[20441    34  4547     5 11417     9     5   444    12  4070  2888  1082
+   204 14717     7   244  1119    63   592   433  1170     4]",22,-0.317223,-14.375198,-0.653418,16,1.2,3,64,10,89bef9c7fd27,hf_beam_3,"[-0.080505 -2.957622 -0.054772 -0.60018  -0.023673 -0.93061  -0.071824
+ -0.353051 -1.635615 -0.025993 -0.028354 -1.264662 -0.869932 -0.134723
+ -0.032876 -0.909133 -1.238883 -0.763943 -0.511221 -0.032158 -0.465995
+ -1.349161 -0.030985 -0.009326]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.015741,0.774876,0.0,0.000438,0.0,0.0,0.138706,1.0,1.0,1.0,0.922222,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,4,4,Google has hired the administrator of the far-right website 4chan to help build its social media presence.,"[20441    34  4547     5 11417     9     5   444    12  4070   998   204
+ 14717     7   244  1119    63   592   433  2621     4]",21,-0.317559,-14.390391,-0.685257,16,1.2,3,64,10,f484e863d748,hf_beam_4,"[-0.080505 -0.080505 -2.957623 -0.057425 -0.610123 -0.025224 -1.007237
+ -0.083505 -0.38138  -1.903249 -0.029946 -0.028178 -1.884411 -0.073832
+ -0.030675 -0.966718 -1.156543 -0.796141 -0.493798 -0.026723 -0.501407
+ -0.9843   -0.2216   -0.009341]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.013908,0.832124,0.0,0.000154,0.0,0.0,0.136013,1.0,1.0,1.0,0.905882,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,5,5,Google has hired the administrator of the far-right message board 4chan to help build its social media presence.,"[20441    34  4547     5 11417     9     5   444    12  4070  1579   792
+   204 14717     7   244  1119    63   592   433  2621     4]",22,-0.319079,-15.185253,-0.690239,16,1.2,3,64,10,2575e0971946,hf_beam_5,"[-0.080505 -0.080505 -2.957623 -0.057425 -0.610123 -0.025224 -1.007237
+ -0.083505 -0.38138  -1.903249 -0.029946 -0.028178 -2.025677 -0.081935
+ -0.603487 -0.030388 -1.021553 -1.126359 -0.812572 -0.487342 -0.024791
+ -0.529377 -1.011952 -0.175549 -0.009369]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.016326,0.809264,0.0,0.000238,0.0,0.0,0.135202,1.0,1.0,1.0,0.9,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,6,6,Google has hired the administrator of the far-right website 4chan to help build its social media efforts.,"[20441    34  4547     5 11417     9     5   444    12  4070   998   204
+ 14717     7   244  1119    63   592   433  1170     4]",21,-0.320952,-13.820036,-0.658097,16,1.2,3,64,10,2947dc30e26a,hf_beam_6,"[-0.080505 -2.957622 -0.054772 -0.60018  -0.023673 -0.93061  -0.071824
+ -0.353051 -1.635615 -0.025993 -0.028354 -1.609562 -0.090005 -0.033114
+ -0.959116 -1.199543 -0.786386 -0.50072  -0.032653 -0.464261 -1.334838
+ -0.038295 -0.009344]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.00988,0.805369,0.0,0.000181,0.0,0.0,0.137801,1.0,1.0,1.0,0.917647,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,7,7,Google has hired the administrator of the far-right website 4chan to help build its social media efforts.,"[20441    34  4547     5 11417     9     5   444    12  4070   998   204
+ 14717     7   244  1119    63   592   433  1170     4]",21,-0.322539,-14.616098,-0.696005,16,1.2,3,64,10,2947dc30e26a,hf_beam_7,"[-0.080505 -0.080505 -2.957623 -0.057425 -0.610123 -0.025224 -1.007237
+ -0.083505 -0.38138  -1.903249 -0.029946 -0.028178 -1.884411 -0.073832
+ -0.030675 -0.966718 -1.156543 -0.796141 -0.493798 -0.026723 -0.501407
+ -1.307805 -0.123714 -0.009428]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.00988,0.805369,0.0,0.000181,0.0,0.0,0.137801,1.0,1.0,1.0,0.917647,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,8,8,Google has hired the administrator of the far-right message board 4chan to help build its social media efforts.,"[20441    34  4547     5 11417     9     5   444    12  4070  1579   792
+   204 14717     7   244  1119    63   592   433  1170     4]",22,-0.325164,-15.474844,-0.703402,16,1.2,3,64,10,536cecb91194,hf_beam_8,"[-0.080505 -0.080505 -2.957623 -0.057425 -0.610123 -0.025224 -1.007237
+ -0.083505 -0.38138  -1.903249 -0.029946 -0.028178 -2.025677 -0.081935
+ -0.603487 -0.030388 -1.021553 -1.126359 -0.812572 -0.487342 -0.024791
+ -0.529377 -1.383328 -0.093681 -0.009453]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.011804,0.791443,0.0,0.000273,0.0,0.0,0.136898,1.0,1.0,1.0,0.911111,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,9,9,Google has hired the administrator of the far-right website 4chan.,"[20441    34  4547     5 11417     9     5   444    12  4070   998   204
+ 14717     4]",14,-0.329737,-8.501042,-0.607217,16,1.2,3,64,10,b6752b9b3d4d,hf_beam_9,"[-2.957621 -0.052278 -0.610328 -0.023077 -0.788097 -0.050276 -0.32822
+ -1.319694 -0.023712 -0.018285 -1.108787 -0.182474 -0.031466 -0.998068
+ -0.00866 ]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.003011,0.935294,0.0,3e-05,0.0,0.0,0.135026,1.0,1.0,1.0,0.9,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,10,10,Google has hired the administrator of the far-right message board 4chan to work on its social network.,"[20441    34  4547     5 11417     9     5   444    12  4070  1579   792
+   204 14717     7   173    15    63   592  1546     4]",21,-0.330858,-13.186551,-0.627931,16,1.2,3,64,10,5952494469a6,hf_beam_10,"[-0.080505 -0.080505 -0.080505 -0.398385 -0.05827  -0.605223 -0.025743
+ -1.044404 -0.098278 -0.399319 -2.08082  -0.03338  -0.029365 -1.970817
+ -0.089936 -0.468755 -0.030854 -1.239697 -1.366837 -0.515089 -0.371783
+ -0.055896 -1.155572 -0.897056 -0.009556]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.01061,0.75289,0.0,0.000787,0.0,0.0,0.136551,1.0,1.0,1.0,0.905882,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,11,11,Google has hired the administrator of the far-right internet site 4chan.,"[20441    34  4547     5 11417     9     5   444    12  4070  2888  1082
+   204 14717     4]",15,-0.331205,-9.226494,-0.6151,16,1.2,3,64,10,cc03e30a2228,hf_beam_11,"[-2.957621 -0.052278 -0.610328 -0.023077 -0.788097 -0.050276 -0.32822
+ -1.319694 -0.023712 -0.018285 -1.499185 -0.545943 -0.274799 -0.033643
+ -0.692527 -0.00881 ]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.002835,0.928321,0.0,5.5e-05,0.0,0.0,0.13641,1.0,1.0,1.0,0.909091,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,12,12,Google has hired the administrator of the far-right internet site 4chan to help build its social network.,"[20441    34  4547     5 11417     9     5   444    12  4070  2888  1082
+   204 14717     7   244  1119    63   592  1546     4]",21,-0.331762,-14.285471,-0.680261,16,1.2,3,64,10,21d951850a84,hf_beam_12,"[-0.080505 -2.957622 -0.054772 -0.60018  -0.023673 -0.93061  -0.071824
+ -0.353051 -1.635615 -0.025993 -0.028354 -1.264662 -0.869932 -0.134723
+ -0.032876 -0.909133 -1.238883 -0.763943 -0.511221 -0.032158 -1.310047
+ -0.446414 -0.00928 ]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.010716,0.868312,0.0,0.000359,0.0,0.0,0.136187,1.0,1.0,1.0,0.905882,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,13,13,Google has hired the administrator of the far-right message board 4chan to help build its social network.,"[20441    34  4547     5 11417     9     5   444    12  4070  1579   792
+   204 14717     7   244  1119    63   592  1546     4]",21,-0.33362,-13.31801,-0.634191,16,1.2,3,64,10,d3cbd241ec4f,hf_beam_13,"[-0.080505 -0.080505 -0.080505 -0.398385 -0.05827  -0.605223 -0.025743
+ -1.044404 -0.098278 -0.399319 -2.08082  -0.03338  -0.029365 -1.970817
+ -0.089936 -0.468755 -0.030854 -1.239697 -1.155367 -0.798478 -0.48434
+ -0.023289 -1.181748 -0.85051  -0.009515]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.008751,0.894091,0.0,0.000234,0.0,0.0,0.134316,1.0,1.0,1.0,0.894118,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,14,14,Google has hired the administrator of the far-right internet site 4chan to help build its social network.,"[20441    34  4547     5 11417     9     5   444    12  4070  2888  1082
+   204 14717     7   244  1119    63   592  1546     4]",21,-0.333964,-13.334351,-0.634969,16,1.2,3,64,10,21d951850a84,hf_beam_14,"[-0.080505 -0.080505 -0.080505 -0.398385 -0.05827  -0.605223 -0.025743
+ -1.044404 -0.098278 -0.399319 -2.08082  -0.03338  -0.029365 -1.170256
+ -1.385819 -0.089035 -0.033072 -0.930637 -1.175743 -0.763169 -0.525119
+ -0.025972 -1.286785 -0.924568 -0.009473]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.010716,0.868312,0.0,0.000359,0.0,0.0,0.136187,1.0,1.0,1.0,0.905882,0.0,0.0,0.0,[],[],[]
+35751255,dev_smoke,"Chris Poole - known as ""moot"" online - created the site in 2003.
+It has gone on to be closely associated with offensive and often illegal activity, including instances where the images of child abuse were shared.
+It was widely credited as being the first place where leaked images of nude celebrities were posted following 2014's well-publicised security breach affecting Apple's iCloud service. That incident prompted a policy change on the site.
+However, 4chan has also been the rallying point for many instances of online activism from the likes of Anonymous, the loosely organized hacktivism group.
+Mr Poole shared news of his new position on blogging site Tumblr.
+""When meeting with current and former Googlers, I continually find myself drawn to their intelligence, passion, and enthusiasm - as well as a universal desire to share it with others.""
+""I'm also impressed by Google's commitment to enabling these same talented people to tackle some of the world's most interesting and important problems.
+He added: ""I can't wait to contribute my own experience from a dozen years of building online communities, and to begin the next chapter of my career at such an incredible company.""
+Mr Poole stepped down as the administrator of 4chan in January 2015. Now he is expected to turn his attentions to Google's social networking efforts.
+His arrival was welcomed by Bradley Horowitz, the head of ""streams, photos and sharing"" at the search giant's floundering social network, Google+.
+""I'm thrilled he's joining our team here at Google,"" Mr Horowitz said.
+""Welcome Chris!ï»¿""
+Several commentators described the appointment as ""unexpected"" but noted that Mr Poole's expertise with social media could prove useful to the search firm.
+Follow Dave Lee on Twitter @DaveLeeBBC and on Facebook",Google has hired the creator of one of the web's most notorious forums - 4chan.,15,15,Google has hired the administrator of the far-right internet site 4chan to work on its social network.,"[20441    34  4547     5 11417     9     5   444    12  4070  2888  1082
+   204 14717     7   173    15    63   592  1546     4]",21,-0.334865,-13.377267,-0.637013,16,1.2,3,64,10,e67b94e9d9d0,hf_beam_15,"[-0.080505 -0.080505 -0.080505 -0.398385 -0.05827  -0.605223 -0.025743
+ -1.044404 -0.098278 -0.399319 -2.08082  -0.03338  -0.029365 -1.170256
+ -1.385819 -0.089035 -0.033072 -0.930637 -1.375218 -0.445292 -0.401896
+ -0.062589 -1.393902 -1.065334 -0.009512]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.01465,0.759421,0.0,0.001024,0.0,0.0,0.138517,1.0,1.0,1.0,0.917647,0.0,0.0,0.0,[],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,0,0,The Duchess of Cambridge is to feature on the cover of British Vogue for the first time.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    13     5    78    86     4]",19,-0.150424,-5.80719,-0.305642,16,1.2,3,64,10,f48c02318ba1,hf_beam_0,"[-0.172283 -2.129228 -0.050264 -0.014981 -0.002444 -1.337303 -0.156202
+ -0.121212 -0.050875 -0.035141 -0.131982 -0.013493 -0.203424 -0.007239
+ -0.013491 -0.999847 -0.014833 -0.005691 -0.00771  -0.33001  -0.009538]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.747779,0.941676,0.406236,0.010705,0.0,0.0,0.13307,0.666667,1.0,1.0,0.826471,1.0,0.0,0.0,['The Duchess'],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,1,1,The Duchess of Cambridge is to feature on the cover of British Vogue for the first time.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    13     5    78    86     4]",19,-0.16226,-5.907903,-0.310942,16,1.2,3,64,10,f48c02318ba1,hf_beam_1,"[-2.129227 -0.056328 -0.0149   -0.002464 -1.422327 -0.135526 -0.107778
+ -0.053477 -0.031676 -0.153661 -0.014998 -0.178459 -0.007139 -0.012021
+ -1.508926 -0.011051 -0.005424 -0.007871 -0.045368 -0.009282]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.747779,0.941676,0.406236,0.010705,0.0,0.0,0.13307,0.666667,1.0,1.0,0.826471,1.0,0.0,0.0,['The Duchess'],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,2,2,The Duchess of Cambridge is to feature on the cover of British Vogue for the first time.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    13     5    78    86     4]",19,-0.168446,-6.876292,-0.36191,16,1.2,3,64,10,f48c02318ba1,hf_beam_2,"[-0.172283 -0.172283 -2.129228 -0.05126  -0.01507  -0.002425 -1.321166
+ -0.166073 -0.108429 -0.0502   -0.03922  -0.114876 -0.012861 -0.235242
+ -0.006818 -0.013424 -1.307296 -0.01849  -0.006337 -0.007362 -0.916283
+ -0.009667]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.747779,0.941676,0.406236,0.010705,0.0,0.0,0.13307,0.666667,1.0,1.0,0.826471,1.0,0.0,0.0,['The Duchess'],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,3,3,The Duchess of Cambridge has appeared on the cover of British Vogue for the first time.,"[  133 12070     9  6912    34  1382    15     5  1719     9  1089   468
+ 10149    13     5    78    86     4]",18,-0.171765,-6.253993,-0.347444,16,1.2,3,64,10,0d7747b0c35e,hf_beam_3,"[-0.172283 -2.129228 -0.050264 -0.014981 -0.002444 -0.444428 -2.045732
+ -0.066753 -0.041881 -0.147418 -0.013856 -0.10762  -0.007242 -0.013751
+ -0.63633  -0.019362 -0.006862 -0.007572 -0.316357 -0.009628]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.553645,0.910327,0.279453,0.917942,0.0,0.0,0.904001,0.666667,1.0,1.0,0.825,1.0,0.0,0.0,['The Duchess'],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,4,4,The Duchess of Cambridge is to feature on the cover of British Vogue.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149     4]",15,-0.177181,-4.935701,-0.329047,16,1.2,3,64,10,53b9f629e718,hf_beam_4,"[-2.129227 -0.056328 -0.0149   -0.002464 -1.422327 -0.135526 -0.107778
+ -0.053477 -0.031676 -0.153661 -0.014998 -0.178459 -0.007139 -0.012021
+ -0.606394 -0.009327]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.453072,0.336809,0.349954,0.005257,0.0,0.0,0.104853,0.333333,1.0,1.0,0.669231,2.0,0.0,0.0,['The Duchess' 'British Vogue.'],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,5,5,The Duchess of Cambridge has appeared on the cover of British Vogue for the first time.,"[  133 12070     9  6912    34  1382    15     5  1719     9  1089   468
+ 10149    13     5    78    86     4]",18,-0.18393,-7.100756,-0.394486,16,1.2,3,64,10,0d7747b0c35e,hf_beam_5,"[-0.172283 -0.172283 -2.129228 -0.05126  -0.01507  -0.002425 -0.451351
+ -2.023334 -0.067777 -0.050013 -0.126615 -0.013149 -0.12329  -0.007024
+ -0.013519 -0.673054 -0.024785 -0.017586 -0.007494 -0.949436 -0.009781]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.553645,0.910327,0.279453,0.917942,0.0,0.0,0.904001,0.666667,1.0,1.0,0.825,1.0,0.0,0.0,['The Duchess'],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,6,6,The Duchess of Cambridge is to feature on the cover of British Vogue's 100th anniversary issue.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    18   727   212  4038   696     4]",20,-0.191856,-8.261113,-0.413056,16,1.2,3,64,10,826fe50c1e3f,hf_beam_6,"[-0.172283 -0.172283 -2.129228 -0.05126  -0.01507  -0.002425 -1.321166
+ -0.166073 -0.108429 -0.0502   -0.03922  -0.114876 -0.012861 -0.235242
+ -0.006818 -0.013424 -0.589884 -0.707889 -0.006471 -0.758206 -0.694117
+ -0.88414  -0.009548]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.469063,0.499991,0.255847,0.005092,0.0,0.0,0.062454,0.333333,0.0,1.0,0.3875,2.0,1.0,0.0,"['The Duchess' ""British Vogue's""]",['100th'],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,7,7,The Duchess of Cambridge has appeared on the cover of British Vogue for the first time.,"[  133 12070     9  6912    34  1382    15     5  1719     9  1089   468
+ 10149    13     5    78    86     4]",18,-0.193084,-6.610562,-0.367253,16,1.2,3,64,10,0d7747b0c35e,hf_beam_7,"[-2.129227 -0.056328 -0.0149   -0.002464 -0.401136 -2.106789 -0.066833
+ -0.031333 -0.172844 -0.015315 -0.079647 -0.007139 -0.01226  -1.433853
+ -0.016049 -0.005858 -0.008188 -0.041005 -0.009392]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.553645,0.910327,0.279453,0.917942,0.0,0.0,0.904001,0.666667,1.0,1.0,0.825,1.0,0.0,0.0,['The Duchess'],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,8,8,The Duchess of Cambridge is to feature on the cover of British Vogue for the first time.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    13     5    78    86     4]",19,-0.193964,-6.508403,-0.342548,16,1.2,3,64,10,f48c02318ba1,hf_beam_8,"[-0.172283 -0.172283 -0.172283 -0.285764 -0.050737 -0.015115 -0.002426
+ -1.303253 -0.174287 -0.11726  -0.046735 -0.040093 -0.115395 -0.012329
+ -0.214207 -0.006946 -0.014718 -1.930628 -0.023387 -0.009015 -0.006469
+ -1.612995 -0.009796]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.747779,0.941676,0.406236,0.010705,0.0,0.0,0.13307,0.666667,1.0,1.0,0.826471,1.0,0.0,0.0,['The Duchess'],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,9,9,The Duchess of Cambridge is to feature on the cover of British Vogue's 100th issue.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    18   727   212   696     4]",19,-0.197369,-8.057049,-0.424055,16,1.2,3,64,10,4820f426d016,hf_beam_9,"[-0.172283 -0.172283 -2.129228 -0.05126  -0.01507  -0.002425 -1.321166
+ -0.166073 -0.108429 -0.0502   -0.03922  -0.114876 -0.012861 -0.235242
+ -0.006818 -0.013424 -0.589884 -0.707889 -0.006471 -1.037089 -1.095295
+ -0.009563]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.40803,0.391499,0.247505,0.004231,0.0,0.0,0.063096,0.333333,0.0,1.0,0.396667,2.0,1.0,0.0,"['The Duchess' ""British Vogue's""]",['100th'],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,10,10,The Duchess of Cambridge is to feature on the cover of British Vogue's 100th issue.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    18   727   212   696     4]",19,-0.197617,-7.629186,-0.401536,16,1.2,3,64,10,4820f426d016,hf_beam_10,"[-0.172283 -2.129228 -0.050264 -0.014981 -0.002444 -1.337303 -0.156202
+ -0.121212 -0.050875 -0.035141 -0.131982 -0.013493 -0.203424 -0.007239
+ -0.013491 -1.166139 -0.719541 -0.005078 -0.786515 -0.502891 -0.009462]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.40803,0.391499,0.247505,0.004231,0.0,0.0,0.063096,0.333333,0.0,1.0,0.396667,2.0,1.0,0.0,"['The Duchess' ""British Vogue's""]",['100th'],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,11,11,The Duchess of Cambridge is to feature on the cover of British Vogue's 100th issue.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    18   727   212   696     4]",19,-0.198839,-6.718334,-0.353597,16,1.2,3,64,10,4820f426d016,hf_beam_11,"[-0.172283 -0.172283 -0.172283 -0.285764 -0.050737 -0.015115 -0.002426
+ -1.303253 -0.174287 -0.11726  -0.046735 -0.040093 -0.115395 -0.012329
+ -0.214207 -0.006946 -0.014718 -0.293927 -0.692615 -0.007401 -1.186722
+ -1.61187  -0.009686]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.40803,0.391499,0.247505,0.004231,0.0,0.0,0.063096,0.333333,0.0,1.0,0.396667,2.0,1.0,0.0,"['The Duchess' ""British Vogue's""]",['100th'],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,12,12,The Duchess of Cambridge is to feature on the cover of British Vogue's 100th anniversary edition.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    18   727   212  4038  5403     4]",20,-0.200152,-8.618317,-0.430916,16,1.2,3,64,10,14f945790617,hf_beam_12,"[-0.172283 -0.172283 -2.129228 -0.05126  -0.01507  -0.002425 -1.321166
+ -0.166073 -0.108429 -0.0502   -0.03922  -0.114876 -0.012861 -0.235242
+ -0.006818 -0.013424 -0.589884 -0.707889 -0.006471 -0.758206 -0.833474
+ -1.101916 -0.009619]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.435328,0.56394,0.215548,0.004954,0.0,0.0,0.064211,0.333333,0.0,1.0,0.4,2.0,1.0,0.0,"['The Duchess' ""British Vogue's""]",['100th'],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,13,13,The Duchess of Cambridge is to feature on the cover of British Vogue's 100th anniversary issue.,"[  133 12070     9  6912    16     7  1905    15     5  1719     9  1089
+   468 10149    18   727   212  4038   696     4]",20,-0.201708,-8.234208,-0.41171,16,1.2,3,64,10,826fe50c1e3f,hf_beam_13,"[-0.172283 -2.129228 -0.050264 -0.014981 -0.002444 -1.337303 -0.156202
+ -0.121212 -0.050875 -0.035141 -0.131982 -0.013493 -0.203424 -0.007239
+ -0.013491 -1.166139 -0.719541 -0.005078 -0.940991 -0.570374 -0.38308
+ -0.009444]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.469063,0.499991,0.255847,0.005092,0.0,0.0,0.062454,0.333333,0.0,1.0,0.3875,2.0,1.0,0.0,"['The Duchess' ""British Vogue's""]",['100th'],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,14,14,The Duchess of Cambridge has been photographed for the cover of British Vogue.,"[  133 12070     9  6912    34    57 16372    13     5  1719     9  1089
+   468 10149     4]",15,-0.205078,-5.71285,-0.380857,16,1.2,3,64,10,31343b18518b,hf_beam_14,"[-2.129227 -0.056328 -0.0149   -0.002464 -0.401136 -0.568722 -0.576626
+ -0.094958 -0.324159 -1.234695 -0.014174 -0.146137 -0.006735 -0.012124
+ -0.12125  -0.009215]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.911227,0.215019,0.707199,0.986,0.0,0.0,0.938485,0.333333,1.0,1.0,0.669231,2.0,0.0,0.0,['The Duchess' 'British Vogue.'],[],[]
+36177725,dev_smoke,"Seven photographs taken in the Norfolk countryside by photographer Josh Olins will appear in the June edition.
+In her first sitting for a magazine, the duchess is seen looking relaxed and wearing casual clothes.
+The shoot was in collaboration with the National Portrait Gallery, where two images are being displayed in the Vogue 100: A Century of Style exhibition.
+The duchess, who has a keen interest in photography, has been patron of the National Portrait Gallery since 2012.
+Nicholas Cullinan, director of the National Portrait Gallery, said: ""Josh has captured the duchess exactly as she is - full of life, with a great sense of humour, thoughtful and intelligent, and in fact, very beautiful.""
+He said the images also encapsulated what Vogue had done over the past 100 years - ""to pair the best photographers with the great personalities of the day, in order to reflect broader shifts in culture and society"".
+Alexandra Shulman, editor-in-chief of British Vogue, said: ""To be able to publish a photographic shoot with the Duchess of Cambridge has been one of my greatest ambitions for the magazine.""
+The collaboration for the June edition had resulted in ""a true celebration of our centenary as well as a fitting tribute to a young woman whose interest in both photography and the countryside is well known"", she said.
+Other royal portraits to have featured in the fashion magazine include Diana, Princess of Wales - who graced the cover four times - and Princess Anne.
+The duchess is to visit the exhibition at the National Portrait Gallery on Wednesday, Kensington Palace said.",The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.,15,15,The Duchess of Cambridge has been photographed for the first time for British Vogue.,"[  133 12070     9  6912    34    57 16372    13     5    78    86    13
+  1089   468 10149     4]",16,-0.207071,-6.203661,-0.387729,16,1.2,3,64,10,717a18e81aa5,hf_beam_15,"[-2.129227 -0.056328 -0.0149   -0.002464 -0.401136 -0.568722 -0.576626
+ -0.094958 -0.324159 -0.667741 -0.018926 -0.592469 -0.476474 -0.006501
+ -0.011859 -0.252103 -0.009068]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.630004,0.933598,0.292352,0.929499,0.0,0.0,0.888646,0.333333,1.0,1.0,0.657143,2.0,0.0,0.0,['The Duchess' 'British Vogue.'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,0,0,Former Premier League footballer Sam Sodje has pleaded not guilty to fraud offences.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+  3526  9971     4]",15,-0.227185,-6.328684,-0.421912,16,1.2,3,64,10,cf074ddf8329,hf_beam_0,"[-1.384158 -0.944421 -0.002718 -0.722278 -0.145073 -0.001889 -0.012631
+ -0.15171  -0.708227 -0.01635  -0.001566 -0.013093 -1.017344 -0.899953
+ -0.297623 -0.009653]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.558736,0.142753,0.424443,0.004404,1.0,0.0,0.0,0.0,1.0,1.0,0.380769,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,1,1,Former Premier League footballer Sam Sodje has pleaded not guilty to fraud charges.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+  3526  1103     4]",15,-0.233516,-6.505062,-0.433671,16,1.2,3,64,10,79c5b30fd79c,hf_beam_1,"[-1.384158 -0.944421 -0.002718 -0.722278 -0.145073 -0.001889 -0.012631
+ -0.15171  -0.708227 -0.01635  -0.001566 -0.013093 -1.017344 -1.2177
+ -0.156252 -0.009654]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.536442,0.117804,0.416322,0.008829,1.0,0.0,0.0,0.0,1.0,1.0,0.380769,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,2,2,Former Premier League footballer Sam Sodje has pleaded not guilty to a string of fraud charges.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+    10  6755     9  3526  1103     4]",18,-0.234224,-8.528242,-0.473791,16,1.2,3,64,10,f7b08c357848,hf_beam_2,"[-4.891000e-01 -1.384156e+00 -7.066150e-01 -2.418000e-03 -2.897700e-01
+ -1.754990e-01 -3.575000e-03 -1.263700e-02 -2.835750e-01 -8.274490e-01
+ -1.797900e-02 -1.790000e-03 -1.774200e-02 -9.879520e-01 -1.806973e+00
+ -1.127300e-02 -2.197780e-01 -7.184640e-01 -5.616540e-01 -9.843000e-03]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.647081,0.170651,0.481761,0.00785,1.0,0.0,0.0,0.0,1.0,1.0,0.4,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,3,3,Former Premier League player Sam Sodje has pleaded not guilty to fraud offences.,"[12815  2275   815   869  1960 33270  2359    34  4407    45  2181     7
+  3526  9971     4]",15,-0.239216,-6.663843,-0.444256,16,1.2,3,64,10,4d705402471c,hf_beam_3,"[-1.384158 -0.944421 -0.002718 -0.921697 -0.16377  -0.00149  -0.012864
+ -0.144048 -0.738995 -0.016659 -0.001544 -0.01346  -1.05977  -0.892883
+ -0.35568  -0.009688]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.598423,0.155467,0.448409,0.004117,1.0,0.0,0.0,0.0,1.0,1.0,0.380769,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,4,4,Former Premier League footballer Sam Sodje has appeared in court charged with fraud.,"[12815  2275   815 19931  1960 33270  2359    34  1382    11   461  1340
+    19  3526     4]",15,-0.241422,-6.725312,-0.448354,16,1.2,3,64,10,b0d3f3b185ae,hf_beam_4,"[-1.384158 -0.944421 -0.002718 -0.722278 -0.145073 -0.001889 -0.012631
+ -0.15171  -1.284267 -0.345575 -0.030022 -0.497604 -0.036374 -0.360567
+ -0.796345 -0.009681]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.887493,0.172248,0.651878,0.021061,0.0,0.0,0.079632,0.0,1.0,1.0,0.411538,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,5,5,Former Premier League player Sam Sodje has pleaded not guilty to fraud charges.,"[12815  2275   815   869  1960 33270  2359    34  4407    45  2181     7
+  3526  1103     4]",15,-0.24549,-6.838642,-0.455909,16,1.2,3,64,10,74d4bcd2fe24,hf_beam_5,"[-1.384158 -0.944421 -0.002718 -0.921697 -0.16377  -0.00149  -0.012864
+ -0.144048 -0.738995 -0.016659 -0.001544 -0.01346  -1.05977  -1.229779
+ -0.19358  -0.009691]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.562128,0.131743,0.430121,0.00782,1.0,0.0,0.0,0.0,1.0,1.0,0.380769,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,6,6,Former Premier League footballer Sam Sodje has pleaded not guilty to fraud charges.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+  3526  1103     4]",15,-0.246046,-7.371349,-0.491423,16,1.2,3,64,10,79c5b30fd79c,hf_beam_6,"[-0.4891   -1.384156 -0.706615 -0.002418 -0.28977  -0.175499 -0.003575
+ -0.012637 -0.283575 -0.827449 -0.017979 -0.00179  -0.017742 -1.410656
+ -0.998698 -0.739851 -0.009839]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.536442,0.117804,0.416322,0.008829,1.0,0.0,0.0,0.0,1.0,1.0,0.380769,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,7,7,Former Premier League footballer Sam Sodje has pleaded not guilty to a string of fraud charges.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+    10  6755     9  3526  1103     4]",18,-0.249236,-9.622046,-0.534558,16,1.2,3,64,10,f7b08c357848,hf_beam_7,"[-0.4891   -0.4891   -1.384157 -0.629193 -0.002273 -0.173682 -0.180226
+ -0.005343 -0.012351 -0.333587 -0.880897 -0.019268 -0.001906 -0.020131
+ -0.92503  -1.869561 -0.011696 -0.237375 -0.889018 -1.058236 -0.009915]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.647081,0.170651,0.481761,0.00785,1.0,0.0,0.0,0.0,1.0,1.0,0.4,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,8,8,Former Premier League footballer Sam Sodje has pleaded not guilty to a string of fraud offences.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+    10  6755     9  3526  9971     4]",18,-0.251663,-9.163248,-0.509069,16,1.2,3,64,10,9bdb7b6b6d28,hf_beam_8,"[-4.891000e-01 -1.384156e+00 -7.066150e-01 -2.418000e-03 -2.897700e-01
+ -1.754990e-01 -3.575000e-03 -1.263700e-02 -2.835750e-01 -8.274490e-01
+ -1.797900e-02 -1.790000e-03 -1.774200e-02 -9.879520e-01 -1.806973e+00
+ -1.127300e-02 -2.197780e-01 -9.420100e-01 -9.731470e-01 -9.811000e-03]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.594985,0.189362,0.439681,0.005046,1.0,0.0,0.0,0.0,1.0,1.0,0.4,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,9,9,Former Premier League footballer Sam Sodje has pleaded not guilty to a £1m fraud.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+    10   984   134   119  3526     4]",18,-0.251724,-9.165457,-0.509192,16,1.2,3,64,10,226e3313d072,hf_beam_9,"[-0.4891   -1.384156 -0.706615 -0.002418 -0.28977  -0.175499 -0.003575
+ -0.012637 -0.283575 -0.827449 -0.017979 -0.00179  -0.017742 -0.987952
+ -1.02722  -1.752736 -0.326683 -0.025902 -0.822764 -0.009896]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.010326,0.237457,0.0,0.004912,1.0,0.0,0.0,0.0,0.0,1.0,0.142857,2.0,1.0,0.0,['Former Premier League' 'Sam Sodje'],['£1m'],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,10,10,Former Premier League player Sam Sodje has appeared in court charged with fraud.,"[12815  2275   815   869  1960 33270  2359    34  1382    11   461  1340
+    19  3526     4]",15,-0.252847,-7.043596,-0.469573,16,1.2,3,64,10,d60a07f001b4,hf_beam_10,"[-1.384158 -0.944421 -0.002718 -0.921697 -0.16377  -0.00149  -0.012864
+ -0.144048 -1.276789 -0.357838 -0.030542 -0.515556 -0.040258 -0.378189
+ -0.859548 -0.009712]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.899105,0.193081,0.653756,0.017584,0.0,0.0,0.076677,0.0,1.0,1.0,0.411538,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,11,11,Former Premier League footballer Sam Sodje has pleaded not guilty to a string of fraud offences.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+    10  6755     9  3526  9971     4]",18,-0.260222,-10.046172,-0.558121,16,1.2,3,64,10,9bdb7b6b6d28,hf_beam_11,"[-0.4891   -0.4891   -1.384157 -0.629193 -0.002273 -0.173682 -0.180226
+ -0.005343 -0.012351 -0.333587 -0.880897 -0.019268 -0.001906 -0.020131
+ -0.92503  -1.869561 -0.011696 -0.237375 -0.846778 -1.524678 -0.00984 ]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.594985,0.189362,0.439681,0.005046,1.0,0.0,0.0,0.0,1.0,1.0,0.4,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,12,12,Former Premier League footballer Sam Sodje has appeared in court charged with fraud offences.,"[12815  2275   815 19931  1960 33270  2359    34  1382    11   461  1340
+    19  3526  9971     4]",16,-0.260808,-8.368388,-0.523024,16,1.2,3,64,10,108f30e399c3,hf_beam_12,"[-0.4891   -1.384156 -0.706615 -0.002418 -0.28977  -0.175499 -0.003575
+ -0.012637 -0.283575 -1.23527  -0.381711 -0.034228 -0.620106 -0.062017
+ -0.528325 -1.265803 -0.883716 -0.009867]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.875259,0.147078,0.649986,0.008786,0.0,0.0,0.068539,0.0,1.0,1.0,0.407143,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,13,13,Former Premier League footballer Sam Sodje has pleaded not guilty to fraud offences.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+  3526  9971     4]",15,-0.261417,-7.83188,-0.522125,16,1.2,3,64,10,cf074ddf8329,hf_beam_13,"[-0.4891   -1.384156 -0.706615 -0.002418 -0.28977  -0.175499 -0.003575
+ -0.012637 -0.283575 -0.827449 -0.017979 -0.00179  -0.017742 -1.410656
+ -1.055583 -1.143528 -0.009808]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.558736,0.142753,0.424443,0.004404,1.0,0.0,0.0,0.0,1.0,1.0,0.380769,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,14,14,Former Premier League footballer Sam Sodje has pleaded not guilty to a £1m fraud.,"[12815  2275   815 19931  1960 33270  2359    34  4407    45  2181     7
+    10   984   134   119  3526     4]",18,-0.261707,-10.103518,-0.561307,16,1.2,3,64,10,226e3313d072,hf_beam_14,"[-0.4891   -0.4891   -1.384157 -0.629193 -0.002273 -0.173682 -0.180226
+ -0.005343 -0.012351 -0.333587 -0.880897 -0.019268 -0.001906 -0.020131
+ -0.92503  -0.898578 -1.783021 -0.342826 -0.023516 -1.499398 -0.009933]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.010326,0.237457,0.0,0.004912,1.0,0.0,0.0,0.0,0.0,1.0,0.142857,2.0,1.0,0.0,['Former Premier League' 'Sam Sodje'],['£1m'],[]
+38295789,dev_smoke,"The ex-Reading defender denied fraudulent trading charges relating to the Sodje Sports Foundation - a charity to raise money for Nigerian sport.
+Mr Sodje, 37, is jointly charged with elder brothers Efe, 44, Bright, 50 and Stephen, 42.
+Appearing at the Old Bailey earlier, all four denied the offence.
+The charge relates to offences which allegedly took place between 2008 and 2014.
+Sam, from Kent, Efe and Bright, of Greater Manchester, and Stephen, from Bexley, are due to stand trial in July.
+They were all released on bail.",Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.,15,15,Former Premier League footballer Sam Sodje has appeared in court charged with fraud.,"[12815  2275   815 19931  1960 33270  2359    34  1382    11   461  1340
+    19  3526     4]",15,-0.272169,-8.153995,-0.5436,16,1.2,3,64,10,b0d3f3b185ae,hf_beam_15,"[-0.4891   -1.384156 -0.706615 -0.002418 -0.28977  -0.175499 -0.003575
+ -0.012637 -0.283575 -1.23527  -0.381711 -0.034228 -0.620106 -0.062017
+ -0.528325 -1.935149 -0.009844]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.887493,0.172248,0.651878,0.021061,0.0,0.0,0.079632,0.0,1.0,1.0,0.411538,2.0,0.0,0.0,['Former Premier League' 'Sam Sodje'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,0,0,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a shoulder injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10  4793  1356     4]",23,-0.142454,-6.779352,-0.294754,16,1.2,3,64,10,4abb686c755d,hf_beam_0,"[-1.621310e-01 -2.264012e+00 -4.617000e-03 -1.736000e-03 -7.444190e-01
+ -1.936300e-02 -6.885000e-03 -3.928000e-03 -2.520000e-03 -5.548390e-01
+ -7.736900e-02 -2.652600e-02 -4.816000e-03 -7.049500e-02 -5.713030e-01
+ -2.729600e-02 -1.260300e-02 -2.979300e-02 -4.268400e-02 -3.097440e-01
+ -1.403130e-01 -1.583012e+00 -2.838000e-02 -8.044300e-02 -1.012500e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.002557,0.909178,0.0,0.01048,1.0,0.0,0.013492,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,1,1,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a shoulder injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10  4793  1356     4]",23,-0.143458,-7.156154,-0.311137,16,1.2,3,64,10,4abb686c755d,hf_beam_1,"[-1.621310e-01 -1.621310e-01 -2.264014e+00 -5.012000e-03 -1.855000e-03
+ -7.231690e-01 -1.505100e-02 -7.696000e-03 -1.234000e-03 -2.544000e-03
+ -5.801870e-01 -8.106200e-02 -2.898800e-02 -4.933000e-03 -7.074700e-02
+ -5.491650e-01 -3.066000e-02 -1.219800e-02 -3.624700e-02 -5.306900e-02
+ -3.276100e-01 -1.476100e-01 -1.562621e+00 -2.330500e-02 -2.926720e-01
+ -1.024100e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.002557,0.909178,0.0,0.01048,1.0,0.0,0.013492,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,2,2,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a shoulder injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10  4793  1356     4]",23,-0.145617,-6.598596,-0.286895,16,1.2,3,64,10,4abb686c755d,hf_beam_2,"[-2.264012e+00 -3.966000e-03 -1.727000e-03 -7.517310e-01 -1.881100e-02
+ -5.080000e-03 -1.007000e-02 -2.840000e-03 -5.204490e-01 -7.152000e-02
+ -2.685500e-02 -4.271000e-03 -8.547300e-02 -6.734220e-01 -2.423100e-02
+ -1.297800e-02 -2.252700e-02 -2.563500e-02 -2.718470e-01 -1.257210e-01
+ -1.605149e+00 -4.003800e-02 -2.026500e-02 -9.977000e-03]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.002557,0.909178,0.0,0.01048,1.0,0.0,0.013492,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,3,3,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a shoulder injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10  4793  1356     4]",23,-0.145993,-5.720744,-0.248728,16,1.2,3,64,10,4abb686c755d,hf_beam_3,"[-1.621310e-01 -1.621310e-01 -1.621310e-01 -3.647470e-01 -4.863000e-03
+ -2.055000e-03 -7.299920e-01 -1.401500e-02 -8.295000e-03 -1.022000e-03
+ -2.411000e-03 -5.916520e-01 -8.057400e-02 -3.147000e-02 -5.087000e-03
+ -7.512900e-02 -4.781420e-01 -2.897000e-02 -1.213900e-02 -4.015800e-02
+ -6.753500e-02 -3.110130e-01 -1.539410e-01 -1.546543e+00 -1.966100e-02
+ -6.546760e-01 -1.026200e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.002557,0.909178,0.0,0.01048,1.0,0.0,0.013492,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,4,4,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10  4117  1356     4]",23,-0.151974,-7.232435,-0.314454,16,1.2,3,64,10,975b8444a731,hf_beam_4,"[-1.621310e-01 -2.264012e+00 -4.617000e-03 -1.736000e-03 -7.444190e-01
+ -1.936300e-02 -6.885000e-03 -3.928000e-03 -2.520000e-03 -5.548390e-01
+ -7.736900e-02 -2.652600e-02 -4.816000e-03 -7.049500e-02 -5.713030e-01
+ -2.729600e-02 -1.260300e-02 -2.979300e-02 -4.268400e-02 -3.097440e-01
+ -1.403130e-01 -1.778910e+00 -2.729820e-01 -9.300000e-02 -1.015100e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.003249,0.89606,0.0,0.010417,1.0,0.0,0.013438,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,5,5,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10  4117  1356     4]",23,-0.15319,-7.64165,-0.332246,16,1.2,3,64,10,975b8444a731,hf_beam_5,"[-1.621310e-01 -1.621310e-01 -2.264014e+00 -5.012000e-03 -1.855000e-03
+ -7.231690e-01 -1.505100e-02 -7.696000e-03 -1.234000e-03 -2.544000e-03
+ -5.801870e-01 -8.106200e-02 -2.898800e-02 -4.933000e-03 -7.074700e-02
+ -5.491650e-01 -3.066000e-02 -1.219800e-02 -3.624700e-02 -5.306900e-02
+ -3.276100e-01 -1.476100e-01 -1.822897e+00 -2.182230e-01 -3.229360e-01
+ -1.028000e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.003249,0.89606,0.0,0.010417,1.0,0.0,0.013438,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,6,6,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10  4117  1356     4]",23,-0.155066,-7.026792,-0.305513,16,1.2,3,64,10,975b8444a731,hf_beam_6,"[-2.264012e+00 -3.966000e-03 -1.727000e-03 -7.517310e-01 -1.881100e-02
+ -5.080000e-03 -1.007000e-02 -2.840000e-03 -5.204490e-01 -7.152000e-02
+ -2.685500e-02 -4.271000e-03 -8.547300e-02 -6.734220e-01 -2.423100e-02
+ -1.297800e-02 -2.252700e-02 -2.563500e-02 -2.718470e-01 -1.257210e-01
+ -1.736963e+00 -3.345010e-01 -2.217600e-02 -9.985000e-03]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.003249,0.89606,0.0,0.010417,1.0,0.0,0.013438,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,7,7,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10  4117  1356     4]",23,-0.156412,-6.264567,-0.272372,16,1.2,3,64,10,975b8444a731,hf_beam_7,"[-1.621310e-01 -1.621310e-01 -1.621310e-01 -3.647470e-01 -4.863000e-03
+ -2.055000e-03 -7.299920e-01 -1.401500e-02 -8.295000e-03 -1.022000e-03
+ -2.411000e-03 -5.916520e-01 -8.057400e-02 -3.147000e-02 -5.087000e-03
+ -7.512900e-02 -4.781420e-01 -2.897000e-02 -1.213900e-02 -4.015800e-02
+ -6.753500e-02 -3.110130e-01 -1.539410e-01 -1.885004e+00 -1.718830e-01
+ -7.077730e-01 -1.030400e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.003249,0.89606,0.0,0.010417,1.0,0.0,0.013438,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,8,8,Middlesex batsman Adam Voges has been ruled out for the rest of the season with an ankle injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    41  7451  1356     4]",23,-0.16425,-8.193373,-0.356234,16,1.2,3,64,10,871a8a698b2c,hf_beam_8,"[-1.621310e-01 -1.621310e-01 -2.264014e+00 -5.012000e-03 -1.855000e-03
+ -7.231690e-01 -1.505100e-02 -7.696000e-03 -1.234000e-03 -2.544000e-03
+ -5.801870e-01 -8.106200e-02 -2.898800e-02 -4.933000e-03 -7.074700e-02
+ -5.491650e-01 -3.066000e-02 -1.219800e-02 -3.624700e-02 -5.306900e-02
+ -3.276100e-01 -2.346088e+00 -3.347640e-01 -5.774700e-02 -3.247880e-01
+ -1.028100e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.001521,0.917945,0.0,0.009725,1.0,0.0,0.01285,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,9,9,Middlesex batsman Adam Voges has been ruled out for the rest of the season with an ankle injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    41  7451  1356     4]",23,-0.164359,-7.821869,-0.340081,16,1.2,3,64,10,871a8a698b2c,hf_beam_9,"[-1.621310e-01 -2.264012e+00 -4.617000e-03 -1.736000e-03 -7.444190e-01
+ -1.936300e-02 -6.885000e-03 -3.928000e-03 -2.520000e-03 -5.548390e-01
+ -7.736900e-02 -2.652600e-02 -4.816000e-03 -7.049500e-02 -5.713030e-01
+ -2.729600e-02 -1.260300e-02 -2.979300e-02 -4.268400e-02 -3.097440e-01
+ -2.395955e+00 -3.226960e-01 -6.545900e-02 -9.052300e-02 -1.015700e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.001521,0.917945,0.0,0.009725,1.0,0.0,0.01285,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,10,10,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a hamstring injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10 12517  1356     4]",23,-0.165165,-6.72144,-0.292237,16,1.2,3,64,10,c42f5b8d8075,hf_beam_10,"[-1.621310e-01 -1.621310e-01 -1.621310e-01 -3.647470e-01 -4.863000e-03
+ -2.055000e-03 -7.299920e-01 -1.401500e-02 -8.295000e-03 -1.022000e-03
+ -2.411000e-03 -5.916520e-01 -8.057400e-02 -3.147000e-02 -5.087000e-03
+ -7.512900e-02 -4.781420e-01 -2.897000e-02 -1.213900e-02 -4.015800e-02
+ -6.753500e-02 -3.110130e-01 -1.539410e-01 -2.688432e+00 -5.312300e-02
+ -4.800050e-01 -1.027900e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.003936,0.917016,0.0,0.009656,1.0,0.0,0.012791,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,11,11,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a back injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10   124  1356     4]",23,-0.165465,-7.874508,-0.34237,16,1.2,3,64,10,b69e34a0d8e3,hf_beam_11,"[-1.621310e-01 -2.264012e+00 -4.617000e-03 -1.736000e-03 -7.444190e-01
+ -1.936300e-02 -6.885000e-03 -3.928000e-03 -2.520000e-03 -5.548390e-01
+ -7.736900e-02 -2.652600e-02 -4.816000e-03 -7.049500e-02 -5.713030e-01
+ -2.729600e-02 -1.260300e-02 -2.979300e-02 -4.268400e-02 -3.097440e-01
+ -1.403130e-01 -2.578691e+00 -9.708900e-02 -1.112530e-01 -1.008300e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.638077,0.862654,0.329525,7.8e-05,1.0,0.0,0.006316,0.5,1.0,1.0,0.708333,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,12,12,Middlesex batsman Adam Voges has been ruled out for the rest of the season with an ankle injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    41  7451  1356     4]",23,-0.166291,-6.780224,-0.294792,16,1.2,3,64,10,871a8a698b2c,hf_beam_12,"[-1.621310e-01 -1.621310e-01 -1.621310e-01 -3.647470e-01 -4.863000e-03
+ -2.055000e-03 -7.299920e-01 -1.401500e-02 -8.295000e-03 -1.022000e-03
+ -2.411000e-03 -5.916520e-01 -8.057400e-02 -3.147000e-02 -5.087000e-03
+ -7.512900e-02 -4.781420e-01 -2.897000e-02 -1.213900e-02 -4.015800e-02
+ -6.753500e-02 -3.110130e-01 -2.320403e+00 -3.393270e-01 -4.957400e-02
+ -7.249530e-01 -1.030600e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.001521,0.917945,0.0,0.009725,1.0,0.0,0.01285,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,13,13,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a back injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10   124  1356     4]",23,-0.167662,-7.597615,-0.330331,16,1.2,3,64,10,b69e34a0d8e3,hf_beam_13,"[-2.264012e+00 -3.966000e-03 -1.727000e-03 -7.517310e-01 -1.881100e-02
+ -5.080000e-03 -1.007000e-02 -2.840000e-03 -5.204490e-01 -7.152000e-02
+ -2.685500e-02 -4.271000e-03 -8.547300e-02 -6.734220e-01 -2.423100e-02
+ -1.297800e-02 -2.252700e-02 -2.563500e-02 -2.718470e-01 -1.257210e-01
+ -2.529315e+00 -1.129560e-01 -2.222900e-02 -9.948000e-03]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.638077,0.862654,0.329525,7.8e-05,1.0,0.0,0.006316,0.5,1.0,1.0,0.708333,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,14,14,Middlesex batsman Adam Voges has been ruled out for the rest of the season with a back injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    10   124  1356     4]",23,-0.1686,-8.410358,-0.365668,16,1.2,3,64,10,b69e34a0d8e3,hf_beam_14,"[-1.621310e-01 -1.621310e-01 -2.264014e+00 -5.012000e-03 -1.855000e-03
+ -7.231690e-01 -1.505100e-02 -7.696000e-03 -1.234000e-03 -2.544000e-03
+ -5.801870e-01 -8.106200e-02 -2.898800e-02 -4.933000e-03 -7.074700e-02
+ -5.491650e-01 -3.066000e-02 -1.219800e-02 -3.624700e-02 -5.306900e-02
+ -3.276100e-01 -1.476100e-01 -2.580772e+00 -1.001680e-01 -4.518890e-01
+ -1.021300e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.638077,0.862654,0.329525,7.8e-05,1.0,0.0,0.006316,0.5,1.0,1.0,0.708333,1.0,0.0,0.0,['Adam Voges'],[],[]
+40202028,dev_smoke,"Voges was forced to retire hurt on 86 after suffering the injury while batting during the County Championship draw with Somerset on 4 June.
+Middlesex hope to have the Australian back for their T20 Blast game against Hampshire at Lord's on 3 August.
+The 37-year-old has scored 230 runs in four first-class games this season at an average of 57.50.
+""Losing Adam is naturally a blow as he contributes significantly to everything we do,"" director of cricket Angus Fraser said.
+""His absence, however, does give opportunities to other players who are desperate to play in the first XI.
+""In the past we have coped well without an overseas player and I expect us to do so now.""
+Defending county champions Middlesex are sixth in the Division One table, having drawn all four of their matches this season.
+Voges retired from international cricket in February with a Test batting average of 61.87 from 31 innings, second only to Australian great Sir Donald Bradman's career average of 99.94 from 52 Tests.",Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.,15,15,Middlesex batsman Adam Voges has been ruled out for the rest of the season with an ankle injury.,"[  448 40741  3463  8142   397  3086 21723   293    34    57  3447    66
+    13     5  1079     9     5   191    19    41  7451  1356     4]",23,-0.170241,-7.714481,-0.335412,16,1.2,3,64,10,871a8a698b2c,hf_beam_15,"[-2.264012e+00 -3.966000e-03 -1.727000e-03 -7.517310e-01 -1.881100e-02
+ -5.080000e-03 -1.007000e-02 -2.840000e-03 -5.204490e-01 -7.152000e-02
+ -2.685500e-02 -4.271000e-03 -8.547300e-02 -6.734220e-01 -2.423100e-02
+ -1.297800e-02 -2.252700e-02 -2.563500e-02 -2.718470e-01 -2.503908e+00
+ -3.057480e-01 -7.540200e-02 -2.197300e-02 -1.000500e-02]",huggingface_generation,artifacts/models/bart_xsum_finetuned/best_model,,0.001521,0.917945,0.0,0.009725,1.0,0.0,0.01285,0.5,1.0,1.0,0.697222,1.0,0.0,0.0,['Adam Voges'],[],[]

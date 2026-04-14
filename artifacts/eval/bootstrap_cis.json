@@ -1,26 +1,26 @@
 {
   "factcc_style_score": {
-    "ci_high": 0.288757,
-    "ci_low": 0.093022,
-    "delta_mean": 0.182743,
+    "ci_high": 0.237245,
+    "ci_low": 0.131514,
+    "delta_mean": 0.181706,
     "iterations": 2000.0,
     "metric": "factcc_style_score",
-    "n": 8.0
+    "n": 128.0
   },
   "factuality_composite": {
-    "ci_high": 0.240895,
-    "ci_low": 0.09772,
-    "delta_mean": 0.160931,
+    "ci_high": 0.132079,
+    "ci_low": 0.088723,
+    "delta_mean": 0.109625,
     "iterations": 2000.0,
     "metric": "factuality_composite",
-    "n": 8.0
+    "n": 128.0
   },
   "rougeLsum": {
-    "ci_high": 0.036385,
-    "ci_low": -0.014956,
-    "delta_mean": 0.007241,
+    "ci_high": -0.002934,
+    "ci_low": -0.030961,
+    "delta_mean": -0.017111,
     "iterations": 2000.0,
     "metric": "rougeLsum",
-    "n": 8.0
+    "n": 128.0
   }
 }

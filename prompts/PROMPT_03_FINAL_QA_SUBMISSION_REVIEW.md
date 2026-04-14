@@ -94,7 +94,8 @@ Check all of the following:
 - [ ] baseline and selected reranker are described accurately
 - [ ] methodology matches the current repo and tracked outputs
 - [ ] ablations are represented accurately
-- [ ] manual audit and error taxonomy are represented accurately
+- [ ] manual audit and error taxonomy are represented accurately, including Codex / AI-assisted provenance wording
+- [ ] MiniCheck subset evidence, if cited, is described as bounded subset validation rather than a full test-set metric
 - [ ] limitations are explicit and sufficient
 - [ ] bounded-run caveats are not hidden
 - [ ] figures and tables exist and are used correctly

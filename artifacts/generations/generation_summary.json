@@ -1,24 +1,30 @@
 {
+  "baseline_generator_model": "facebook/bart-large-xsum",
+  "baseline_generator_revision": "2179ab81d3f133e639f2957aec5380e9d56b2783",
   "beam_sizes": [
     4,
     8,
     16
   ],
+  "generator_label": "bart_xsum_finetuned",
+  "generator_mode": "huggingface_generation",
+  "generator_model": "artifacts/models/bart_xsum_finetuned/best_model",
+  "generator_revision": null,
   "splits": {
     "dev_small": {
-      "examples": 8
+      "examples": 16
     },
     "dev_smoke": {
       "examples": 4
     },
     "test_final": {
-      "examples": 8
+      "examples": 128
     },
     "val_full": {
-      "examples": 8
+      "examples": 128
     },
     "val_tune": {
-      "examples": 8
+      "examples": 64
     }
   }
 }

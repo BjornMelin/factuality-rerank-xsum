@@ -1,0 +1,21 @@
+{
+  "audit_rows": 24,
+  "install_spec": "git+https://github.com/Liyan06/MiniCheck.git",
+  "model_name": "roberta-large",
+  "scored_rows": 48,
+  "status": "completed",
+  "systems": {
+    "baseline": {
+      "agreement_with_codex_labels": 0.666667,
+      "mean_minicheck_prob": 0.384814,
+      "rows": 24,
+      "support_rate": 0.333333
+    },
+    "reranked": {
+      "agreement_with_codex_labels": 0.5,
+      "mean_minicheck_prob": 0.464167,
+      "rows": 24,
+      "support_rate": 0.458333
+    }
+  }
+}

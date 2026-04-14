@@ -102,6 +102,8 @@ State explicitly:
 - the main empirical result
 - the strongest ablation or trade-off story
 - the manual-audit takeaway
+- the audit provenance wording to use (`Codex / AI-assisted expert adjudication`)
+- the MiniCheck audit-subset takeaway, if present
 - the dominant bounded-run caveats
 
 ## Course-rubric checklist

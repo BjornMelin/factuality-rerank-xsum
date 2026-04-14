@@ -1,13 +1,34 @@
 {
-  "actual_mode": "huggingface_generation",
+  "active_generator_label": "bart_xsum_finetuned",
   "baseline_revision_requested": "2179ab81d3f133e639f2957aec5380e9d56b2783",
   "baseline_revision_resolved": "2179ab81d3f133e639f2957aec5380e9d56b2783",
-  "factcc_revision_requested": "c7b3148015d4ddc263f6e2acb2689e90ac061669",
-  "factcc_revision_resolved": "c7b3148015d4ddc263f6e2acb2689e90ac061669",
-  "nli_revision_requested": "a80a6eb013898011540b19bf1f64e21eb61e53d6",
-  "nli_revision_resolved": "a80a6eb013898011540b19bf1f64e21eb61e53d6",
-  "reason": "Generation and scoring are configured against public Hugging Face assets. This stage records the requested and resolved checkpoints without training.",
+  "best_checkpoint": "artifacts/models/bart_xsum_finetuned/checkpoint-32",
+  "eval_metrics": {
+    "epoch": 2.0,
+    "eval_loss": 1.573978304862976,
+    "eval_rouge1": 0.456502,
+    "eval_rouge2": 0.227641,
+    "eval_rougeL": 0.373307,
+    "eval_rougeLsum": 0.373307,
+    "eval_runtime": 21.1448,
+    "eval_samples_per_second": 3.027,
+    "eval_steps_per_second": 1.513,
+    "eval_summary_len_tokens": 24.75
+  },
+  "eval_rows": 64,
+  "export_dir": "artifacts/models/bart_xsum_finetuned/best_model",
+  "finetune_enabled": true,
+  "reason": "Train stage executed a bounded Hugging Face seq2seq fine-tuning run and exported the best local checkpoint for downstream generation.",
   "requested_baseline": "facebook/bart-large-xsum",
-  "requested_factcc_checkpoint": "manueldeprada/FactCC",
-  "requested_nli_checkpoint": "microsoft/deberta-base-mnli"
+  "requested_factcc_checkpoint": null,
+  "requested_nli_checkpoint": null,
+  "train_metrics": {
+    "epoch": 2.0,
+    "total_flos": 297028774526976.0,
+    "train_loss": 4.1181847006082535,
+    "train_runtime": 77.4325,
+    "train_samples_per_second": 3.306,
+    "train_steps_per_second": 0.413
+  },
+  "train_rows": 128
 }

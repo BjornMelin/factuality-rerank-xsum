@@ -7,5 +7,5 @@ weights:
   factcc_style_score: 1.0
   entity_support_score: 0.0
 metrics:
-  rougeLsum: 0.118081
-  factuality_composite: 0.988112
+  rougeLsum: 0.371567
+  factuality_composite: 0.450285
