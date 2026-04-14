@@ -87,6 +87,14 @@ def system_card_lines(runtime: dict[str, Any]) -> list[str]:
     """
 
     requested = runtime["requested"]
+    dataset_manifest = runtime.get("dataset_manifest", {})
+    generation_summary = runtime.get("generation_summary", {})
+    split_sampling = dataset_manifest.get("split_sampling", {})
+    split_summary = ", ".join(
+        f"{name}={details.get('rows_selected', '?')}"
+        for name, details in sorted(split_sampling.items())
+    )
+    active_generator_label = generation_summary.get("generator_label") or "unknown"
     execution_note = (
         "The repository is configured for the public Hugging Face runtime path."
         if runtime["online_execution"]
@@ -107,6 +115,15 @@ def system_card_lines(runtime: dict[str, Any]) -> list[str]:
         f"- Executed dataset mode: `{runtime['dataset_mode']}`.",
         f"- Requested generator mode: `{requested['generator_mode']}`.",
         f"- Executed generator mode: `{runtime['generator_mode']}`.",
+        f"- Active generator label: `{active_generator_label}`.",
+        (
+            f"- Bounded split materialization: {split_summary}."
+            if split_summary
+            else "- Bounded split materialization is recorded in `artifacts/data/dataset_manifest.json`."
+        ),
+        "- Public `facebook/bart-large-xsum` remains the explicit baseline comparator.",
+        "- Audit provenance is Codex / AI-assisted expert adjudication, not human annotation.",
+        "- MiniCheck subset evidence, when present, is bounded audit-subset validation rather than a main test-set metric.",
         (
             "- Intended use: reproducible reranking runs, artifact inspection, "
             "report writing, and submission QA over tracked outputs."

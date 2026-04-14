@@ -30,7 +30,7 @@ class ReportContext:
         env_report: Environment and runtime readiness report.
         metrics: Final metrics table.
         bootstrap: Bootstrap confidence interval payload.
-    audit_summary: Manual audit summary payload.
+        audit_summary: Manual audit summary payload.
         minicheck_summary: Optional MiniCheck audit-subset summary payload.
         ablation: Refreshed ablation metrics table.
         best_config: Selected rerank configuration.
@@ -161,6 +161,7 @@ def results_summary_lines(context: ReportContext) -> list[str]:
     audit_annotators = ", ".join(sorted(audit_summary.get("annotator_ids", ["unknown"])))
     audit_methods = ", ".join(audit_summary.get("annotation_method_counts", {"unknown": 0}).keys())
     audit_provenance_line = f"- Audit provenance: `{audit_annotators}` with `{audit_methods}`"
+    resolved_online_assets = env_report.get("resolved_online_assets", {})
     return [
         "# RESULTS_SUMMARY",
         "",
@@ -169,7 +170,7 @@ def results_summary_lines(context: ReportContext) -> list[str]:
         "- Implemented the repository stage surface end to end with public-PyPI and public-Hub defaults.",
         f"- Environment mode: `{env_report.get('mode', 'unknown')}`.",
         f"- Dataset mode executed: `{context.runtime['dataset_mode']}`.",
-        f"- Generator mode currently configured: `{context.runtime['generator_mode']}`.",
+        f"- Generator mode executed: `{context.runtime['generator_mode']}`.",
         f"- Dataset rows available: {dataset_manifest.get('rows_available', 'unknown')}.",
         f"- Dataset note: {dataset_manifest.get('note', 'No dataset note recorded.')}",
         f"- Generator note: {model_manifest.get('reason', 'No generator note recorded.')}",
@@ -190,12 +191,12 @@ def results_summary_lines(context: ReportContext) -> list[str]:
         (
             f"- FactCC scorer: `{requested['factcc_model']}` requested at "
             f"`{requested['factcc_revision']}` resolved to "
-            f"`{model_manifest.get('factcc_revision_resolved', model_manifest.get('factcc_revision_requested', 'unknown'))}`."
+            f"`{resolved_online_assets.get('factcc_revision', model_manifest.get('factcc_revision_resolved', model_manifest.get('factcc_revision_requested', 'unknown')))}`."
         ),
         (
             f"- NLI scorer: `{requested['nli_model']}` requested at "
             f"`{requested['nli_revision']}` resolved to "
-            f"`{model_manifest.get('nli_revision_resolved', model_manifest.get('nli_revision_requested', 'unknown'))}`."
+            f"`{resolved_online_assets.get('nli_revision', model_manifest.get('nli_revision_resolved', model_manifest.get('nli_revision_requested', 'unknown')))}`."
         ),
         "- Factuality score columns retain the legacy `summac_style_score` and `factcc_style_score` names for rerank compatibility, but the implementations are model-backed.",
         "",
@@ -285,6 +286,8 @@ def runbook_lines() -> list[str]:
     return [
         "# RUNBOOK",
         "",
+        "This is the canonical operator flow for the live repository.",
+        "",
         "## Canonical install and runtime flow",
         "",
         *ordered_runtime_commands(),
@@ -296,13 +299,15 @@ def runbook_lines() -> list[str]:
         "- Candidate generation uses the exported bounded fine-tuned checkpoint when it exists; the public `facebook/bart-large-xsum` revision remains the explicit baseline comparator.",
         "- The audit contract requires explicit `annotator_id` and `annotation_method` provenance and a 24-row stratified completed sample.",
         "- The optional MiniCheck lane is bounded to the audit subset and should be described as subset validation rather than a main metric replacement.",
-        "- After runtime or config changes, rerun `generate`, `score`, `search`, and `evaluate` before treating metric artifacts as refreshed.",
+        "- After runtime or config changes, rerun the affected stages plus `figures`, `results-summary`, and `package` before treating docs or packaged outputs as refreshed.",
+        "- Do not treat report/package surfaces as current unless `artifacts/validation/artifact_truth_report.json` passes.",
         "",
         "## Artifacts",
         "",
         "- Candidate tables: `artifacts/generations/<split>/beam_<n>/candidates.parquet`",
         "- Merged score tables: `artifacts/scores/merged/<split>/beam_<n>.parquet`",
         "- Final outputs: `outputs/final/`",
+        "- Package copy: `artifacts/package/factuality-rerank-xsum.zip`",
     ]
 
 
@@ -312,6 +317,9 @@ def submission_checklist_lines(context: ReportContext) -> list[str]:
     return [
         "# SUBMISSION_CHECKLIST",
         "",
+        "- [x] `REPORT.md` is the canonical current-state handoff.",
+        "- [x] `docs/RUNBOOK.md` is the canonical operator flow.",
+        "- [x] `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md` exists as the checked-in execution checklist.",
         "- [x] Repo includes code, configs, docs, and prompts.",
         "- [x] Base install contract uses `uv sync --locked --dev`.",
         "- [x] Final outputs include metrics CSVs, figures, and manual audit files.",
@@ -320,6 +328,10 @@ def submission_checklist_lines(context: ReportContext) -> list[str]:
         (f"- [x] Generator stage executed in `{context.runtime['generator_mode']}` mode."),
         "- [x] Audit wording explicitly says Codex / AI-assisted expert adjudication, not human annotation.",
         "- [x] Optional MiniCheck subset evidence exists or is explicitly deferred.",
+        "- [x] `artifacts/validation/artifact_truth_report.json` passes for the packaged run.",
+        "- [x] The package copy at `artifacts/package/factuality-rerank-xsum.zip` matches the current docs and outputs.",
+        "- [x] Proposal commitments and rubric risks are tracked in `docs/planning/`.",
+        "- [x] Bounded-run caveats and claim ceilings remain explicit in the final report surfaces.",
     ]
 
 
@@ -371,6 +383,14 @@ def readme_lines(context: ReportContext) -> list[str]:
         "",
         "A reproducible summarization-analysis repository for factuality-aware reranking on XSum.",
         "",
+        "## Canonical docs",
+        "",
+        "- `REPORT.md`: canonical current-state handoff.",
+        "- `docs/RUNBOOK.md`: canonical operator flow.",
+        "- `docs/planning/CODEX_EXECUTION_REQUIREMENTS.md`: checked-in execution checklist for future zero-context Codex sessions.",
+        "- `docs/RESULTS_SUMMARY.md`: artifact-backed results snapshot.",
+        "- `docs/CLAIMS_SAFE_TO_WRITE.md`: claim ceiling.",
+        "",
         "## What this repo contains",
         "",
         "- A CLI-first stage pipeline implemented in `src/` and exposed through `uv run factuality-rerank-xsum ...`.",
@@ -392,7 +412,7 @@ def readme_lines(context: ReportContext) -> list[str]:
         "- `uv run factuality-rerank-xsum minicheck-optional` runs a bounded MiniCheck pass on the audit subset and records a structured deferral if the external evaluator cannot be installed.",
         "- After runtime or config changes, rerun `generate`, `score`, `search`, and `evaluate` before treating metric artifacts as refreshed.",
         "",
-        f"Current executed dataset mode: `{context.runtime['dataset_mode']}`. Current configured generator mode: `{context.runtime['generator_mode']}`.",
+        f"Current executed dataset mode: `{context.runtime['dataset_mode']}`. Current executed generator mode: `{context.runtime['generator_mode']}`.",
         "",
         "## Notebooks",
         "",
@@ -400,7 +420,7 @@ def readme_lines(context: ReportContext) -> list[str]:
         "",
         "## Prompt pack",
         "",
-        "- `PROMPTS_INDEX.md` lists the maintained prompt flow for rerun, analysis, and QA sessions.",
+        "- `PROMPTS_INDEX.md` lists the maintained external ChatGPT prompt-routing flow.",
         "- Prompt files under `prompts/` assume the current CLI-first repo state, not the deleted script-wrapper flow.",
         "",
         "## Key artifacts",

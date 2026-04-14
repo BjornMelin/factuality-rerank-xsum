@@ -77,6 +77,8 @@ def test_system_card_lines_change_with_runtime_mode() -> None:
     assert "Executed dataset mode: `online_hub`." in online
     assert "public Hugging Face runtime path" in online
     assert "repository scaffolding" not in online
+    assert "Public `facebook/bart-large-xsum` remains the explicit baseline comparator." in online
+    assert "Audit provenance is Codex / AI-assisted expert adjudication" in online
     assert "Current outputs should be read together with the executed dataset" in offline
     assert "public Hugging Face runtime path" not in offline
     assert "Executed dataset mode: `fixture_preview`." in offline
