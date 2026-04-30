@@ -40,7 +40,7 @@ dev = [
 ]
 notebooks = [
   "ipykernel>=6.29,<7",
-  "jupyterlab>=4.2,<5",
+  "jupyterlab>=4.5.7,<5",
   "nbformat>=5.10,<6",
 ]
 
